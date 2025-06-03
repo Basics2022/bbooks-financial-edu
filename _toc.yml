@@ -3,5 +3,33 @@
 
 format: jb-book
 root: intro
-chapters:
-- file: markdown
+options:
+  numbered: True
+parts:
+- caption: Introduction
+  numbered: True
+  chapters:
+  - file: ch/summary
+  - file: ch/references
+  - file: ch/actors
+  - file: ch/inflation
+  - file: ch/policy
+- caption: Investing Principles
+  numbered: True
+  chapters:
+  - file: ch/principles/intro
+- caption: Asset classes
+  numbered: True
+  chapters:
+  - file: ch/assets/intro
+  - file: ch/assets/bonds
+  - file: ch/assets/equity
+- caption: Asset allocation 
+  numbered: True
+  chapters:
+  - file: ch/investing/intro
+# - file: ch/investing/ptf
+  - file: ch/investing/mpt
+  - file: ch/investing/capm
+
+

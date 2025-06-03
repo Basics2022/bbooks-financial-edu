@@ -3,11 +3,11 @@
 <!DOCTYPE html>
 
 
-<html lang="en" data-content_root="" >
+<html lang="it" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Search - My sample book</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>Cerca - Financial Education - basics</title>
   
   
   
@@ -33,6 +33,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="_static/exercise.css" />
     <link rel="stylesheet" type="text/css" href="_static/style.css" />
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
@@ -53,6 +55,7 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
+    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -65,10 +68,11 @@ const thebe_selector_output = ".output, .cell_output"
   <script src="_static/searchtools.js"></script>
   <script src="_static/language_data.js"></script>
   <script src="searchindex.js"></script>
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" />
+    <link rel="shortcut icon" href="_static/favicon-gold.svg"/>
+    <link rel="index" title="Indice" href="genindex.html" />
+    <link rel="search" title="Cerca" href="#" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="it"/>
   </head>
   
   
@@ -110,8 +114,8 @@ const thebe_selector_output = ".output, .cell_output"
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -153,23 +157,36 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="My sample book - Home"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="My sample book - Home"/>`);</script>
+    <img src="_static/logo.svg" class="logo__image only-light" alt="Financial Education - basics - Home"/>
+    <script>document.write(`<img src="_static/logo-dark.svg" class="logo__image only-dark" alt="Financial Education - basics - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        
-        <ul class="nav bd-sidenav bd-sidenav__home-link">
-            <li class="toctree-l1">
-                <a class="reference internal" href="intro.html">
-                    basics-book template
-                </a>
-            </li>
-        </ul>
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="markdown.html">Markdown File - Example</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/summary.html">1. Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/references.html">2. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/actors.html">3. Actors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/inflation.html">4. Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/policy.html">5. Policy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Investing Principles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/principles/intro.html">6. Principles of investing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/assets/intro.html">7. Introduction to asset classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/assets/bonds.html">8. Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/assets/equity.html">9. Equity</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/intro.html">10. Introduction to investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/mpt.html">11. Modern Portfolio Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/capm.html">12. Capital Asset Pricing Model</a></li>
 </ul>
 
     </div>
@@ -224,9 +241,9 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Source repository"
+   title="Repository di origine"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -241,9 +258,9 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fsearch.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Open an issue"
+   title="Apri un problema"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -263,7 +280,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Fullscreen mode"
+  title="Modalità schermo intero"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -289,7 +306,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Cerca" aria-label="Cerca" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -304,10 +321,10 @@ document.write(`
               
               
   <div class="bd-search-container">
-    <h1>Search</h1>
+    <h1>Cerca</h1>
     <noscript>
       <div class="admonition error">
-        <p class="admonition-title">Error</p>
+        <p class="admonition-title">Errore</p>
         <p>Please activate JavaScript to enable the search functionality.</p>
       </div>
     </noscript>
@@ -320,8 +337,8 @@ document.write(`
          class="form-control"
          name="q"
          id="search-input"
-         placeholder="Search this book..."
-         aria-label="Search this book..."
+         placeholder="Search..."
+         aria-label="Search..."
          autocomplete="off"
          autocorrect="off"
          autocapitalize="off"
@@ -363,7 +380,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-By basics
+Di basics
 </p>
 
   </div>

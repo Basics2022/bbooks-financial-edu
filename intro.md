@@ -1,9 +1,8 @@
-# basics-book template
+# Financial Education
 
-If you want ot start a new basics-book, it could be a good idea to start from this template.
+This book is meant to collect some notes about financial instruments and methods for financial education, and mainly focused asset allocation.
 
-Please check out the Github repo of the project, [basics-book project](https://github.com/Basics2022).
-
+This material is part of the [**basics-books project**](https://basics2022.github.io/bbooks). It is also available as a [.pdf document](_build/latex/book.pdf).
 
 ```{tableofcontents}
 ```
