@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="it" data-content_root="" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -56,7 +56,6 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
-    <script src="_static/translations.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
@@ -67,11 +66,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'prf-prf';</script>
     <link rel="shortcut icon" href="_static/favicon-gold.svg"/>
-    <link rel="index" title="Indice" href="genindex.html" />
-    <link rel="search" title="Cerca" href="search.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="it"/>
+  <meta name="docsearch:language" content="en"/>
 
     <script>
       DOCUMENTATION_OPTIONS.COLLAPSE_INDEX = true;
@@ -173,6 +172,9 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/summary.html">1. Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/references.html">2. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Macroeconomic Context for Investing</span></p>
+<ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/actors.html">3. Actors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/inflation.html">4. Inflation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/policy.html">5. Policy</a></li>
@@ -185,13 +187,29 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ch/assets/intro.html">7. Introduction to asset classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ch/assets/bonds.html">8. Bonds</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/assets/equity.html">9. Equity</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="ch/assets/equity.html">9. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ch/assets/financial-statements.html">9.3. Three Financial Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ch/assets/etfs.html">10. ETFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ch/investing/intro.html">10. Introduction to investing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/investing/mpt.html">11. Modern Portfolio Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ch/investing/capm.html">12. Capital Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/intro.html">11. Introduction to investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/mpt.html">12. Modern Portfolio Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/capm.html">13. Capital Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/strategic-tactical.html">14. Strategic and Tactical Asset Allocation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/investing/rebalancing.html">15. Rebalancing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/extra/intro.html">Extra and Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/extra/euristhics.html">Euristhics and historical correlations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">People</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ch/people/list.html">Resources, People and Firms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ch/people/the_bull_guests.html">The Bull</a></li>
 </ul>
 
     </div>
@@ -248,7 +266,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/Basics2022/bbooks-financial-edu" target="_blank"
    class="btn btn-sm btn-source-repository-button dropdown-item"
-   title="Repository di origine"
+   title="Source repository"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -265,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fprf-prf.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
-   title="Apri un problema"
+   title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
@@ -285,7 +303,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <button onclick="toggleFullScreen()"
   class="btn btn-sm btn-fullscreen-button"
-  title="Modalità schermo intero"
+  title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
   
@@ -311,7 +329,7 @@ document.write(`
 
 <script>
 document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Cerca" aria-label="Cerca" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
@@ -345,7 +363,10 @@ document.write(`
    <h1>Proof Index</h1>
 
    <div class="modindex-jumpbox">
-   <a href="#cap-example-0"><strong>example-0</strong></a>
+   <a href="#cap-example-0"><strong>example-0</strong></a> | 
+   <a href="#cap-example-1"><strong>example-1</strong></a> | 
+   <a href="#cap-example-2"><strong>example-2</strong></a> | 
+   <a href="#cap-example-3"><strong>example-3</strong></a>
    </div>
 
    <table class="indextable modindextable">
@@ -355,7 +376,31 @@ document.write(`
      <tr>
        <td></td>
        <td>
-       <a href="ch/investing/mpt.html#example-0"><code class="xref">example-0</code></a> <em>(ch/investing/mpt)</em></td><td>
+       <a href="ch/principles/intro.html#example-0"><code class="xref">example-0</code></a> <em>(ch/principles/intro)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-1"><td></td><td>
+       <strong>example-1</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/principles/intro.html#example-1"><code class="xref">example-1</code></a> <em>(ch/principles/intro)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-2"><td></td><td>
+       <strong>example-2</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/principles/intro.html#example-2"><code class="xref">example-2</code></a> <em>(ch/principles/intro)</em></td><td>
+       <em>example</em></td></tr>
+     <tr class="pcap"><td></td><td>&#160;</td><td></td></tr>
+     <tr class="cap" id="cap-example-3"><td></td><td>
+       <strong>example-3</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="ch/principles/intro.html#example-3"><code class="xref">example-3</code></a> <em>(ch/principles/intro)</em></td><td>
        <em>example</em></td></tr>
    </table>
 
@@ -386,7 +431,7 @@ document.write(`
   <div class="footer-item">
     
 <p class="component-author">
-Di basics
+By basics
 </p>
 
   </div>

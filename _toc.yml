@@ -11,6 +11,9 @@ parts:
   chapters:
   - file: ch/summary
   - file: ch/references
+- caption: Macroeconomic Context for Investing
+  numbered: True
+  chapters:
   - file: ch/actors
   - file: ch/inflation
   - file: ch/policy
@@ -24,6 +27,9 @@ parts:
   - file: ch/assets/intro
   - file: ch/assets/bonds
   - file: ch/assets/equity
+    sections:
+    - file: ch/assets/financial-statements
+  - file: ch/assets/etfs
 - caption: Asset allocation 
   numbered: True
   chapters:
@@ -31,5 +37,14 @@ parts:
 # - file: ch/investing/ptf
   - file: ch/investing/mpt
   - file: ch/investing/capm
-
+  - file: ch/investing/strategic-tactical
+  - file: ch/investing/rebalancing
+- caption: Extra
+  chapters:
+  - file: ch/extra/intro
+  - file: ch/extra/euristhics
+- caption: People
+  chapters:
+  - file: ch/people/list
+  - file: ch/people/the_bull_guests
 
