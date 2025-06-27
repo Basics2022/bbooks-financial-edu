@@ -143,6 +143,11 @@ Diversification spreads risk across different investments so no single event can
 (fin-edu:principles:rebalancing)=
 ### Rebalancing
 
+[Colab Notebook, rebalancing.ipynb](https://colab.research.google.com/drive/1Mi3_9T7XN7xUl9XNfsdkMfqQTqRFzG8L?authuser=1#scrollTo=QUq8nMHq3bb5)
+
+(fin-edu:principles:rebalancing:premium)=
+#### Rebalancing premium
+
 
 <!--
 | **Section**                   | **Focus**                                                          | **Key Concepts**                                                   | **Core Takeaways**                                                                       |
