@@ -608,8 +608,84 @@ Sections<div class="sd-summary-down docutils">
 <span id="fin-edu-principles-time"></span><h2><span class="section-number">6.6. </span>Time<a class="headerlink" href="#time" title="Permalink to this heading">#</a></h2>
 <div class="section" id="compound-return">
 <span id="fin-edu-principles-time-compunding"></span><h3><span class="section-number">6.6.1. </span>Compound Return<a class="headerlink" href="#compound-return" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">y0</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.10</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="n">yv</span> <span class="o">=</span> <span class="n">y0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="n">tv</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>    <span class="n">tv</span><span class="p">,</span> <span class="n">yv</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">yv</span><span class="p">);</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(Text(0.5, 0, &#39;t&#39;), None)
+</pre></div>
+</div>
+<img alt="../../_images/762bf809b74094ddaaa2537222a9e4fe8c7a634837a512931af6778e3b19d5c5.png" src="../../_images/762bf809b74094ddaaa2537222a9e4fe8c7a634837a512931af6778e3b19d5c5.png" />
+</div>
+</div>
 <div class="section" id="volatility-drag">
 <span id="fin-edu-principles-time-volatility-drag"></span><h4><span class="section-number">6.6.1.1. </span>Volatility Drag<a class="headerlink" href="#volatility-drag" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">y0</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span> <span class="o">=</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">0.10</span><span class="p">,</span> <span class="mf">0.2</span>
+<span class="n">mu_gbm</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">-</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">sig</span><span class="o">**</span><span class="mi">2</span>
+<span class="n">sig_gbm</span> <span class="o">=</span> <span class="n">sig</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">101</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+
+<span class="c1">#&gt; Realizations</span>
+<span class="n">nreal</span> <span class="o">=</span> <span class="mi">500</span>
+<span class="c1">#&gt; Random number generator of the increment</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
+<span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sig</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
+
+<span class="n">yreal</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">y0</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">rng</span><span class="p">(</span><span class="o">**</span><span class="n">rng_params</span><span class="p">))</span> <span class="k">for</span> <span class="n">ireal</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span> <span class="p">])</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">y_no_vol</span> <span class="o">=</span> <span class="n">y0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">mu</span><span class="p">)</span><span class="o">**</span><span class="n">tv</span>
+<span class="n">y_gbm_exp</span> <span class="o">=</span> <span class="n">y0</span><span class="o">*</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">mu_gbm</span><span class="p">)</span><span class="o">**</span><span class="n">tv</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">yreal</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># ax[0].plot(tv, yv); ax[0].set_xlabel(&#39;t&#39;), ax[0].grid()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_no_vol</span> <span class="p">,</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;no-vol, $\sigma$=0, $\mu$=CAGR=</span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_gbm_exp</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;GBM, $\sigma$=</span><span class="si">{</span><span class="n">sig</span><span class="si">}</span><span class="s1">, $\mu$=</span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s1">, CAGR=</span><span class="si">{</span><span class="n">mu_gbm</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_gbm_exp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">sig</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tv</span><span class="p">)),</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_gbm_exp</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="n">sig</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tv</span><span class="p">)),</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;t&#39;</span><span class="p">),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">which</span><span class="o">=</span><span class="s2">&quot;both&quot;</span><span class="p">),</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Time evolution&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">((</span><span class="n">yreal</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;CAGR at t=</span><span class="si">{</span><span class="n">tv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">, (</span><span class="si">{</span><span class="n">nreal</span><span class="si">}</span><span class="s1"> realizations)&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/5505baa21d100680d13d3cadc52a5fb69704c3a6ec64047c91f538a2ab9b23cc.png" src="../../_images/5505baa21d100680d13d3cadc52a5fb69704c3a6ec64047c91f538a2ab9b23cc.png" />
+</div>
+</div>
 <p><strong>todo</strong></p>
 <ul class="simple">
 <li><p><em>“Time and risk?” Listen to The Logic of Risk</em></p></li>
