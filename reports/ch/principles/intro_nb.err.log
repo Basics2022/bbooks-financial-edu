@@ -1,0 +1,44 @@
+Traceback (most recent call last):
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+(fin-edu:principles:risk)=
+## Risk
+
+Risk measures uncertainty and its effects, combining probability of events and consequences of specific events. *All the assets have some systematic and some specific risks*
+.
+<!-- Some risks are systematic (like market crashes); others are specific (like a company going bankrupt).-->
+Key measures (*should give info about magnitude, frequency/probability, and duration*) include:
+- standard deviation or **volatility**: how much returns may deviate from their expected value),
+- max loss (usually 100% can't be neglected for catastrophic although rare events), value at risk (VaR, max loss with a given probability), drawdown (maximum peak-to-trough loss)
+- time-to-recover (time to recover drawdowns, in a temporal perspective)
+
+Usually, risk metrics measure uncertainty, without discerning from positive and negative events: these metrics perceive a higher-than-expected return as a risk as well. Some metrics instead, see *Sortino ratio* in [risk-return](fin-edu:principles:rr) section, aims at quantifying only negative events as risk.
+
+```{prf:example} Value at Risk
+
+A 1-year 5% VaR of $1000\text{€}$ of an investment it means that there's 5% probability of losing at least $1000\text{€}$ in a year with that investment.
+
+```
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 1[0;36m[0m
+[0;31m    (fin-edu:principles:risk)=[0m
+[0m            ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+
