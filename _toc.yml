@@ -20,7 +20,7 @@ parts:
 - caption: Investing Principles
   numbered: True
   chapters:
-  - file: ch/principles/intro
+  - file: ch/principles/intro_nb
 - caption: Asset classes
   numbered: True
   chapters:
