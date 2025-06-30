@@ -75,6 +75,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -505,7 +514,12 @@ document.write(`
 <h2><span class="section-number">8.2. </span>Realizations<a class="headerlink" href="#realizations" title="Permalink to this heading">#</a></h2>
 <div class="section" id="libraries-and-parameters">
 <h3><span class="section-number">8.2.1. </span>Libraries and parameters<a class="headerlink" href="#libraries-and-parameters" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -523,31 +537,26 @@ document.write(`
 
 <span class="c1">#&gt; Random number generators of the 2 assets</span>
 <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
-<span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
-<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1">#&gt; Random number generators of the 2 assets</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
-<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
-
-<span class="ne">NameError</span>: name &#39;mu&#39; is not defined
-</pre></div>
-</div>
-</div>
+</details>
 </div>
 </div>
 <div class="section" id="constant-withdrawals">
 <h3><span class="section-number">8.2.2. </span>Constant Withdrawals<a class="headerlink" href="#constant-withdrawals" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Parameters</span>
 <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mf">.045</span><span class="p">,</span> <span class="mf">.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">.04</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="mf">1.</span>
+
+<span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
 
 <span class="c1">#&gt; End values, max drawdowns</span>
 <span class="n">x_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
@@ -629,19 +638,27 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/1e8a69acf587bf9c397e69af905c483f1e1bae213f9818481ead11e7aff9fd76.png" src="../../_images/1e8a69acf587bf9c397e69af905c483f1e1bae213f9818481ead11e7aff9fd76.png" />
+<img alt="../../_images/915d26d8659d693cfa16366fb3047edf0f4a154b4d641b6c865147619a8482b7.png" src="../../_images/915d26d8659d693cfa16366fb3047edf0f4a154b4d641b6c865147619a8482b7.png" />
 </div>
 </div>
 </div>
 <div class="section" id="dollar-cost-averaging-dca">
 <h3><span class="section-number">8.2.3. </span>Dollar Cost Averaging (DCA)<a class="headerlink" href="#dollar-cost-averaging-dca" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Parameters</span>
 <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mf">.10</span><span class="p">,</span> <span class="mf">.15</span><span class="p">,</span> <span class="mf">.04</span>
 <span class="n">x0</span> <span class="o">=</span> <span class="mf">.0</span>
 <span class="n">x0_bah</span> <span class="o">=</span> <span class="n">C</span> <span class="o">*</span> <span class="n">nt</span>
+
+<span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
 
 <span class="c1">#&gt; End values, max drawdowns</span>
 <span class="n">x_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>       <span class="c1"># Dollar-Cost-Avg (DCA), Ita: PAC</span>
@@ -673,7 +690,7 @@ document.write(`
 
 <span class="c1">#&gt; Exponents of 10 of cumulative return for plots</span>
 <span class="n">minret_plot</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">maxret_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">nt</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="p">)</span>
+<span class="n">maxret_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">nt</span> <span class="o">*</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="p">)</span>
 
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;log10(Y[n]/Y[0])&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Periods&quot;</span><span class="p">)</span>
@@ -728,8 +745,9 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<img alt="../../_images/8566465abd8e8db648f746503f264cef0366273488bb82bf467a0169b8ad1f66.png" src="../../_images/8566465abd8e8db648f746503f264cef0366273488bb82bf467a0169b8ad1f66.png" />
+<img alt="../../_images/23db936fe6339ca0af2a4e8cbca90489bab3b4780412f4e1f19025710abff86c.png" src="../../_images/23db936fe6339ca0af2a4e8cbca90489bab3b4780412f4e1f19025710abff86c.png" />
 </div>
 </div>
 </div>
