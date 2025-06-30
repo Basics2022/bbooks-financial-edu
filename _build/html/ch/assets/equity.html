@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>10. Equity &#8212; Financial Education - basics</title>
+    <title>11. Equity &#8212; Financial Education - basics</title>
   
   
   
@@ -70,20 +70,11 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-gold.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="10.3. Three Financial Statements" href="financial-statements.html" />
-    <link rel="prev" title="9. Bonds" href="bonds.html" />
+    <link rel="next" title="11.3. Three Financial Statements" href="financial-statements.html" />
+    <link rel="prev" title="10. Bonds" href="bonds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9JVM265TS');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -189,24 +180,25 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../principles/intro_nb.html">6. Introduction to principles of investing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing.html">7. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/sequence-risk.html">8. Sequence risk</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="intro.html">8. Introduction to asset classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="bonds.html">9. Bonds</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">10. Equity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="financial-statements.html">10.3. Three Financial Statements</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">9. Introduction to asset classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bonds.html">10. Bonds</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">11. Equity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="financial-statements.html">11.3. Three Financial Statements</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="etfs.html">11. ETFs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="etfs.html">12. ETFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../investing/intro.html">12. Introduction to investing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../investing/mpt.html">13. Modern Portfolio Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../investing/capm.html">14. Capital Asset Pricing Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../investing/strategic-tactical.html">15. Strategic and Tactical Asset Allocation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../investing/rebalancing.html">16. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/intro.html">13. Introduction to investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/mpt.html">14. Modern Portfolio Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/capm.html">15. Capital Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/strategic-tactical.html">16. Strategic and Tactical Asset Allocation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/rebalancing.html">17. Rebalancing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
@@ -429,8 +421,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">10.1. Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">10.2. Intrinsic value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">11.1. Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">11.2. Intrinsic value</a></li>
 </ul>
             </nav>
         </div>
@@ -443,7 +435,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="equity">
-<span id="fin-edu-assets-equity"></span><h1><span class="section-number">10. </span>Equity<a class="headerlink" href="#equity" title="Permalink to this heading">#</a></h1>
+<span id="fin-edu-assets-equity"></span><h1><span class="section-number">11. </span>Equity<a class="headerlink" href="#equity" title="Permalink to this heading">#</a></h1>
 <p>Equity valuation is a mix of <strong>common sense</strong>, math, expectations and estimation, and cooking: buying shares of a firm (directly or with a fund) means buying a (tiny) share of the company, a business producing goods and/or services, able to generate earnings/free cash flows. When you hold shares, you’re participating to the business and have rights to the profits.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -463,10 +455,10 @@ Detailed introduction<div class="sd-summary-down docutils">
 <li><p>…other methods for general firms (cost approach,…); valuation of financials;…</p></li>
 </ul>
 <div class="section" id="comparison">
-<span id="fin-edu-assets-equity-comparison"></span><h2><span class="section-number">10.1. </span>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-assets-equity-comparison"></span><h2><span class="section-number">11.1. </span>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">#</a></h2>
 </div>
 <div class="section" id="intrinsic-value">
-<span id="fin-edu-assets-equity-intrinsic"></span><h2><span class="section-number">10.2. </span>Intrinsic value<a class="headerlink" href="#intrinsic-value" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-assets-equity-intrinsic"></span><h2><span class="section-number">11.2. </span>Intrinsic value<a class="headerlink" href="#intrinsic-value" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Future cash flows are estimated,</p></li>
 <li><p>CFs are discounted, usually for the <span class="math notranslate nohighlight">\(WACC\)</span> (Weighted Average Cost of Capital) to find the <span class="math notranslate nohighlight">\(NPV\)</span> (net present value) of the <strong>enterprise value</strong> <span class="math notranslate nohighlight">\(EV\)</span></p></li>
@@ -532,7 +524,7 @@ Detailed introduction<div class="sd-summary-down docutils">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9. </span>Bonds</p>
+        <p class="prev-next-title"><span class="section-number">10. </span>Bonds</p>
       </div>
     </a>
     <a class="right-next"
@@ -540,7 +532,7 @@ Detailed introduction<div class="sd-summary-down docutils">
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.3. </span>Three Financial Statements</p>
+        <p class="prev-next-title"><span class="section-number">11.3. </span>Three Financial Statements</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -559,8 +551,8 @@ Detailed introduction<div class="sd-summary-down docutils">
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">10.1. Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">10.2. Intrinsic value</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">11.1. Comparison</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">11.2. Intrinsic value</a></li>
 </ul>
   </nav></div>
 
