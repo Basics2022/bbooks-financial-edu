@@ -457,8 +457,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-investment-or-withdrawal-rate-analytical-solution">8.1.2. Constant investment or withdrawal rate: analytical solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.2. Realizations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-and-parameters">8.3. Libraries and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.2. Realizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-and-parameters">8.2.1. Libraries and parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-withdrawals">8.2.2. Constant Withdrawals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dollar-cost-averaging-dca">8.2.3. Dollar Cost Averaging (DCA)</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -499,9 +503,8 @@ document.write(`
 </div>
 <div class="section" id="realizations">
 <h2><span class="section-number">8.2. </span>Realizations<a class="headerlink" href="#realizations" title="Permalink to this heading">#</a></h2>
-</div>
 <div class="section" id="libraries-and-parameters">
-<h2><span class="section-number">8.3. </span>Libraries and parameters<a class="headerlink" href="#libraries-and-parameters" title="Permalink to this heading">#</a></h2>
+<h3><span class="section-number">8.2.1. </span>Libraries and parameters<a class="headerlink" href="#libraries-and-parameters" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -511,8 +514,6 @@ document.write(`
 <span class="c1"># E.g. Portfolio with 1-year return with expected value and variance 8%, 15%,</span>
 <span class="c1"># 1-period withdrawal .04,, and initial value of the portfolio 1., like</span>
 <span class="c1"># 40k€ withdrawal of an initial portfolio of 1M€</span>
-<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mf">.045</span><span class="p">,</span> <span class="mf">.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">.04</span>
-<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.</span>
 <span class="n">wealth_ruin_exp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
 
 <span class="c1">#&gt; Random number generator, representing 1-period return R_n = Y_{n}/Y_{n-1}</span>
@@ -526,12 +527,31 @@ document.write(`
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">17</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span> <span class="c1">#&gt; Random number generators of the 2 assets</span>
+<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
+<span class="ne">---&gt; </span><span class="mi">17</span> <span class="n">rng_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
+
+<span class="ne">NameError</span>: name &#39;mu&#39; is not defined
+</pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="section" id="constant-withdrawals">
+<h3><span class="section-number">8.2.2. </span>Constant Withdrawals<a class="headerlink" href="#constant-withdrawals" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; End values, max drawdowns</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Parameters</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mf">.045</span><span class="p">,</span> <span class="mf">.10</span><span class="p">,</span> <span class="o">-</span><span class="mf">.04</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.</span>
+
+<span class="c1">#&gt; End values, max drawdowns</span>
 <span class="n">x_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
-<span class="n">deplation_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
+<span class="n">depletion_times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
 <span class="n">n_ruins</span> <span class="o">=</span> <span class="mi">0</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
@@ -548,22 +568,22 @@ document.write(`
     <span class="c1">#&gt; Ruin condition, when portfolio goes to zero</span>
     <span class="n">neg_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
     <span class="k">if</span> <span class="p">(</span> <span class="n">neg_indices</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">):</span>
-      <span class="n">time_of_deplation</span> <span class="o">=</span> <span class="n">neg_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-      <span class="n">x</span><span class="p">[</span><span class="n">time_of_deplation</span><span class="p">:]</span> <span class="o">=</span>  <span class="n">x0</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="n">wealth_ruin_exp</span>
+      <span class="n">time_of_depletion</span> <span class="o">=</span> <span class="n">neg_indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+      <span class="n">x</span><span class="p">[</span><span class="n">time_of_depletion</span><span class="p">:]</span> <span class="o">=</span>  <span class="n">x0</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="n">wealth_ruin_exp</span>
       <span class="n">n_ruins</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="k">else</span><span class="p">:</span>
-      <span class="n">time_of_deplation</span> <span class="o">=</span> <span class="n">nt</span>
+      <span class="n">time_of_depletion</span> <span class="o">=</span> <span class="n">nt</span>
 
     <span class="c1">#&gt; End values</span>
     <span class="n">x_end</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="n">deplation_times</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_of_deplation</span>
+    <span class="n">depletion_times</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_of_depletion</span>
 
     <span class="c1">#&gt; Plot time-history</span>
     <span class="k">if</span> <span class="p">(</span> <span class="n">ireal</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
         <span class="n">lw</span> <span class="o">=</span> <span class="mf">.2</span> <span class="c1">#</span>
-        <span class="n">color</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">time_of_deplation</span> <span class="o">==</span> <span class="n">nt</span>  <span class="k">else</span> <span class="s1">&#39;red&#39;</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">time_of_depletion</span> <span class="o">==</span> <span class="n">nt</span>  <span class="k">else</span> <span class="s1">&#39;red&#39;</span>
         <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="n">lw</span><span class="p">)</span> <span class="c1"># , color=plt.cm.tab10.colors[0])</span>
-        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.1</span> <span class="o">*</span> <span class="p">(</span> <span class="n">time_of_deplation</span> <span class="o">==</span> <span class="n">nt</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">.2</span> <span class="o">*</span> <span class="p">(</span> <span class="n">time_of_deplation</span> <span class="o">&lt;</span> <span class="n">nt</span> <span class="p">))</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">x</span><span class="o">/</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.1</span> <span class="o">*</span> <span class="p">(</span> <span class="n">time_of_depletion</span> <span class="o">==</span> <span class="n">nt</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">.2</span> <span class="o">*</span> <span class="p">(</span> <span class="n">time_of_depletion</span> <span class="o">&lt;</span> <span class="n">nt</span> <span class="p">))</span>
 
 <span class="c1">#&gt; Exponents of 10 of cumulative return for plots</span>
 <span class="n">minret_plot</span> <span class="o">=</span> <span class="n">wealth_ruin_exp</span>
@@ -590,9 +610,9 @@ document.write(`
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">minret_plot</span><span class="p">,</span> <span class="n">maxret_plot</span><span class="p">])</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
-<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">deplation_times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nt</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">depletion_times</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">nt</span><span class="p">,</span><span class="mi">20</span><span class="p">),</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Probability mass density&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Deplation time&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;depletion time&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">total_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">total_count</span>
@@ -610,7 +630,107 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d8751169b94e5b7c458d32a75b18157d6f95d1f21c4f0e3e4ce0d351f45c8d9d.png" src="../../_images/d8751169b94e5b7c458d32a75b18157d6f95d1f21c4f0e3e4ce0d351f45c8d9d.png" />
+<img alt="../../_images/1e8a69acf587bf9c397e69af905c483f1e1bae213f9818481ead11e7aff9fd76.png" src="../../_images/1e8a69acf587bf9c397e69af905c483f1e1bae213f9818481ead11e7aff9fd76.png" />
+</div>
+</div>
+</div>
+<div class="section" id="dollar-cost-averaging-dca">
+<h3><span class="section-number">8.2.3. </span>Dollar Cost Averaging (DCA)<a class="headerlink" href="#dollar-cost-averaging-dca" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Parameters</span>
+<span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">C</span> <span class="o">=</span> <span class="mf">.10</span><span class="p">,</span> <span class="mf">.15</span><span class="p">,</span> <span class="mf">.04</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">.0</span>
+<span class="n">x0_bah</span> <span class="o">=</span> <span class="n">C</span> <span class="o">*</span> <span class="n">nt</span>
+
+<span class="c1">#&gt; End values, max drawdowns</span>
+<span class="n">x_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>       <span class="c1"># Dollar-Cost-Avg (DCA), Ita: PAC</span>
+<span class="n">x_bah_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>   <span class="c1"># Buy-and-Hold (BAH)   , Ita: PIC</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ireal</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nreal</span><span class="p">):</span>
+
+    <span class="c1">#&gt; 1-period returns of the 2 assets</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">rng</span><span class="p">(</span><span class="o">**</span><span class="n">rng_params</span><span class="p">)</span>
+
+    <span class="c1">#&gt; Rebalanced portfolio</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">);</span>  <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0</span>
+    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">nt</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">r</span><span class="p">[</span><span class="n">ix</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span><span class="n">ix</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">C</span>
+
+    <span class="n">x_bah</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">);</span>  <span class="n">x_bah</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x0_bah</span>
+    <span class="n">x_bah</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">x_bah</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="c1">#&gt; End values</span>
+    <span class="n">x_end</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span>     <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x_bah_end</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_bah</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="c1">#&gt; Plot time-history</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">ireal</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span>     <span class="n">x</span><span class="o">/</span><span class="n">C</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.2</span> <span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">x_bah</span><span class="o">/</span><span class="n">C</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.2</span> <span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+
+<span class="c1">#&gt; Exponents of 10 of cumulative return for plots</span>
+<span class="n">minret_plot</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">maxret_plot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="p">(</span><span class="n">mu</span><span class="o">-</span><span class="n">sigma</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">nt</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span> <span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;log10(Y[n]/Y[0])&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Periods&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="n">nt</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">10</span><span class="o">**</span><span class="n">minret_plot</span><span class="p">,</span> <span class="mi">10</span><span class="o">**</span><span class="n">maxret_plot</span><span class="p">])</span>   <span class="c1"># e^at = (10^(log10(e)))^at</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">dbins</span> <span class="o">=</span> <span class="mf">.25</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">minret_plot</span><span class="p">,</span> <span class="n">maxret_plot</span><span class="p">,</span> <span class="n">dbins</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x_end</span><span class="o">/</span><span class="n">C</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dollar-Cost-Avg&#39;</span><span class="p">)</span>
+<span class="c1"># Modify hist() patches to get probability of ranges, like a discrete r.v.</span>
+<span class="n">total_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">total_count</span>
+<span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">patches</span><span class="p">):</span>
+    <span class="n">patch</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">x_bah_end</span><span class="o">/</span><span class="n">C</span><span class="p">),</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy-and-Hold&#39;</span><span class="p">)</span>
+<span class="c1"># Modify hist() patches to get probability of ranges, like a discrete r.v.</span>
+<span class="n">total_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">total_count</span>
+<span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">patches</span><span class="p">):</span>
+    <span class="n">patch</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Cumulative returns, log10(Y[n]/Y[0])&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Probability mass density&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mf">1.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">probs</span><span class="p">)])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="n">minret_plot</span><span class="p">,</span> <span class="n">maxret_plot</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1">#&gt;</span>
+<span class="n">dbins</span> <span class="o">=</span> <span class="mf">.5</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span><span class="mf">30.</span><span class="p">,</span><span class="n">dbins</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(((</span><span class="n">x_end</span><span class="o">/</span><span class="n">C</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Dollar-Cost-Avg&#39;</span><span class="p">)</span>
+<span class="c1"># Modify hist() patches to get probability of ranges, like a discrete r.v.</span>
+<span class="n">total_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">total_count</span>
+<span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">patches</span><span class="p">):</span>
+    <span class="n">patch</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">patches</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(((</span><span class="n">x_bah_end</span><span class="o">/</span><span class="n">C</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy-and-Hold&#39;</span><span class="p">)</span>
+<span class="c1"># Modify hist() patches to get probability of ranges, like a discrete r.v.</span>
+<span class="n">total_count</span> <span class="o">=</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<span class="n">probs</span> <span class="o">=</span> <span class="n">counts</span><span class="o">/</span><span class="n">total_count</span>
+<span class="k">for</span> <span class="n">prob</span><span class="p">,</span> <span class="n">patch</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">patches</span><span class="p">):</span>
+    <span class="n">patch</span><span class="o">.</span><span class="n">set_width</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;CAGR&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Probability mass density&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">probs</span><span class="p">)])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/8566465abd8e8db648f746503f264cef0366273488bb82bf467a0169b8ad1f66.png" src="../../_images/8566465abd8e8db648f746503f264cef0366273488bb82bf467a0169b8ad1f66.png" />
+</div>
 </div>
 </div>
 </div>
@@ -684,8 +804,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-investment-or-withdrawal-rate-analytical-solution">8.1.2. Constant investment or withdrawal rate: analytical solution</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.2. Realizations</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-and-parameters">8.3. Libraries and parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.2. Realizations</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-and-parameters">8.2.1. Libraries and parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-withdrawals">8.2.2. Constant Withdrawals</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dollar-cost-averaging-dca">8.2.3. Dollar Cost Averaging (DCA)</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
