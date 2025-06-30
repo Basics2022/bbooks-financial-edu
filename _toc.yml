@@ -22,6 +22,7 @@ parts:
   chapters:
   - file: ch/principles/intro_nb
   - file: code/notebooks/rebalancing
+  - file: code/notebooks/sequence-risk
 - caption: Asset classes
   numbered: True
   chapters:
