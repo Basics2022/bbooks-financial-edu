@@ -1,4 +1,4 @@
-(fin-edu:extra:euristhics)
+(fin-edu:extra:euristhics)=
 # Euristhics and historical correlations
 
 ## Expected returns in the stoch market
