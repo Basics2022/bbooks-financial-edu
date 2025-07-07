@@ -85,7 +85,7 @@
         
 
 \title{Financial Education - basics}
-\date{Jun 30, 2025}
+\date{Jul 03, 2025}
 \release{}
 \author{basics}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -166,6 +166,10 @@ Macroeconomic Context for Investing
 \item {} 
 \sphinxAtStartPar
 {\hyperref[\detokenize{ch/inflation::doc}]{\sphinxcrossref{Inflation}}}
+
+\item {} 
+\sphinxAtStartPar
+{\hyperref[\detokenize{code/notebooks/inflation::doc}]{\sphinxcrossref{Inflation}}}
 
 \item {} 
 \sphinxAtStartPar
@@ -452,6 +456,459 @@ long\sphinxhyphen{}run: “monetary always and everywhere a monetary phenomenon�
 \sphinxstepscope
 
 
+\chapter{Inflation}
+\label{\detokenize{code/notebooks/inflation:inflation}}\label{\detokenize{code/notebooks/inflation::doc}}
+
+\section{Load libraries and import data}
+\label{\detokenize{code/notebooks/inflation:load-libraries-and-import-data}}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Load libraries}
+\PYG{k+kn}{import} \PYG{n+nn}{numpy} \PYG{k}{as} \PYG{n+nn}{np}
+\PYG{k+kn}{import} \PYG{n+nn}{pandas} \PYG{k}{as} \PYG{n+nn}{pd}
+
+\PYG{k+kn}{import} \PYG{n+nn}{plotly}\PYG{n+nn}{.}\PYG{n+nn}{graph\PYGZus{}objects} \PYG{k}{as} \PYG{n+nn}{go}
+\PYG{k+kn}{import} \PYG{n+nn}{plotly}\PYG{n+nn}{.}\PYG{n+nn}{express} \PYG{k}{as} \PYG{n+nn}{px}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Import data}
+\PYG{c+c1}{\PYGZsh{} conditioning for being in Colab or not}
+\PYG{k}{if} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{google.colab}\PYG{l+s+s1}{\PYGZsq{}} \PYG{o+ow}{in} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{get\PYGZus{}ipython}\PYG{p}{(}\PYG{p}{)}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k+kn}{from} \PYG{n+nn}{google}\PYG{n+nn}{.}\PYG{n+nn}{colab} \PYG{k+kn}{import} \PYG{n}{drive}
+    \PYG{n}{drive}\PYG{o}{.}\PYG{n}{mount}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{/content/drive}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{n}{folder} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{/content/drive/MyDrive/basics\PYGZhy{}books/repos/financial\PYGZhy{}edu/bbooks\PYGZhy{}financial\PYGZhy{}edu/code/data/}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{k}{else}\PYG{p}{:}
+    \PYG{n}{folder} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{\PYGZsq{}}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Files}
+\PYG{c+c1}{\PYGZsh{} FOI\PYGZhy{}prices: 2016\PYGZhy{}.../2025\PYGZhy{}...}
+\PYG{c+c1}{\PYGZsh{} IPCA\PYGZhy{}weights: 2018/2025}
+\PYG{c+c1}{\PYGZsh{} IPCA\PYGZhy{}prices:  2018\PYGZhy{}.../2025\PYGZhy{}...}
+\PYG{c+c1}{\PYGZsh{} NIC\PYGZhy{}weights: 2018/2025}
+\PYG{c+c1}{\PYGZsh{} NIC\PYGZhy{}prices:  2018\PYGZhy{}.../2025\PYGZhy{}...}
+\PYG{n}{filen} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{FOI\PYGZhy{}prices}\PYG{l+s+s1}{\PYGZsq{}}  \PYG{p}{:} \PYG{n}{folder}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{monthly\PYGZhy{}FOI.xlsx}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{folder}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Classificazione Ecoicop (4 cifre) (IT1,168\PYGZus{}6\PYGZus{}DF\PYGZus{}DCSP\PYGZus{}IPCA3\PYGZus{}1,1.0).xlsx}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}prices}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{:} \PYG{n}{folder}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Classificazione Ecoicop (4 cifre) (IT1,168\PYGZus{}760\PYGZus{}DF\PYGZus{}DCSP\PYGZus{}IPCA1B2015\PYGZus{}1,1.0).xlsx}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{NIC\PYGZhy{}weights}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{:} \PYG{n}{folder}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Classificazione Ecoicop (5 cifre) (IT1,167\PYGZus{}743\PYGZus{}DF\PYGZus{}DCSP\PYGZus{}NIC3B2015\PYGZus{}3,1.0).xlsx}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{NIC\PYGZhy{}prices}\PYG{l+s+s1}{\PYGZsq{}}  \PYG{p}{:} \PYG{n}{folder}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Classificazione Ecoicop (5 cifre) (IT1,167\PYGZus{}744\PYGZus{}DF\PYGZus{}DCSP\PYGZus{}NIC1B2015\PYGZus{}4,1.0).xlsx}\PYG{l+s+s1}{\PYGZsq{}}
+\PYG{p}{\PYGZcb{}}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{df} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{prices}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}excel}\PYG{p}{(}\PYG{n}{filen}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}prices}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{sheet\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{decimal}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+    \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}excel}\PYG{p}{(}\PYG{n}{filen}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{sheet\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{decimal}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{k}{for} \PYG{n}{kdf}\PYG{p}{,} \PYG{n}{idf} \PYG{o+ow}{in} \PYG{n}{df}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{idf}\PYG{o}{.}\PYG{n}{columns} \PYG{o}{=} \PYG{n}{idf}\PYG{o}{.}\PYG{n}{columns}\PYG{o}{.}\PYG{n}{str}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} strip whitespaces}
+    \PYG{n}{idf} \PYG{o}{=} \PYG{n}{idf}\PYG{o}{.}\PYG{n}{set\PYGZus{}index}\PYG{p}{(}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tempo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{)}
+    \PYG{n}{idf} \PYG{o}{=} \PYG{n}{idf}\PYG{o}{.}\PYG{n}{transpose}\PYG{p}{(}\PYG{p}{)}
+    \PYG{n}{idf} \PYG{o}{=} \PYG{n}{idf}\PYG{o}{.}\PYG{n}{rename}\PYG{p}{(}\PYG{n}{columns}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{index}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tempo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{g+gt}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}}
+\PYG{n+ne}{FileNotFoundError}\PYG{g+gWhitespace}{                         }Traceback (most recent call last)
+\PYG{n}{Cell} \PYG{n}{In}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{p}{,} \PYG{n}{line} \PYG{l+m+mi}{2}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{1} \PYG{n}{df} \PYG{o}{=} \PYG{p}{\PYGZob{}}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{2}     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{prices}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}excel}\PYG{p}{(}\PYG{n}{filen}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}prices}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{sheet\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{decimal}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{3}     \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{:} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{read\PYGZus{}excel}\PYG{p}{(}\PYG{n}{filen}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA\PYGZhy{}weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,} \PYG{n}{sheet\PYGZus{}name}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{data}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,} \PYG{n}{decimal}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{,}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{4} \PYG{p}{\PYGZcb{}}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{6} \PYG{k}{for} \PYG{n}{kdf}\PYG{p}{,} \PYG{n}{idf} \PYG{o+ow}{in} \PYG{n}{df}\PYG{o}{.}\PYG{n}{items}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{      }\PYG{l+m+mi}{7}     \PYG{n}{idf}\PYG{o}{.}\PYG{n}{columns} \PYG{o}{=} \PYG{n}{idf}\PYG{o}{.}\PYG{n}{columns}\PYG{o}{.}\PYG{n}{str}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}  \PYG{c+c1}{\PYGZsh{} strip whitespaces}
+
+\PYG{n+nn}{File \PYGZti{}/.local/lib/python3.8/site\PYGZhy{}packages/pandas/io/excel/\PYGZus{}base.py:478,} in \PYG{n+ni}{read\PYGZus{}excel}\PYG{n+nt}{(io, sheet\PYGZus{}name, header, names, index\PYGZus{}col, usecols, dtype, engine, converters, true\PYGZus{}values, false\PYGZus{}values, skiprows, nrows, na\PYGZus{}values, keep\PYGZus{}default\PYGZus{}na, na\PYGZus{}filter, verbose, parse\PYGZus{}dates, date\PYGZus{}parser, date\PYGZus{}format, thousands, decimal, comment, skipfooter, storage\PYGZus{}options, dtype\PYGZus{}backend)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{476} \PYG{k}{if} \PYG{o+ow}{not} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{io}\PYG{p}{,} \PYG{n}{ExcelFile}\PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{477}     \PYG{n}{should\PYGZus{}close} \PYG{o}{=} \PYG{k+kc}{True}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{478}     \PYG{n}{io} \PYG{o}{=} \PYG{n}{ExcelFile}\PYG{p}{(}\PYG{n}{io}\PYG{p}{,} \PYG{n}{storage\PYGZus{}options}\PYG{o}{=}\PYG{n}{storage\PYGZus{}options}\PYG{p}{,} \PYG{n}{engine}\PYG{o}{=}\PYG{n}{engine}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{479} \PYG{k}{elif} \PYG{n}{engine} \PYG{o+ow}{and} \PYG{n}{engine} \PYG{o}{!=} \PYG{n}{io}\PYG{o}{.}\PYG{n}{engine}\PYG{p}{:}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{480}     \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{481}         \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Engine should not be specified when passing }\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{482}         \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{an ExcelFile \PYGZhy{} ExcelFile already has the engine set}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{483}     \PYG{p}{)}
+
+\PYG{n+nn}{File \PYGZti{}/.local/lib/python3.8/site\PYGZhy{}packages/pandas/io/excel/\PYGZus{}base.py:1496,} in \PYG{n+ni}{ExcelFile.\PYGZus{}\PYGZus{}init\PYGZus{}\PYGZus{}}\PYG{n+nt}{(self, path\PYGZus{}or\PYGZus{}buffer, engine, storage\PYGZus{}options)}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1494}     \PYG{n}{ext} \PYG{o}{=} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{xls}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1495} \PYG{k}{else}\PYG{p}{:}
+\PYG{n+ne}{\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1496}     \PYG{n}{ext} \PYG{o}{=} \PYG{n}{inspect\PYGZus{}excel\PYGZus{}format}\PYG{p}{(}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1497}         \PYG{n}{content\PYGZus{}or\PYGZus{}path}\PYG{o}{=}\PYG{n}{path\PYGZus{}or\PYGZus{}buffer}\PYG{p}{,} \PYG{n}{storage\PYGZus{}options}\PYG{o}{=}\PYG{n}{storage\PYGZus{}options}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1498}     \PYG{p}{)}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1499}     \PYG{k}{if} \PYG{n}{ext} \PYG{o+ow}{is} \PYG{k+kc}{None}\PYG{p}{:}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1500}         \PYG{k}{raise} \PYG{n+ne}{ValueError}\PYG{p}{(}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1501}             \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Excel file format cannot be determined, you must specify }\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1502}             \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{an engine manually.}\PYG{l+s+s2}{\PYGZdq{}}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1503}         \PYG{p}{)}
+
+\PYG{n+nn}{File \PYGZti{}/.local/lib/python3.8/site\PYGZhy{}packages/pandas/io/excel/\PYGZus{}base.py:1371,} in \PYG{n+ni}{inspect\PYGZus{}excel\PYGZus{}format}\PYG{n+nt}{(content\PYGZus{}or\PYGZus{}path, storage\PYGZus{}options)}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1368} \PYG{k}{if} \PYG{n+nb}{isinstance}\PYG{p}{(}\PYG{n}{content\PYGZus{}or\PYGZus{}path}\PYG{p}{,} \PYG{n+nb}{bytes}\PYG{p}{)}\PYG{p}{:}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1369}     \PYG{n}{content\PYGZus{}or\PYGZus{}path} \PYG{o}{=} \PYG{n}{BytesIO}\PYG{p}{(}\PYG{n}{content\PYGZus{}or\PYGZus{}path}\PYG{p}{)}
+\PYG{n+ne}{\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{1371} \PYG{k}{with} \PYG{n}{get\PYGZus{}handle}\PYG{p}{(}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1372}     \PYG{n}{content\PYGZus{}or\PYGZus{}path}\PYG{p}{,} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{rb}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,} \PYG{n}{storage\PYGZus{}options}\PYG{o}{=}\PYG{n}{storage\PYGZus{}options}\PYG{p}{,} \PYG{n}{is\PYGZus{}text}\PYG{o}{=}\PYG{k+kc}{False}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1373} \PYG{p}{)} \PYG{k}{as} \PYG{n}{handle}\PYG{p}{:}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1374}     \PYG{n}{stream} \PYG{o}{=} \PYG{n}{handle}\PYG{o}{.}\PYG{n}{handle}
+\PYG{g+gWhitespace}{   }\PYG{l+m+mi}{1375}     \PYG{n}{stream}\PYG{o}{.}\PYG{n}{seek}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{n+nn}{File \PYGZti{}/.local/lib/python3.8/site\PYGZhy{}packages/pandas/io/common.py:868,} in \PYG{n+ni}{get\PYGZus{}handle}\PYG{n+nt}{(path\PYGZus{}or\PYGZus{}buf, mode, encoding, compression, memory\PYGZus{}map, is\PYGZus{}text, errors, storage\PYGZus{}options)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{859}         \PYG{n}{handle} \PYG{o}{=} \PYG{n+nb}{open}\PYG{p}{(}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{860}             \PYG{n}{handle}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{861}             \PYG{n}{ioargs}\PYG{o}{.}\PYG{n}{mode}\PYG{p}{,}
+   \PYG{p}{(}\PYG{o}{.}\PYG{o}{.}\PYG{o}{.}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{864}             \PYG{n}{newline}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{865}         \PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{866}     \PYG{k}{else}\PYG{p}{:}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{867}         \PYG{c+c1}{\PYGZsh{} Binary mode}
+\PYG{n+ne}{\PYGZhy{}\PYGZhy{}\PYGZgt{} }\PYG{l+m+mi}{868}         \PYG{n}{handle} \PYG{o}{=} \PYG{n+nb}{open}\PYG{p}{(}\PYG{n}{handle}\PYG{p}{,} \PYG{n}{ioargs}\PYG{o}{.}\PYG{n}{mode}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{869}     \PYG{n}{handles}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{handle}\PYG{p}{)}
+\PYG{g+gWhitespace}{    }\PYG{l+m+mi}{871} \PYG{c+c1}{\PYGZsh{} Convert BytesIO or file objects passed with an encoding}
+
+\PYG{n+ne}{FileNotFoundError}: [Errno 2] No such file or directory: \PYGZsq{}Classificazione Ecoicop (4 cifre) (IT1,168\PYGZus{}760\PYGZus{}DF\PYGZus{}DCSP\PYGZus{}IPCA1B2015\PYGZus{}1,1.0).xlsx\PYGZsq{}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{prices}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{head}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                                               Tempo 2018\PYGZhy{}01 2018\PYGZhy{}02 2018\PYGZhy{}03  \PYGZbs{}
+0                             [00] Indice generale     100.6   100.1   102.4   
+1  [01] \PYGZhy{}\PYGZhy{} prodotti alimentari e bevande analcoli...   103.9     103   103.2   
+2                        [011] Prodotti alimentari       104   103.2   103.4   
+3                            [0111] Pane e cereali     101.6   100.6   101.1   
+4                                     [0112] Carni     102.9   102.4   102.6   
+
+  2018\PYGZhy{}04 2018\PYGZhy{}05 2018\PYGZhy{}06 2018\PYGZhy{}07 2018\PYGZhy{}08 2018\PYGZhy{}09  ... 2024\PYGZhy{}09 2024\PYGZhy{}10  \PYGZbs{}
+0   102.9   103.2   103.4     102   101.8   103.5  ...     123   123.4   
+1   103.6   104.3   103.9   103.1   103.1     103  ...   130.8   132.3   
+2   103.7   104.5   104.2   103.2   103.2   103.2  ...   131.2   132.9   
+3   101.8   101.4     102   101.7   102.1   101.3  ...   127.2   127.6   
+4   102.9   102.7   102.8   102.8   102.7     103  ...   125.6   125.9   
+
+  2024\PYGZhy{}11 2024\PYGZhy{}12 2025\PYGZhy{}01 2025\PYGZhy{}02 2025\PYGZhy{}03 2025\PYGZhy{}04 2025\PYGZhy{}05 2025\PYGZhy{}06  
+0   123.3   123.4   122.4   122.5   124.4   124.9   124.8     125  
+1   133.3   132.6   133.8   133.7   133.8   134.8   135.4   135.7  
+2   133.8     133   134.1     134     134   134.9   135.5      ..  
+3   127.8   127.8   128.5   128.2   128.4   129.2   129.3      ..  
+4   126.7     127   127.9     128   128.7   129.5   130.2      ..  
+
+[5 rows x 91 columns]
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{head}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+                                               Tempo     2015     2016  \PYGZbs{}
+0                             [00] Indice generale    1000000  1000000   
+1  [01] \PYGZhy{}\PYGZhy{} prodotti alimentari e bevande analcoli...   175648   176326   
+2                        [011] Prodotti alimentari     162005   162805   
+3                            [0111] Pane e cereali      30036    30342   
+4                                     [0112] Carni      41803    40944   
+
+      2017     2018     2019     2020     2021     2022     2023     2024  \PYGZbs{}
+0  1000000  1000000  1000000  1000000  1000000  1000000  1000000  1000000   
+1   175240   175418   173257   172583   205912   194554   181443   181801   
+2   161810   161903   159432   158644   189091   179008   166582   167112   
+3    29853    29558    29717    29778    35767    33586    31994    31422   
+4    40876    39914    39286    38162    45695    43159    39770    40253   
+
+      2025  
+0  1000000  
+1   181425  
+2   166336  
+3    31513  
+4    40080  
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{} Set \PYGZsq{}Tempo\PYGZsq{} as index}
+\PYG{c+c1}{\PYGZsh{} df = df.set\PYGZus{}index(\PYGZsq{}Tempo\PYGZsq{})}
+
+\PYG{c+c1}{\PYGZsh{} Transpose the DataFrame}
+\PYG{n}{df\PYGZus{}T} \PYG{o}{=} \PYG{n}{df}\PYG{o}{.}\PYG{n}{transpose}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Create a figure}
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{go}\PYG{o}{.}\PYG{n}{Figure}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Add a trace for each row (now a column in df\PYGZus{}T)}
+\PYG{k}{for} \PYG{n}{column} \PYG{o+ow}{in} \PYG{n}{df\PYGZus{}T}\PYG{o}{.}\PYG{n}{columns}\PYG{p}{:}
+    \PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}trace}\PYG{p}{(}\PYG{n}{go}\PYG{o}{.}\PYG{n}{Scatter}\PYG{p}{(}
+        \PYG{n}{x}\PYG{o}{=}\PYG{n}{df\PYGZus{}T}\PYG{o}{.}\PYG{n}{index}\PYG{p}{,}
+        \PYG{n}{y}\PYG{o}{=}\PYG{n}{df\PYGZus{}T}\PYG{p}{[}\PYG{n}{column}\PYG{p}{]}\PYG{p}{,}
+        \PYG{n}{mode}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{lines}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{n}{name}\PYG{o}{=}\PYG{n}{column}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{50}\PYG{p}{]}
+    \PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Customize layout}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{update\PYGZus{}layout}\PYG{p}{(}
+    \PYG{n}{title}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA price indices \PYGZhy{} 2015:100}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{xaxis\PYGZus{}title}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Time}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{yaxis\PYGZus{}title}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{c+c1}{\PYGZsh{} xaxis\PYGZus{}tickangle=\PYGZhy{}45,}
+    \PYG{c+c1}{\PYGZsh{} hovermode=\PYGZsq{}x unified\PYGZsq{},}
+    \PYG{c+c1}{\PYGZsh{} template=\PYGZsq{}plotly\PYGZus{}white\PYGZsq{},}
+    \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{600}\PYG{p}{,}
+    \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{1000}\PYG{p}{,}
+    \PYG{c+c1}{\PYGZsh{} legend=dict(orientation=\PYGZdq{}v\PYGZdq{}, x=1.02, y=1)}
+\PYG{p}{)}
+
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Extract code and label}
+\PYG{n}{ddf} \PYG{o}{=} \PYG{p}{\PYGZob{}}\PYG{p}{\PYGZcb{}}
+
+\PYG{n}{ddf} \PYG{o}{=} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{DataFrame}\PYG{p}{(}\PYG{p}{)}
+\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}} \PYG{p}{]} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tempo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{str}\PYG{o}{.}\PYG{n}{extract}\PYG{p}{(}\PYG{l+s+sa}{r}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{(}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{[}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{d+}\PYG{l+s+s1}{\PYGZbs{}}\PYG{l+s+s1}{])}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{label}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{Tempo}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{str}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Determine parent code}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}parent\PYGZus{}code}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{code} \PYG{o+ow}{is} \PYG{k+kc}{None} \PYG{o+ow}{or} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{isna}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    \PYG{n}{code\PYGZus{}str} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{[]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{code\PYGZus{}str}\PYG{p}{)} \PYG{o}{\PYGZlt{}}\PYG{o}{=} \PYG{l+m+mi}{2}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}  \PYG{c+c1}{\PYGZsh{} no parent}
+    \PYG{k}{elif} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{code\PYGZus{}str}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{3}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{[}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{code\PYGZus{}str}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{2}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{]}\PYG{l+s+s2}{\PYGZdq{}}
+    \PYG{k}{elif} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{code\PYGZus{}str}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{4}\PYG{p}{:}
+        \PYG{k}{return} \PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{[}\PYG{l+s+si}{\PYGZob{}}\PYG{n}{code\PYGZus{}str}\PYG{p}{[}\PYG{p}{:}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{]}\PYG{l+s+s2}{\PYGZdq{}}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Determine parent code}
+\PYG{k}{def} \PYG{n+nf}{get\PYGZus{}value}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{p}{:}
+    \PYG{k}{if} \PYG{n}{code} \PYG{o+ow}{is} \PYG{k+kc}{None} \PYG{o+ow}{or} \PYG{n}{pd}\PYG{o}{.}\PYG{n}{isna}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{p}{:}
+        \PYG{k}{return} \PYG{k+kc}{None}
+    \PYG{n}{code\PYGZus{}str} \PYG{o}{=} \PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{code}\PYG{p}{)}\PYG{o}{.}\PYG{n}{strip}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{[]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}
+    \PYG{k}{if} \PYG{n+nb}{len}\PYG{p}{(}\PYG{n}{code\PYGZus{}str}\PYG{p}{)} \PYG{o}{==} \PYG{l+m+mi}{4}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mi}{1}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{k}{return} \PYG{n+nb}{int}\PYG{p}{(}\PYG{l+m+mi}{0}\PYG{p}{)}
+
+\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{parent}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{o}{.}\PYG{n}{map}\PYG{p}{(} \PYG{n}{get\PYGZus{}parent\PYGZus{}code} \PYG{p}{)}
+\PYG{c+c1}{\PYGZsh{} ddf[\PYGZsq{}value\PYGZsq{}] = ddf[\PYGZsq{}code\PYGZsq{}].map( get\PYGZus{}value )}
+\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{2025}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{/} \PYG{l+m+mf}{1e4}
+
+\PYG{c+c1}{\PYGZsh{}\PYGZgt{} Drop [00] Indice generale}
+\PYG{n}{ddf} \PYG{o}{=} \PYG{n}{ddf}\PYG{p}{[}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]} \PYG{o}{!=} \PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{[00]}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+
+\PYG{n}{ddf}\PYG{o}{.}\PYG{n}{head}\PYG{p}{(}\PYG{l+m+mi}{30}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} \PYGZsh{} Step 4: Map parent code to label}
+\PYG{c+c1}{\PYGZsh{} code\PYGZus{}label\PYGZus{}map = dict(zip(df[\PYGZsq{}code\PYGZsq{}], df[\PYGZsq{}label\PYGZsq{}]))}
+\PYG{c+c1}{\PYGZsh{} df[\PYGZsq{}parent\PYGZus{}label\PYGZsq{}] = df[\PYGZsq{}parent\PYGZus{}code\PYGZsq{}].map(code\PYGZus{}label\PYGZus{}map)}
+
+\PYG{c+c1}{\PYGZsh{} \PYGZsh{} Step 5: Full parent id}
+\PYG{c+c1}{\PYGZsh{} df[\PYGZsq{}parent\PYGZsq{}] = df[\PYGZsq{}parent\PYGZus{}code\PYGZsq{}] + \PYGZsq{} \PYGZsq{} + df[\PYGZsq{}parent\PYGZus{}label\PYGZsq{}]}
+\PYG{c+c1}{\PYGZsh{} df[\PYGZsq{}parent\PYGZsq{}] = df[\PYGZsq{}parent\PYGZsq{}].where(df[\PYGZsq{}parent\PYGZus{}code\PYGZsq{}].notnull())  \PYGZsh{} top\PYGZhy{}level parent stays NaN}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+      code                                              label parent    value
+1     [01]  [01] \PYGZhy{}\PYGZhy{} prodotti alimentari e bevande analcoliche   None  18.1425
+2    [011]                          [011] Prodotti alimentari   [01]  16.6336
+3   [0111]                              [0111] Pane e cereali  [011]   3.1513
+4   [0112]                                       [0112] Carni  [011]   4.0080
+5   [0113]                     [0113] Pesci e prodotti ittici  [011]   1.2412
+6   [0114]                      [0114] Latte, formaggi e uova  [011]   2.5141
+7   [0115]                                [0115] Oli e grassi  [011]   0.6514
+8   [0116]                                      [0116] Frutta  [011]   1.4763
+9   [0117]                                    [0117] Vegetali  [011]   2.4341
+10  [0118]  [0118] Zucchero, confetture, miele, cioccolato...  [011]   0.8321
+11  [0119]                  [0119] Prodotti alimentari n.a.c.  [011]   0.3251
+12   [012]                          [012] Bevande analcoliche   [01]   1.5089
+13  [0121]                           [0121] Caffè, tè e cacao  [012]   0.5413
+14  [0122]  [0122] Acque minerali, bevande analcoliche, su...  [012]   0.9676
+15    [02]               [02] \PYGZhy{}\PYGZhy{} bevande alcoliche e tabacchi   None   3.1911
+16   [021]                            [021] Bevande alcoliche   [02]   1.0174
+17  [0211]                                    [0211] Alcolici  [021]   0.1377
+18  [0212]                                        [0212] Vini  [021]   0.5587
+19  [0213]                                       [0213] Birre  [021]   0.3210
+20   [022]                                     [022] Tabacchi   [02]   2.1737
+21    [03]                  [03] \PYGZhy{}\PYGZhy{} abbigliamento e calzature   None   6.7911
+22   [031]                                [031] Abbigliamento   [03]   5.7829
+23  [0312]                                   [0312] Indumenti  [031]   5.2618
+24  [0313]  [0313] Altri articoli d\PYGZsq{}abbigliamento e access...  [031]   0.2103
+25  [0314]  [0314] Servizi di lavanderia, riparazione e no...  [031]   0.3108
+26   [032]                                    [032] Calzature   [03]   1.0082
+27  [0321]                   [0321] Scarpe ed altre calzature  [032]   0.9866
+28  [0322]            [0322] Riparazione e noleggio calzature  [032]   0.0216
+29    [04]  [04] \PYGZhy{}\PYGZhy{} abitazione, acqua, elettricità e combu...   None  12.6003
+30   [041]                 [041] Affitti reali per abitazione   [04]   2.9507
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{px}\PYG{o}{.}\PYG{n}{sunburst}\PYG{p}{(}
+    \PYG{n}{ddf}\PYG{p}{,}
+    \PYG{n}{names}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{parents}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{parent}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{values}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{value}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{hover\PYGZus{}data} \PYG{o}{=} \PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{label}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+    \PYG{n}{title}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{IPCA weights \PYGZhy{} 2025}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{branchvalues}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}  \PYG{c+c1}{\PYGZsh{} \PYGZdq{}toatal\PYGZdq{} or \PYGZdq{}remainder\PYGZdq{}}
+\PYG{p}{)}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{import} \PYG{n+nn}{plotly}\PYG{n+nn}{.}\PYG{n+nn}{graph\PYGZus{}objects} \PYG{k}{as} \PYG{n+nn}{go}
+
+\PYG{n}{years} \PYG{o}{=} \PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{y}\PYG{p}{)} \PYG{k}{for} \PYG{n}{y} \PYG{o+ow}{in} \PYG{n+nb}{range}\PYG{p}{(}\PYG{l+m+mi}{2018}\PYG{p}{,} \PYG{l+m+mi}{2026}\PYG{p}{)}\PYG{p}{]}  \PYG{c+c1}{\PYGZsh{} list of year strings}
+
+\PYG{k}{for} \PYG{n}{year} \PYG{o+ow}{in} \PYG{n}{years}\PYG{p}{:}
+   \PYG{n}{ddf}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{year}\PYG{p}{)}\PYG{p}{]} \PYG{o}{=} \PYG{n}{df}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{weights}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{[}\PYG{n+nb}{str}\PYG{p}{(}\PYG{n}{year}\PYG{p}{)}\PYG{p}{]} \PYG{o}{/} \PYG{l+m+mf}{1e4}
+
+
+\PYG{c+c1}{\PYGZsh{} Create the initial figure for the first year}
+\PYG{n}{fig} \PYG{o}{=} \PYG{n}{go}\PYG{o}{.}\PYG{n}{Figure}\PYG{p}{(}\PYG{p}{)}
+
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{add\PYGZus{}trace}\PYG{p}{(}\PYG{n}{go}\PYG{o}{.}\PYG{n}{Sunburst}\PYG{p}{(}
+    \PYG{n}{ids}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+    \PYG{n}{labels}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+    \PYG{n}{parents}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{parent}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+    \PYG{n}{values}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{2025}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}  \PYG{c+c1}{\PYGZsh{} initial year}
+    \PYG{n}{hoverinfo}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{label+value+text}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+    \PYG{n}{branchvalues}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}  \PYG{c+c1}{\PYGZsh{} \PYGZdq{}toatal\PYGZdq{} or \PYGZdq{}remainder\PYGZdq{}}
+    \PYG{n}{sort}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,}
+    \PYG{n}{text}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{label}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+\PYG{p}{)}\PYG{p}{)}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{update\PYGZus{}layout}\PYG{p}{(}\PYG{n}{title}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{IPCA weights \PYGZhy{} 2025}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Create one frame per year}
+\PYG{n}{frames} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{year} \PYG{o+ow}{in} \PYG{n}{years}\PYG{p}{:}
+    \PYG{n}{frames}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n}{go}\PYG{o}{.}\PYG{n}{Frame}\PYG{p}{(}
+        \PYG{n}{data}\PYG{o}{=}\PYG{p}{[}\PYG{n}{go}\PYG{o}{.}\PYG{n}{Sunburst}\PYG{p}{(}
+            \PYG{n}{ids}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+            \PYG{n}{labels}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{code}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+            \PYG{n}{parents}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{parent}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}\PYG{p}{,}
+            \PYG{n}{values}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{n}{year}\PYG{p}{]}\PYG{p}{,}
+            \PYG{n}{branchvalues}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{total}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{,}  \PYG{c+c1}{\PYGZsh{} \PYGZdq{}toatal\PYGZdq{} or \PYGZdq{}remainder\PYGZdq{}}
+            \PYG{n}{sort}\PYG{o}{=}\PYG{k+kc}{False}\PYG{p}{,}
+            \PYG{n}{text}\PYG{o}{=}\PYG{n}{ddf}\PYG{p}{[}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{label}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{]}
+        \PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+        \PYG{n}{name}\PYG{o}{=}\PYG{n}{year}\PYG{p}{,}
+        \PYG{n}{layout}\PYG{o}{=}\PYG{n}{go}\PYG{o}{.}\PYG{n}{Layout}\PYG{p}{(}\PYG{n}{title\PYGZus{}text}\PYG{o}{=}\PYG{l+s+sa}{f}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{IPCA weights \PYGZhy{} }\PYG{l+s+si}{\PYGZob{}}\PYG{n}{year}\PYG{l+s+si}{\PYGZcb{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{p}{)}\PYG{p}{)}
+
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{frames} \PYG{o}{=} \PYG{n}{frames}
+
+\PYG{c+c1}{\PYGZsh{} Add slider steps for each year}
+\PYG{n}{steps} \PYG{o}{=} \PYG{p}{[}\PYG{p}{]}
+\PYG{k}{for} \PYG{n}{year} \PYG{o+ow}{in} \PYG{n}{years}\PYG{p}{:}
+    \PYG{n}{steps}\PYG{o}{.}\PYG{n}{append}\PYG{p}{(}\PYG{n+nb}{dict}\PYG{p}{(}
+        \PYG{n}{method}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{animate}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+        \PYG{n}{args}\PYG{o}{=}\PYG{p}{[}\PYG{p}{[}\PYG{n}{year}\PYG{p}{]}\PYG{p}{,}  \PYG{c+c1}{\PYGZsh{} frame name}
+              \PYG{n+nb}{dict}\PYG{p}{(}\PYG{n}{mode}\PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{immediate}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{,}
+                   \PYG{n}{frame}\PYG{o}{=}\PYG{n+nb}{dict}\PYG{p}{(}\PYG{n}{duration}\PYG{o}{=}\PYG{l+m+mi}{500}\PYG{p}{,} \PYG{n}{redraw}\PYG{o}{=}\PYG{k+kc}{True}\PYG{p}{)}\PYG{p}{,}
+                   \PYG{n}{transition}\PYG{o}{=}\PYG{n+nb}{dict}\PYG{p}{(}\PYG{n}{duration}\PYG{o}{=}\PYG{l+m+mi}{300}\PYG{p}{)}\PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+        \PYG{n}{label}\PYG{o}{=}\PYG{n}{year}
+    \PYG{p}{)}\PYG{p}{)}
+
+\PYG{c+c1}{\PYGZsh{} Layout with slider}
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{update\PYGZus{}layout}\PYG{p}{(}
+    \PYG{n}{width}\PYG{o}{=}\PYG{l+m+mi}{800}\PYG{p}{,} \PYG{n}{height}\PYG{o}{=}\PYG{l+m+mi}{800}\PYG{p}{,}
+    \PYG{n}{margin}\PYG{o}{=}\PYG{n+nb}{dict}\PYG{p}{(}\PYG{n}{t}\PYG{o}{=}\PYG{l+m+mi}{50}\PYG{p}{,} \PYG{n}{l}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{r}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{,} \PYG{n}{b}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{)}\PYG{p}{,}
+    \PYG{n}{sliders}\PYG{o}{=}\PYG{p}{[}\PYG{n+nb}{dict}\PYG{p}{(}
+        \PYG{n}{active}\PYG{o}{=}\PYG{n}{years}\PYG{o}{.}\PYG{n}{index}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}}\PYG{l+s+s1}{2025}\PYG{l+s+s1}{\PYGZsq{}}\PYG{p}{)}\PYG{p}{,}
+        \PYG{n}{currentvalue}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{prefix}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Year: }\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+        \PYG{n}{pad}\PYG{o}{=}\PYG{p}{\PYGZob{}}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{t}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{:} \PYG{l+m+mi}{50}\PYG{p}{\PYGZcb{}}\PYG{p}{,}
+        \PYG{n}{steps}\PYG{o}{=}\PYG{n}{steps}
+    \PYG{p}{)}\PYG{p}{]}\PYG{p}{,}
+\PYG{p}{)}
+
+\PYG{n}{fig}\PYG{o}{.}\PYG{n}{show}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxstepscope
+
+
 \chapter{Policy}
 \label{\detokenize{ch/policy:policy}}\label{\detokenize{ch/policy:fin-edu-policy}}\label{\detokenize{ch/policy::doc}}
 
@@ -632,7 +1089,7 @@ Even the most safe assets could undergo some (really) \sphinxstylestrong{rare}, 
 \sphinxAtStartPar
 Most returns are quoted on a \sphinxstylestrong{per\sphinxhyphen{}period} basis \sphinxhyphen{} usually annually \sphinxhyphen{} and expressed as the percentage of the reward over the initial amount of the investment.
 \label{ch/principles/intro_nb:example-0}
-\begin{sphinxadmonition}{note}{Example 6.1.1 (1\sphinxhyphen{}period returns)}
+\begin{sphinxadmonition}{note}{Example 7.1.1 (1\sphinxhyphen{}period returns)}
 
 
 
@@ -641,7 +1098,7 @@ An amount of \(1000\)€ in saving account returning \(2\%\) per year, returns \
 …
 \end{sphinxadmonition}
 \label{ch/principles/intro_nb:example-1}
-\begin{sphinxadmonition}{note}{Example 6.1.2 (1\sphinxhyphen{}period return of equity investment)}
+\begin{sphinxadmonition}{note}{Example 7.1.2 (1\sphinxhyphen{}period return of equity investment)}
 
 
 
@@ -687,7 +1144,7 @@ time\sphinxhyphen{}to\sphinxhyphen{}recover (time to recover drawdowns, in a tem
 \sphinxAtStartPar
 Usually, risk metrics measure uncertainty, without discerning from positive and negative events: these metrics perceive a higher\sphinxhyphen{}than\sphinxhyphen{}expected return as a risk as well. Some metrics instead, see \sphinxstyleemphasis{Sortino ratio} in {\hyperref[\detokenize{ch/principles/intro_nb:fin-edu-principles-rr}]{\sphinxcrossref{\DUrole{std,std-ref}{risk\sphinxhyphen{}return}}}} section, aims at quantifying only negative events as risk.
 \label{ch/principles/intro_nb:example-2}
-\begin{sphinxadmonition}{note}{Example 6.2.1 (Value at Risk)}
+\begin{sphinxadmonition}{note}{Example 7.2.1 (Value at Risk)}
 
 
 
@@ -738,7 +1195,7 @@ being \(f(r)\) the probability density function of the (continuous) random varia
 
 \end{itemize}
 \label{ch/principles/intro_nb:example-3}
-\begin{sphinxadmonition}{note}{Example 6.3.1}
+\begin{sphinxadmonition}{note}{Example 7.3.1}
 
 
 \end{sphinxadmonition}
@@ -779,7 +1236,7 @@ Diversification spreads risk across different investments so no single event can
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{be4d3db9c64f4f8e79978a0fb8d5cc5ce326a29fb210b9feb74371674a3d09a8}.png}
+\noindent\sphinxincludegraphics{{94ef836114fb7373b6ffb9316d5293b45be4c15d84e0ff97fbaabdc442ae172d}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -956,10 +1413,10 @@ Main Colab notebook can be found here: \sphinxurl{https://colab.research.google.
 
 \begin{sphinxuseclass}{cell_output}
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-[\PYGZlt{}matplotlib.lines.Line2D at 0x7f7d663a7fa0\PYGZgt{}]
+[\PYGZlt{}matplotlib.lines.Line2D at 0x7fe290ffafa0\PYGZgt{}]
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{60966f4fb4084ccbec44a9bbac4f92b27036bdb64b792378e684e0504585b6cf}.png}
+\noindent\sphinxincludegraphics{{4b1eaaef6e8220cd18b38ce936767781629fd524c2cff29cdef55500037f72aa}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -977,11 +1434,11 @@ Rebalanced portfolio. Compsite return
  Exp. value: 0.085
  Std. dev. : 0.009
 Buy\PYGZhy{}and\PYGZhy{}Hold portfolio. Compsite return
- Exp. value: 0.082
- Std. dev. : 0.014
+ Exp. value: 0.081
+ Std. dev. : 0.013
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{ba8458d26165072aae51e50cb6db7a81347047cd6c55cba85f8548a0463da5f1}.png}
+\noindent\sphinxincludegraphics{{360de3c5349f6b72e45166cdbb2dbd16dab54c998f129db61190012ad72856c9}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -998,7 +1455,7 @@ Buy\PYGZhy{}and\PYGZhy{}Hold portfolio. Compsite return
 Text(0.5, 1.0, \PYGZsq{}Realization with the deepest drawdown\PYGZsq{})
 \end{sphinxVerbatim}
 
-\noindent\sphinxincludegraphics{{4a580fe955db68b9acc8581f839872edfe06530dbf524a330ac5773613b71d3d}.png}
+\noindent\sphinxincludegraphics{{75f0409ae63bbcd51f74df188a5ae213145e7cb5a9afc2bde1c477d79ddff95c}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1069,7 +1526,7 @@ The solution of the continuous\sphinxhyphen{}time equation with reads
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{7c5956ad8967cd7d890894d7d109b1752291e3d64090d489f7f3e11c553c064c}.png}
+\noindent\sphinxincludegraphics{{915d26d8659d693cfa16366fb3047edf0f4a154b4d641b6c865147619a8482b7}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1082,7 +1539,7 @@ The solution of the continuous\sphinxhyphen{}time equation with reads
 \begin{sphinxuseclass}{tag_hide-input}\begin{sphinxVerbatimOutput}
 
 \begin{sphinxuseclass}{cell_output}
-\noindent\sphinxincludegraphics{{913cf10031849874eff5705c67f5b50cc183eab7bfaa2d113cff929c59a644c3}.png}
+\noindent\sphinxincludegraphics{{23db936fe6339ca0af2a4e8cbca90489bab3b4780412f4e1f19025710abff86c}.png}
 
 \end{sphinxuseclass}\end{sphinxVerbatimOutput}
 
@@ -1668,7 +2125,7 @@ and its variance
     = \mathbf{w}^T \boldsymbol{\sigma}^2 \, \mathbf{w}
 \end{aligned}\end{split}
 \end{equation*}\label{ch/investing/mpt:example-0}
-\begin{sphinxadmonition}{note}{Example 14.1 (Properties of variance matrix)}
+\begin{sphinxadmonition}{note}{Example 15.1 (Properties of variance matrix)}
 
 
 
@@ -1786,7 +2243,7 @@ Return of the portfolio is increased
 \sphinxAtStartPar
 Often, a rebalanced\sphinxhyphen{}portfolio return is larger than the weighted average of the returns of the assets of the portfolio. Shannon demon is the mathematical reason for that, \sphinxstyleemphasis{for creating return “out of thin air”}.
 \label{ch/investing/rebalancing:example-0}
-\begin{sphinxadmonition}{note}{Example 17.1 (Shannon demon \sphinxhyphen{} on a coin flip)}
+\begin{sphinxadmonition}{note}{Example 18.1 (Shannon demon \sphinxhyphen{} on a coin flip)}
 
 
 
@@ -1803,7 +2260,7 @@ If I play with all the money I have, what is the expected amount at the end of t
 Now, let’s change the strategy: I bet only \(50 \%\) of the amount I have. What’s the expected amount at the end of the game?
 \end{sphinxadmonition}
 \label{ch/investing/rebalancing:example-1}
-\begin{sphinxadmonition}{note}{Example 17.2 (Nassin Taleb, is the coin fair?)}
+\begin{sphinxadmonition}{note}{Example 18.2 (Nassin Taleb, is the coin fair?)}
 
 
 
@@ -1811,12 +2268,12 @@ Now, let’s change the strategy: I bet only \(50 \%\) of the amount I have. Wha
 After 10 tosses with 10 heads, how would you bet on the next toss?
 \end{sphinxadmonition}
 \label{ch/investing/rebalancing:example-2}
-\begin{sphinxadmonition}{note}{Example 17.3 (Kelly criterion)}
+\begin{sphinxadmonition}{note}{Example 18.3 (Kelly criterion)}
 
 
 \end{sphinxadmonition}
 \label{ch/investing/rebalancing:example-3}
-\begin{sphinxadmonition}{note}{Example 17.4 (Does rebalancing improve return, thanks to Shannon demon?)}
+\begin{sphinxadmonition}{note}{Example 18.4 (Does rebalancing improve return, thanks to Shannon demon?)}
 
 
 

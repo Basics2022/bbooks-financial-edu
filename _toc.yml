@@ -16,6 +16,7 @@ parts:
   chapters:
   - file: ch/actors
   - file: ch/inflation
+  - file: code/notebooks/inflation
   - file: ch/policy
 - caption: Investing Principles
   numbered: True
