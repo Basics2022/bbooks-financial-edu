@@ -1316,8 +1316,8 @@ document.write(`
 <p>As an example:</p>
 <ul class="simple">
 <li><p>Clothing and Footwear: in July–August, retailers apply seasonal discounts (saldi) in Italy and prices in IPCA do include these discounts when they are actually applied in stores, as it’s shown by seasonal July/August price drops</p></li>
-<li><p>Fresh fruits and vegetables: Prone to seasonal availability, leading to fluctuating prices.</p></li>
-<li><p>Travel and tourism: Prices rise in summer and holidays.</p></li>
+<li><p>Fresh fruits and vegetables: prone to seasonal availability, leading to fluctuating prices.</p></li>
+<li><p>Travel and tourism: prices rise in summer and holidays.</p></li>
 </ul>
 <p>Seasonality can obscure underlying inflation trends: that’s why <strong>seasonally adjusted</strong> inflation is evaluated, see below.</p>
 <div class="cell tag_hide-input docutils container">
@@ -1396,7 +1396,13 @@ Harmonized Eurostat Measures:
 Eurostat publishes seasonally adjusted HICP indices that remove recurring seasonal variations using standard methodologies across countries.
  
 De-seasonalized inflation allows for cleaner comparisons over time and between countries, removing noise caused by predictable price swings.
---><div class="cell tag_hide-input docutils container">
+--><div class="warning admonition">
+<p class="admonition-title">Energy post-2022</p>
+<p>Since 2022, prices in the energy and utility sectors have shown exceptional volatility. Different causes may have contributed, like geopolitical tensions (notably, the war in Ukraine), “liberalized” electricity/gas markets in Italy where price caps were adjusted or removed. Inflation in energy and electricity was also influenced by a <em>base effect</em> (e.g., very low prices in 2020–2021 followed by spikes in 2022).</p>
+<p>Policy interventions like tax reductions and bonuses - that are not “free” -, which may or may not be reflected in consumer prices, depending on implementation.</p>
+<p>The use of <em>core inflation</em> in 2022–2023 was arguable, as energy prices didn’t just spiked and reverted, but was/is quite a long-term shock (war, sanctions, market and supply restructuring,…); as energy price influences many other sectors, food price rose as well, due to input cost shocks /fretilizers, transports,…) not as a result of seasonality only. Using core inflation and excluding energy and food components masked the true <strong>cost-of living</strong> impact on households.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -1500,50 +1506,6 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
 </div>
 </div>
 </details>
-</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
-
-<span class="c1"># df_contributions = df_contributions.dropna(axis=1, how=&#39;all&#39;)</span>
-
-<span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">df_contributions</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">df_contributions</span><span class="p">[</span><span class="n">col</span><span class="p">],</span>
-        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
-        <span class="n">stackgroup</span><span class="o">=</span><span class="s1">&#39;one&#39;</span><span class="p">,</span>  <span class="c1"># enables stacking</span>
-        <span class="n">name</span><span class="o">=</span><span class="n">col</span>
-    <span class="p">))</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
-    <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Contributions to Year-over-Year Inflation (Weighted by IPCA)&quot;</span><span class="p">,</span>
-    <span class="n">xaxis_title</span><span class="o">=</span><span class="s2">&quot;Date&quot;</span><span class="p">,</span>
-    <span class="n">yaxis_title</span><span class="o">=</span><span class="s2">&quot;Contribution to Inflation (%)&quot;</span><span class="p">,</span>
-    <span class="c1"># width=1000,</span>
-    <span class="c1"># height=600</span>
-<span class="p">)</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output text_html"><iframe
-    scrolling="no"
-    width="100%"
-    height="545px"
-    src="iframe_figures/figure_12.html"
-    frameborder="0"
-    allowfullscreen
-></iframe>
-</div></div>
 </div>
 <div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
@@ -1824,7 +1786,7 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
     <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="c1"># &#39;x&#39;,</span>
     <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
     <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
-    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Stacked bars with relative mode&#39;</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Category contributions to inflation&#39;</span>
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">)</span> <span class="c1"># relative&#39;)</span>
@@ -1841,7 +1803,7 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
     scrolling="no"
     width="100%"
     height="545px"
-    src="iframe_figures/figure_14.html"
+    src="iframe_figures/figure_13.html"
     frameborder="0"
     allowfullscreen
 ></iframe>
