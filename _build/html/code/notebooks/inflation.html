@@ -65,6 +65,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'code/notebooks/inflation';</script>
     <link rel="shortcut icon" href="../../_static/favicon-gold.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -464,15 +466,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-indices-e-g-in-italy">5.1. Inflation Indices (e.g. in Italy)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca">5.2. Weights and Price Indices of Classes of Goods and Services - Italy IPCA</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-data">5.2.1. Inspect Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#price-indices-level-4-ipca-categories">5.2.1.1. Price Indices - Level-4 IPCA categories</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fin-edu-inflation-ipca-inspect-data-weights">5.2.1.2. Price Indices - Level-4 IPCA categories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-indices-level-4-ipca">5.2.1.1. Category Price Indices - Level-4 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-4-ipca">5.2.1.2. Category Weights - Level-4 IPCA</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">5.2.2. Plots</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-weights">5.2.2.1. Level-2 IPCA Category weights</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-prices">5.2.2.2. Level-2 IPCA Category Prices</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-price-changes-inflation">5.2.2.3. Level-2 IPCA Category Price Changes - Inflation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation">5.2.2.4. Category contributions to overall inflation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-2-ipca">5.2.2.1. Category weights - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-prices-level-2-ipca">5.2.2.2. Category Prices - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-changes-inflation-level-2-ipca">5.2.2.3. Category Price Changes (Inflation) -  Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation-level-2-ipca">5.2.2.4. Category contributions to overall inflation - Level-2 IPCA</a></li>
 </ul>
 </li>
 </ul>
@@ -602,8 +604,8 @@ document.write(`
 <div class="section" id="inspect-data">
 <span id="fin-edu-inflation-ipca-inspect-data"></span><h3><span class="section-number">5.2.1. </span>Inspect Data<a class="headerlink" href="#inspect-data" title="Permalink to this heading">#</a></h3>
 <p>Before producing plots, price indices and weights of level-4 categories are visually inspected. Data are usually collected in tables.</p>
-<div class="section" id="price-indices-level-4-ipca-categories">
-<span id="fin-edu-inflation-ipca-inspect-data-prices"></span><h4><span class="section-number">5.2.1.1. </span>Price Indices - Level-4 IPCA categories<a class="headerlink" href="#price-indices-level-4-ipca-categories" title="Permalink to this heading">#</a></h4>
+<div class="section" id="category-price-indices-level-4-ipca">
+<span id="fin-edu-inflation-ipca-inspect-data-prices"></span><h4><span class="section-number">5.2.1.1. </span>Category Price Indices - Level-4 IPCA<a class="headerlink" href="#category-price-indices-level-4-ipca" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-output tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -935,8 +937,8 @@ document.write(`
 </details>
 </div>
 </div>
-<div class="section" id="fin-edu-inflation-ipca-inspect-data-weights">
-<span id="id1"></span><h4><span class="section-number">5.2.1.2. </span>Price Indices - Level-4 IPCA categories<a class="headerlink" href="#fin-edu-inflation-ipca-inspect-data-weights" title="Permalink to this heading">#</a></h4>
+<div class="section" id="category-weights-level-4-ipca">
+<span id="fin-edu-inflation-ipca-inspect-data-weights"></span><h4><span class="section-number">5.2.1.2. </span>Category Weights - Level-4 IPCA<a class="headerlink" href="#category-weights-level-4-ipca" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input tag_hide-output docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1218,8 +1220,12 @@ document.write(`
 </div>
 <div class="section" id="plots">
 <h3><span class="section-number">5.2.2. </span>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h3>
-<div class="section" id="level-2-ipca-category-weights">
-<h4><span class="section-number">5.2.2.1. </span>Level-2 IPCA Category weights<a class="headerlink" href="#level-2-ipca-category-weights" title="Permalink to this heading">#</a></h4>
+<div class="section" id="category-weights-level-2-ipca">
+<h4><span class="section-number">5.2.2.1. </span>Category weights - Level-2 IPCA<a class="headerlink" href="#category-weights-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>The weights assigned to IPCA (Harmonized Index of Consumer Prices) categories represent the average expenditure share of households on each category of goods and services. These weights reflect how important each category is in the consumption basket.</p>
+<p>These weights are revised annually to account for changing consumer behavior, as one can easily realize acting on the slider of the picture below. They are the weights used in computing the overall inflation <span class="math notranslate nohighlight">\(i\)</span> index, as the weighted sum of inflation <span class="math notranslate nohighlight">\(i_c\)</span> of IPCA categories,</p>
+<div class="math notranslate nohighlight">
+\[i = \sum_{c \in \text{Cat}} i_c \, w_c \ .\]</div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1304,8 +1310,16 @@ document.write(`
 </div></div>
 </div>
 </div>
-<div class="section" id="level-2-ipca-category-prices">
-<h4><span class="section-number">5.2.2.2. </span>Level-2 IPCA Category Prices<a class="headerlink" href="#level-2-ipca-category-prices" title="Permalink to this heading">#</a></h4>
+<div class="section" id="category-prices-level-2-ipca">
+<h4><span class="section-number">5.2.2.2. </span>Category Prices - Level-2 IPCA<a class="headerlink" href="#category-prices-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>Some categories in IPCA are subject to strong seasonal effects, meaning prices follow recurring patterns during the year.</p>
+<p>As an example:</p>
+<ul class="simple">
+<li><p>Clothing and Footwear: in July–August, retailers apply seasonal discounts (saldi) in Italy and prices in IPCA do include these discounts when they are actually applied in stores, as it’s shown by seasonal July/August price drops</p></li>
+<li><p>Fresh fruits and vegetables: Prone to seasonal availability, leading to fluctuating prices.</p></li>
+<li><p>Travel and tourism: Prices rise in summer and holidays.</p></li>
+</ul>
+<p>Seasonality can obscure underlying inflation trends: that’s why <strong>seasonally adjusted</strong> inflation is evaluated, see below.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1343,8 +1357,8 @@ document.write(`
     <span class="c1"># xaxis_tickangle=-45,</span>
     <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
     <span class="c1"># template=&#39;plotly_white&#39;,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="c1"># height=600,</span>
+    <span class="c1"># width=1000,</span>
     <span class="c1"># legend=dict(orientation=&quot;v&quot;, x=1.02, y=1)</span>
 <span class="p">)</span>
 
@@ -1356,8 +1370,8 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html"><iframe
     scrolling="no"
-    width="1020px"
-    height="620"
+    width="100%"
+    height="545px"
     src="iframe_figures/figure_9.html"
     frameborder="0"
     allowfullscreen
@@ -1365,9 +1379,24 @@ document.write(`
 </div></div>
 </div>
 </div>
-<div class="section" id="level-2-ipca-category-price-changes-inflation">
-<h4><span class="section-number">5.2.2.3. </span>Level-2 IPCA Category Price Changes - Inflation<a class="headerlink" href="#level-2-ipca-category-price-changes-inflation" title="Permalink to this heading">#</a></h4>
-<div class="cell tag_hide-input docutils container">
+<div class="section" id="category-price-changes-inflation-level-2-ipca">
+<h4><span class="section-number">5.2.2.3. </span>Category Price Changes (Inflation) -  Level-2 IPCA<a class="headerlink" href="#category-price-changes-inflation-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>The 12-month inflation rate (year-on-year or YoY) compares prices in a given month to the same month the year before. It’s already less prone to seasonal effects than the month-to-month rate.</p>
+<p>However, even YoY rates can exhibit seasonal patterns, especially in volatile components like food, energy, and clothing. In order to reduce volatility of inflation indices, it’s possible to use:</p>
+<ul class="simple">
+<li><p><strong>Core inflation</strong>, as a measure of inflation that excludes the most volatile items (e.g., unprocessed food, energy), in order to provide a smoothed measure of inflation trends.</p></li>
+<li><p>Statistical filtering, and moving averages</p></li>
+</ul>
+<!-- use of tools like X-13ARIMA-SEATS (by US Census Bureau) or TRAMO/SEATS (Eurostat).
+These methods model and remove seasonal effects in the inflation time series.
+
+Applying a 12-month rolling average to the monthly index to smooth out short-term fluctuations.
+       
+Harmonized Eurostat Measures:
+Eurostat publishes seasonally adjusted HICP indices that remove recurring seasonal variations using standard methodologies across countries.
+ 
+De-seasonalized inflation allows for cleaner comparisons over time and between countries, removing noise caused by predictable price swings.
+--><div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -1395,8 +1424,8 @@ document.write(`
     <span class="c1"># xaxis_tickangle=-45,</span>
     <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
     <span class="c1"># template=&#39;plotly_white&#39;,</span>
-    <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
-    <span class="n">width</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span>
+    <span class="c1"># height=600,</span>
+    <span class="c1"># width=1000,</span>
     <span class="c1"># legend=dict(orientation=&quot;v&quot;, x=1.02, y=1)</span>
 <span class="p">)</span>
 
@@ -1408,8 +1437,8 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output text_html"><iframe
     scrolling="no"
-    width="1020px"
-    height="620"
+    width="100%"
+    height="545px"
     src="iframe_figures/figure_10.html"
     frameborder="0"
     allowfullscreen
@@ -1417,8 +1446,8 @@ document.write(`
 </div></div>
 </div>
 </div>
-<div class="section" id="category-contributions-to-overall-inflation">
-<h4><span class="section-number">5.2.2.4. </span>Category contributions to overall inflation<a class="headerlink" href="#category-contributions-to-overall-inflation" title="Permalink to this heading">#</a></h4>
+<div class="section" id="category-contributions-to-overall-inflation-level-2-ipca">
+<h4><span class="section-number">5.2.2.4. </span>Category contributions to overall inflation - Level-2 IPCA<a class="headerlink" href="#category-contributions-to-overall-inflation-level-2-ipca" title="Permalink to this heading">#</a></h4>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -1779,12 +1808,51 @@ document.write(`
 </div></div></div>
 </details>
 </div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s1">&#39;Time&#39;</span><span class="p">]</span>
+
+<span class="n">df_long</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="n">y_cols</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">df_long</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="c1"># &#39;x&#39;,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Stacked bars with relative mode&#39;</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">)</span> <span class="c1"># relative&#39;)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># df_contributions</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_14.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
 </div>
 </div>
 </div>
 <div class="section" id="correlations-in-macroeconomics-with-inflation">
 <span id="fin-edu-inflation-correlations"></span><h2><span class="section-number">5.3. </span>Correlations in macroeconomics with inflation<a class="headerlink" href="#correlations-in-macroeconomics-with-inflation" title="Permalink to this heading">#</a></h2>
-<p>Some correlations exist<a class="footnote-reference brackets" href="#correlation-economics" id="id2">1</a> between inflation and other macroeconocmics quantitites.</p>
+<p>Some correlations exist<a class="footnote-reference brackets" href="#correlation-economics" id="id1">1</a> between inflation and other macroeconocmics quantitites.</p>
 <ul class="simple">
 <li><p><strong>Phillips Curve</strong>: inverse relation between inflation and unemployment (in the short-run)</p></li>
 <li><p><strong>Money supply</strong> in the long-run “<em>Inflation is a monetary phenomenon</em>”, M.Friedman.</p></li>
@@ -1802,7 +1870,7 @@ document.write(`
 <p><strong>Credibility</strong> of targets, and actors through their actions and forward guidance may influence inflation as well: expectations influences inflation.</p>
 <hr class="footnotes docutils" />
 <dl class="footnote brackets">
-<dt class="label" id="correlation-economics"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dt class="label" id="correlation-economics"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
 <dd><p>…</p>
 </dd>
 </dl>
@@ -1875,15 +1943,15 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-indices-e-g-in-italy">5.1. Inflation Indices (e.g. in Italy)</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca">5.2. Weights and Price Indices of Classes of Goods and Services - Italy IPCA</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-data">5.2.1. Inspect Data</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#price-indices-level-4-ipca-categories">5.2.1.1. Price Indices - Level-4 IPCA categories</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#fin-edu-inflation-ipca-inspect-data-weights">5.2.1.2. Price Indices - Level-4 IPCA categories</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-indices-level-4-ipca">5.2.1.1. Category Price Indices - Level-4 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-4-ipca">5.2.1.2. Category Weights - Level-4 IPCA</a></li>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">5.2.2. Plots</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-weights">5.2.2.1. Level-2 IPCA Category weights</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-prices">5.2.2.2. Level-2 IPCA Category Prices</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#level-2-ipca-category-price-changes-inflation">5.2.2.3. Level-2 IPCA Category Price Changes - Inflation</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation">5.2.2.4. Category contributions to overall inflation</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-2-ipca">5.2.2.1. Category weights - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-prices-level-2-ipca">5.2.2.2. Category Prices - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-changes-inflation-level-2-ipca">5.2.2.3. Category Price Changes (Inflation) -  Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation-level-2-ipca">5.2.2.4. Category contributions to overall inflation - Level-2 IPCA</a></li>
 </ul>
 </li>
 </ul>
