@@ -1247,6 +1247,7 @@ document.write(`
     <span class="n">branchvalues</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span>  <span class="c1"># &quot;toatal&quot; or &quot;remainder&quot;</span>
     <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">text</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+    <span class="n">textinfo</span><span class="o">=</span><span class="s1">&#39;text+percent parent&#39;</span>  
 <span class="p">))</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;IPCA weights - 2025&quot;</span><span class="p">)</span>
 
@@ -1261,7 +1262,8 @@ document.write(`
             <span class="n">values</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="n">year</span><span class="p">],</span>
             <span class="n">branchvalues</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span>  <span class="c1"># &quot;toatal&quot; or &quot;remainder&quot;</span>
             <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-            <span class="n">text</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+            <span class="n">textinfo</span><span class="o">=</span><span class="s1">&#39;text+percent parent&#39;</span>
         <span class="p">)],</span>
         <span class="n">name</span><span class="o">=</span><span class="n">year</span><span class="p">,</span>
         <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;IPCA weights - </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -1346,7 +1348,7 @@ document.write(`
         <span class="n">x</span><span class="o">=</span><span class="n">df_classes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
         <span class="n">y</span><span class="o">=</span><span class="n">df_classes</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
         <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
     <span class="p">))</span>
 
 <span class="c1"># Customize layout</span>
@@ -1433,6 +1435,13 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
     <span class="c1"># height=600,</span>
     <span class="c1"># width=1000,</span>
     <span class="c1"># legend=dict(orientation=&quot;v&quot;, x=1.02, y=1)</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
