@@ -6,5 +6,5 @@
 
 - Who controls inflation, and how? One of [CB](fin-edu:actors:banks:cb) goals: inflation target; tools: monetary policy
 - Origin of inflation?
-  - short-, medium-run: cost-push, demand-pull, built-in (triangle model)
-  - long-run: "monetary always and everywhere a monetary phenomenon" M.Friedman
+  - [short-run](fin-edu:characteristic-times:short), [medium-run](fin-edu:characteristic-times:medium): cost-push, demand-pull, built-in (triangle model)
+  - [long-run](fin-edu:characteristic-times:long): "monetary always and everywhere a monetary phenomenon" M.Friedman
