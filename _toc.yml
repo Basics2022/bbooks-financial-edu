@@ -17,6 +17,7 @@ parts:
   - file: ch/actors
 # - file: ch/inflation
   - file: code/notebooks/inflation
+  - file: ch/characteristic-times
   - file: ch/policy
 - caption: Investing Principles
   numbered: True
