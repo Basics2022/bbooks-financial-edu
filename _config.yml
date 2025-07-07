@@ -32,6 +32,8 @@ html:
   use_issues_button: true
   use_repository_button: true
   extra_navbar: ""
+  extra_files:
+    - code/notebooks/iframe_figures
 
 # sphinx extensions
 sphinx:
@@ -50,6 +52,8 @@ sphinx:
         colab_url: "https://colab.research.google.com"    # colab
     html_favicon: favicon-gold.svg
     bibtex_bibfiles: [ "bibliography.bib" ]
+    html_js_files:
+      - https://cdn.plot.ly/plotly-latest.min.js
   extra_extensions:
     - sphinx_proof
     - sphinx_exercise
