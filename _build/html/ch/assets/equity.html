@@ -65,26 +65,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'ch/assets/equity';</script>
     <link rel="shortcut icon" href="../../_static/favicon-gold.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="12.3. Three Financial Statements" href="financial-statements.html" />
+    <link rel="next" title="12.1. Equity Valuation" href="equity-valuation.html" />
     <link rel="prev" title="11. Bonds" href="bonds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9JVM265TS');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -198,7 +187,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">10. Introduction to asset classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bonds.html">11. Bonds</a></li>
 <li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">12. Equity</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="financial-statements.html">12.3. Three Financial Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equity-valuation.html">12.1. Equity Valuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="financial-statements.html">12.2. Three Financial Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="equity-fun.html">12.3. Correlations, plots and fun facts about equity investing</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="etfs.html">13. ETFs</a></li>
@@ -409,9 +400,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -427,15 +416,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">12.1. Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">12.2. Intrinsic value</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -447,55 +427,19 @@ document.write(`
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="equity">
 <span id="fin-edu-assets-equity"></span><h1><span class="section-number">12. </span>Equity<a class="headerlink" href="#equity" title="Permalink to this heading">#</a></h1>
-<p>Equity valuation is a mix of <strong>common sense</strong>, math, expectations and estimation, and cooking: buying shares of a firm (directly or with a fund) means buying a (tiny) share of the company, a business producing goods and/or services, able to generate earnings/free cash flows. When you hold shares, you’re participating to the business and have rights to the profits.</p>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<p><strong>What’s equity?</strong></p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
-Detailed introduction<div class="sd-summary-down docutils">
+Contents<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Equity valuation blends common sense, mathematics, expectations, estimation—and a bit of art. Buying shares in a company, whether directly or through a fund, means owning a (tiny) stake in a real business that produces goods and/or services and has the potential to generate earnings or free cash flows. As a shareholder, you are not just investing in market prices—you’re becoming a part-owner of the enterprise. This ownership entitles you to a share of the company’s profits through dividends or capital appreciation. It also comes with certain rights and responsibilities, especially during difficult periods.</p>
-<p class="sd-card-text">When companies face financial stress or pursue growth opportunities, they may issue new shares to raise capital. This can lead to dilution, reducing the percentage ownership of existing shareholders. However, shareholders often have preemptive rights, allowing them to participate in new issuances to maintain their ownership stake. Moreover, owning equity means having a claim on the residual value of the company—what’s left after all debts are paid—in both prosperous and challenging times. Understanding these dynamics is crucial to valuing equity: you’re not just buying into today’s performance, but into a stream of future cash flows and the complex, evolving structure of ownership.</p>
+<p class="sd-card-text"><strong><a class="reference internal" href="equity-valuation.html#fin-edu-assets-equity-valuation"><span class="std std-ref">Valuation methods</span></a>.</strong> Comparison and intrinsic value methods.</p>
+<p class="sd-card-text"><strong><a class="reference internal" href="financial-statements.html#fin-edu-financial-statements"><span class="std std-ref">Financial statements</span></a>.</strong> Introduction to financial statements of a company.</p>
+<p class="sd-card-text"><strong><span class="xref myst">Correlations, plots and fun-facts</span>.</strong></p>
 </div>
-</details><p><strong>Sensitivity analysis</strong> could provide an estimate of the effects of different parameters/assumptions on the final result.</p>
-<p><strong>Different valuation methods</strong> exist, and can be broadly classified in</p>
-<ul class="simple">
-<li><p><strong>comparison</strong> approach: P/E, EV/EBITDA, or other indices used to compare companies of the same sector, marked, dimension,…<a class="footnote-reference brackets" href="#id2" id="id1">1</a></p></li>
-<li><p><strong>intrinsic value</strong> approach, based on <strong>DCF</strong></p></li>
-<li><p>…other methods for general firms (cost approach,…); valuation of financials;…</p></li>
-</ul>
-<div class="section" id="comparison">
-<span id="fin-edu-assets-equity-comparison"></span><h2><span class="section-number">12.1. </span>Comparison<a class="headerlink" href="#comparison" title="Permalink to this heading">#</a></h2>
-</div>
-<div class="section" id="intrinsic-value">
-<span id="fin-edu-assets-equity-intrinsic"></span><h2><span class="section-number">12.2. </span>Intrinsic value<a class="headerlink" href="#intrinsic-value" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p>Future cash flows are estimated,</p></li>
-<li><p>CFs are discounted, usually for the <span class="math notranslate nohighlight">\(WACC\)</span> (Weighted Average Cost of Capital) to find the <span class="math notranslate nohighlight">\(NPV\)</span> (net present value) of the <strong>enterprise value</strong> <span class="math notranslate nohighlight">\(EV\)</span></p></li>
-<li><p>Cash and equivalents are added to the <span class="math notranslate nohighlight">\(NPV\)</span> to find the <strong>equity value</strong></p></li>
-</ul>
-<div class="tip admonition">
-<p class="admonition-title"><span class="math notranslate nohighlight">\(WACC\)</span></p>
-<div class="math notranslate nohighlight">
-\[WACC = \dfrac{E}{V} R_e + \dfrac{D}{V} R_d (1 - t)\]</div>
-<p>being <span class="math notranslate nohighlight">\(R_e\)</span> the <strong>cost of equity</strong> and <span class="math notranslate nohighlight">\(R_d\)</span> the <strong>cost of debt</strong> (maybe the easiest part to estimated accurately, since the debt structure is usually known/programmed). The factor <span class="math notranslate nohighlight">\((1-t)\)</span> usually appears as interest payments are tax-deductible.</p>
-</div>
-<div class="tip admonition">
-<p class="admonition-title">Equity Risk Premium <span class="math notranslate nohighlight">\(R_e\)</span> - Sharpe</p>
-<p>Following W.Sharpe, equity risk premium can be estimated as</p>
-<div class="math notranslate nohighlight">
-\[R_e = R_f + (R_m + R_f) \beta \ ,\]</div>
-<p>being <span class="math notranslate nohighlight">\(R_f\)</span> the risk-free rate (usaully 10Y US Treasuries), and <span class="math notranslate nohighlight">\(R_m\)</span> the annual return of the market/sector of the investment, <span class="math notranslate nohighlight">\(\beta\)</span> is a measure of risk or stock volatility of returns of the investment relative to that of the market/sector.</p>
-</div>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>It’s not always possible to find “equivalent” companies for the comparison…; P/E, EV/EBITDA,… whould be projected into the future to keep into account future in the value of a firm.</p>
-</dd>
-</dl>
-</div>
-<div class="toctree-wrapper compound">
+</details><div class="toctree-wrapper compound">
 </div>
 </div>
 
@@ -539,11 +483,11 @@ Detailed introduction<div class="sd-summary-down docutils">
       </div>
     </a>
     <a class="right-next"
-       href="financial-statements.html"
+       href="equity-valuation.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">12.3. </span>Three Financial Statements</p>
+        <p class="prev-next-title"><span class="section-number">12.1. </span>Equity Valuation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -553,21 +497,6 @@ Detailed introduction<div class="sd-summary-down docutils">
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison">12.1. Comparison</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intrinsic-value">12.2. Intrinsic value</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
