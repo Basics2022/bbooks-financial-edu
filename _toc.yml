@@ -34,7 +34,7 @@ parts:
     sections:
     - file: ch/assets/equity-valuation
     - file: ch/assets/financial-statements
-    - file: ch/assets/equity-fun
+    - file: code/notebooks/equity-fun
   - file: ch/assets/etfs
 - caption: Asset allocation 
   numbered: True
