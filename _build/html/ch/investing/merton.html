@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Rebalancing &#8212; Financial Education - basics</title>
+    <title>17. Merton’s portfolio problem &#8212; Financial Education - basics</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/investing/rebalancing';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/investing/merton';</script>
     <link rel="shortcut icon" href="../../_static/favicon-gold.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extra and Random" href="../extra/intro.html" />
-    <link rel="prev" title="18. Strategic and Tactical Asset Allocation" href="strategic-tactical.html" />
+    <link rel="next" title="18. Strategic and Tactical Asset Allocation" href="strategic-tactical.html" />
+    <link rel="prev" title="16. Capital Asset Pricing Model" href="capm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -210,9 +210,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">14. Introduction to investing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpt.html">15. Modern Portfolio Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capm.html">16. Capital Asset Pricing Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="merton.html">17. Merton’s portfolio problem</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Merton’s portfolio problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="strategic-tactical.html">18. Strategic and Tactical Asset Allocation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebalancing.html">19. Rebalancing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
@@ -294,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/investing/rebalancing.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/investing/merton.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -311,7 +311,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/investing/rebalancing.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/investing/merton.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -341,7 +341,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/investing/rebalancing.md" target="_blank"
+      <li><a href="../../_sources/ch/investing/merton.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -425,7 +425,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Rebalancing</h1>
+    <h1>Merton’s portfolio problem</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -435,7 +435,15 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">19.1. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">17.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">17.1.1. Recursive relation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">17.1.2. Taylor expansion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">17.1.3. Recursive relation for optimal solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">17.1.4. Optimality condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">17.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">17.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -447,75 +455,123 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="rebalancing">
-<span id="fin-edu-investing-rebalancing"></span><h1><span class="section-number">19. </span>Rebalancing<a class="headerlink" href="#rebalancing" title="Permalink to this heading">#</a></h1>
-<p><strong>Reasons.</strong></p>
-<ul class="simple">
-<li><p>risk management:</p>
-<ul>
-<li><p>adjust risk for the period of life, and risk-level</p></li>
-<li><p>correct drift towards the asset with highest return, as it affects the</p></li>
-</ul>
-</li>
-</ul>
-<p><strong>Strategies.</strong>
-In a passive investment strategy, rebalancing shoudl be triggered by some rules, to be applied automatically. As an example:</p>
-<ul class="simple">
-<li><p>periodic rebalancing: rebalancing with constant time interval</p></li>
-<li><p>deviation-triggered: rebalancing when asset allocation deviation from the traget allocation exceeds a prescribed threshold. E.g. approximately 10% of a 60-40 portfolio going to 65-35 (introduction of episode <strong>152</strong>, as a summary of episode <strong>117</strong>)</p></li>
-<li><p>using contributions/withdrawals</p></li>
-</ul>
-<p><strong>Effects of rebalancing.</strong> In different situations one of the following effects occurs:</p>
-<ul class="simple">
-<li><p>Volatility is reduced</p></li>
-<li><p>Risk-adjusted return improves</p></li>
-<li><p>Return of the portfolio is increased</p></li>
-</ul>
-<p>Often, a rebalanced-portfolio return is larger than the weighted average of the returns of the assets of the portfolio. Shannon demon is the mathematical reason for that, <em>for creating return “out of thin air”</em>.</p>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 19.1 </span> (Shannon demon - on a coin flip)</p>
-<div class="example-content section" id="proof-content">
-<p>Starting with <span class="math notranslate nohighlight">\(100\)</span>€, and a fair coin with <span class="math notranslate nohighlight">\(50\%\)</span> probability of for each outcome, either <span class="math notranslate nohighlight">\(H\)</span>:head or <span class="math notranslate nohighlight">\(T\)</span>:tail. If outcome is <span class="math notranslate nohighlight">\(H\)</span> you gain <span class="math notranslate nohighlight">\(50 \%\)</span>, if outcome is <span class="math notranslate nohighlight">\(T\)</span> you lose <span class="math notranslate nohighlight">\(33.3 \%\)</span>.</p>
-<ul class="simple">
-<li><p>If I play with all the money I have, what is the expected amount at the end of the game, for a sufficiently large number of toss?</p></li>
-</ul>
-<p>Now, let’s change the strategy: I bet only <span class="math notranslate nohighlight">\(50 \%\)</span> of the amount I have. What’s the expected amount at the end of the game?</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="merton-s-portfolio-problem">
+<span id="fin-edu-investing-merton"></span><h1><span class="section-number">17. </span>Merton’s portfolio problem<a class="headerlink" href="#merton-s-portfolio-problem" title="Permalink to this heading">#</a></h1>
+<p>Merton’s portfolio problem deals with the choice of optimal fraction of investment in a risky asset <span class="math notranslate nohighlight">\(\pi_t\)</span> and the consumption <span class="math notranslate nohighlight">\(c_t\)</span>.</p>
+<p>Assuming that the wealth of a family or an individual can is invested with a fraction <span class="math notranslate nohighlight">\(\pi_t\)</span> in a risky part of the portfolio with expected return <span class="math notranslate nohighlight">\(\mu\)</span> and standard variation <span class="math notranslate nohighlight">\(\sigma_t\)</span>, and with a fraction <span class="math notranslate nohighlight">\(1-\pi_t\)</span> in a risk-free asset with expected return <span class="math notranslate nohighlight">\(r_t\)</span> and zero standard deviation, the wealth <span class="math notranslate nohighlight">\(x_t\)</span> of a family or an individual evolves with the SDE</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  d X_t
+  &amp; = r_t (1 - \pi_t ) X_t \, dt + \mu_t \pi_t X_t \, dt - c_t \, dt + \pi_t \sigma_t X_t \, dW_t = \\
+  &amp; = r_t  X_t \, dt + \left( \mu_t - r_t \right) \pi_t X_t \, dt - c_t \, dt + \pi_t \sigma_t X_t \, dW_t \ , 
+\end{aligned}\end{split}\]</div>
+<p>i.e. the equation of a <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/processes-calculus.html#geometric-brownian-motion-with-drift">geometric Brownian motion with drift</a>, the same equation that can be used to discuss <a class="reference internal" href="../../code/notebooks/sequence-risk.html#fin-edu-principles-sequence-risk"><span class="std std-ref">sequence risk</span></a> in investment, especially dealing with withdrawal.</p>
+<p>Optimization problem can be solved using <strong>continuous-time reinforcement learning</strong>, see as an example <a class="reference external" href="https://basics2022.github.io/bbooks-math-miscellanea/ch/rl/intro.html">Math:Introduction to RL</a>, and <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/ml/rl.html">Statistics:RL</a> (<strong>todo</strong>). Optimal solution <span class="math notranslate nohighlight">\(\pi_t^*\)</span>, <span class="math notranslate nohighlight">\(c_t^*\)</span> is the fraction invested in the risky asset and consumption that maximises the <strong>value function</strong>,</p>
+<div class="math notranslate nohighlight">
+\[V(x,t) = \mathbb{E} \left[ \left. \int_{s=t}^{T} e^{- \rho (s-t)} u(c_s) \, ds + e^{-\rho(T-t)} B(T) u(X_T) \right| X_t = x \right] \ ,\]</div>
+<p>i.e. the return of the choice defined as the cumulative discounted reward. Reward per unit time is the <strong>utility function</strong> <span class="math notranslate nohighlight">\(u(c_s)\)</span>, <span class="math notranslate nohighlight">\(\rho\)</span> is a personal discount factor that weights present and future rewards, and <span class="math notranslate nohighlight">\(B(T)\)</span> is a bequest function.</p>
+<p>For constant expected return and volatility of the assets, and a utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1 - \gamma}\)</span> it’s possible to find an analytical solution with optimal fraction invested in the risky asset</p>
+<div class="math notranslate nohighlight">
+\[\pi^* = \frac{\mu - r}{\gamma \sigma^2} \ .\]</div>
+<div class="section" id="recursive-relation-and-hamilton-jacobi-bellman-relation">
+<span id="fin-edu-investing-merton-hjb"></span><h2><span class="section-number">17.1. </span>Recursive relation and Hamilton-Jacobi-Bellman relation<a class="headerlink" href="#recursive-relation-and-hamilton-jacobi-bellman-relation" title="Permalink to this heading">#</a></h2>
+<p>Writing the value function <span class="math notranslate nohighlight">\(V(X_{t+dt}, t+dt)\)</span> and expanding as a Taylor series up to the first order in <span class="math notranslate nohighlight">\(dt\)</span>, it’s possible to find a <strong>Hamilton-Jacobi-Bellman</strong> equation from a recursive relation.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  V(X_t+dX_t, t+ dt) 
+  &amp; = \mathbb{E} \left[ \left. \int_{s=t+dt}^{T} e^{- \rho (s-t-dt)} u(c_s) \, ds + e^{-\rho(T-t-dt)} B(T) u(X_T) \right| X_{t+dt} \right] = \\
+\end{aligned}\end{split}\]</div>
+<div class="section" id="recursive-relation">
+<h3><span class="section-number">17.1.1. </span>Recursive relation<a class="headerlink" href="#recursive-relation" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[e^{-\rho  t    } V(X_t     , t   ) = \mathbb{E} \left[  \left. \int_{s=t   }^{T} e^{- \rho s} u(c_s) \, ds + e^{-\rho T} B(T) u(X_T) \right| X_{t   } \right]\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  e^{-\rho (t+dt)} V(X_t+dX_t, t+dt)
+  &amp; = \mathbb{E} \left[  \left. \int_{s=t+dt}^{T} e^{- \rho s} u(c_s) \, ds + e^{-\rho T} B(T) u(X_T) \right| X_{t+dt} \right] = \\
+  &amp; = \mathbb{E} \left[  \left. \int_{s=t   }^{T} e^{- \rho s} u(c_s) \, ds + e^{-\rho T} B(T) u(X_T) \right| X_{t+dt} \right]     
+    - \mathbb{E} \left[  \left. \int_{s=t}^{t+dt} e^{- \rho s} u(c_s) \, ds                           \right| X_{t+dt} \right] = \\
+\end{aligned}\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[e^{-\rho (t+dt)} V(X_t+dX_t, t+dt) = e^{-\rho t} V(X_t, t) - e^{-\rho t} u(c_t) \, dt\]</div>
+<div class="math notranslate nohighlight">
+\[d \left( e^{-\rho t} V(X_t, t) \right) = - e^{-\rho t} u(c_t) \, dt\]</div>
+<div class="math notranslate nohighlight">
+\[\rho V \, dt = d V + u(c_t) \, dt \]</div>
 </div>
-</div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 19.2 </span> (Nassin Taleb, is the coin fair?)</p>
-<div class="example-content section" id="proof-content">
-<p>After 10 tosses with 10 heads, how would you bet on the next toss?</p>
+<div class="section" id="taylor-expansion">
+<h3><span class="section-number">17.1.2. </span>Taylor expansion<a class="headerlink" href="#taylor-expansion" title="Permalink to this heading">#</a></h3>
+<p>Taylor expansion of value function <span class="math notranslate nohighlight">\(v(t,x)\)</span>, valued with <span class="math notranslate nohighlight">\(x = X_t\)</span>, reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  dv 
+  &amp; = \partial_t v \, dt + \partial_x v \, dx + \dfrac{1}{2} \partial_{xx} v \, dx^2 + o(dt) = \\
+  &amp; = \partial_t v \, dt + \partial_x v \, dX_t + \dfrac{1}{2} \partial_{xx} v \, dX_t^2 + o(dt) = \\
+  &amp; = dt \left( \partial_t v + \partial_x v ( r_t + (\mu_t - r_t) \pi_t) X_t - \partial_x v \, c_t \right) + \partial_x v \, \pi_t \sigma_t X_t \, dW_t + \dfrac{1}{2} \partial_{xx} v \, \left( \pi_t \sigma_t X_t \right)^2 \, dt + o(dt) = \\
+\end{aligned}\end{split}\]</div>
+<p>as <span class="math notranslate nohighlight">\(dX_t^2 = \left( \pi_t \sigma_t X_t \right)^2 dW_t^2 + o(dt) = \left(  \pi_t \sigma_t X_t \right)^2 dt + o(dt)\)</span>. Taking expected value,</p>
+<div class="math notranslate nohighlight">
+\[d V = dt \, \mathbb{E}\left[ \partial_t v + \partial_x v ( r_t + (\mu_t - r_t) \pi_t) X_t - \partial_x v \, c_t + \dfrac{1}{2} \partial_{xx} v \, \left( \pi_t \sigma_t X_t \right)^2 \right] \ .\]</div>
 </div>
-</div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 19.3 </span> (Kelly criterion)</p>
-<div class="example-content section" id="proof-content">
+<div class="section" id="recursive-relation-for-optimal-solution">
+<h3><span class="section-number">17.1.3. </span>Recursive relation for optimal solution<a class="headerlink" href="#recursive-relation-for-optimal-solution" title="Permalink to this heading">#</a></h3>
+<p>First order in <span class="math notranslate nohighlight">\(dt\)</span> reads</p>
+<div class="math notranslate nohighlight">
+\[\rho V^* = \max_{\pi_t, c_t} \left\{ \partial_t V^* + \partial_x V^* \left[ (\pi_t (\mu-r) + r) X_t - c_t  \right] + \dfrac{1}{2} \partial_{xx} V^* (\pi \sigma_t X_t)^2 + u(c_t) \right\} = \max_{\pi_t, c_t} \Phi\]</div>
 </div>
-</div><div class="proof example admonition" id="example-3">
-<p class="admonition-title"><span class="caption-number">Example 19.4 </span> (Does rebalancing improve return, thanks to Shannon demon?)</p>
-<div class="example-content section" id="proof-content">
-<p>Yes, for a portfolio with 2 assets with similar returns and low correlation.
-E.g.:</p>
-<ul class="simple">
-<li><p><strong>S&amp;P500</strong> and <strong>gold</strong> (50%-50%) from 1972 to 2008 (cherry-picking?): CAGR with annual rebalancing: 10.3%, while S&amp;P: 9.4% and gold: 8.2%.</p></li>
-<li><p>S&amp;P500 and gold (50%-50%) from 1972 to 2023 (cherry-picking?): CAGR with annual rebalancing: 10.2%, while S&amp;P: 10.5% and gold: 7.5%, but with lower volatility, lower max drawdown and a better Sharpe ratio</p></li>
-<li><p>S&amp;P500 and Treasury (50%-50%) from 1972 to 2023 (cherry-picking?): CAGR with annual rebalancing: 9.3%, while S&amp;P: 10.5% and gold: 6.4%, but with lower volatility, lower max drawdown and a better Sharpe ratio. Without rebalancing: 9.6% (higher!) as equity has much higher return and drift occurs over 50-year period.</p></li>
-<li><p>MSCI World and FTSE G7…</p></li>
-</ul>
-<p>No, with 2 assets with 2 assets with very different returns. Anyways, if they have low correlation, rebalancing (may?) reduce volatility, improves risk-adjusted return, or both.</p>
+<div class="section" id="optimality-condition">
+<h3><span class="section-number">17.1.4. </span>Optimality condition<a class="headerlink" href="#optimality-condition" title="Permalink to this heading">#</a></h3>
+<p>Zero gradient is a necessary condition for local extreme points,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  0 = \partial_{\pi_t} \Phi(\pi^*_t, c^*_t) = (\mu-r) X_t \partial_x V^* + \partial_{xx} V^* \pi^*_t \left( \sigma_t X_t \right)^2 \\
+  0 = \partial_{  c_t} \Phi(\pi^*_t, c^*_t) = - \partial_x V^* + \partial_{c_t} u(c^*_t) \\
+\end{cases}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+  \pi^*_t = -\dfrac{\partial_x V^*}{\partial_{xx} V^*} \dfrac{\mu - r}{X_t \sigma^2} \\
+\end{split}\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</span> for the Hessian to be definite negative<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>todo</strong></p>
 </div>
-</div><div class="section" id="resources">
-<h2><span class="section-number">19.1. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
-<ul class="simple">
-<li><p><a class="reference internal" href="../people/the_bull_guests.html#fin-edu-resources-the-bull"><span class="std std-ref">The Bull</span></a></p>
-<ul>
-<li><p><strong>217.</strong> Il modo migliore per Ribilanciare il portafoglio</p></li>
-<li><p><strong>152.</strong> La magia del ribilanciamento e il demone di Shannon</p></li>
-<li><p><strong>117.</strong> Come ribilanciare il portafoglio (e previsioni per i prossimi 10 anni)</p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="../people/list.html#fin-edu-resources-people-arnott"><span class="std std-ref">R.Arnott</span></a>. Over-rebalancing</p></li>
-<li><p><a class="reference external" href="https://www.marketsentiment.co/p/shannons-demon">market sentiment about Shannon demon</a></p></li>
-</ul>
+</details></div>
+<div class="section" id="example-utility-function-u-x-frac-x-1-gamma-1-gamma">
+<h3><span class="section-number">17.1.5. </span>Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span><a class="headerlink" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{cases}
+  \pi^*_t = -\dfrac{\partial_x V^*}{\partial_{xx} V^*} \dfrac{\mu - r}{X_t \sigma^2} \\
+  c^*_t = \left( \partial_x V^* \right)^{-\frac{1}{\gamma}}
+\end{cases}\end{split}\]</div>
+</div>
+<div class="section" id="example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">
+<h3><span class="section-number">17.1.6. </span>Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span><a class="headerlink" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
+<p>With value function <span class="math notranslate nohighlight">\(V^*(x,t) = \dots\)</span> and bequest function <span class="math notranslate nohighlight">\(B(T) = \varepsilon^T\)</span></p>
+<div class="math notranslate nohighlight">
+\[\dot{f}(t) = \nu \, f(t) - 1\]</div>
+<p>with final condition <span class="math notranslate nohighlight">\(f(T) = \varepsilon\)</span>, and</p>
+<div class="math notranslate nohighlight">
+\[\nu = \dfrac{1}{\gamma} \left\{ \rho - (1 - \gamma) \left( \dfrac{(\mu-r)^2}{2 \sigma^2 \gamma} + r  \right)  \right\} \ .\]</div>
+<p>The solution of the ODE reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}f(t) =
+\begin{cases}
+  \dfrac{1}{\nu} + \left( \varepsilon - \dfrac{1}{\nu} \right) e^{-\nu (T-t)} &amp; \text{,} \quad \text{ if $\nu \ne 0$} \\
+  T - t + \varepsilon                                                         &amp; \text{,} \quad \text{ if $\nu =   0$} \\
+\end{cases}\end{split}\]</div>
+<p>Thus</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \pi^*_t &amp; = \dfrac{\mu - r}{\gamma \sigma^2} \\
+  c^*_t   &amp; = \dfrac{X_t}{f(t)} \\
+\end{aligned}\end{split}\]</div>
+</div>
 </div>
 </div>
 
@@ -550,20 +606,20 @@ E.g.:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="strategic-tactical.html"
+       href="capm.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Strategic and Tactical Asset Allocation</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Capital Asset Pricing Model</p>
       </div>
     </a>
     <a class="right-next"
-       href="../extra/intro.html"
+       href="strategic-tactical.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Extra and Random</p>
+        <p class="prev-next-title"><span class="section-number">18. </span>Strategic and Tactical Asset Allocation</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -582,7 +638,15 @@ E.g.:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">19.1. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">17.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">17.1.1. Recursive relation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">17.1.2. Taylor expansion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">17.1.3. Recursive relation for optimal solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">17.1.4. Optimality condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">17.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">17.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
