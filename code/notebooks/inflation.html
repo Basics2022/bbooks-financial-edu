@@ -190,36 +190,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Investing Principles</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/principles/intro_nb.html">7. Introduction to principles of investing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rebalancing.html">8. Rebalancing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="sequence-risk.html">9. Sequence risk</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/intro.html">10. Introduction to asset classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/bonds.html">11. Bonds</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/assets/equity.html">12. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/financial-statements.html">12.3. Three Financial Statements</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">13. ETFs</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">14. Introduction to investing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/mpt.html">15. Modern Portfolio Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/capm.html">16. Capital Asset Pricing Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/strategic-tactical.html">17. Strategic and Tactical Asset Allocation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/rebalancing.html">18. Rebalancing</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/intro.html">Extra and Random</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/euristhics.html">Euristhics and historical correlations</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">People</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="../../ch/people/list.html">Resources, People and Firms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../ch/people/the_bull_guests.html">The Bull</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/intro.html">8. Introduction to asset classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/bonds.html">9. Bonds</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">10. ETFs</a></li>
 </ul>
 
     </div>
@@ -1340,18 +1316,30 @@ document.write(`
 <span class="c1"># df_classes = df[&#39;prices&#39;][ df[&#39;prices&#39;][&#39;Tempo&#39;].isin(class_names) ]</span>
 <span class="n">df_classes</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\[\d</span><span class="si">{2}</span><span class="s1">\]&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Tempo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
 
+<span class="n">df_classes_cols_detail</span> <span class="o">=</span> <span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>   <span class="c1"># Extract only classes</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+
 <span class="c1"># Create a figure</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 
-<span class="n">df_classes</span>
-
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<span class="c1">#&gt; Classes of products and services</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_classes_cols_detail</span><span class="p">:</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
         <span class="n">x</span><span class="o">=</span><span class="n">df_classes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
         <span class="n">y</span><span class="o">=</span><span class="n">df_classes</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
         <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">20</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
     <span class="p">))</span>
+
+<span class="c1">#&gt; Overall index</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_classes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">df_classes</span><span class="p">[</span><span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">20</span><span class="p">],</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">))</span>
 
 <span class="c1"># Customize layout</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
@@ -1372,6 +1360,19 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;[00] Indice generale&#39;,
+       &#39;[01] -- prodotti alimentari e bevande analcoliche&#39;,
+       &#39;[02] -- bevande alcoliche e tabacchi&#39;,
+       &#39;[03] -- abbigliamento e calzature&#39;,
+       &#39;[04] -- abitazione, acqua, elettricità, gas e altri combustibili&#39;,
+       &#39;[05] -- mobili, articoli e servizi per la casa&#39;,
+       &#39;[06] -- servizi sanitari e spese per la salute&#39;, &#39;[07] -- trasporti&#39;,
+       &#39;[08] -- comunicazioni&#39;, &#39;[09] -- ricreazione, spettacoli e cultura&#39;,
+       &#39;[10] -- istruzione&#39;, &#39;[11] -- servizi ricettivi e di ristorazione&#39;,
+       &#39;[12] -- altri beni e servizi&#39;],
+      dtype=&#39;object&#39;, name=&#39;Tempo&#39;)
+</pre></div>
+</div>
 <div class="output text_html"><iframe
     scrolling="no"
     width="100%"
@@ -1418,13 +1419,25 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
 <span class="c1"># Create a figure</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
 
-<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+<span class="c1">#&gt; Classes of products and services</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
         <span class="n">x</span><span class="o">=</span><span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
         <span class="n">y</span><span class="o">=</span><span class="n">df_inflation</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
         <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
         <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
     <span class="p">))</span>
+
+<span class="c1">#&gt; Overall index</span>
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">df_inflation</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">50</span><span class="p">],</span>
+        <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="p">))</span>
+
 
 <span class="c1"># Customize layout</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
@@ -1810,6 +1823,15 @@ De-seasonalized inflation allows for cleaner comparisons over time and between c
         <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span>
     <span class="p">)</span>
 <span class="p">)</span> <span class="c1"># relative&#39;)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">df_new</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">df_new</span><span class="p">[</span><span class="n">y_cols</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+    <span class="n">name</span><span class="o">=</span><span class="s1">&#39;1-Year inflation&#39;</span><span class="p">,</span>
+    <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">3</span><span class="p">),</span>
+<span class="p">))</span>
+
 <span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 

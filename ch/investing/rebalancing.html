@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Rebalancing &#8212; Financial Education - basics</title>
+    <title>18. Rebalancing &#8212; Financial Education - basics</title>
   
   
   
@@ -72,7 +72,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Extra and Random" href="../extra/intro.html" />
-    <link rel="prev" title="18. Strategic and Tactical Asset Allocation" href="strategic-tactical.html" />
+    <link rel="prev" title="17. Merton’s portfolio problem" href="merton.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -200,7 +200,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">12. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assets/equity-valuation.html">12.1. Equity Valuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assets/financial-statements.html">12.2. Three Financial Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/equity-fun.html">12.3. Equity investing: correlations, plots, and fun facts</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../assets/etfs.html">13. ETFs</a></li>
@@ -211,8 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="mpt.html">15. Modern Portfolio Theory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capm.html">16. Capital Asset Pricing Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merton.html">17. Merton’s portfolio problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="strategic-tactical.html">18. Strategic and Tactical Asset Allocation</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Rebalancing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Rebalancing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
@@ -435,7 +433,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">19.1. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">18.1. Resources</a></li>
 </ul>
             </nav>
         </div>
@@ -448,7 +446,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="rebalancing">
-<span id="fin-edu-investing-rebalancing"></span><h1><span class="section-number">19. </span>Rebalancing<a class="headerlink" href="#rebalancing" title="Permalink to this heading">#</a></h1>
+<span id="fin-edu-investing-rebalancing"></span><h1><span class="section-number">18. </span>Rebalancing<a class="headerlink" href="#rebalancing" title="Permalink to this heading">#</a></h1>
 <p><strong>Reasons.</strong></p>
 <ul class="simple">
 <li><p>risk management:</p>
@@ -472,8 +470,8 @@ In a passive investment strategy, rebalancing shoudl be triggered by some rules,
 <li><p>Return of the portfolio is increased</p></li>
 </ul>
 <p>Often, a rebalanced-portfolio return is larger than the weighted average of the returns of the assets of the portfolio. Shannon demon is the mathematical reason for that, <em>for creating return “out of thin air”</em>.</p>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 19.1 </span> (Shannon demon - on a coin flip)</p>
+<div class="proof example admonition" id="shannon-demon">
+<p class="admonition-title"><span class="caption-number">Example 18.1 </span> (Shannon demon - on a coin flip)</p>
 <div class="example-content section" id="proof-content">
 <p>Starting with <span class="math notranslate nohighlight">\(100\)</span>€, and a fair coin with <span class="math notranslate nohighlight">\(50\%\)</span> probability of for each outcome, either <span class="math notranslate nohighlight">\(H\)</span>:head or <span class="math notranslate nohighlight">\(T\)</span>:tail. If outcome is <span class="math notranslate nohighlight">\(H\)</span> you gain <span class="math notranslate nohighlight">\(50 \%\)</span>, if outcome is <span class="math notranslate nohighlight">\(T\)</span> you lose <span class="math notranslate nohighlight">\(33.3 \%\)</span>.</p>
 <ul class="simple">
@@ -481,17 +479,18 @@ In a passive investment strategy, rebalancing shoudl be triggered by some rules,
 </ul>
 <p>Now, let’s change the strategy: I bet only <span class="math notranslate nohighlight">\(50 \%\)</span> of the amount I have. What’s the expected amount at the end of the game?</p>
 </div>
-</div><div class="proof example admonition" id="example-1">
-<p class="admonition-title"><span class="caption-number">Example 19.2 </span> (Nassin Taleb, is the coin fair?)</p>
+</div><div class="proof example admonition" id="taleb-fair-coin">
+<p class="admonition-title"><span class="caption-number">Example 18.2 </span> (Nassin Taleb, is the coin fair?)</p>
 <div class="example-content section" id="proof-content">
 <p>After 10 tosses with 10 heads, how would you bet on the next toss?</p>
 </div>
-</div><div class="proof example admonition" id="example-2">
-<p class="admonition-title"><span class="caption-number">Example 19.3 </span> (Kelly criterion)</p>
+</div><div class="proof example admonition" id="kelly">
+<p class="admonition-title"><span class="caption-number">Example 18.3 </span> (Kelly criterion)</p>
 <div class="example-content section" id="proof-content">
+<p><em>bla bla bla</em></p>
 </div>
-</div><div class="proof example admonition" id="example-3">
-<p class="admonition-title"><span class="caption-number">Example 19.4 </span> (Does rebalancing improve return, thanks to Shannon demon?)</p>
+</div><div class="proof example admonition" id="shannon-demon-rebalancing">
+<p class="admonition-title"><span class="caption-number">Example 18.4 </span> (Does rebalancing improve return, thanks to Shannon demon?)</p>
 <div class="example-content section" id="proof-content">
 <p>Yes, for a portfolio with 2 assets with similar returns and low correlation.
 E.g.:</p>
@@ -504,7 +503,7 @@ E.g.:</p>
 <p>No, with 2 assets with 2 assets with very different returns. Anyways, if they have low correlation, rebalancing (may?) reduce volatility, improves risk-adjusted return, or both.</p>
 </div>
 </div><div class="section" id="resources">
-<h2><span class="section-number">19.1. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
+<h2><span class="section-number">18.1. </span>Resources<a class="headerlink" href="#resources" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="../people/the_bull_guests.html#fin-edu-resources-the-bull"><span class="std std-ref">The Bull</span></a></p>
 <ul>
@@ -550,12 +549,12 @@ E.g.:</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="strategic-tactical.html"
+       href="merton.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Strategic and Tactical Asset Allocation</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Merton’s portfolio problem</p>
       </div>
     </a>
     <a class="right-next"
@@ -582,7 +581,7 @@ E.g.:</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">19.1. Resources</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resources">18.1. Resources</a></li>
 </ul>
   </nav></div>
 
