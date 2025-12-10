@@ -32,8 +32,9 @@ html:
   use_issues_button: true
   use_repository_button: true
   extra_navbar: ""
-  extra_files:
-    - code/notebooks/iframe_figures
+# extra_files:
+  static_path:
+  - code/notebooks/iframe_figures
 
 # sphinx extensions
 sphinx:

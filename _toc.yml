@@ -15,7 +15,7 @@ parts:
   numbered: True
   chapters:
   - file: ch/actors
-# - file: ch/inflation
+# ## - file: ch/inflation
   - file: code/notebooks/inflation
   - file: ch/characteristic-times
   - file: ch/policy
@@ -23,8 +23,8 @@ parts:
   numbered: True
   chapters:
   - file: ch/principles/intro_nb
-  - file: code/notebooks/rebalancing
-  - file: code/notebooks/sequence-risk
+# # - file: code/notebooks/rebalancing
+# # - file: code/notebooks/sequence-risk
 - caption: Asset classes
   numbered: True
   chapters:
@@ -34,7 +34,7 @@ parts:
     sections:
     - file: ch/assets/equity-valuation
     - file: ch/assets/financial-statements
-    - file: code/notebooks/equity-fun
+#   - file: code/notebooks/equity-fun
   - file: ch/assets/etfs
 - caption: Asset allocation and Investing 
   numbered: True
@@ -44,7 +44,7 @@ parts:
   - file: ch/investing/mpt
   - file: ch/investing/capm
   - file: ch/investing/merton
-  - file: ch/investing/strategic-tactical
+# - file: ch/investing/strategic-tactical
   - file: ch/investing/rebalancing
 - caption: Extra
   chapters:
@@ -54,4 +54,4 @@ parts:
   chapters:
   - file: ch/people/list
   - file: ch/people/the_bull_guests
-
+# 
