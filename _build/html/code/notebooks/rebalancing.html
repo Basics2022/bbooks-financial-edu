@@ -1,0 +1,1131 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>8. Rebalancing &#8212; Financial Education - basics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script type="application/vnd.jupyter.widget-state+json">{"state": {"2664fff3f42b4907986ea6a224d42c69": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b1c396d81d224a9d9a96bc8ab5dc299b": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "3915c2828b184b16bc3e768193d54de5": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "rho", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_2664fff3f42b4907986ea6a224d42c69", "max": 1.0, "min": -1.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_b1c396d81d224a9d9a96bc8ab5dc299b", "value": -0.25}}, "790da0f63f474705b92e4e7ca90ebe4c": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "42420c94fd8e41ee82b69dd2d8b12b9d": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "04a4b8b92ae14ad08f515b49aef1a677": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "mu1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_790da0f63f474705b92e4e7ca90ebe4c", "max": 0.3, "min": -0.3, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_42420c94fd8e41ee82b69dd2d8b12b9d", "value": 0.1}}, "556ef55c6bb7475396d3606135c8ec3e": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "21c41cb75e5245aea32ce9067ffd7508": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "f44eff905e4a462fa1ad2908ffa8d961": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "mu2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_556ef55c6bb7475396d3606135c8ec3e", "max": 0.3, "min": -0.3, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_21c41cb75e5245aea32ce9067ffd7508", "value": 0.08}}, "13f2900ff7b741e993e0e8d82b40f2c2": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "e1677c38e9bb46ebb696dfe553454e49": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "d5920717b0c64630a1859f9f36dac24c": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "sig1", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_13f2900ff7b741e993e0e8d82b40f2c2", "max": 0.3, "min": 0.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_e1677c38e9bb46ebb696dfe553454e49", "value": 0.2}}, "50d84aef87ce450f88054331afade63f": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "d6db6bf5c3114853bac7a9d400cdefd6": {"model_name": "SliderStyleModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "SliderStyleModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "StyleView", "description_width": "", "handle_color": null}}, "0bed0c4c5b8d48d5bbd6dc02032397c0": {"model_name": "FloatSliderModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "FloatSliderModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "FloatSliderView", "continuous_update": true, "description": "sig2", "description_tooltip": null, "disabled": false, "layout": "IPY_MODEL_50d84aef87ce450f88054331afade63f", "max": 0.3, "min": 0.0, "orientation": "horizontal", "readout": true, "readout_format": ".2f", "step": 0.01, "style": "IPY_MODEL_d6db6bf5c3114853bac7a9d400cdefd6", "value": 0.15}}, "dd477ba8f97344808e15502d8521a116": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "b66b382c6ae74a4e861f7499ec4ec19f": {"model_name": "VBoxModel", "model_module": "@jupyter-widgets/controls", "model_module_version": "1.5.0", "state": {"_dom_classes": ["widget-interact"], "_model_module": "@jupyter-widgets/controls", "_model_module_version": "1.5.0", "_model_name": "VBoxModel", "_view_count": null, "_view_module": "@jupyter-widgets/controls", "_view_module_version": "1.5.0", "_view_name": "VBoxView", "box_style": "", "children": ["IPY_MODEL_3915c2828b184b16bc3e768193d54de5", "IPY_MODEL_04a4b8b92ae14ad08f515b49aef1a677", "IPY_MODEL_d5920717b0c64630a1859f9f36dac24c", "IPY_MODEL_f44eff905e4a462fa1ad2908ffa8d961", "IPY_MODEL_0bed0c4c5b8d48d5bbd6dc02032397c0", "IPY_MODEL_efc91b91fcd140c09d511f4cad40cff8"], "layout": "IPY_MODEL_dd477ba8f97344808e15502d8521a116"}}, "9991e5a5094a4053a9e8e050fd43dde6": {"model_name": "LayoutModel", "model_module": "@jupyter-widgets/base", "model_module_version": "1.2.0", "state": {"_model_module": "@jupyter-widgets/base", "_model_module_version": "1.2.0", "_model_name": "LayoutModel", "_view_count": null, "_view_module": "@jupyter-widgets/base", "_view_module_version": "1.2.0", "_view_name": "LayoutView", "align_content": null, "align_items": null, "align_self": null, "border": null, "bottom": null, "display": null, "flex": null, "flex_flow": null, "grid_area": null, "grid_auto_columns": null, "grid_auto_flow": null, "grid_auto_rows": null, "grid_column": null, "grid_gap": null, "grid_row": null, "grid_template_areas": null, "grid_template_columns": null, "grid_template_rows": null, "height": null, "justify_content": null, "justify_items": null, "left": null, "margin": null, "max_height": null, "max_width": null, "min_height": null, "min_width": null, "object_fit": null, "object_position": null, "order": null, "overflow": null, "overflow_x": null, "overflow_y": null, "padding": null, "right": null, "top": null, "visibility": null, "width": null}}, "efc91b91fcd140c09d511f4cad40cff8": {"model_name": "OutputModel", "model_module": "@jupyter-widgets/output", "model_module_version": "1.0.0", "state": {"_dom_classes": [], "_model_module": "@jupyter-widgets/output", "_model_module_version": "1.0.0", "_model_name": "OutputModel", "_view_count": null, "_view_module": "@jupyter-widgets/output", "_view_module_version": "1.0.0", "_view_name": "OutputView", "layout": "IPY_MODEL_9991e5a5094a4053a9e8e050fd43dde6", "msg_id": "", "outputs": [{"output_type": "stream", "name": "stdout", "text": "max(ElnP1, ElnP2): 0.08\n"}]}}}, "version_major": 2, "version_minor": 0}</script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script crossorigin="anonymous" data-jupyter-widgets-cdn="https://cdn.jsdelivr.net/npm/" src="https://cdn.jsdelivr.net/npm/@jupyter-widgets/html-manager@1.0.6/dist/embed-amd.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code/notebooks/rebalancing';</script>
+    <link rel="shortcut icon" href="../../_static/favicon-gold.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="9. Introduction to asset classes" href="../../ch/assets/intro.html" />
+    <link rel="prev" title="7. Introduction to principles of investing" href="../../ch/principles/intro_nb.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Financial Education - basics - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="Financial Education - basics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/summary.html">1. Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/references.html">2. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Macroeconomic Context for Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/actors.html">3. Actors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">4. Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/characteristic-times.html">5. Characteristic times in economy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/policy.html">6. Policy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Investing Principles</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/principles/intro_nb.html">7. Introduction to principles of investing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8. Rebalancing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/intro.html">9. Introduction to asset classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/bonds.html">10. Bonds</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/assets/equity.html">11. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/equity-valuation.html">11.1. Equity Valuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/financial-statements.html">11.2. Three Financial Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">12. ETFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">13. Introduction to investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/mpt.html">14. Modern Portfolio Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/capm.html">15. Capital Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/merton.html">16. Merton’s portfolio problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/rebalancing.html">17. Rebalancing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/intro.html">Extra and Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/euristhics.html">Euristhics and historical correlations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">People</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/people/list.html">Resources, People and Firms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/people/the_bull_guests.html">The Bull</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-financial-edu/blob/master/code/notebooks/rebalancing.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/code/notebooks/rebalancing.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fcode/notebooks/rebalancing.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/code/notebooks/rebalancing.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Rebalancing</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-parameters-and-useful-functions">8.1. Libraries, parameters and useful functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">8.1.1. Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">8.1.2. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-conics">8.1.3. Functions for conics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rebalanced-portfolio">8.2. Rebalanced portfolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-demon">8.2.1. Shannon demon</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-portfolios-realizations-of-stochastic-processes">8.3. Comparison of portfolios: realizations of stochastic processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">8.3.1. Useful functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.3.2. Realizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-return">8.3.3. Composite return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-drawdown">8.3.4. Maximum drawdown</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="rebalancing">
+<h1><span class="section-number">8. </span>Rebalancing<a class="headerlink" href="#rebalancing" title="Permalink to this heading">#</a></h1>
+<p>In this Notwbook, two strategies on a 2-asset portfolio are discussed and compared:</p>
+<ul class="simple">
+<li><p><strong>rebalanced portfolio</strong>, after each period</p></li>
+<li><p><strong>buy-and-hold portfolio</strong>, without rebalancing</p></li>
+</ul>
+<!--
+- [rebalanced portfolio](rebalancing:rebalanced-ptf), after each period
+- [buy-and-hold portfolio](rebalancin:buy-and-hold-ptf) without rebalancing
+-->
+<p>Effects of rebalancing and conditions for <strong>rebalancing premium</strong> are discussed: sometimes the expected log-return of the rebalanced portfolio may exceed the expected log-return of each single asset.</p>
+<div class="section" id="libraries-parameters-and-useful-functions">
+<h2><span class="section-number">8.1. </span>Libraries, parameters and useful functions<a class="headerlink" href="#libraries-parameters-and-useful-functions" title="Permalink to this heading">#</a></h2>
+<p>Libraries are imported and useful functions to treat conics below are defined here</p>
+<div class="section" id="libraries">
+<h3><span class="section-number">8.1.1. </span>Libraries<a class="headerlink" href="#libraries" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span><span class="p">,</span> <span class="n">FloatSlider</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="parameters">
+<h3><span class="section-number">8.1.2. </span>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt;</span>
+<span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;mu1&#39;</span><span class="p">:</span> <span class="mf">.10</span><span class="p">,</span> <span class="s1">&#39;sigma1&#39;</span><span class="p">:</span> <span class="mf">.20</span><span class="p">,</span> <span class="s1">&#39;mu2&#39;</span><span class="p">:</span> <span class="mf">.08</span><span class="p">,</span> <span class="s1">&#39;sigma2&#39;</span><span class="p">:</span> <span class="mf">.15</span><span class="p">,</span> <span class="s1">&#39;rho&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">.25</span><span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="functions-for-conics">
+<h3><span class="section-number">8.1.3. </span>Functions for conics<a class="headerlink" href="#functions-for-conics" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">conics_points</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">printout</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;  ax^2 + bxy + cy^2 + dx + ey + f = 0  &quot;&quot;&quot;</span>
+    <span class="n">delta</span> <span class="o">=</span> <span class="n">b</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">4</span><span class="o">*</span><span class="n">a</span><span class="o">*</span><span class="n">c</span>
+    <span class="k">if</span> <span class="n">delta</span> <span class="o">==</span> <span class="mf">0.</span><span class="p">:</span>   <span class="c1"># possible parabola (comparison with reals?)</span>
+        <span class="n">ctype</span> <span class="o">=</span> <span class="s1">&#39;parabola&#39;</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">delta</span> <span class="o">&lt;</span> <span class="mf">0.</span><span class="p">:</span>  <span class="c1"># possible ellipse</span>
+        <span class="n">ctype</span> <span class="o">=</span> <span class="s1">&#39;ellipse&#39;</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">ellipse_points</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">printout</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>             <span class="c1"># possible hyperbola</span>
+        <span class="n">ctype</span> <span class="o">=</span> <span class="s1">&#39;hyperbola&#39;</span>
+        <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ctype</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+<span class="k">def</span> <span class="nf">ellipse_points</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">n</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">printout</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;  &quot;&quot;&quot;</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">4.</span> <span class="o">*</span> <span class="p">(</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="o">-</span><span class="n">c</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">a</span> <span class="o">==</span> <span class="n">c</span> <span class="p">)</span>
+    <span class="k">if</span> <span class="n">printout</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;theta: </span><span class="si">{</span><span class="n">theta</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">B</span> <span class="o">=</span> <span class="p">(</span> <span class="n">c</span> <span class="o">-</span> <span class="n">a</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">C</span> <span class="o">=</span> <span class="n">a</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">c</span> <span class="o">*</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">D</span> <span class="o">=</span>  <span class="n">d</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">E</span> <span class="o">=</span> <span class="o">-</span><span class="n">d</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="n">e</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+    <span class="n">F</span> <span class="o">=</span> <span class="n">f</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">A</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">C</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="o">-</span><span class="n">A</span><span class="p">;</span> <span class="n">B</span> <span class="o">=</span> <span class="o">-</span><span class="n">B</span><span class="p">;</span> <span class="n">C</span> <span class="o">=</span> <span class="o">-</span><span class="n">C</span><span class="p">;</span> <span class="n">D</span> <span class="o">=</span> <span class="o">-</span><span class="n">D</span><span class="p">;</span> <span class="n">E</span> <span class="o">=</span> <span class="o">-</span><span class="n">E</span><span class="p">;</span> <span class="n">F</span> <span class="o">=</span> <span class="o">-</span><span class="n">F</span>
+    <span class="k">elif</span> <span class="p">(</span> <span class="n">A</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>  <span class="p">:</span>  <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A = 0&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span> <span class="n">C</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span>  <span class="p">:</span>  <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;C = 0&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="p">(</span> <span class="n">A</span><span class="o">*</span><span class="n">C</span> <span class="o">&lt;</span> <span class="mf">0.</span> <span class="p">):</span>  <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A*C=</span><span class="si">{</span><span class="n">A</span><span class="o">*</span><span class="n">C</span><span class="si">}</span><span class="s2"> &lt;= 0&quot;</span><span class="p">)</span>
+
+    <span class="n">uc</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">D</span> <span class="o">/</span> <span class="n">A</span>
+    <span class="n">vc</span> <span class="o">=</span> <span class="o">-</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">E</span> <span class="o">/</span> <span class="n">C</span>
+    <span class="n">FF</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="n">uc</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">C</span> <span class="o">*</span> <span class="n">vc</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">F</span>
+
+    <span class="k">if</span> <span class="n">printout</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;uc: </span><span class="si">{</span><span class="n">uc</span><span class="si">}</span><span class="se">\n</span><span class="s2">vc: </span><span class="si">{</span><span class="n">vc</span><span class="si">}</span><span class="se">\n</span><span class="s2">FF: </span><span class="si">{</span><span class="n">FF</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">FF</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">printout</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A: </span><span class="si">{</span><span class="n">A</span><span class="si">}</span><span class="se">\n</span><span class="s2">B: </span><span class="si">{</span><span class="n">B</span><span class="si">}</span><span class="se">\n</span><span class="s2">C: </span><span class="si">{</span><span class="n">C</span><span class="si">}</span><span class="se">\n</span><span class="s2">D: </span><span class="si">{</span><span class="n">D</span><span class="si">}</span><span class="se">\n</span><span class="s2">E: </span><span class="si">{</span><span class="n">E</span><span class="si">}</span><span class="se">\n</span><span class="s2">F: </span><span class="si">{</span><span class="n">F</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">semi_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">FF</span><span class="o">/</span><span class="n">A</span><span class="p">)</span>
+        <span class="n">semi_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">FF</span><span class="o">/</span><span class="n">C</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">printout</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;semi_a: </span><span class="si">{</span><span class="n">semi_a</span><span class="si">}</span><span class="se">\n</span><span class="s2">semi_b: </span><span class="si">{</span><span class="n">semi_b</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">thv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>  <span class="n">thv</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">thv</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">semi_a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">thv</span><span class="p">),</span> <span class="n">semi_b</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">thv</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="p">(</span> <span class="n">u</span> <span class="o">+</span> <span class="n">uc</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span> <span class="n">v</span> <span class="o">+</span> <span class="n">vc</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span> <span class="n">u</span> <span class="o">+</span> <span class="n">uc</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span> <span class="n">v</span> <span class="o">+</span> <span class="n">vc</span> <span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;FF:</span><span class="si">{</span><span class="n">FF</span><span class="si">}</span><span class="s2"> &lt;= 0&quot;</span><span class="p">)</span>
+
+    <span class="c1"># else: 0: degenerate ellipse; &lt;0: not an ellipse! (what&#39;s that?)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="section" id="rebalanced-portfolio">
+<h2><span class="section-number">8.2. </span>Rebalanced portfolio<a class="headerlink" href="#rebalanced-portfolio" title="Permalink to this heading">#</a></h2>
+<p>Let the <strong>1-period return</strong> of the assets be normal (<strong>todo</strong> <em>is this necessary? Can’t one rely on central limit theorem? How long the summation must be for convergence to normal distribution, in presence of <strong>heavy-tails</strong> distribution? If one can’t rely on central limit theorem, let use numerical methods to investigate the effect of heavy tails distributions</em>),</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{r} \sim \mathscr{N} \left( \boldsymbol{\mu}, \boldsymbol{\sigma}^2 \right) \ .\]</div>
+<p>Compound return of the portfolio has <strong>expected value</strong></p>
+<div class="math notranslate nohighlight">
+\[\mu^c_p = \mathbb{E}[r^c_p] = \mathbf{w}^T \boldsymbol{\mu} - \dfrac{1}{2}\mathbf{w}^T \boldsymbol{\sigma}^2 \, \mathbf{w}\]</div>
+<p>and <strong>variance</strong></p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+\sigma_{r^c_p}^2
+&amp; = \mathbb{E}\left[(r^c_p - \mu^c_p )^2 \right] = \dots = \mathbf{w}^T \boldsymbol{\sigma} \mathbf{w}
+\end{aligned}\]</div>
+<div class="section" id="shannon-demon">
+<h3><span class="section-number">8.2.1. </span>Shannon demon<a class="headerlink" href="#shannon-demon" title="Permalink to this heading">#</a></h3>
+<p>Sometimes the expected value of the compound return of the rebalanced portfolio can be larger than the expected return of each asset class.</p>
+<div class="math notranslate nohighlight">
+\[\mu^c_k = \mathbb{E}[r^c_k]  = \mu_k - \dfrac{\sigma_k^2}{2}\]</div>
+<p><strong>Example: 2-asset portfolio.</strong> As an example, the expected value of the compund return of a 2-asset rebalanced portfolio,</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E} [ r_p^c ] = w_1 \mu_1 + w_2 \mu_2 - \dfrac{1}{2} ( w_1^2 \sigma_1^2 + 2 w_1 w_2 \rho \sigma_1 \sigma_2 + w_2^2 \sigma_2^2 )\]</div>
+<p>Using <span class="math notranslate nohighlight">\(w_1\)</span>, <span class="math notranslate nohighlight">\(w_2\)</span> as independent variables, for any value of the expected return, the expression of the return itself can be represented as a <strong>conic section</strong> in the <span class="math notranslate nohighlight">\(w_1,w_2\)</span>-plane. In particular,</p>
+<ul class="simple">
+<li><p>for <span class="math notranslate nohighlight">\(\rho \ne 1\)</span>, it’s an <strong>ellipse</strong> (<span class="math notranslate nohighlight">\(\Delta = B^2 - 4 A C &lt; 0\)</span>),</p></li>
+<li><p>for <span class="math notranslate nohighlight">\(\rho = 1\)</span>, it’s a <strong>parabola</strong> (<span class="math notranslate nohighlight">\(\Delta = 0\)</span>)</p></li>
+</ul>
+<p><strong>Portfolio allocation.</strong> Some constraints may hold on portfolio allocation:</p>
+<ul class="simple">
+<li><p>fully-invested: <span class="math notranslate nohighlight">\(w_1 + w_2 = 1\)</span></p></li>
+<li><p>no short-selling: <span class="math notranslate nohighlight">\(w_1,\ w_2 \ge 0\)</span></p></li>
+<li><p>no leverage: <span class="math notranslate nohighlight">\(w_1, \ w_2 \le 1\)</span></p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_shannon_demon_set</span><span class="p">(</span><span class="n">rho</span><span class="p">,</span> <span class="n">mu1</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">mu2</span><span class="p">,</span> <span class="n">sigma2</span><span class="p">):</span>
+    <span class="c1">#&gt; Plot parameters</span>
+    <span class="n">xmin</span><span class="p">,</span> <span class="n">xmax</span><span class="p">,</span> <span class="n">nx</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">,</span> <span class="mi">21</span>
+    <span class="n">ymin</span><span class="p">,</span> <span class="n">ymax</span><span class="p">,</span> <span class="n">ny</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.5</span><span class="p">,</span> <span class="mf">11.5</span><span class="p">,</span> <span class="mi">21</span>
+
+    <span class="c1">#&gt; Expected value of single-asset compound returns</span>
+    <span class="n">ElnP1</span> <span class="o">=</span> <span class="n">mu1</span> <span class="o">-</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">sigma1</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">ElnP2</span> <span class="o">=</span> <span class="n">mu2</span> <span class="o">-</span> <span class="mf">.5</span> <span class="o">*</span> <span class="n">sigma2</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="n">ElnP</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ElnP1</span><span class="p">,</span> <span class="n">ElnP2</span><span class="p">)</span>     <span class="c1"># Take max for comparison</span>
+
+    <span class="c1">#&gt; Define conics coefficients and find points</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">d</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="o">-</span><span class="mf">.5</span><span class="o">*</span><span class="n">sigma1</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="n">rho</span><span class="o">*</span><span class="n">sigma1</span><span class="o">*</span><span class="n">sigma2</span><span class="p">,</span> <span class="o">-</span><span class="mf">.5</span><span class="o">*</span><span class="n">sigma2</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">mu1</span> <span class="p">,</span><span class="n">mu2</span><span class="p">,</span> <span class="o">-</span><span class="n">ElnP</span>
+    <span class="n">ctype</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">conics_points</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">e</span><span class="p">,</span><span class="n">f</span><span class="p">,</span> <span class="n">printout</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1">#&gt; Plot</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;max(ElnP1, ElnP2): </span><span class="si">{</span><span class="n">ElnP</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.3</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span> <span class="c1"># , &#39;box&#39;)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.5</span><span class="p">,</span><span class="mf">1.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$w_1$&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$w_2$&quot;</span><span class="p">)</span>
+
+<span class="c1">#&gt; Initial value of params</span>
+<span class="n">mu1</span>    <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;mu1&#39;</span><span class="p">]</span>
+<span class="n">sigma1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;sigma1&#39;</span><span class="p">]</span>
+<span class="n">mu2</span>    <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;mu2&#39;</span><span class="p">]</span>
+<span class="n">sigma2</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;sigma2&#39;</span><span class="p">]</span>
+<span class="n">rho</span>    <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;rho&#39;</span><span class="p">]</span>
+
+<span class="c1">#&gt; Interactive plot</span>
+<span class="n">interact</span><span class="p">(</span>
+    <span class="n">plot_shannon_demon_set</span><span class="p">,</span>
+    <span class="n">rho</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span>   <span class="n">value</span><span class="o">=</span><span class="n">rho</span>   <span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">1.0</span> <span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s1">&#39;rho&#39;</span><span class="p">),</span>
+    <span class="n">mu1</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span>   <span class="n">value</span><span class="o">=</span><span class="n">mu1</span>   <span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">0.30</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">.30</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;mu1&#39;</span><span class="p">),</span>
+    <span class="n">mu2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span>   <span class="n">value</span><span class="o">=</span><span class="n">mu2</span>   <span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mf">0.30</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">.30</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;mu2&#39;</span><span class="p">),</span>
+    <span class="n">sigma1</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">sigma1</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span> <span class="mf">.0</span>  <span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">.30</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;sig1&#39;</span><span class="p">),</span>
+    <span class="n">sigma2</span><span class="o">=</span><span class="n">FloatSlider</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">sigma2</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span> <span class="mf">.0</span>  <span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">.30</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;sig2&#39;</span><span class="p">)</span>
+<span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "b66b382c6ae74a4e861f7499ec4ec19f"}</script><img alt="../../_images/bd2503f6cb1a73480111e234c1cb6ccab548d7a17cdf88899fbc0bbc3ee0933a.png" src="../../_images/bd2503f6cb1a73480111e234c1cb6ccab548d7a17cdf88899fbc0bbc3ee0933a.png" />
+</div>
+</div>
+<p>This plot represents in <strong>blue</strong> asset allocations of the balanced 2-asset portfolio with expected value of the compound return larger than the compound return of any individual asset. <strong>Black line</strong> represents all the possible allocations of a fully invested portfolio, <span class="math notranslate nohighlight">\(w_1+w_2=1\)</span> with no leaverage <span class="math notranslate nohighlight">\(w_k \le 1\)</span> and not short selling <span class="math notranslate nohighlight">\(w_k \ge 0\)</span>.</p>
+</div>
+</div>
+<div class="section" id="comparison-of-portfolios-realizations-of-stochastic-processes">
+<h2><span class="section-number">8.3. </span>Comparison of portfolios: realizations of stochastic processes<a class="headerlink" href="#comparison-of-portfolios-realizations-of-stochastic-processes" title="Permalink to this heading">#</a></h2>
+<p>In this section, rebalanced portfolio and buy-and-hold portfolio are compared.
+Different realizations of these two portfolio strategies are built, and used to build statistics, and discuss their properties in terms of <strong>compound return</strong>, <strong>drawdowns</strong>,…</p>
+<p><strong>Note.</strong> Here, 1-period returns are modelled as <em>normal random variable</em> so far. Anyways, it’s possible (and suggested) to implement the most suited random process for modelling the return of the desired assets.</p>
+<div class="section" id="useful-functions">
+<h3><span class="section-number">8.3.1. </span>Useful functions<a class="headerlink" href="#useful-functions" title="Permalink to this heading">#</a></h3>
+<p>A useful function is introduced here to build correlated random variables with the desired expected values and covariance.</p>
+<p>Main Colab notebook can be found here: <a class="reference external" href="https://colab.research.google.com/drive/1n5py0Zf8i3_jrTTk0AR7Noq2kBYwpaqx?authuser=1#scrollTo=gmbjbprjCHto">https://colab.research.google.com/drive/1n5py0Zf8i3_jrTTk0AR7Noq2kBYwpaqx?authuser=1#scrollTo=gmbjbprjCHto</a></p>
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">correlated_variable_coeffs</span><span class="p">(</span><span class="n">mux</span><span class="p">,</span> <span class="n">muy</span><span class="p">,</span> <span class="n">sigmax</span><span class="p">,</span> <span class="n">sigmay</span><span class="p">,</span> <span class="n">rhoxy</span><span class="p">):</span>
+  <span class="k">if</span> <span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">rhoxy</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1.</span> <span class="p">):</span>
+      <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Invalid correlation coefficient, |rhoxy|=|</span><span class="si">{rhoxy}</span><span class="s1">| &gt; 1.&#39;</span><span class="p">)</span>
+  <span class="k">elif</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">rhoxy</span> <span class="o">==</span> <span class="mf">1.</span> <span class="p">):</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="n">rhoxy</span> <span class="o">*</span> <span class="n">sigmay</span> <span class="o">/</span> <span class="n">sigmax</span>
+      <span class="n">sigmaz</span> <span class="o">=</span> <span class="mf">1.</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigmay</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">a</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigmax</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">sigmaz</span><span class="o">**</span><span class="mi">2</span>
+      <span class="n">c</span> <span class="o">=</span> <span class="mf">0.</span>
+      <span class="n">muz</span> <span class="o">=</span> <span class="p">(</span><span class="n">muy</span> <span class="o">-</span> <span class="n">c</span> <span class="o">-</span> <span class="n">mux</span> <span class="o">*</span> <span class="n">rhoxy</span> <span class="o">*</span> <span class="n">sigmay</span> <span class="o">/</span> <span class="n">sigmax</span><span class="p">)</span> <span class="o">/</span> <span class="n">b</span>
+  <span class="k">else</span><span class="p">:</span>
+      <span class="n">a</span> <span class="o">=</span> <span class="n">rhoxy</span> <span class="o">*</span> <span class="n">sigmay</span> <span class="o">/</span> <span class="n">sigmax</span>
+      <span class="n">muz</span> <span class="o">=</span> <span class="mf">0.</span>
+      <span class="n">sigmaz</span> <span class="o">=</span> <span class="mf">1.</span>
+      <span class="n">b</span> <span class="o">=</span> <span class="mf">0.</span>
+      <span class="n">c</span> <span class="o">=</span> <span class="n">muy</span> <span class="o">-</span> <span class="n">mux</span> <span class="o">*</span> <span class="n">rhoxy</span> <span class="o">*</span> <span class="n">sigmay</span> <span class="o">/</span> <span class="n">sigmax</span>
+
+  <span class="k">return</span> <span class="n">muz</span><span class="p">,</span> <span class="n">sigmaz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="realizations">
+<h3><span class="section-number">8.3.2. </span>Realizations<a class="headerlink" href="#realizations" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Parameters of the 2 assets</span>
+<span class="n">mu1</span>    <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;mu1&#39;</span><span class="p">]</span>      <span class="c1">#</span>
+<span class="n">sigma1</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;sigma1&#39;</span><span class="p">]</span>   <span class="c1">#</span>
+<span class="n">mu2</span>    <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;mu2&#39;</span><span class="p">]</span>      <span class="c1">#</span>
+<span class="n">sigma2</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s1">&#39;2-asset-portfolio&#39;</span><span class="p">][</span><span class="s1">&#39;sigma2&#39;</span><span class="p">]</span>   <span class="c1">#</span>
+<span class="n">rho</span>    <span class="o">=</span> <span class="o">-</span><span class="mf">.5</span> <span class="c1"># params[&#39;2-asset-portfolio&#39;][&#39;rho&#39;]      #</span>
+
+<span class="c1">#&gt; Evaluate the parameters of an independent r.v. Z to build the r.v. of asset 2</span>
+<span class="c1"># with desired average value, variance and covariance with X</span>
+<span class="n">muz</span><span class="p">,</span> <span class="n">sigmaz</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span> <span class="o">=</span> <span class="n">correlated_variable_coeffs</span><span class="p">(</span><span class="n">mu1</span><span class="p">,</span> <span class="n">mu2</span><span class="p">,</span> <span class="n">sigma1</span><span class="p">,</span> <span class="n">sigma2</span><span class="p">,</span> <span class="n">rho</span><span class="p">)</span>
+
+<span class="c1">#&gt; Weights of the 2 assets</span>
+<span class="c1"># rebalanced ptf  : constant weights</span>
+<span class="c1"># buy-and-hold ptf: initial weights</span>
+<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span>
+
+<span class="c1">#&gt; Initial conditions</span>
+<span class="n">y0</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">#&gt; Random number generator, representing 1-period return R_n = Y_{n}/Y_{n-1}</span>
+<span class="n">nreal</span> <span class="o">=</span> <span class="mi">1000</span>       <span class="c1"># n. of realizations of the random process</span>
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">100</span>           <span class="c1"># n. of periods (toss) for each realization</span>
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+
+<span class="c1">#&gt; Random number generators of the 2 assets</span>
+<span class="n">rng1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
+<span class="n">rng1_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">mu1</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigma1</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
+
+<span class="n">rngZ</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span>
+<span class="n">rngZ_params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="n">muz</span><span class="p">,</span> <span class="s1">&#39;scale&#39;</span><span class="p">:</span> <span class="n">sigmaz</span><span class="p">,</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span><span class="p">}</span>
+
+<span class="c1">#&gt; End values, max drawdowns</span>
+<span class="n">y_reb_end</span><span class="p">,</span> <span class="n">y_bah_end</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
+<span class="n">reb_max_drawdown</span><span class="p">,</span> <span class="n">bah_max_drawdown</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nreal</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">ireal</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nreal</span><span class="p">):</span>
+
+    <span class="c1">#&gt; 1-period returns of the 2 assets</span>
+    <span class="n">r1</span> <span class="o">=</span> <span class="n">rng1</span><span class="p">(</span><span class="o">**</span><span class="n">rng1_params</span><span class="p">)</span>
+    <span class="n">rZ</span> <span class="o">=</span> <span class="n">rngZ</span><span class="p">(</span><span class="o">**</span><span class="n">rngZ_params</span><span class="p">)</span>
+    <span class="n">r2</span> <span class="o">=</span> <span class="n">a</span><span class="o">*</span><span class="n">r1</span> <span class="o">+</span> <span class="n">b</span><span class="o">*</span><span class="n">rZ</span> <span class="o">+</span> <span class="n">c</span>
+
+    <span class="c1">#&gt; Rebalanced portfolio</span>
+    <span class="n">y_reb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">);</span>  <span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span>
+    <span class="n">y_reb</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">w1</span><span class="o">*</span><span class="n">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">w2</span><span class="o">*</span><span class="n">r2</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="c1">#&gt; Buy-and-hold portfolio</span>
+    <span class="n">y_bah_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">);</span>  <span class="n">y_bah_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">*</span> <span class="n">w1</span>
+    <span class="n">y_bah_2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">nt</span><span class="p">);</span>  <span class="n">y_bah_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">y0</span> <span class="o">*</span> <span class="n">w2</span>
+    <span class="n">y_bah_1</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">y_bah_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r1</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="n">y_bah_2</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">=</span> <span class="n">y_bah_2</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r2</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+
+    <span class="n">y_bah</span> <span class="o">=</span> <span class="n">y_bah_1</span> <span class="o">+</span> <span class="n">y_bah_2</span>
+
+    <span class="c1">#&gt; End values</span>
+    <span class="n">y_reb_end</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_reb</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">y0</span>
+    <span class="n">y_bah_end</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">y_bah</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">y0</span>
+
+    <span class="c1">#&gt; Max drawdowns</span>
+    <span class="n">y_reb_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">y_reb</span><span class="p">)</span>
+    <span class="n">y_bah_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">y_bah</span><span class="p">)</span>
+
+    <span class="n">reb_drawdowns</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">y_reb</span><span class="o">/</span><span class="n">y_reb_max</span>
+    <span class="n">bah_drawdowns</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">y_bah</span><span class="o">/</span><span class="n">y_bah_max</span>
+
+    <span class="c1">#&gt; Update stored realization with max drawdown</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">reb_drawdowns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">reb_max_drawdown</span><span class="p">):</span>
+        <span class="n">y_reb_max_drawdown</span> <span class="o">=</span> <span class="n">y_reb</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">bah_drawdowns</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">bah_max_drawdown</span><span class="p">):</span>
+        <span class="n">y_bah_max_drawdown</span> <span class="o">=</span> <span class="n">y_bah</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">reb_max_drawdown</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">reb_drawdowns</span><span class="p">)</span>
+    <span class="n">bah_max_drawdown</span><span class="p">[</span><span class="n">ireal</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">bah_drawdowns</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="p">(</span> <span class="n">ireal</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_reb</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_bah</span><span class="o">/</span><span class="n">y_bah</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="p">((</span><span class="n">y_reb</span><span class="p">)</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">tv</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="p">((</span><span class="n">y_bah</span><span class="p">)</span><span class="o">/</span><span class="n">y_bah</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">tv</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Y[n]/Y[0]&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Periods&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Composite returns&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Periods&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_reb_max_drawdown</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rebalanced&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_bah_max_drawdown</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy-and-hold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="p">(</span><span class="n">y_reb_max_drawdown</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">tv</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rebalanced&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="p">(</span><span class="n">y_bah_max_drawdown</span><span class="o">/</span><span class="n">y_reb</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">tv</span><span class="o">+</span><span class="mi">1</span><span class="p">)),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy-and-hold&#39;</span><span class="p">)</span>
+
+
+<span class="c1">#&gt; Analytical solution</span>
+<span class="c1"># logret = expected_logret_fun(b,a,p,f)</span>
+<span class="c1"># ax.semilogy(tv, y0*np.exp(logret)**tv, lw=1, color=plt.cm.tab10.colors[0])</span>
+<span class="c1"># ax.set_ylabel(&quot;Y[n]/Y[0]&quot;)</span>
+<span class="c1"># ax.set_xlabel(&quot;Periods&quot;)</span>
+<span class="c1"># ax.grid()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x7f8f96d08fa0&gt;]
+</pre></div>
+</div>
+<img alt="../../_images/3e71866f0d3d77eb954c1f02c8b6872aec563b8f1e8c8f7d7a33c771db85da50.png" src="../../_images/3e71866f0d3d77eb954c1f02c8b6872aec563b8f1e8c8f7d7a33c771db85da50.png" />
+</div>
+</div>
+</div>
+<div class="section" id="composite-return">
+<h3><span class="section-number">8.3.3. </span>Composite return<a class="headerlink" href="#composite-return" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Average and variance of composite return</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Rebalanced portfolio. Compsite return&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Exp. value: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_reb_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Std. dev. : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">y_reb_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Buy-and-Hold portfolio. Compsite return&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Exp. value: </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">((</span><span class="n">y_bah_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; Std. dev. : </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="w"> </span><span class="p">(</span><span class="n">y_bah_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">nt</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="si">:</span><span class="s2">.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1">#&gt; Define hist bins</span>
+<span class="n">min_logret</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_reb_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_bah_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">))</span>
+<span class="n">max_logret</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_reb_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_bah_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">))</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">min_bins</span> <span class="o">=</span> <span class="n">min_logret</span> <span class="o">-</span> <span class="p">(</span><span class="n">max_logret</span> <span class="o">-</span> <span class="n">min_logret</span><span class="p">)</span><span class="o">/</span><span class="n">nbins</span>
+<span class="n">max_bins</span> <span class="o">=</span> <span class="n">max_logret</span> <span class="o">+</span> <span class="p">(</span><span class="n">max_logret</span> <span class="o">-</span> <span class="n">min_logret</span><span class="p">)</span><span class="o">/</span><span class="n">nbins</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_bins</span><span class="p">,</span> <span class="n">max_bins</span><span class="p">,</span> <span class="n">nbins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">#&gt; Loop over density and cumulative probability</span>
+<span class="n">cum_v</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_reb_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="n">cum_v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rebalanced&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">y_bah_end</span><span class="o">/</span><span class="n">y0</span><span class="p">)</span><span class="o">/</span><span class="n">nt</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="n">cum_v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Buy-and-hold&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Average log-return, $log(Y_n/Y_0)/n$, n = </span><span class="si">{</span><span class="n">nt</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Rebalanced portfolio. Compsite return
+ Exp. value: 0.085
+ Std. dev. : 0.009
+Buy-and-Hold portfolio. Compsite return
+ Exp. value: 0.082
+ Std. dev. : 0.013
+</pre></div>
+</div>
+<img alt="../../_images/91ae53d01e18f0be6a899c7f3bef9e80343d5ce06cce2a2189aa9e9e75963480.png" src="../../_images/91ae53d01e18f0be6a899c7f3bef9e80343d5ce06cce2a2189aa9e9e75963480.png" />
+</div>
+</div>
+</div>
+<div class="section" id="maximum-drawdown">
+<h3><span class="section-number">8.3.4. </span>Maximum drawdown<a class="headerlink" href="#maximum-drawdown" title="Permalink to this heading">#</a></h3>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="c1">#&gt; Define hist bins</span>
+<span class="c1"># min_drawdown = min(np.min(y_reb_max_drawdown), np.min(y_bah_max_drawdown))</span>
+<span class="c1"># max_drawdown = min(np.max(y_reb_max_drawdown), np.max(y_bah_max_drawdown))</span>
+<span class="n">nbins</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">min_bins</span> <span class="o">=</span> <span class="mf">0.</span>  <span class="c1"># min_drawdown - (max_drawdown - min_drawdown)/nbins</span>
+<span class="n">max_bins</span> <span class="o">=</span> <span class="mf">1.</span>  <span class="c1"># max_drawdown + (max_drawdown - min_drawdown)/nbins</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">min_bins</span><span class="p">,</span> <span class="n">max_bins</span><span class="p">,</span> <span class="n">nbins</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cum_v</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">reb_max_drawdown</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="n">cum_v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Rebalanced&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bah_max_drawdown</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="n">cum_v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Buy-and-hold&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max drawdown&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Frequency&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1">#&gt; Drawdowns as a function of time for the realization with deepest drawdown</span>
+<span class="n">reb_running_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">y_reb_max_drawdown</span><span class="p">)</span>
+<span class="n">bah_running_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">y_bah_max_drawdown</span><span class="p">)</span>
+
+<span class="n">ddown_reb</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">y_reb_max_drawdown</span><span class="o">/</span><span class="n">reb_running_max</span>
+<span class="n">ddown_bah</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">y_bah_max_drawdown</span><span class="o">/</span><span class="n">bah_running_max</span>
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">ddown_reb</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Rebalanced&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">ddown_bah</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Buy-and-hold&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">ddown_reb</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">ddown_bah</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nt</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Periods&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Drawdown&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Drawdown probability density&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Drawdown cumulative probability&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Realization with the deepest drawdown&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0.5, 1.0, &#39;Realization with the deepest drawdown&#39;)
+</pre></div>
+</div>
+<img alt="../../_images/6a67816ebadc208d95ee66dfa7ca4b09bc1038b94561f0aaf93c87fbb4d2c314.png" src="../../_images/6a67816ebadc208d95ee66dfa7ca4b09bc1038b94561f0aaf93c87fbb4d2c314.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./code/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../../ch/principles/intro_nb.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">7. </span>Introduction to principles of investing</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../ch/assets/intro.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">9. </span>Introduction to asset classes</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries-parameters-and-useful-functions">8.1. Libraries, parameters and useful functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#libraries">8.1.1. Libraries</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#parameters">8.1.2. Parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#functions-for-conics">8.1.3. Functions for conics</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rebalanced-portfolio">8.2. Rebalanced portfolio</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#shannon-demon">8.2.1. Shannon demon</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#comparison-of-portfolios-realizations-of-stochastic-processes">8.3. Comparison of portfolios: realizations of stochastic processes</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#useful-functions">8.3.1. Useful functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#realizations">8.3.2. Realizations</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#composite-return">8.3.3. Composite return</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-drawdown">8.3.4. Maximum drawdown</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
