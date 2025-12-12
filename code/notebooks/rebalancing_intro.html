@@ -537,7 +537,7 @@ document.write(`
 
 <span class="c1">#&gt; N.of coin toss and realizations</span>
 <span class="n">n_tosses</span> <span class="o">=</span> <span class="mi">30</span>
-<span class="n">n_reals</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">n_reals</span> <span class="o">=</span> <span class="mi">2000</span>
 </pre></div>
 </div>
 </div>
@@ -598,11 +598,17 @@ frac_opt: 0.5
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Distribution of outcomes</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fracs</span><span class="p">),</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">fracs</span><span class="p">),</span><span class="mi">4</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fraction, avg wealth, avg geo return, n.negative outcomes&quot;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">itrial</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fracs</span><span class="p">):</span>
-    <span class="n">avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span>
+    <span class="n">w_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:])</span>
+    <span class="n">r_end</span> <span class="o">=</span> <span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">n_tosses</span><span class="p">)</span>
+    <span class="n">r_avg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">r_end</span><span class="p">)</span>
     <span class="n">n_neg</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span> <span class="o">&lt;</span> <span class="mf">1.</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f:</span><span class="si">{</span><span class="n">fracs</span><span class="p">[</span><span class="n">itrial</span><span class="p">]</span><span class="si">}</span><span class="s2">, avg:</span><span class="si">{</span><span class="n">avg</span><span class="si">:</span><span class="s2">6.3f</span><span class="si">}</span><span class="s2">, n_neg:</span><span class="si">{</span><span class="n">n_neg</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f:</span><span class="si">{</span><span class="n">fracs</span><span class="p">[</span><span class="n">itrial</span><span class="p">]</span><span class="si">}</span><span class="s2">, w_avg:</span><span class="si">{</span><span class="n">w_avg</span><span class="si">:</span><span class="s2">6.3f</span><span class="si">}</span><span class="s2">, r_avg:</span><span class="si">{</span><span class="n">r_avg</span><span class="si">:</span><span class="s2">6.3f</span><span class="si">}</span><span class="s2">, n_neg:</span><span class="si">{</span><span class="n">n_neg</span><span class="si">:</span><span class="s2">4d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+      
     <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>  <span class="c1"># , histtype=&#39;step&#39;, linewidth=1.5, alpha=.7</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">itrial</span><span class="p">][</span><span class="s1">&#39;w&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -613,27 +619,50 @@ frac_opt: 0.5
     <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
 
     <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f:</span><span class="si">{</span><span class="n">fracs</span><span class="p">[</span><span class="n">itrial</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_end</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>  <span class="c1"># , histtype=&#39;step&#39;, linewidth=1.5, alpha=.7</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_end</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">1.4</span><span class="p">)</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">itrial</span> <span class="o">==</span> <span class="n">n_fracs</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span> 
+        <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">([])</span>
 
-    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;f:</span><span class="si">{</span><span class="n">fracs</span><span class="p">[</span><span class="n">itrial</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">();</span>  <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">itrial</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Wealth&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">itrial</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Return&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.0, avg: 1.000, n_neg:   0
-f:0.2, avg: 1.624, n_neg: 187
-f:0.4, avg: 2.657, n_neg: 344
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fraction, avg wealth, avg geo return, n.negative outcomes
+f:0.0, w_avg: 1.000, r_avg: 1.000, n_neg:   0
+f:0.2, w_avg: 1.629, r_avg: 1.013, n_neg: 377
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.6, avg: 4.460, n_neg: 293
-f:0.8, avg: 9.329, n_neg: 434
-f:1.0, avg: 9.394, n_neg: 436
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.4, w_avg: 2.720, r_avg: 1.021, n_neg: 574
+f:0.6, w_avg: 4.501, r_avg: 1.023, n_neg: 551
 </pre></div>
 </div>
-<img alt="../../_images/dce5f036eee93945daa6e33c01eaa30c822220f1d9210dd515926d2899cbce6f.png" src="../../_images/dce5f036eee93945daa6e33c01eaa30c822220f1d9210dd515926d2899cbce6f.png" />
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.8, w_avg: 6.996, r_avg: 1.014, n_neg: 883
+f:1.0, w_avg:10.444, r_avg: 1.001, n_neg: 841
+</pre></div>
+</div>
+<img alt="../../_images/ee3f598100f56cdc4fcb84400341f877e7017a420cff57d6332b052aa494ae42.png" src="../../_images/ee3f598100f56cdc4fcb84400341f877e7017a420cff57d6332b052aa494ae42.png" />
 </div>
 </div>
+<p><strong>todo</strong> Discuss:</p>
+<ul class="simple">
+<li><p>difference between algebraic and geometric return (compounding)</p></li>
+<li><p>probability of negative outcomes and dispersion of the results</p></li>
+<li><p>probability of intermediate negative outcomes and dispersion of results (time effect and volatility)</p></li>
+<li><p>comparison with no-rebalancing strategy</p></li>
+</ul>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
