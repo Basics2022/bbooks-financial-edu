@@ -1,6 +1,11 @@
 (fin-edu:investing:rebalancing)=
 # Rebalancing
 
+**todo** *Move rebalance.ipynb here, as a more detailed discussion about rebalancing. Move this page to the introductory part about Investing principles*
+
+---
+
+
 **Reasons.**
 - risk management:
   - adjust risk for the period of life, and risk-level

@@ -16,3 +16,7 @@ A bit of context is essential. It allows us to cut through the more eccentric th
 
 For this reason, the book begins with a clear overview of the modern economic framework. We will explore its key players and the instruments they use, tracing their evolution over time. This historical lens is not meant as an academic detour, but as a practical tool: understanding where these institutions and mechanisms come from helps us grasp why they exist, how they function, and what their limitations may be.
 
+## Building process
+
+So far, the building process is not as smooth as it should be. Need for manually copy the folder \texttt{./code/notebooks/iframe_figures} into \texttt{./_build/html/code/notebooks/}.
+
