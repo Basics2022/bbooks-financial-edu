@@ -24,7 +24,6 @@ parts:
   chapters:
   - file: ch/principles/intro_nb
   - file: code/notebooks/rebalancing_intro
-  - file: code/notebooks/rebalancing
   - file: code/notebooks/sequence-risk
 - caption: Asset classes
   numbered: True
@@ -46,7 +45,8 @@ parts:
   - file: ch/investing/capm
   - file: ch/investing/merton
 # - file: ch/investing/strategic-tactical
-  - file: ch/investing/rebalancing
+# - file: ch/investing/rebalancing
+  - file: code/notebooks/rebalancing
 - caption: Extra
   chapters:
   - file: ch/extra/intro
