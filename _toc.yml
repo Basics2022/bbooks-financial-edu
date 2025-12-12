@@ -23,6 +23,8 @@ parts:
   numbered: True
   chapters:
   - file: ch/principles/intro_nb
+  - file: ch/principles/essentials
+  - file: ch/principles/intro-principles
   - file: code/notebooks/rebalancing_intro
   - file: code/notebooks/sequence-risk
 - caption: Asset classes
