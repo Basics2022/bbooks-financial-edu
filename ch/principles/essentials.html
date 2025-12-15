@@ -198,8 +198,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assets/intro.html">12. Introduction to asset classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">13.2. Bond Risks</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assets/equity-valuation.html">14.1. Equity Valuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assets/financial-statements.html">14.2. Three Financial Statements</a></li>
 </ul>
@@ -491,21 +494,21 @@ document.write(`
 <p><strong>Necessità dell’investimento.</strong></p>
 <ul class="simple">
 <li><p>Si vive con il valore reale dei soldi, non con quello reale</p></li>
-<li><p>Nel sistema attuale, gli obiettivi di inflazione sono attorno al <span class="math notranslate nohighlight">\(2-3\%\)</span><a class="footnote-reference brackets" href="#inflation-target" id="id2">2</a></p></li>
+<li><p>Nel sistema attuale, gli obiettivi di inflazione sono attorno al <span class="math notranslate nohighlight">\(2\%\)</span><a class="footnote-reference brackets" href="#inflation-target" id="id2">2</a> — misurata con un adeguato <a class="reference internal" href="../../code/notebooks/inflation.html#fin-edu-inflation-indices"><span class="std std-ref">indice dei prezzi</span></a> nell’area monetaria di riferimento</p></li>
 <li><p>L’inflazione erode il valore reale dei soldi</p></li>
 <li><p>Questo rende necessario cercare dei modi per difendere il valore del risparmio/patrimonio, attraverso investimento.</p></li>
 </ul>
 <p><strong>Come investire: i princìpi</strong></p>
 <ul class="simple">
-<li><p>Rendimento, rischio, R/R: composizione rendimenti, ruolo dell’incertezza (e della volatilità), minimizzazione costi certi (a parità di altre condizioni)</p></li>
-<li><p>Diversificazione</p></li>
+<li><p>rendimento, rischio, R/R: composizione rendimenti, ruolo dell’incertezza (e della volatilità), minimizzazione costi certi (a parità di altre condizioni)</p></li>
+<li><p><strong>diversificazione</strong></p></li>
 <li><p>Strumenti per investire</p></li>
 </ul>
 <p><strong>Come investire: costruzione di un portafogli, e gestione nel tempo.</strong>
 Una volta definiti gli obiettivi personali, compatibilmente con la propria tolleranza a rischi e volatilità:</p>
 <ul class="simple">
 <li><p>Costruzione portafogli con strumenti finanziari, secondo i princìpi di investimento</p></li>
-<li><p>Gestione su un orizzonte temporale medio-lungo (<strong>ribilanciamento</strong></p></li>
+<li><p>Gestione su un orizzonte temporale medio-lungo (<strong>ribilanciamento</strong>,…)</p></li>
 </ul>
 <div class="section" id="inflazione">
 <span id="fin-edu-principles-essentials-inflation"></span><h2><span class="section-number">8.1. </span>Inflazione<a class="headerlink" href="#inflazione" title="Permalink to this heading">#</a></h2>
@@ -722,7 +725,7 @@ Final value after 60 periods:
 <span class="expanded">Hide code cell output</span>
 </summary>
 <div class="cell_output docutils container">
-<img alt="../../_images/653788bbc191dba15a87bd7da225885a1d099aa9a8c572e9f17033768b608e00.png" src="../../_images/653788bbc191dba15a87bd7da225885a1d099aa9a8c572e9f17033768b608e00.png" />
+<img alt="../../_images/380383aebf6b126dde3c8faef9136ff4c84a6368428e9d736ea76a09bc6e9e62.png" src="../../_images/380383aebf6b126dde3c8faef9136ff4c84a6368428e9d736ea76a09bc6e9e62.png" />
 </div>
 </details>
 </div>
@@ -749,7 +752,7 @@ Final value after 60 periods:
 <dd><p><a class="reference external" href="https://www.ft.com/content/066c0c98-ec47-4b51-9416-b2b2661ec942">Paola Tamma, Why Europeans need to learn more about money, FT</a>, e riferimenti contenuti; <a class="reference external" href="https://x.com/Phastidio/status/1999376969369010468?s=20">Mario Seminerio, tweet 2025.12.12</a>; OECD 2022 survey.</p>
 </dd>
 <dt class="label" id="inflation-target"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Sono numeri arbitrari? Più o meno sì. Il fatto fondamentale per chi fa scelte economiche è che siano numeri affidabili per fare le previsioni.</p>
+<dd><p>Pagine di alcune banche centrali riguardo il valore obiettivo della <em>politica monetaria</em> e le motivazioni: <a class="reference external" href="https://www.ecb.europa.eu/mopo/strategy/pricestab/html/index.en.html">Banca Centrale Europea, BCE o ECB</a>; <a class="reference external" href="https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm">Federal Reserve, US Fed</a>; <a class="reference external" href="https://www.bankofengland.co.uk/monetary-policy/inflation">Bank of England, BoE</a>; <a class="reference external" href="https://www.boj.or.jp/en/mopo/outline/target.htm">Bank of Japan</a>; <a class="reference external" href="https://www.bloomberg.com/news/articles/2025-03-05/chinese-policy-makers-set-annual-inflation-target-at-around-2">Bloomberg, China may struggle to hit inflation target even after cutting it, 2025.03.05</a> riguardo l’adeguamento del target della Bank of China, dal <span class="math notranslate nohighlight">\(3\%\)</span> al <span class="math notranslate nohighlight">\(2%\)</span>. Sono numeri arbitrari? Entro una certa tolleranza probabilmente sì, anche se un numero o un intervallo va scelto, e la scelta è motivata nelle pagine delle Banche Centrali. Più importante del numero in sé, è la credibilità e la capacità delle BC di riuscire a ottenere un valore di inflazione vicino all’obiettivo, tramite la politica monetaria — anche se questa può avere dei limiti, soprattutto se non accompagnata da una politica fiscale coerente da parte dei governi: per chi fa scelte economiche risulta fondamentale che gli obiettivi di inflazione siano rispettati, e che gli attori preposti siano credibili. In un mondo normale, attese di inflazione e incertezza futura sugli obiettivi di inflazione vengono scontate dagli attori del sistema economico. Ad esempio, è lecito attendersi che un investitore che acquista un’obbligazione — statale di uno stato affidabile per escludere spread rispetto a ciò che può essere considerato “risk-free”; nella stessa valuta in cui vive per escludere rischio-cambio — a scadenza <span class="math notranslate nohighlight">\(10\)</span> anni richieda almeno un rendimento reale positivo su tale orizzonte temporale. In una situazione in cui l’investitore ha la certezza (beato lui che ha certezze) che il target di inflazione sia rispettato, può chiedere un interesse nominale netto del <span class="math notranslate nohighlight">\(2.5\%\)</span> se si accontenta di un rendimento reale dello <span class="math notranslate nohighlight">\(0.5\%\)</span> annuo. Lo stesso investitore chiederebbe lo stesso interesse se si attendesse un’inflazione superiore al target, o se non considerasse attendibile l’impegno della BC di rispettare il target, o se temesse qualche “fiammata inflazionistica”? Vedi <span class="xref myst">rischio inflazione per obbligazioni</span>.</p>
 </dd>
 </dl>
 </div>
