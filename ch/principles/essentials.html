@@ -76,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -528,10 +537,10 @@ Una volta definiti gli obiettivi personali, compatibilmente con la propria tolle
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">yield_1</span> <span class="o">=</span> <span class="mf">.05</span>
+<span class="n">yield_1</span> <span class="o">=</span> <span class="mf">.04</span>
 <span class="n">yield_2</span> <span class="o">=</span> <span class="mf">.08</span>
 
-<span class="n">ni_v</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span> <span class="p">]</span>
+<span class="n">ni_v</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">30</span> <span class="p">]</span> <span class="c1"># , 60 ]</span>
 
 <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">ni_v</span><span class="p">:</span>
     <span class="n">iv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ni</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -558,16 +567,11 @@ Una volta definiti gli obiettivi personali, compatibilmente con la propria tolle
 </details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final value after 30 periods:
-1-period yield:  0.05; wealth:  4.322
+1-period yield:  0.04; wealth:  3.243
 1-period yield:  0.08; wealth: 10.063
-
-Final value after 60 periods:
-1-period yield:  0.05; wealth: 18.679
-1-period yield:  0.08; wealth: 101.257
 </pre></div>
 </div>
-<img alt="../../_images/591b5cd607807c9f3466595a781df41c806556d11ef0ee1b0b874ee5e3b11355.png" src="../../_images/591b5cd607807c9f3466595a781df41c806556d11ef0ee1b0b874ee5e3b11355.png" />
-<img alt="../../_images/511a09ba5e7372fc6518ceb788e922e7f27afc6313f55bef75bda45701356f5f.png" src="../../_images/511a09ba5e7372fc6518ceb788e922e7f27afc6313f55bef75bda45701356f5f.png" />
+<img alt="../../_images/0ac33337c06703d11c54c39f2585731c3d037226b269c4c9410c15e2a5d56860.png" src="../../_images/0ac33337c06703d11c54c39f2585731c3d037226b269c4c9410c15e2a5d56860.png" />
 </div>
 </div>
 </div>
@@ -579,16 +583,34 @@ Final value after 60 periods:
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari</p>
-<ul class="simple">
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari.</p></li>
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(100\%\)</span></p></li>
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span> prima e guadagni il <span class="math notranslate nohighlight">\(100\%\)</span> poi o se guadagni il <span class="math notranslate nohighlight">\(100\%\)</span> prima e perdi il <span class="math notranslate nohighlight">\(50\%\)</span> poi, alla fine il risultato è lo stesso</p></li>
+<ul>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_1 &amp; = X_0 ( 1 - .\overline{3} ) = .\overline{6} \, X_0 \\
+      X_2 &amp; = X_1 ( 1 + .5 ) = X_0
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(100\%\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_1 &amp; = X_0 ( 1 - .5 ) = .5 \, X_0 \\
+      X_2 &amp; = X_1 ( 1 + 1. ) = X_0
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(\ell \%\)</span> prima e guadagni il <span class="math notranslate nohighlight">\(g \%\)</span> poi o se guadagni il <span class="math notranslate nohighlight">\(g \%\)</span> prima e perdi il <span class="math notranslate nohighlight">\(\ell \%\)</span> poi, alla fine il risultato è lo stesso</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_2^a &amp; = X_1^a \left( 1 + \frac{g}{100} \right) = X_0 \left( 1 - \frac{\ell}{100} \right) \left( 1 + \frac{g}{100} \right) \\
+      X_2^b &amp; = X_1^b \left( 1 - \frac{\ell}{100} \right) = X_0 \left( 1 + \frac{g}{100} \right) \left( 1 - \frac{\ell}{100} \right) \ .
+    \end{aligned}\end{split}\]</div>
+</li>
 <li><p>…</p></li>
 </ul>
 </div>
 <div class="tip admonition">
-<p class="admonition-title">…</p>
-<p>…</p>
+<p class="admonition-title">Il rendimento composto produce un risultato asimmetrico</p>
+<p>Anche un processo con rendimento di 1-periodo con probabilità simmetrica attorno a un valore medio, produce un <strong>rendimento algebrico</strong> medio con distribuzione di probabilità asimmetrica: in particolare si verifica la maggior parte degli eventi con risultati inferiori alla media, che risulta superiore alla mediana a causa di una minoranza di eventi estremamente positivi.</p>
 </div>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -615,11 +637,11 @@ Final value after 60 periods:
 <span class="c1">#             = .5 * ( v1 - ev )**2 + .5 * ( v2 - ev )**2</span>
 <span class="c1">#             = Delta**2</span>
 <span class="c1"># Delta = sqrt(var)</span>
-<span class="n">r_avg</span> <span class="o">=</span> <span class="mf">0.</span>
-<span class="n">r_sdev</span> <span class="o">=</span> <span class="mf">.3</span>
+<span class="n">r_avg</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">r_sdev</span> <span class="o">=</span> <span class="mf">.2</span>
 <span class="n">rngs</span> <span class="o">=</span> <span class="p">[</span>
     <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">r_avg</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">r_sdev</span><span class="p">),</span>
-    <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">choice</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="p">[</span><span class="n">r_avg</span><span class="o">-</span><span class="n">r_sdev</span><span class="p">,</span> <span class="n">r_avg</span><span class="o">+</span><span class="n">r_sdev</span><span class="p">],</span> <span class="n">p</span><span class="o">=</span><span class="p">[</span><span class="mf">.5</span><span class="p">,</span> <span class="mf">.5</span><span class="p">]),</span>
+    <span class="c1"># partial(np.random.default_rng().choice, a=[r_avg-r_sdev, r_avg+r_sdev], p=[.5, .5]),</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -674,7 +696,7 @@ Final value after 60 periods:
 <span class="n">n_plots</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="n">n_plots</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
 
-<span class="n">d_bin</span> <span class="o">=</span> <span class="n">r_sdev</span> <span class="o">/</span> <span class="mf">5.</span>
+<span class="n">d_bin</span> <span class="o">=</span> <span class="n">r_sdev</span> <span class="o">/</span> <span class="mf">4.</span>
 <span class="n">x_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> <span class="o">*</span> <span class="n">d_bin</span> <span class="o">+</span> <span class="n">r_avg</span>
 
 <span class="k">for</span> <span class="n">i_time</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">times_v</span><span class="p">):</span>
@@ -711,9 +733,13 @@ Final value after 60 periods:
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/31eda259d1bc9815fa861c7d5a9511264a9c5eaa6347b51852d1547b638fa848.png" src="../../_images/31eda259d1bc9815fa861c7d5a9511264a9c5eaa6347b51852d1547b638fa848.png" />
+<img alt="../../_images/f3702ad98235590d24805b630052b28535b9b2c4f04b50c9263c3c7079d65280.png" src="../../_images/f3702ad98235590d24805b630052b28535b9b2c4f04b50c9263c3c7079d65280.png" />
 </div>
 </div>
+<p>L’esempio considera un investimento con densità di probabilità di 1-periodo con distribuzione gaussiana con valore atteso <span class="math notranslate nohighlight">\(\mu_1 = .1\)</span> e deviazione standard <span class="math notranslate nohighlight">\(\sigma_1 = .2\)</span></p>
+<p>La <em>prima colonna</em> dei grafici mostra come la distribuzione di probabilità del rendimento algebrico medio diventa asimmetrica.</p>
+<p>La <em>terza colonna</em> mostra la distribuzione del rendimento geometrico: sotto opportune ipotesi, il rendimento geometrico tende a una distribuzione gaussiana con valore atteso <span class="math notranslate nohighlight">\(\mu - \frac{\sigma^2}{2}\)</span> (minore del rendimento di 1-periodo) e varianza <span class="math notranslate nohighlight">\(\sim \frac{\sigma}{T}\)</span> (che quindi tende a diminuire con il tempo, come mostrato dalla distribuzione più compatta, con dispersione minore al crescere del tempo) come discusso con qualche dettaglio matematico nella sezione a proposito del <a class="reference internal" href="intro-principles.html#fin-edu-principles-time-compounding"><span class="std std-ref">rendimento composto</span></a>.</p>
+<p>La <em>seconda</em> e la <em>quarta colonna</em> mostrano la funzione di probabilità cumulativa del rendimento algebrico e geometrico, rispettivamente. Questi grafici mostrano come il rendimento mediano sia inferiore al rendimento medio della distribuzione di 1-periodo: per <span class="math notranslate nohighlight">\(T = 5\)</span>, circa il <span class="math notranslate nohighlight">\(60\%\)</span> delle realizzazioni ha rendimento negativo, per <span class="math notranslate nohighlight">\(T = 17\)</span>, oltre il <span class="math notranslate nohighlight">\(70\%\)</span> delle realizzazioni ha un rendimento negativo</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Realizations</span>

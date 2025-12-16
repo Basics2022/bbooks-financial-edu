@@ -76,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -514,7 +523,7 @@ An amount of $1000$€ in saving account returning $2\%$ per year, returns $0.02
 
 ```
 -->
-<p>For a many-year investment, single-period returns <a class="reference internal" href="#fin-edu-principles-time-compunding"><span class="std std-ref"><strong>compound</strong></span></a> over time.</p>
+<p>For a many-year investment, single-period returns <span class="xref myst"><strong>compound</strong></span> over time.</p>
 <div class="section" id="costs">
 <span id="fin-edu-principles-return-costs"></span><h3><span class="section-number">9.1.1. </span>Costs<a class="headerlink" href="#costs" title="Permalink to this heading">#</a></h3>
 <p>While return are uncertain, at least to a certain level, usually costs - fees, expenses, taxes - or part of them, are certain. With equal other conditions, the intelligent investor should reduce costs (known), as higher costs reduce returns w/o changing the level of risk.</p>
@@ -580,7 +589,7 @@ A 1-year 5% VaR of $1000\text{€}$ of an investment it means that there's 5% pr
 <div class="section" id="time">
 <span id="fin-edu-principles-time"></span><h2><span class="section-number">9.6. </span>Time<a class="headerlink" href="#time" title="Permalink to this heading">#</a></h2>
 <div class="section" id="compound-return">
-<span id="fin-edu-principles-time-compunding"></span><h3><span class="section-number">9.6.1. </span>Compound Return<a class="headerlink" href="#compound-return" title="Permalink to this heading">#</a></h3>
+<span id="fin-edu-principles-time-compounding"></span><h3><span class="section-number">9.6.1. </span>Compound Return<a class="headerlink" href="#compound-return" title="Permalink to this heading">#</a></h3>
 <p>Return of multi-period investment compounds and not simply sums.
 Return <span class="math notranslate nohighlight">\(r_n\)</span> in the <span class="math notranslate nohighlight">\(n^{th}\)</span> period from <span class="math notranslate nohighlight">\(n\)</span> to <span class="math notranslate nohighlight">\(n+1\)</span>, is defined as</p>
 <div class="math notranslate nohighlight">
@@ -594,6 +603,26 @@ Return <span class="math notranslate nohighlight">\(r_n\)</span> in the <span cl
 <p>and thus</p>
 <div class="math notranslate nohighlight">
 \[\overline{r} = \left( \dfrac{x_N}{x_0} \right)^{\frac{1}{N}} - 1 = \left( \prod_{n=1}^N \left( 1 + r_n \right)  \right)^{\frac{1}{N}} - 1 \ .\]</div>
+<p><strong>Logaritmic return.</strong> By the very definition of the exponential function</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \ln \left( \overline{r} + 1 \right)
+  &amp; = \ln \left\{ \left( \prod_{n=1}^N \left( 1 + r_n \right)  \right)^{\frac{1}{N}} \right\} = \\
+  &amp; = \frac{1}{N} \sum_{n=1}^{N} \ln \left( 1 + r_n \right) 
+\end{aligned}\end{split}\]</div>
+<p>While <span class="math notranslate nohighlight">\(\ln( 1 + r_n )\)</span> is not Gaussian even if <span class="math notranslate nohighlight">\(r_n\)</span> is Gaussian, under the assumptions of the <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html#central-limit-theorem">central limit theorem</a>,</p>
+<div class="math notranslate nohighlight">
+\[\ln\left( \overline{r} + 1 \right) \rightarrow \mathscr{N} \left( \mu_{\ln}, \frac{\sigma^2_{\ln}}{N} \right) \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\mu_{\ln}\)</span> and <span class="math notranslate nohighlight">\(\sigma^2_{\ln}\)</span> the expected value and the variance of the <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/iid.html#independent-identically-distributed-random-variables">i.i.d. random variables</a> <span class="math notranslate nohighlight">\(\ln ( 1 + r_n )\)</span>. Given the probability density <span class="math notranslate nohighlight">\(p(r)\)</span> of the 1-period return <span class="math notranslate nohighlight">\(r\)</span>, these values read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mu_{\ln} &amp; = \int_{r} p(r) \ln ( 1 + r ) \, dr \\
+  \sigma_{\ln}^2 &amp; = \int_{r} p(r) \left( \ln( 1 + r ) - \mu_{\ln} \right)^2 \, dr \ .
+\end{aligned}\end{split}\]</div>
+<p>For “sufficiently small” values of <span class="math notranslate nohighlight">\(\overline{r}\)</span>, the first-order expansion <span class="math notranslate nohighlight">\(x \sim \ln(1+x)\)</span>, for <span class="math notranslate nohighlight">\(x \rightarrow 0\)</span>, provides a good approximation relating the logarithmic return and the geometric return, that thus have approximately Gaussian distribution for <span class="math notranslate nohighlight">\(N\)</span> “sufficiently large”,</p>
+<div class="math notranslate nohighlight">
+\[\overline{r} \sim \ln \left(1+\overline{r}\right) \rightarrow \mathscr{N}\left( \mu_{\ln}, \frac{\sigma^2_{\ln}}{N} \right) \ .\]</div>
+<p><strong>todo</strong> How to provide an approximate value of <span class="math notranslate nohighlight">\(\mu_{\ln}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\ln}\)</span>, at least for <em>compact pdf</em> (even if not identically zero outside). Does this approximation match <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/processes-calculus.html#geometric-brownian-motion-gbm"><em>GBM, Geometric Brownian motion</em></a>?</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -672,7 +701,7 @@ Return <span class="math notranslate nohighlight">\(r_n\)</span> in the <span cl
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/6d01e7d154ffd42039d446d8ea1754f6a185929c2685a60d29fc11386a660fa8.png" src="../../_images/6d01e7d154ffd42039d446d8ea1754f6a185929c2685a60d29fc11386a660fa8.png" />
+<img alt="../../_images/01895bf5fd894348cd29b31ba124b6ed822622360149f69a21df1f8cc80f97a9.png" src="../../_images/01895bf5fd894348cd29b31ba124b6ed822622360149f69a21df1f8cc80f97a9.png" />
 </div>
 </div>
 <p><strong>todo</strong></p>
