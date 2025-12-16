@@ -33,6 +33,7 @@ parts:
   - file: ch/assets/intro
   - file: ch/assets/bonds
     sections:
+    - file: ch/assets/bonds-return
     - file: ch/assets/bonds-risks
   - file: ch/assets/equity
     sections:

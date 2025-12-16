@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13.2. Risks &#8212; Financial Education - basics</title>
+    <title>13.1. Return &#8212; Financial Education - basics</title>
   
   
   
@@ -67,12 +67,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/assets/bonds-risks';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/assets/bonds-return';</script>
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="14. Equity" href="equity.html" />
-    <link rel="prev" title="13.1. Return" href="bonds-return.html" />
+    <link rel="next" title="13.2. Risks" href="bonds-risks.html" />
+    <link rel="prev" title="13. Bonds" href="bonds.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -199,8 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">12. Introduction to asset classes</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bonds.html">13. Bonds</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="bonds-return.html">13.1. Return</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">13.2. Risks</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">13.1. Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bonds-risks.html">13.2. Risks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -281,7 +281,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-financial-edu/blob/master/ch/assets/bonds-risks.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-financial-edu/blob/master/ch/assets/bonds-return.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch onColab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -329,7 +329,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/assets/bonds-risks.ipynb" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/assets/bonds-return.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -346,7 +346,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/assets/bonds-risks.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/assets/bonds-return.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -376,7 +376,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../../_sources/ch/assets/bonds-risks.ipynb" target="_blank"
+      <li><a href="../../_sources/ch/assets/bonds-return.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -460,7 +460,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Risks</h1>
+    <h1>Return</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -470,7 +470,11 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-risk">13.2.1. Inflation risk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-coupon-bonds">13.1.1. Constant coupon bonds</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#w-o-reinvestment">13.1.1.1. W/o reinvestment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#w-reinvestment">13.1.1.2. W/ reinvestment</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -482,93 +486,168 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="risks">
-<span id="fin-edu-assets-bonds-risks"></span><h1><span class="section-number">13.2. </span>Risks<a class="headerlink" href="#risks" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="return">
+<span id="fin-edu-assets-bonds-return"></span><h1><span class="section-number">13.1. </span>Return<a class="headerlink" href="#return" title="Permalink to this heading">#</a></h1>
+<p>Here the most general expression for nominal and real <strong>yield</strong> are derived as a function of prices, face value of coupon, taxation and year to maturity, both in case of coupon reinvestment or not (reinvestment not always possible); a closed form solution is then derived under some assumptions, like constant (or average) rates; the effect on price and yield of credit rating and rating change, coupon, year to maturity are discussed on both examples and real-world cases.</p>
+<p>Extra:</p>
 <ul class="simple">
-<li><p>Inflation risk</p></li>
-<li><p>Interest rate fluctuations</p></li>
-<li><p>Reinvestment risk</p></li>
-<li><p>Rating, credit and defalut risks</p></li>
-<li><p>…</p></li>
+<li><p>definition of duration</p></li>
+<li><p>risks: inflation; reinvesment (at lower rates) for bonds with same maturity and different coupons</p></li>
+<li><p>inflation linked</p></li>
 </ul>
-<div class="section" id="inflation-risk">
-<span id="fin-edu-assets-bonds-risks-inflation"></span><h2><span class="section-number">13.2.1. </span>Inflation risk<a class="headerlink" href="#inflation-risk" title="Permalink to this heading">#</a></h2>
-<p>Independently from any other mechanism, a change in inflation alters the real return of constant nominal yield bonds. Just as an example, if you buy a <span class="math notranslate nohighlight">\(3\%\)</span> nominal rate bond with expected inflation at <span class="math notranslate nohighlight">\(2\%\)</span>, you’re aiming at <span class="math notranslate nohighlight">\(1\%\)</span> real return. If average inflation grows and remains constant at <span class="math notranslate nohighlight">\(4\%\)</span>, you get a negative <span class="math notranslate nohighlight">\(-1\%\)</span> return.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
-
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#&gt; Bond features</span>
-<span class="n">n_years</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">r_nominal</span> <span class="o">=</span> <span class="mf">.03</span>
-<span class="n">i_exp</span> <span class="o">=</span> <span class="mf">.02</span>
-<span class="n">i_sdev</span> <span class="o">=</span> <span class="mf">.02</span>
-
-<span class="c1">#&gt; Initial price</span>
-<span class="c1"># r = (pend/pinit)**(1/years) - 1</span>
-<span class="n">bond_price_end</span> <span class="o">=</span> <span class="mf">100.</span>
-<span class="n">bond_price_ini</span> <span class="o">=</span> <span class="n">bond_price_end</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">r_nominal</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span> 
-
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final price: </span><span class="si">{</span><span class="n">bond_price_end</span><span class="si">:</span><span class="s2"> 6.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial price to get compound return r=</span><span class="si">{</span><span class="n">r_nominal</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">bond_price_ini</span><span class="si">:</span><span class="s2"> 6.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-<span class="c1">#&gt; Expected price index</span>
-<span class="n">pi_ini</span> <span class="o">=</span> <span class="mf">100.</span>
-<span class="n">pi_end</span> <span class="o">=</span> <span class="n">pi_ini</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">i_exp</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span>
-
-<span class="c1">#&gt; N.realizations</span>
-<span class="n">n_reals</span> <span class="o">=</span> <span class="mi">10000</span>
-</pre></div>
+<div class="section" id="constant-coupon-bonds">
+<h2><span class="section-number">13.1.1. </span>Constant coupon bonds<a class="headerlink" href="#constant-coupon-bonds" title="Permalink to this heading">#</a></h2>
+<div class="section" id="w-o-reinvestment">
+<h3><span class="section-number">13.1.1.1. </span>W/o reinvestment<a class="headerlink" href="#w-o-reinvestment" title="Permalink to this heading">#</a></h3>
+<p>At time <span class="math notranslate nohighlight">\(t_0\)</span> the unit price of a bond is <span class="math notranslate nohighlight">\(p_0\)</span>; investing <span class="math notranslate nohighlight">\(Y_0\)</span> allows to buy <span class="math notranslate nohighlight">\(N_0 = \frac{Y_0}{p_0}\)</span> titles; each title has the right of receiving net coupon <span class="math notranslate nohighlight">\(C (1 - t)\)</span>, with <span class="math notranslate nohighlight">\(t\)</span> taxation rate, per period (here assumed 1-year coupon range).</p>
+<div class="math notranslate nohighlight">
+\[N_0 = \dfrac{Y_0}{p_0} = \dfrac{Y_0}{p_{in}} \dfrac{p_{in}}{p_0}\]</div>
+<p>W/o reinvestment, the number of titles hold is constant and equal to <span class="math notranslate nohighlight">\(N_0\)</span>. As capital <span class="math notranslate nohighlight">\(Y_i\)</span> can be written as the product of unit price and number of bond in portfolio, the DCF of a bond w/o coupon reinvestment reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \widetilde{DCF} =
+  &amp; = - Y_0 + Y_N \prod_{k=1}^N ( 1 + r_k )^{-1} + \sum_{k=1}^{N} N_0 C (1-t) \prod_{j=1}^{k} (1 + r_j )^{-1} \\ 
+  &amp; = N_0 \left[ - p_0 + p_N \prod_{k=1}^N ( 1 + r_k )^{-1} + C (1-t) \sum_{k=1}^{N} \prod_{j=1}^{k} (1 + r_j )^{-1} \right] \ , 
+\end{aligned}\end{split}\]</div>
+<p>This DCF must be corrected a CF at time <span class="math notranslate nohighlight">\(t_N\)</span> corresponding to tax on capital gain if <span class="math notranslate nohighlight">\(p_n &gt; p_0\)</span>, discounted as</p>
+<div class="math notranslate nohighlight">
+\[- N_0( p_N  - p_0) \,  t \,  \prod_{k=1}^{N} (1+r_k)^{-1}  \qquad  (\text{only if $p_N &gt; p_0$})\]</div>
+<p>The cumulative real return (if the discount ratio is inflation) is the ratio between the <span class="math notranslate nohighlight">\(DCF\)</span> and the actual value of the investment <span class="math notranslate nohighlight">\(Y_0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\widetilde{\dfrac{DCF}{Y_0}} = - 1 + \dfrac{p_N}{p_0} \prod_{k=1}^N ( 1 + r_k )^{-1} + \dfrac{C}{p_0} (1-t) \sum_{k=1}^{N} \prod_{j=1}^{k} (1 + r_j )^{-1}  \]</div>
+<p>If the discount rate is constant, or the average (which average) discount rate is used, the expression of the cumulative return reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \dfrac{\widetilde{DCF}}{Y_0} = - 1 + \dfrac{p_N}{p_0} ( 1 + r )^{-N} + \dfrac{C}{p_0} (1-t) \sum_{k=1}^{N} (1 + r )^{-k}  
+\end{aligned}\]</div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final price:  100.000
-Initial price to get compound return r=0.03:  74.409
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
-
-<span class="c1">#&gt; Random number generator</span>
-<span class="n">i_rng</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">i_exp</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">i_sdev</span><span class="p">)</span>
-
-<span class="c1">#&gt; Realizations of 1-year inflation</span>
-<span class="n">i_reals</span> <span class="o">=</span> <span class="n">i_rng</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_years</span><span class="p">,</span> <span class="n">n_reals</span><span class="p">))</span>
-
-<span class="c1">#&gt; Realization of price index: PI[n+1] = PI[n] * ( 1 + i[n] )</span>
-<span class="n">pi_reals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i_reals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi_ini</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbins</span> <span class="o">=</span> <span class="mf">2.5</span>
-<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">dbins</span><span class="p">)</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pi_reals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pi_end</span><span class="p">,</span> <span class="n">pi_end</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pi_reals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pi_end</span><span class="p">,</span> <span class="n">pi_end</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dbins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dbins</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dbins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dbins</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">.1</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Price index after </span><span class="si">{</span><span class="n">n_years</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/f97b665538f1fc0313c7655b4b92b3c64dce7532ab5275d8515366e145451bf4.png" src="../../_images/f97b665538f1fc0313c7655b4b92b3c64dce7532ab5275d8515366e145451bf4.png" />
-</div>
+<div class="section" id="w-reinvestment">
+<h3><span class="section-number">13.1.1.2. </span>W/ reinvestment<a class="headerlink" href="#w-reinvestment" title="Permalink to this heading">#</a></h3>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-center head"><p>Time</p></th>
+<th class="text-center head"><p>Cashflows</p></th>
+<th class="text-center head"><p><span class="math notranslate nohighlight">\(\Delta\)</span>Quantity</p></th>
+<th class="text-center head"><p>Quantity</p></th>
+<th class="text-center head"><p>DF</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-Y_0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_0 = \frac{Y_0}{p_0}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_0 = \frac{Y_0}{p_0}\)</span></p></td>
+<td class="text-center"><p>1</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+N_0 C ( 1-t )\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((1+r_1)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-N_0 C ( 1-t )\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_1 = \frac{N_0 C (1-t)}{p_1}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{0:1} = N_0+N_1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((1+r_1)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+N_{0:1} C ( 1-t )\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((1+r_1)^{-1} (1+r_2)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-N_{0:1} C ( 1-t )\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_2 = \frac{N_{0:1} C (1-t)}{p_2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{0:2} = N_0+N_1 + N_2\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\((1+r_1)^{-1} (1+r_2)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p>…</p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(T-1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+N_{0:T-2} C ( 1-t )\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\prod_{k=1}^{T-1} (1+r_k)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(T-1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-N_{0:T-2} C ( 1-t )\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{T-1} = \frac{N_{0:T-2} C (1-t)}{p_{T-1}}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(N_{0:T-1} = \sum_{k=0}^{T-1} N_k\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\prod_{k=1}^{T-1} (1+r_k)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(T\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+N_{0:T-1} C ( 1-t )\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\prod_{k=1}^{T  } (1+r_k)^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(T\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(+N_{0:T-1} p_T\)</span></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\prod_{k=1}^{T  } (1+r_k)^{-1}\)</span></p></td>
+</tr>
+</tbody>
+</table>
+<p>All the cashflows from coupons are immediately reinvested so the DCF is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  DCF 
+  &amp; = - Y_0 + \underbrace{N_{0:T-1} \left( p_T + C (1-t)\right)}_{Y_T} \, \underbrace{ \prod_{k=1}^T (1+r_k)^{-1} }_{DF_T} = \\
+  &amp; = - Y_0 + Y_T \,  DF_T \ ,
+\end{aligned}\end{split}\]</div>
+<p>with</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  N_{0:T-1}
+  &amp; = N_{0:T-2} + N_{T-1} =  N_{0:T-2} + N_{0:T-2} \frac{ C (1-t)}{p_{T-1}} = N_{0:T-2} \left[ 1 + \frac{ C (1-t)}{p_{T-1}} \right] = \\
+  &amp; = N_{0:T-3} \left[ 1 + \frac{ C (1-t)}{p_{T-2}} \right] \left[ 1 + \frac{ C (1-t)}{p_{T-1}} \right] = \\
+  &amp; = \dots = \\
+  &amp; = N_{0:1} \prod_{k=2}^{T-1} \left[ 1 + \frac{ C (1-t)}{p_{k}} \right] = \\ 
+  &amp; = N_{0  } \prod_{k=1}^{T-1} \left[ 1 + \frac{ C (1-t)}{p_{k}} \right] \ .
+\end{aligned}\end{split}\]</div>
+<p>Cumulative discounted return reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \dfrac{DCF}{Y_0} 
+  &amp; = - 1 + \dfrac{Y_T}{Y_0} DF_{T} = \\
+  &amp; = - 1 + \dfrac{N_0}{N_0 \, p_0} \prod_{k=1}^{T-1} \left( 1+ \dfrac{C(1-t)}{p_k} \right) \, ( p_T + C(t-1) ) \, DF_T \\
+  &amp; = - 1 + \dfrac{p_T}{p_0} \prod_{k=1}^{T} \left( 1+ \dfrac{C(1-t)}{p_k} \right) \, DF_T \\
+  &amp; = - 1 + \dfrac{p_T}{p_0} \prod_{k=1}^{T} \left( \dfrac{ 1+ \frac{C(1-t)}{p_k} }{1+r_k} \right) \ .
+\end{aligned}\end{split}\]</div>
+<p>Composite discounted return is obtained, after writing the diiscounted cashflow as the difference between discounted cashflow at time <span class="math notranslate nohighlight">\(t_T\)</span> and <span class="math notranslate nohighlight">\(t_0\)</span>, <span class="math notranslate nohighlight">\(DCF = Y_T \ DF_T - T_0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[(1 + DCAGR)^T = \dfrac{Y_T \, DF_T}{Y_0} = \dfrac{DCF}{Y_0} + 1 = \dfrac{p_T}{p_0} \, \prod_{k=1}^{T} \left( \dfrac{ 1+ \frac{C(1-t)}{p_k} }{1+r_k} \right)\]</div>
+<div class="math notranslate nohighlight">
+\[DCAGR = \left( \dfrac{p_T}{p_0} \, \prod_{k=1}^{T}  \dfrac{ 1+ \frac{C(1-t)}{p_k} }{1+r_k} \right)^{\frac{1}{T}} - 1\]</div>
+<p><strong>If</strong><a class="footnote-reference brackets" href="#bond-const-price-hp" id="id1">1</a> price of the bond is constant throughout its whole life, <span class="math notranslate nohighlight">\(p_k = 1\)</span>, <span class="math notranslate nohighlight">\(\forall k=0:T\)</span>, and discount rate <span class="math notranslate nohighlight">\(r\)</span> is constant, the number of held bonds at time <span class="math notranslate nohighlight">\(T-1\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[N_{0:T-1} = N_0 \left( 1 + C(1-t) \right)^{T-1} \ ,\]</div>
+<p>the discounted cashflow is</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  DCF 
+  &amp; = - N_0 + N_0 \left( 1 + C(1-t) \right)^{T-1} ( 1 + C(1-t) ) \left( 1 + r \right)^{-T} = \\
+  &amp; = N_0 \left[ - 1 +  \left( \dfrac{ 1 + C(1-t) }{ 1 + r } \right)^{T} \right] \ ,
+\end{aligned}\end{split}\]</div>
+<p>cumulative discounted return</p>
+<div class="math notranslate nohighlight">
+\[\dfrac{DCF}{Y_0} = - 1 + \left( \dfrac{ 1 + C(1-t) }{ 1 + r } \right)^{T}\]</div>
+<p>and the composite discounted return reads</p>
+<div class="math notranslate nohighlight">
+\[DCAGR = \dfrac{1 + C(1-t)}{1+r} - 1 \ .\]</div>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="bond-const-price-hp"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>It’s a big if. Even if credit rating and inflation are constant throughout the life of the bond, years to maturity decreases and thus - usually - the required rate decreases as well.</p>
+</dd>
+</dl>
 </div>
 </div>
 </div>
@@ -604,20 +683,20 @@ Initial price to get compound return r=0.03:  74.409
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bonds-return.html"
+       href="bonds.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13.1. </span>Return</p>
+        <p class="prev-next-title"><span class="section-number">13. </span>Bonds</p>
       </div>
     </a>
     <a class="right-next"
-       href="equity.html"
+       href="bonds-risks.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">14. </span>Equity</p>
+        <p class="prev-next-title"><span class="section-number">13.2. </span>Risks</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -636,7 +715,11 @@ Initial price to get compound return r=0.03:  74.409
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-risk">13.2.1. Inflation risk</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#constant-coupon-bonds">13.1.1. Constant coupon bonds</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#w-o-reinvestment">13.1.1.1. W/o reinvestment</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#w-reinvestment">13.1.1.2. W/ reinvestment</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

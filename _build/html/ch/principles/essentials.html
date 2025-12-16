@@ -199,7 +199,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assets/intro.html">12. Introduction to asset classes</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">13.2. Bond Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-return.html">13.1. Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">13.2. Risks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -536,10 +537,10 @@ Una volta definiti gli obiettivi personali, compatibilmente con la propria tolle
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<span class="n">yield_1</span> <span class="o">=</span> <span class="mf">.05</span>
+<span class="n">yield_1</span> <span class="o">=</span> <span class="mf">.04</span>
 <span class="n">yield_2</span> <span class="o">=</span> <span class="mf">.08</span>
 
-<span class="n">ni_v</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span> <span class="p">]</span>
+<span class="n">ni_v</span> <span class="o">=</span> <span class="p">[</span> <span class="mi">30</span> <span class="p">]</span> <span class="c1"># , 60 ]</span>
 
 <span class="k">for</span> <span class="n">ni</span> <span class="ow">in</span> <span class="n">ni_v</span><span class="p">:</span>
     <span class="n">iv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ni</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
@@ -566,16 +567,11 @@ Una volta definiti gli obiettivi personali, compatibilmente con la propria tolle
 </details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final value after 30 periods:
-1-period yield:  0.05; wealth:  4.322
+1-period yield:  0.04; wealth:  3.243
 1-period yield:  0.08; wealth: 10.063
-
-Final value after 60 periods:
-1-period yield:  0.05; wealth: 18.679
-1-period yield:  0.08; wealth: 101.257
 </pre></div>
 </div>
-<img alt="../../_images/591b5cd607807c9f3466595a781df41c806556d11ef0ee1b0b874ee5e3b11355.png" src="../../_images/591b5cd607807c9f3466595a781df41c806556d11ef0ee1b0b874ee5e3b11355.png" />
-<img alt="../../_images/511a09ba5e7372fc6518ceb788e922e7f27afc6313f55bef75bda45701356f5f.png" src="../../_images/511a09ba5e7372fc6518ceb788e922e7f27afc6313f55bef75bda45701356f5f.png" />
+<img alt="../../_images/0ac33337c06703d11c54c39f2585731c3d037226b269c4c9410c15e2a5d56860.png" src="../../_images/0ac33337c06703d11c54c39f2585731c3d037226b269c4c9410c15e2a5d56860.png" />
 </div>
 </div>
 </div>
@@ -587,12 +583,175 @@ Final value after 60 periods:
 </ul>
 <div class="tip admonition">
 <p class="admonition-title">Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari</p>
-<ul class="simple">
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari.</p></li>
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(100\%\)</span></p></li>
-<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span> prima e guadagni il <span class="math notranslate nohighlight">\(100\%\)</span> poi o se guadagni il <span class="math notranslate nohighlight">\(100\%\)</span> prima e perdi il <span class="math notranslate nohighlight">\(50\%\)</span> poi, alla fine il risultato è lo stesso</p></li>
+<ul>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(33.33\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(50\%\)</span> per tornare in pari.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_1 &amp; = X_0 ( 1 - .\overline{3} ) = .\overline{6} \, X_0 \\
+      X_2 &amp; = X_1 ( 1 + .5 ) = X_0
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(50\%\)</span>, successivamente devi guadagnare il <span class="math notranslate nohighlight">\(100\%\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_1 &amp; = X_0 ( 1 - .5 ) = .5 \, X_0 \\
+      X_2 &amp; = X_1 ( 1 + 1. ) = X_0
+   \end{aligned}\end{split}\]</div>
+</li>
+<li><p>Se perdi il <span class="math notranslate nohighlight">\(\ell \%\)</span> prima e guadagni il <span class="math notranslate nohighlight">\(g \%\)</span> poi o se guadagni il <span class="math notranslate nohighlight">\(g \%\)</span> prima e perdi il <span class="math notranslate nohighlight">\(\ell \%\)</span> poi, alla fine il risultato è lo stesso</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+      X_2^a &amp; = X_1^a \left( 1 + \frac{g}{100} \right) = X_0 \left( 1 - \frac{\ell}{100} \right) \left( 1 + \frac{g}{100} \right) \\
+      X_2^b &amp; = X_1^b \left( 1 - \frac{\ell}{100} \right) = X_0 \left( 1 + \frac{g}{100} \right) \left( 1 - \frac{\ell}{100} \right) \ .
+    \end{aligned}\end{split}\]</div>
+</li>
 <li><p>…</p></li>
 </ul>
+</div>
+<div class="tip admonition">
+<p class="admonition-title">Il rendimento composto produce un risultato asimmetrico</p>
+<p>Anche un processo con rendimento di 1-periodo con probabilità simmetrica attorno a un valore medio, produce un <strong>rendimento algebrico</strong> medio con distribuzione di probabilità asimmetrica: in particolare si verifica la maggior parte degli eventi con risultati inferiori alla media, che risulta superiore alla mediana a causa di una minoranza di eventi estremamente positivi.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="n">nt</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">nreals</span> <span class="o">=</span> <span class="mi">2000</span>
+
+<span class="n">tv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nt</span><span class="p">)</span>
+
+<span class="c1">#&gt; 1-period returns</span>
+<span class="c1"># normal: loc=avg, scale: std.dev</span>
+<span class="c1"># choice: a=[] (values), p=[] (probabilities)</span>
+<span class="c1"># var(choice) = pi * ( vi - ev )**2</span>
+<span class="c1">#             = .5 * ( v1 - ev )**2 + .5 * ( v2 - ev )**2</span>
+<span class="c1">#             = Delta**2</span>
+<span class="c1"># Delta = sqrt(var)</span>
+<span class="n">r_avg</span> <span class="o">=</span> <span class="mf">.1</span>
+<span class="n">r_sdev</span> <span class="o">=</span> <span class="mf">.2</span>
+<span class="n">rngs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">r_avg</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">r_sdev</span><span class="p">),</span>
+    <span class="c1"># partial(np.random.default_rng().choice, a=[r_avg-r_sdev, r_avg+r_sdev], p=[.5, .5]),</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Returns</span>
+<span class="n">rets</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">rng</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">nt</span><span class="p">,</span> <span class="n">nreals</span><span class="p">))</span> <span class="k">for</span> <span class="n">rng</span> <span class="ow">in</span> <span class="n">rngs</span>
+<span class="p">]</span>
+<span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">rets</span><span class="p">:</span>
+    <span class="n">ret</span><span class="p">[</span><span class="n">ret</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">.9999</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">.9999</span>
+
+<span class="c1">#&gt; Increment</span>
+<span class="n">delta_xs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">1.</span><span class="o">+</span><span class="n">ret</span> <span class="k">for</span> <span class="n">ret</span> <span class="ow">in</span> <span class="n">rets</span>
+<span class="p">]</span>
+
+<span class="c1">#&gt; Amount</span>
+<span class="n">xs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">delta_x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">delta_x</span> <span class="ow">in</span> <span class="n">delta_xs</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Statistics of realizations</span>
+<span class="n">n_times</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">delta_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">nt</span><span class="o">/</span><span class="n">n_times</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">times_v</span> <span class="o">=</span> <span class="n">delta_time</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_times</span><span class="p">)</span>
+
+<span class="c1">#&gt; Plots</span>
+<span class="c1"># 0. Algebraic return (density)</span>
+<span class="c1"># 1. Algebraic return (cumulative)</span>
+<span class="c1"># 2. Geometric return (density)</span>
+<span class="c1"># 3. Geometric return (dcumulative)</span>
+<span class="n">n_plots</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">n_times</span><span class="p">,</span> <span class="n">n_plots</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
+
+<span class="n">d_bin</span> <span class="o">=</span> <span class="n">r_sdev</span> <span class="o">/</span> <span class="mf">4.</span>
+<span class="n">x_bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">21</span><span class="p">)</span> <span class="o">*</span> <span class="n">d_bin</span> <span class="o">+</span> <span class="n">r_avg</span>
+
+<span class="k">for</span> <span class="n">i_time</span><span class="p">,</span> <span class="n">time</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">times_v</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i_ret</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">xs</span><span class="p">):</span>
+        <span class="c1">#&gt; Algebraic return</span>
+        <span class="n">r_alg</span> <span class="o">=</span> <span class="p">(</span> <span class="n">x</span><span class="p">[</span><span class="n">time</span><span class="p">,:]</span> <span class="o">-</span> <span class="mf">1.</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">time</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="c1">#&gt; Geometric return</span>
+        <span class="n">r_geo</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">time</span><span class="p">,:]</span><span class="o">**</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">time</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mf">1.</span>
+        
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_alg</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">x_bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">i_ret</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_alg</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">x_bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">i_ret</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_geo</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">x_bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">i_ret</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">r_geo</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">x_bins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">tab10</span><span class="o">.</span><span class="n">colors</span><span class="p">[</span><span class="n">i_ret</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">x_bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">x_bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="c1">#&gt; Setting labels, titles, ticks</span>
+    <span class="k">for</span> <span class="n">i_plot</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_plots</span><span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="n">i_plot</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">i_time</span> <span class="o">&lt;</span> <span class="n">n_times</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="n">i_plot</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">([])</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">i_time</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">):</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Alg. avg. $</span><span class="si">{r}</span><span class="s2">$ (pdf)&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Alg. avg. $</span><span class="si">{r}</span><span class="s2">$ (pcf)&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Geo. avg. $</span><span class="si">{r}</span><span class="s2">$ (pdf)&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Geo. avg. $</span><span class="si">{r}</span><span class="s2">$ (pcf)&quot;</span><span class="p">)</span>
+        
+    <span class="n">ax</span><span class="p">[</span><span class="n">i_time</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time: </span><span class="si">{</span><span class="n">time</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<img alt="../../_images/f3702ad98235590d24805b630052b28535b9b2c4f04b50c9263c3c7079d65280.png" src="../../_images/f3702ad98235590d24805b630052b28535b9b2c4f04b50c9263c3c7079d65280.png" />
+</div>
+</div>
+<p>L’esempio considera un investimento con densità di probabilità di 1-periodo con distribuzione gaussiana con valore atteso <span class="math notranslate nohighlight">\(\mu_1 = .1\)</span> e deviazione standard <span class="math notranslate nohighlight">\(\sigma_1 = .2\)</span></p>
+<p>La <em>prima colonna</em> dei grafici mostra come la distribuzione di probabilità del rendimento algebrico medio diventa asimmetrica.</p>
+<p>La <em>terza colonna</em> mostra la distribuzione del rendimento geometrico: sotto opportune ipotesi, il rendimento geometrico tende a una distribuzione gaussiana con valore atteso <span class="math notranslate nohighlight">\(\mu - \frac{\sigma^2}{2}\)</span> (minore del rendimento di 1-periodo) e varianza <span class="math notranslate nohighlight">\(\sim \frac{\sigma}{T}\)</span> (che quindi tende a diminuire con il tempo, come mostrato dalla distribuzione più compatta, con dispersione minore al crescere del tempo) come discusso con qualche dettaglio matematico nella sezione a proposito del <a class="reference internal" href="intro-principles.html#fin-edu-principles-time-compounding"><span class="std std-ref">rendimento composto</span></a>.</p>
+<p>La <em>seconda</em> e la <em>quarta colonna</em> mostrano la funzione di probabilità cumulativa del rendimento algebrico e geometrico, rispettivamente. Questi grafici mostrano come il rendimento mediano sia inferiore al rendimento medio della distribuzione di 1-periodo: per <span class="math notranslate nohighlight">\(T = 5\)</span>, circa il <span class="math notranslate nohighlight">\(60\%\)</span> delle realizzazioni ha rendimento negativo, per <span class="math notranslate nohighlight">\(T = 17\)</span>, oltre il <span class="math notranslate nohighlight">\(70\%\)</span> delle realizzazioni ha un rendimento negativo</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Realizations</span>
+<span class="c1"># fig, ax = plt.subplots(2,1, figsize=(5,4))</span>
+<span class="c1"># for (i_ret, cum_ret) in enumerate(cum_rets):</span>
+<span class="c1">#     ax[0].plot(tv, cum_ret, color=plt.cm.tab10.colors[i_ret], lw=.2)</span>
+<span class="c1">#     ax[1].semilogy(tv, cum_ret, color=plt.cm.tab10.colors[i_ret], lw=.2)</span>
+<span class="c1"># ax[0].grid()</span>
+<span class="c1"># ax[1].grid()</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Volatility-drag (I)</p>
@@ -605,14 +764,15 @@ Final value after 60 periods:
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">nt</span> <span class="o">=</span> <span class="mi">30</span>
 <span class="n">nreals</span> <span class="o">=</span> <span class="mi">1000</span>
 
-<span class="n">gain_1</span><span class="p">,</span> <span class="n">loss_1</span> <span class="o">=</span> <span class="mf">.2</span> <span class="p">,</span> <span class="o">-</span><span class="mf">.1</span>
-<span class="n">gain_2</span><span class="p">,</span> <span class="n">loss_2</span> <span class="o">=</span> <span class="mf">.5</span> <span class="p">,</span> <span class="o">-</span><span class="mf">.5</span>
+<span class="n">gain_1</span><span class="p">,</span> <span class="n">loss_1</span> <span class="o">=</span> <span class="mf">.3</span> <span class="p">,</span> <span class="o">-</span><span class="mf">.3</span>
+<span class="n">gain_2</span> <span class="o">=</span> <span class="mf">.3</span><span class="p">;</span>  <span class="n">loss_2</span> <span class="o">=</span> <span class="mf">1.</span><span class="o">/</span><span class="p">(</span><span class="mf">1.</span><span class="o">+</span><span class="n">gain_2</span><span class="p">)</span> <span class="o">-</span> <span class="mf">1.</span>
 <span class="n">p_win_1</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">;</span>  <span class="n">p_loss_1</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">p_win_1</span>
 <span class="n">p_win_2</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">;</span>  <span class="n">p_loss_2</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">p_win_2</span>
 </pre></div>
@@ -658,37 +818,36 @@ Final value after 60 periods:
     <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_percs_m</span><span class="p">[:,</span><span class="n">perc_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y_percs_m</span><span class="p">[:,</span><span class="n">perc_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">step</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
     
 <span class="n">ax</span><span class="o">.</span><span class="n">set_yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="c1"># ax.step(tv, y_percs_m, where=&#39;post&#39;, color=&#39;black&#39;, lw=.5)</span>
 <span class="k">for</span> <span class="n">perc_pair</span> <span class="ow">in</span> <span class="n">perc_pairs</span><span class="p">:</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">tv</span><span class="p">,</span> <span class="n">y_percs_m</span><span class="p">[:,</span><span class="n">perc_pair</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">y_percs_m</span><span class="p">[:,</span><span class="n">perc_pair</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span> <span class="n">step</span><span class="o">=</span><span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
-    
-      
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/568d40338b4664de066f45af4ac3befecdc55e7251ee721717557477a184b891.png" src="../../_images/568d40338b4664de066f45af4ac3befecdc55e7251ee721717557477a184b891.png" />
-<img alt="../../_images/7caf4b27e1ae0bc02751fc226978b2a8bb0e9c5a508549a937ecd57b814aa3ae.png" src="../../_images/7caf4b27e1ae0bc02751fc226978b2a8bb0e9c5a508549a937ecd57b814aa3ae.png" />
+<img alt="../../_images/b4ccf008da1d34421895e9d81afcf9de7f4391eb76ebd681428dd8eea18582bd.png" src="../../_images/b4ccf008da1d34421895e9d81afcf9de7f4391eb76ebd681428dd8eea18582bd.png" />
+<img alt="../../_images/1bf1065c3332307a79240e0ee4d6e18f64e798f2da729129f46dbc034d2ce8f5.png" src="../../_images/1bf1065c3332307a79240e0ee4d6e18f64e798f2da729129f46dbc034d2ce8f5.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Method 2. Realizations of the stochastic processes</span>
-<span class="n">rng</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">choice</span>
-<span class="n">rng_params_1</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gain_1</span><span class="p">,</span> <span class="n">loss_1</span><span class="p">],</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">p_win_1</span><span class="p">,</span> <span class="n">p_loss_1</span><span class="p">],</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span> <span class="p">}</span>
-<span class="n">rng_params_2</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">gain_2</span><span class="p">,</span> <span class="n">loss_2</span><span class="p">],</span> <span class="s1">&#39;p&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">p_win_2</span><span class="p">,</span> <span class="n">p_loss_2</span><span class="p">],</span> <span class="s1">&#39;size&#39;</span><span class="p">:</span> <span class="n">nt</span> <span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># #&gt; Method 2. Realizations of the stochastic processes</span>
+<span class="c1"># rng = np.random.default_rng().choice</span>
+<span class="c1"># rng_params_1 = { &#39;a&#39;: [gain_1, loss_1], &#39;p&#39;: [p_win_1, p_loss_1], &#39;size&#39;: nt }</span>
+<span class="c1"># rng_params_2 = { &#39;a&#39;: [gain_2, loss_2], &#39;p&#39;: [p_win_2, p_loss_2], &#39;size&#39;: nt }</span>
 
-<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span class="c1"># w1, w2 = [], []</span>
 
-<span class="k">for</span> <span class="n">ireal</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">nreals</span><span class="p">):</span>
+<span class="c1"># for ireal in np.arange(nreals):</span>
+<span class="c1">#     w1 += [ np.array([ 1. ] + list(np.cumprod(1+rng(**rng_params_1)))) ]</span>
+<span class="c1">#     w2 += [ np.array([ 1. ] + list(np.cumprod(1+rng(**rng_params_2)))) ]</span>
 
-    <span class="n">w1</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span> <span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">rng</span><span class="p">(</span><span class="o">**</span><span class="n">rng_params_1</span><span class="p">))))</span> <span class="p">]</span>
-    <span class="n">w2</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="mf">1.</span> <span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">rng</span><span class="p">(</span><span class="o">**</span><span class="n">rng_params_2</span><span class="p">))))</span> <span class="p">]</span>
-
-<span class="n">w1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">w1</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
-<span class="n">w2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="c1"># w1 = np.array(w1).T</span>
+<span class="c1"># w2 = np.array(w2).T</span>
 </pre></div>
 </div>
 </div>
@@ -699,33 +858,24 @@ Final value after 60 periods:
 <span class="collapsed">Show code cell source</span>
 <span class="expanded">Hide code cell source</span>
 </summary>
-<div class="cell_input above-output-prompt docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
-<span class="n">plot_yscale</span> <span class="o">=</span> <span class="s1">&#39;log&#39;</span>
-
-<span class="k">if</span> <span class="n">plot_yscale</span> <span class="o">==</span> <span class="s1">&#39;log&#39;</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>  <span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.2</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span>  <span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.1</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">w2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fig, ax = plt.subplots(1,1, figsize=(5,5))</span>
+<span class="c1"># plot_yscale = &#39;log&#39;</span>
+<span class="c1"># </span>
+<span class="c1"># if plot_yscale == &#39;log&#39;:</span>
+<span class="c1">#     ax.semilogy(w1, lw=.5, color=&#39;blue&#39;  , alpha=.2)</span>
+<span class="c1">#     ax.semilogy(w2, lw=.5, color=&#39;orange&#39;, alpha=.2)</span>
+<span class="c1">#     ax.semilogy(np.mean(w1, axis=1), lw=2., color=&#39;blue&#39;)</span>
+<span class="c1">#     ax.semilogy(np.mean(w2, axis=1), lw=2., color=&#39;orange&#39;)</span>
+<span class="c1"># else:</span>
+<span class="c1">#     ax.plot(w1, lw=.5, color=&#39;blue&#39;  , alpha=.1)</span>
+<span class="c1">#     ax.plot(w2, lw=.5, color=&#39;orange&#39;, alpha=.1)</span>
+<span class="c1">#     ax.plot(np.mean(w1, axis=1), lw=2., color=&#39;blue&#39;)</span>
+<span class="c1">#     ax.plot(np.mean(w2, axis=1), lw=2., color=&#39;orange&#39;)</span>
+<span class="c1"># </span>
+<span class="c1"># plt.show()</span>
 </pre></div>
 </div>
-</div>
-</details>
-<details class="hide below-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell output</span>
-<span class="expanded">Hide code cell output</span>
-</summary>
-<div class="cell_output docutils container">
-<img alt="../../_images/380383aebf6b126dde3c8faef9136ff4c84a6368428e9d736ea76a09bc6e9e62.png" src="../../_images/380383aebf6b126dde3c8faef9136ff4c84a6368428e9d736ea76a09bc6e9e62.png" />
 </div>
 </details>
 </div>
@@ -752,7 +902,7 @@ Final value after 60 periods:
 <dd><p><a class="reference external" href="https://www.ft.com/content/066c0c98-ec47-4b51-9416-b2b2661ec942">Paola Tamma, Why Europeans need to learn more about money, FT</a>, e riferimenti contenuti; <a class="reference external" href="https://x.com/Phastidio/status/1999376969369010468?s=20">Mario Seminerio, tweet 2025.12.12</a>; OECD 2022 survey.</p>
 </dd>
 <dt class="label" id="inflation-target"><span class="brackets"><a class="fn-backref" href="#id2">2</a></span></dt>
-<dd><p>Pagine di alcune banche centrali riguardo il valore obiettivo della <em>politica monetaria</em> e le motivazioni: <a class="reference external" href="https://www.ecb.europa.eu/mopo/strategy/pricestab/html/index.en.html">Banca Centrale Europea, BCE o ECB</a>; <a class="reference external" href="https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm">Federal Reserve, US Fed</a>; <a class="reference external" href="https://www.bankofengland.co.uk/monetary-policy/inflation">Bank of England, BoE</a>; <a class="reference external" href="https://www.boj.or.jp/en/mopo/outline/target.htm">Bank of Japan</a>; <a class="reference external" href="https://www.bloomberg.com/news/articles/2025-03-05/chinese-policy-makers-set-annual-inflation-target-at-around-2">Bloomberg, China may struggle to hit inflation target even after cutting it, 2025.03.05</a> riguardo l’adeguamento del target della Bank of China, dal <span class="math notranslate nohighlight">\(3\%\)</span> al <span class="math notranslate nohighlight">\(2%\)</span>. Sono numeri arbitrari? Entro una certa tolleranza probabilmente sì, anche se un numero o un intervallo va scelto, e la scelta è motivata nelle pagine delle Banche Centrali. Più importante del numero in sé, è la credibilità e la capacità delle BC di riuscire a ottenere un valore di inflazione vicino all’obiettivo, tramite la politica monetaria — anche se questa può avere dei limiti, soprattutto se non accompagnata da una politica fiscale coerente da parte dei governi: per chi fa scelte economiche risulta fondamentale che gli obiettivi di inflazione siano rispettati, e che gli attori preposti siano credibili. In un mondo normale, attese di inflazione e incertezza futura sugli obiettivi di inflazione vengono scontate dagli attori del sistema economico. Ad esempio, è lecito attendersi che un investitore che acquista un’obbligazione — statale di uno stato affidabile per escludere spread rispetto a ciò che può essere considerato “risk-free”; nella stessa valuta in cui vive per escludere rischio-cambio — a scadenza <span class="math notranslate nohighlight">\(10\)</span> anni richieda almeno un rendimento reale positivo su tale orizzonte temporale. In una situazione in cui l’investitore ha la certezza (beato lui che ha certezze) che il target di inflazione sia rispettato, può chiedere un interesse nominale netto del <span class="math notranslate nohighlight">\(2.5\%\)</span> se si accontenta di un rendimento reale dello <span class="math notranslate nohighlight">\(0.5\%\)</span> annuo. Lo stesso investitore chiederebbe lo stesso interesse se si attendesse un’inflazione superiore al target, o se non considerasse attendibile l’impegno della BC di rispettare il target, o se temesse qualche “fiammata inflazionistica”? Vedi <span class="xref myst">rischio inflazione per obbligazioni</span>.</p>
+<dd><p>Pagine di alcune banche centrali riguardo il valore obiettivo della <em>politica monetaria</em> e le motivazioni: <a class="reference external" href="https://www.ecb.europa.eu/mopo/strategy/pricestab/html/index.en.html">Banca Centrale Europea, BCE o ECB</a>; <a class="reference external" href="https://www.federalreserve.gov/economy-at-a-glance-inflation-pce.htm">Federal Reserve, US Fed</a>; <a class="reference external" href="https://www.bankofengland.co.uk/monetary-policy/inflation">Bank of England, BoE</a>; <a class="reference external" href="https://www.boj.or.jp/en/mopo/outline/target.htm">Bank of Japan</a>; <a class="reference external" href="https://www.bloomberg.com/news/articles/2025-03-05/chinese-policy-makers-set-annual-inflation-target-at-around-2">Bloomberg, China may struggle to hit inflation target even after cutting it, 2025.03.05</a> riguardo l’adeguamento del target della Bank of China, dal <span class="math notranslate nohighlight">\(3\%\)</span> al <span class="math notranslate nohighlight">\(2%\)</span>. Sono numeri arbitrari? Entro una certa tolleranza probabilmente sì, anche se un numero o un intervallo va scelto, e la scelta è motivata nelle pagine delle Banche Centrali. Più importante del numero in sé, è la credibilità e la capacità delle BC di riuscire a ottenere un valore di inflazione vicino all’obiettivo, tramite la politica monetaria — anche se questa può avere dei limiti, soprattutto se non accompagnata da una politica fiscale coerente da parte dei governi: per chi fa scelte economiche risulta fondamentale che gli obiettivi di inflazione siano rispettati, e che gli attori preposti siano credibili. In un mondo normale, attese di inflazione e incertezza futura sugli obiettivi di inflazione vengono scontate dagli attori del sistema economico. Ad esempio, è lecito attendersi che un investitore che acquista un’obbligazione — statale di uno stato affidabile per escludere spread rispetto a ciò che può essere considerato “risk-free”; nella stessa valuta in cui vive per escludere rischio-cambio — a scadenza <span class="math notranslate nohighlight">\(10\)</span> anni richieda almeno un rendimento reale positivo su tale orizzonte temporale. In una situazione in cui l’investitore ha la certezza (beato lui che ha certezze) che il target di inflazione sia rispettato, può chiedere un interesse nominale netto del <span class="math notranslate nohighlight">\(2.5\%\)</span> se si accontenta di un rendimento reale dello <span class="math notranslate nohighlight">\(0.5\%\)</span> annuo. Lo stesso investitore chiederebbe lo stesso interesse se si attendesse un’inflazione superiore al target, o se non considerasse attendibile l’impegno della BC di rispettare il target, o se temesse qualche “fiammata inflazionistica”? Vedi <a class="reference internal" href="../assets/bonds-risks.html#fin-edu-assets-bonds-risks"><span class="std std-ref">rischio inflazione per obbligazioni</span></a>.</p>
 </dd>
 </dl>
 </div>
