@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>13.2. Bond Risks &#8212; Financial Education - basics</title>
+    <title>13.2. Risks &#8212; Financial Education - basics</title>
   
   
   
@@ -72,19 +72,10 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="14. Equity" href="equity.html" />
-    <link rel="prev" title="13. Bonds" href="bonds.html" />
+    <link rel="prev" title="13.1. Return" href="bonds-return.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9JVM265TS');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -199,7 +190,8 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">12. Introduction to asset classes</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bonds.html">13. Bonds</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">13.2. Bond Risks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bonds-return.html">13.1. Return</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">13.2. Risks</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -459,7 +451,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Bond Risks</h1>
+    <h1>Risks</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -481,8 +473,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="bond-risks">
-<span id="fin-edu-assets-bonds-risks"></span><h1><span class="section-number">13.2. </span>Bond Risks<a class="headerlink" href="#bond-risks" title="Permalink to this heading">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="risks">
+<span id="fin-edu-assets-bonds-risks"></span><h1><span class="section-number">13.2. </span>Risks<a class="headerlink" href="#risks" title="Permalink to this heading">#</a></h1>
 <ul class="simple">
 <li><p>Inflation risk</p></li>
 <li><p>Interest rate fluctuations</p></li>
@@ -491,8 +483,84 @@ document.write(`
 <li><p>…</p></li>
 </ul>
 <div class="section" id="inflation-risk">
-<span id="id1"></span><h2><span class="section-number">13.2.1. </span>Inflation risk<a class="headerlink" href="#inflation-risk" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-assets-bonds-risks-inflation"></span><h2><span class="section-number">13.2.1. </span>Inflation risk<a class="headerlink" href="#inflation-risk" title="Permalink to this heading">#</a></h2>
 <p>Independently from any other mechanism, a change in inflation alters the real return of constant nominal yield bonds. Just as an example, if you buy a <span class="math notranslate nohighlight">\(3\%\)</span> nominal rate bond with expected inflation at <span class="math notranslate nohighlight">\(2\%\)</span>, you’re aiming at <span class="math notranslate nohighlight">\(1\%\)</span> real return. If average inflation grows and remains constant at <span class="math notranslate nohighlight">\(4\%\)</span>, you get a negative <span class="math notranslate nohighlight">\(-1\%\)</span> return.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="c1">#&gt; Bond features</span>
+<span class="n">n_years</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">r_nominal</span> <span class="o">=</span> <span class="mf">.03</span>
+<span class="n">i_exp</span> <span class="o">=</span> <span class="mf">.02</span>
+<span class="n">i_sdev</span> <span class="o">=</span> <span class="mf">.02</span>
+
+<span class="c1">#&gt; Initial price</span>
+<span class="c1"># r = (pend/pinit)**(1/years) - 1</span>
+<span class="n">bond_price_end</span> <span class="o">=</span> <span class="mf">100.</span>
+<span class="n">bond_price_ini</span> <span class="o">=</span> <span class="n">bond_price_end</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">r_nominal</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Final price: </span><span class="si">{</span><span class="n">bond_price_end</span><span class="si">:</span><span class="s2"> 6.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Initial price to get compound return r=</span><span class="si">{</span><span class="n">r_nominal</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">bond_price_ini</span><span class="si">:</span><span class="s2"> 6.3f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1">#&gt; Expected price index</span>
+<span class="n">pi_ini</span> <span class="o">=</span> <span class="mf">100.</span>
+<span class="n">pi_end</span> <span class="o">=</span> <span class="n">pi_ini</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">i_exp</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span>
+
+<span class="c1">#&gt; N.realizations</span>
+<span class="n">n_reals</span> <span class="o">=</span> <span class="mi">10000</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final price:  100.000
+Initial price to get compound return r=0.03:  74.409
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
+
+<span class="c1">#&gt; Random number generator</span>
+<span class="n">i_rng</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">i_exp</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">i_sdev</span><span class="p">)</span>
+
+<span class="c1">#&gt; Realizations of 1-year inflation</span>
+<span class="n">i_reals</span> <span class="o">=</span> <span class="n">i_rng</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_years</span><span class="p">,</span> <span class="n">n_reals</span><span class="p">))</span>
+
+<span class="c1">#&gt; Realization of price index: PI[n+1] = PI[n] * ( 1 + i[n] )</span>
+<span class="n">pi_reals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">i_reals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">*</span> <span class="n">pi_ini</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dbins</span> <span class="o">=</span> <span class="mf">2.5</span>
+<span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">dbins</span><span class="p">)</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pi_reals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pi_end</span><span class="p">,</span> <span class="n">pi_end</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">pi_reals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:],</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="n">pi_end</span><span class="p">,</span> <span class="n">pi_end</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span><span class="mf">1.</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dbins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dbins</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">-</span><span class="n">dbins</span><span class="p">,</span> <span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">dbins</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">.1</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Price index after </span><span class="si">{</span><span class="n">n_years</span><span class="si">}</span><span class="s2"> years&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/f97b665538f1fc0313c7655b4b92b3c64dce7532ab5275d8515366e145451bf4.png" src="../../_images/f97b665538f1fc0313c7655b4b92b3c64dce7532ab5275d8515366e145451bf4.png" />
+</div>
+</div>
 </div>
 </div>
 
@@ -527,12 +595,12 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="bonds.html"
+       href="bonds-return.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">13. </span>Bonds</p>
+        <p class="prev-next-title"><span class="section-number">13.1. </span>Return</p>
       </div>
     </a>
     <a class="right-next"
