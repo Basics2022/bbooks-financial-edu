@@ -201,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assets/bonds-return.html">13.1. Return</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">13.2. Risks</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -622,8 +623,63 @@ Return <span class="math notranslate nohighlight">\(r_n\)</span> in the <span cl
 <p>For “sufficiently small” values of <span class="math notranslate nohighlight">\(\overline{r}\)</span>, the first-order expansion <span class="math notranslate nohighlight">\(x \sim \ln(1+x)\)</span>, for <span class="math notranslate nohighlight">\(x \rightarrow 0\)</span>, provides a good approximation relating the logarithmic return and the geometric return, that thus have approximately Gaussian distribution for <span class="math notranslate nohighlight">\(N\)</span> “sufficiently large”,</p>
 <div class="math notranslate nohighlight">
 \[\overline{r} \sim \ln \left(1+\overline{r}\right) \rightarrow \mathscr{N}\left( \mu_{\ln}, \frac{\sigma^2_{\ln}}{N} \right) \ .\]</div>
-<p><strong>todo</strong> How to provide an approximate value of <span class="math notranslate nohighlight">\(\mu_{\ln}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\ln}\)</span>, at least for <em>compact pdf</em> (even if not identically zero outside). Does this approximation match <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/processes-calculus.html#geometric-brownian-motion-gbm"><em>GBM, Geometric Brownian motion</em></a>?</p>
-<div class="cell tag_hide-input docutils container">
+<p>Is it possible to provide an approximate value of <span class="math notranslate nohighlight">\(\mu_{\ln}\)</span>, <span class="math notranslate nohighlight">\(\sigma_{\ln}\)</span>, at least for <em>compact pdf</em> (even if not identically zero outside). Does this approximation match <a class="reference external" href="https://basics2022.github.io/bbooks-statistics/ch/prob/processes-calculus.html#geometric-brownian-motion-gbm"><em>GBM, Geometric Brownian motion</em></a>? See the following dropdown.</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Approximated value for compact probability density<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let’s broadly defined a compact probability density <span class="math notranslate nohighlight">\(p(r)\)</span> a probability density that is <em>very close to <span class="math notranslate nohighlight">\(0\)</span></em> outside a certain range, so small that a second-degree polynomial expansion of the function <span class="math notranslate nohighlight">\(\ln(1+r)\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\ln(1+r) \sim \ln(1+\mu) + \frac{1}{1 + \mu} (r-\mu) - \frac{1}{2(1+\mu)^2} (r-\mu)^2 + o\left( (r-\mu)^3 \right)\]</div>
+<p class="sd-card-text">is a good approximation of the function.</p>
+<p class="sd-card-text"><strong>Expected value.</strong> Taking expectation of the Taylor expansion,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mu_{\ln}
+  &amp; := \mathbb{E}[ \ln(1+r) ] = \\
+  &amp; \sim \mathbb{E}\left[ \ln(1+\mu) + \frac{1}{1 + \mu} (r-\mu) - \frac{1}{2(1+\mu)^2} (r-\mu)^2 \right] = \\
+  &amp; = \ln( 1 + \mu ) - \frac{\sigma^2}{2(1+\mu)^2} \ .
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text"><strong>Variance.</strong> Taking the expectation of the square of the deviation from the expected value,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \Delta \ln(1+r) 
+  &amp; := \ln(1+r) - \mathbb{E}[\ln(1+r)] = \\
+  &amp; \sim \ln(1+r) -  \ln( 1 + \mu ) + \frac{\sigma^2}{2(1+\mu)^2} = \\
+  &amp; \sim \frac{1}{1 + \mu} (r-\mu) - \frac{1}{2(1+\mu)^2} (r-\mu)^2 
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">gives</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \sigma^2_{\ln}
+  := \mathbb{E}\left[ \left( \Delta \ln(1+r) \right)^2 \right]
+  \sim \frac{\sigma^2}{(1+\mu)^2} \ ,
+\end{aligned}\]</div>
+<p class="sd-card-text">having neglected terms beyond the second degree.</p>
+<p class="sd-card-text"><strong>Approximation for small values of <span class="math notranslate nohighlight">\(\mu\)</span>.</strong> Exploiting Taylor expansion</p>
+<div class="math notranslate nohighlight">
+\[f(x) \sim f(x_0) + f'(x_0) \ x + f''(x_0) \frac{x^2}{2} + \dots \ ,\]</div>
+<p class="sd-card-text">for <span class="math notranslate nohighlight">\(x_0 = 0\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \ln(1+x) 
+  &amp; \sim \left.\left[  \ln(1+x_0) + \frac{1}{1+x_0} x - \frac{1}{(1+x_0)^2} \frac{x^2}{2} \right]\right|_{x_0=0} = 0 + x - \frac{x^2}{2} \\
+  \frac{1}{(1+x)^2}
+  &amp; \sim \left.\left[ \frac{1}{(1+x_0)^2} - \frac{2 x_0}{(1+x_0)^3} x + \frac{-2 + x_0}{(1+x_0)^4} \frac{x^2}{2} \right]\right|_{x_0=0} = 1 - 0 \cdot x - x^2 \\
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">the low-degree approximation of the expected value and the variance of the logarithmic return reads</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mu_{\ln} &amp; \sim \mu - \frac{\mu^2}{2} - \frac{\sigma^2}{2} \left( 1 - \mu^2 \right) = \mu - \frac{\sigma^2}{2} - \frac{\mu^2}{2} ( 1 - \sigma^2 ) \\
+  \sigma^2_{\ln} &amp; \sim \sigma^2 - \sigma^2 \mu^2
+\end{aligned}\end{split}\]</div>
+</div>
+</details><!--
+$$\frac{-2(1+x_0)^3 + x_0 \cdot 3 (1 + x_0)^2 }{(1+x_0)^6} = \frac{-2 + x_0}{(1+x_0)^4}$$
+--><div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
 <span class="collapsed">Show code cell source</span>
@@ -701,7 +757,7 @@ Return <span class="math notranslate nohighlight">\(r_n\)</span> in the <span cl
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/01895bf5fd894348cd29b31ba124b6ed822622360149f69a21df1f8cc80f97a9.png" src="../../_images/01895bf5fd894348cd29b31ba124b6ed822622360149f69a21df1f8cc80f97a9.png" />
+<img alt="../../_images/0ce0f26f3b315c60d86c9db892bfaa976a0542f37f45929830dc63450cf168e0.png" src="../../_images/0ce0f26f3b315c60d86c9db892bfaa976a0542f37f45929830dc63450cf168e0.png" />
 </div>
 </div>
 <p><strong>todo</strong></p>
