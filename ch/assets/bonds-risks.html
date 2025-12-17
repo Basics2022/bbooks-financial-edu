@@ -76,6 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -192,6 +201,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="bonds.html">13. Bonds</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="bonds-return.html">13.1. Return</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">13.2. Risks</a></li>
+
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -461,8 +471,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">13.2. Risks</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-risk">13.2.1. Inflation risk</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">13.3. </a></li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -485,7 +500,22 @@ document.write(`
 <div class="section" id="inflation-risk">
 <span id="fin-edu-assets-bonds-risks-inflation"></span><h2><span class="section-number">13.2.1. </span>Inflation risk<a class="headerlink" href="#inflation-risk" title="Permalink to this heading">#</a></h2>
 <p>Independently from any other mechanism, a change in inflation alters the real return of constant nominal yield bonds. Just as an example, if you buy a <span class="math notranslate nohighlight">\(3\%\)</span> nominal rate bond with expected inflation at <span class="math notranslate nohighlight">\(2\%\)</span>, you’re aiming at <span class="math notranslate nohighlight">\(1\%\)</span> real return. If average inflation grows and remains constant at <span class="math notranslate nohighlight">\(4\%\)</span>, you get a negative <span class="math notranslate nohighlight">\(-1\%\)</span> return.</p>
-<div class="cell docutils container">
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 13.1 </span> (Zero-coupon bond)</p>
+<div class="example-content section" id="proof-content">
+<p><span class="math notranslate nohighlight">\(10\)</span>-year <span class="math notranslate nohighlight">\(r = 3\%\)</span> nominal net yield bond, with expected inflation at target inflation <span class="math notranslate nohighlight">\(i = i^* = 2\%\)</span>.</p>
+<ul class="simple">
+<li><p>What’s the probability of getting at least the expected (and desired if you buy it?) real yield?</p></li>
+<li><p>What’s the probability of getting negative real yield?</p></li>
+<li><p>What’s the nominal net yield required to halve the probability of getting a real return lower than an expected <span class="math notranslate nohighlight">\(1\%\)</span> CAGR?</p></li>
+</ul>
+</div>
+</div><div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">reset</span> -f
 
@@ -498,6 +528,9 @@ document.write(`
 
 <span class="n">i_exp_1</span><span class="p">,</span> <span class="n">i_sdev_1</span> <span class="o">=</span> <span class="mf">.02</span><span class="p">,</span> <span class="mf">.01</span>
 <span class="n">i_exp_2</span><span class="p">,</span> <span class="n">i_sdev_2</span> <span class="o">=</span> <span class="mf">.02</span><span class="p">,</span> <span class="mf">.02</span>
+
+<span class="n">i_exp</span>  <span class="o">=</span> <span class="p">[</span>  <span class="n">i_exp_1</span><span class="p">,</span>  <span class="n">i_exp_2</span> <span class="p">]</span>
+<span class="n">i_sdev</span> <span class="o">=</span> <span class="p">[</span> <span class="n">i_sdev_1</span><span class="p">,</span> <span class="n">i_sdev_2</span> <span class="p">]</span>
 
 <span class="c1">#&gt; Initial price</span>
 <span class="c1"># r = (pend/pinit)**(1/years) - 1</span>
@@ -516,6 +549,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Final price:  100.000
 Initial price to get compound return r=0.03:  74.409
@@ -523,7 +557,12 @@ Initial price to get compound return r=0.03:  74.409
 </div>
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
@@ -552,8 +591,14 @@ Initial price to get compound return r=0.03:  74.409
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># dbins = .20</span>
 <span class="c1"># bins = np.arange(-3., 3, dbins) + 1.</span>
@@ -574,8 +619,14 @@ Initial price to get compound return r=0.03:  74.409
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
 <span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
@@ -604,8 +655,6 @@ Initial price to get compound return r=0.03:  74.409
     <span class="n">values</span> <span class="o">=</span> <span class="n">r10_real</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
     <span class="n">counts</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
     <span class="n">probabilities</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-
-    <span class="nb">print</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
     
     <span class="c1"># Probability density histogram</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
@@ -619,7 +668,7 @@ Initial price to get compound return r=0.03:  74.409
             <span class="n">x</span><span class="o">=</span><span class="n">bin_centers</span><span class="p">,</span>
             <span class="n">y</span><span class="o">=</span><span class="n">probabilities</span><span class="p">,</span>
             <span class="c1"># width=bin_widths,</span>
-            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Probability density&#39;</span><span class="p">,</span>
+            <span class="n">name</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;N(</span><span class="si">{</span><span class="n">i_exp</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">i_sdev</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">,</span>
             <span class="n">marker_color</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span>
         <span class="p">),</span>
         <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -633,8 +682,8 @@ Initial price to get compound return r=0.03:  74.409
             <span class="n">histnorm</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>
             <span class="n">cumulative</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
             <span class="c1"># nbinsx=20,</span>
+            <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
             <span class="n">xbins</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">dbins</span><span class="p">),</span>
-            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;CDF&quot;</span><span class="p">,</span>
             <span class="n">marker_color</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span>
         <span class="p">),</span>
         <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
@@ -647,8 +696,10 @@ Initial price to get compound return r=0.03:  74.409
     <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;10Y Real CAGR&quot;</span><span class="p">,</span>
     <span class="n">bargap</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
-    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
+    <span class="c1"># showlegend=False</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">.99</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="mf">.99</span><span class="p">,</span><span class="n">xanchor</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span><span class="n">yanchor</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">)</span>
 <span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_traces</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">.5</span><span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;CAGR, r&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;p(r)&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -658,25 +709,8 @@ Initial price to get compound return r=0.03:  74.409
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2.00000000e+00 -1.80000000e+00 -1.60000000e+00 -1.40000000e+00
- -1.20000000e+00 -1.00000000e+00 -8.00000000e-01 -6.00000000e-01
- -4.00000000e-01 -2.00000000e-01  1.77635684e-15  2.00000000e-01
-  4.00000000e-01  6.00000000e-01  8.00000000e-01  1.00000000e+00
-  1.20000000e+00  1.40000000e+00  1.60000000e+00  1.80000000e+00
-  2.00000000e+00  2.20000000e+00  2.40000000e+00  2.60000000e+00
-  2.80000000e+00  3.00000000e+00  3.20000000e+00  3.40000000e+00
-  3.60000000e+00  3.80000000e+00]
-[-2.00000000e+00 -1.80000000e+00 -1.60000000e+00 -1.40000000e+00
- -1.20000000e+00 -1.00000000e+00 -8.00000000e-01 -6.00000000e-01
- -4.00000000e-01 -2.00000000e-01  1.77635684e-15  2.00000000e-01
-  4.00000000e-01  6.00000000e-01  8.00000000e-01  1.00000000e+00
-  1.20000000e+00  1.40000000e+00  1.60000000e+00  1.80000000e+00
-  2.00000000e+00  2.20000000e+00  2.40000000e+00  2.60000000e+00
-  2.80000000e+00  3.00000000e+00  3.20000000e+00  3.40000000e+00
-  3.60000000e+00  3.80000000e+00]
-</pre></div>
-</div>
 <div class="output text_html"><iframe
     scrolling="no"
     width="100%"
@@ -687,19 +721,10 @@ Initial price to get compound return r=0.03:  74.409
 ></iframe>
 </div></div>
 </div>
-<p>With given data, from the cumulative probability:</p>
-<ul class="simple">
-<li><p>the probability of getting real return lower than the expected/desired <span class="math notranslate nohighlight">\(1\%\)</span> is <span class="math notranslate nohighlight">\(50.78\%\)</span>, and thus the probability of getting at least the desired return is <span class="math notranslate nohighlight">\(49.22\%\)</span></p></li>
-<li><p>the probability of getting negative real return is <span class="math notranslate nohighlight">\(1.95\%\)</span></p></li>
-<li><p>requiring <span class="math notranslate nohighlight">\(3.4\%\)</span> yield<a class="footnote-reference brackets" href="#plot-shift" id="id1">1</a> lowers the probability of getting a real return lower than <span class="math notranslate nohighlight">\(1\%\)</span> to <span class="math notranslate nohighlight">\(20.34\%\)</span>.</p></li>
-</ul>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="plot-shift"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>Keeping everything else constant, increasing the nominal yield shifts the curves to the right</p>
-</dd>
-</dl>
 </div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="id1">
+<h1><span class="section-number">13.3. </span><a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h1>
 </div>
 
     <script type="text/x-thebe-config">
@@ -765,8 +790,13 @@ Initial price to get compound return r=0.03:  74.409
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">13.2. Risks</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-risk">13.2.1. Inflation risk</a></li>
 </ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">13.3. </a></li>
+</ul>
+
   </nav></div>
 
 </div></div>
