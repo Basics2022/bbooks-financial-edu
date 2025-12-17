@@ -76,15 +76,6 @@ const thebe_selector_output = ".output, .cell_output"
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9JVM265TS');
-</script>
-
   
   
   <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
@@ -504,8 +495,9 @@ document.write(`
 <span class="c1">#&gt; Bond features</span>
 <span class="n">n_years</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">r_nominal</span> <span class="o">=</span> <span class="mf">.03</span>
-<span class="n">i_exp</span> <span class="o">=</span> <span class="mf">.02</span>
-<span class="n">i_sdev</span> <span class="o">=</span> <span class="mf">.015</span>
+
+<span class="n">i_exp_1</span><span class="p">,</span> <span class="n">i_sdev_1</span> <span class="o">=</span> <span class="mf">.02</span><span class="p">,</span> <span class="mf">.01</span>
+<span class="n">i_exp_2</span><span class="p">,</span> <span class="n">i_sdev_2</span> <span class="o">=</span> <span class="mf">.02</span><span class="p">,</span> <span class="mf">.02</span>
 
 <span class="c1">#&gt; Initial price</span>
 <span class="c1"># r = (pend/pinit)**(1/years) - 1</span>
@@ -517,7 +509,7 @@ document.write(`
 
 <span class="c1">#&gt; Expected price index</span>
 <span class="n">pi_ini</span> <span class="o">=</span> <span class="mf">100.</span>
-<span class="n">pi_end</span> <span class="o">=</span> <span class="n">pi_ini</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">i_exp</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span>
+<span class="n">pi_end</span> <span class="o">=</span> <span class="n">pi_ini</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">i_exp_1</span> <span class="p">)</span><span class="o">**</span><span class="n">n_years</span>
 
 <span class="c1">#&gt; N.realizations</span>
 <span class="n">n_reals</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -536,18 +528,27 @@ Initial price to get compound return r=0.03:  74.409
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">functools</span> <span class="kn">import</span> <span class="n">partial</span>
 
 <span class="c1">#&gt; Random number generator</span>
-<span class="n">i_rng</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">i_exp</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">i_sdev</span><span class="p">)</span>
+<span class="n">i_rngs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">i_exp_1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">i_sdev_1</span><span class="p">),</span>
+    <span class="n">partial</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">default_rng</span><span class="p">()</span><span class="o">.</span><span class="n">normal</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="n">i_exp_2</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">i_sdev_2</span><span class="p">),</span>
+<span class="p">]</span>
 
 <span class="c1">#&gt; Realizations of 1-year inflation</span>
-<span class="n">i_reals</span> <span class="o">=</span> <span class="n">i_rng</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_years</span><span class="p">,</span> <span class="n">n_reals</span><span class="p">))</span>
+<span class="n">i_reals</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">i_rng</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="n">n_years</span><span class="p">,</span> <span class="n">n_reals</span><span class="p">))</span> <span class="k">for</span> <span class="n">i_rng</span> <span class="ow">in</span> <span class="n">i_rngs</span>
+<span class="p">]</span>
 
 <span class="c1">#&gt; Realization of price index: PI[n+1] = PI[n] * ( 1 + i[n] )</span>
 <span class="c1"># ... np.cumprod(1 + i_reals, axis=0) * * pi_ini</span>
 
 <span class="c1">#&gt; Realization of real value of the investment</span>
-<span class="n">preal_reals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r_nominal</span><span class="o">-</span><span class="n">i_reals</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+<span class="n">preal_reals</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">r_nominal</span><span class="o">-</span><span class="n">i_real</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i_real</span> <span class="ow">in</span> <span class="n">i_reals</span>
+<span class="p">]</span>
 <span class="c1">#&gt; Geometric real returs after 10 years</span>
-<span class="n">r10_reals</span> <span class="o">=</span> <span class="p">(</span> <span class="n">preal_reals</span> <span class="o">**</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_years</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>  <span class="c1"># Percentage</span>
+<span class="n">r10_reals</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span> <span class="n">preal_real</span> <span class="o">**</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">n_years</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>  <span class="k">for</span> <span class="n">preal_real</span> <span class="ow">in</span> <span class="n">preal_reals</span>  <span class="c1"># Percentage</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -576,7 +577,8 @@ Initial price to get compound return r=0.03:  74.409
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
 <span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
 <span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
 
@@ -584,7 +586,7 @@ Initial price to get compound return r=0.03:  74.409
 
 <span class="n">dbins</span> <span class="o">=</span> <span class="mf">.20</span>
 <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">3.</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dbins</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1.</span>
-<span class="n">values</span> <span class="o">=</span> <span class="n">r10_reals</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+
 
 <span class="c1"># Create 2x1 subplots</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span>
@@ -594,49 +596,58 @@ Initial price to get compound return r=0.03:  74.409
     <span class="n">subplot_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Probability Density&quot;</span><span class="p">,</span> <span class="s2">&quot;Cumulative Probability&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
-
-<span class="n">counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
 <span class="n">bin_centers</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span> <span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="p">)</span>
 <span class="n">bin_widths</span> <span class="o">=</span> <span class="n">bins</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">probabilities</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 
-<span class="c1"># Probability density histogram</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
-    <span class="c1"># go.Histogram(</span>
-    <span class="c1">#     x=values,</span>
-    <span class="c1">#     histnorm=&quot;probability density&quot;,</span>
-    <span class="c1">#     nbinsx=20,</span>
-    <span class="c1">#     name=&quot;PDF&quot;</span>
-    <span class="c1"># ),</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">bin_centers</span><span class="p">,</span>
-        <span class="n">y</span><span class="o">=</span><span class="n">probabilities</span><span class="p">,</span>
-        <span class="n">width</span><span class="o">=</span><span class="n">bin_widths</span><span class="p">,</span>
-        <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Probability density&#39;</span>
-    <span class="p">),</span>
-    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">)</span>
+<span class="k">for</span> <span class="n">i_real</span><span class="p">,</span> <span class="n">r10_real</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">r10_reals</span><span class="p">):</span>
 
-<span class="c1"># Cumulative probability histogram</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
-    <span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span>
-        <span class="n">x</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
-        <span class="n">histnorm</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>
-        <span class="n">cumulative</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-        <span class="c1"># nbinsx=20,</span>
-        <span class="n">xbins</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">dbins</span><span class="p">),</span>
-        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;CDF&quot;</span>
-    <span class="p">),</span>
-    <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-    <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
-<span class="p">)</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">r10_real</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,:]</span>
+    <span class="n">counts</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">bins</span><span class="p">)</span>
+    <span class="n">probabilities</span> <span class="o">=</span> <span class="n">counts</span> <span class="o">/</span> <span class="n">counts</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span>
+    
+    <span class="c1"># Probability density histogram</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="c1"># go.Histogram(</span>
+        <span class="c1">#     x=values,</span>
+        <span class="c1">#     histnorm=&quot;probability density&quot;,</span>
+        <span class="c1">#     nbinsx=20,</span>
+        <span class="c1">#     name=&quot;PDF&quot;</span>
+        <span class="c1"># ),</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Bar</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">bin_centers</span><span class="p">,</span>
+            <span class="n">y</span><span class="o">=</span><span class="n">probabilities</span><span class="p">,</span>
+            <span class="c1"># width=bin_widths,</span>
+            <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Probability density&#39;</span><span class="p">,</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span>
+        <span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
+    
+    <span class="c1"># Cumulative probability histogram</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span>
+        <span class="n">go</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">histnorm</span><span class="o">=</span><span class="s2">&quot;probability&quot;</span><span class="p">,</span>
+            <span class="n">cumulative</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="c1"># nbinsx=20,</span>
+            <span class="n">xbins</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">start</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="n">bins</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="n">dbins</span><span class="p">),</span>
+            <span class="n">name</span><span class="o">=</span><span class="s2">&quot;CDF&quot;</span><span class="p">,</span>
+            <span class="n">marker_color</span><span class="o">=</span><span class="n">px</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">qualitative</span><span class="o">.</span><span class="n">Plotly</span><span class="p">[</span><span class="n">i_real</span><span class="p">]</span>
+        <span class="p">),</span>
+        <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+        <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+    <span class="p">)</span>
 
 <span class="c1"># Layout</span>
 <span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;overlay&#39;</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span>
     <span class="n">title</span><span class="o">=</span><span class="s2">&quot;10Y Real CAGR&quot;</span><span class="p">,</span>
-    <span class="n">bargap</span><span class="o">=</span><span class="mf">0.1</span>
+    <span class="n">bargap</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
+    <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
 <span class="n">fig</span><span class="o">.</span><span class="n">update_xaxes</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="s2">&quot;CAGR, r&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -648,6 +659,24 @@ Initial price to get compound return r=0.03:  74.409
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[-2.00000000e+00 -1.80000000e+00 -1.60000000e+00 -1.40000000e+00
+ -1.20000000e+00 -1.00000000e+00 -8.00000000e-01 -6.00000000e-01
+ -4.00000000e-01 -2.00000000e-01  1.77635684e-15  2.00000000e-01
+  4.00000000e-01  6.00000000e-01  8.00000000e-01  1.00000000e+00
+  1.20000000e+00  1.40000000e+00  1.60000000e+00  1.80000000e+00
+  2.00000000e+00  2.20000000e+00  2.40000000e+00  2.60000000e+00
+  2.80000000e+00  3.00000000e+00  3.20000000e+00  3.40000000e+00
+  3.60000000e+00  3.80000000e+00]
+[-2.00000000e+00 -1.80000000e+00 -1.60000000e+00 -1.40000000e+00
+ -1.20000000e+00 -1.00000000e+00 -8.00000000e-01 -6.00000000e-01
+ -4.00000000e-01 -2.00000000e-01  1.77635684e-15  2.00000000e-01
+  4.00000000e-01  6.00000000e-01  8.00000000e-01  1.00000000e+00
+  1.20000000e+00  1.40000000e+00  1.60000000e+00  1.80000000e+00
+  2.00000000e+00  2.20000000e+00  2.40000000e+00  2.60000000e+00
+  2.80000000e+00  3.00000000e+00  3.20000000e+00  3.40000000e+00
+  3.60000000e+00  3.80000000e+00]
+</pre></div>
+</div>
 <div class="output text_html"><iframe
     scrolling="no"
     width="100%"
