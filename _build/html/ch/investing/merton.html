@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>19. Merton’s portfolio problem &#8212; Financial Education - basics</title>
+    <title>18. Merton’s portfolio problem &#8212; Financial Education - basics</title>
   
   
   
@@ -71,8 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="20. Rebalancing" href="../../code/notebooks/rebalancing.html" />
-    <link rel="prev" title="18. Capital Asset Pricing Model" href="capm.html" />
+    <link rel="next" title="19. Rebalancing" href="../../code/notebooks/rebalancing.html" />
+    <link rel="prev" title="17. Modern Portfolio Theory and Capital Asset Pricing Model" href="../../code/notebooks/mpt.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -198,8 +198,13 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../assets/intro.html">12. Introduction to asset classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/bonds.html">13. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-return.html">13.1. Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">13.2. Risks</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../assets/equity-valuation.html">14.1. Equity Valuation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../assets/financial-statements.html">14.2. Three Financial Statements</a></li>
 </ul>
@@ -209,10 +214,9 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">16. Introduction to investing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mpt.html">17. Modern Portfolio Theory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="capm.html">18. Capital Asset Pricing Model</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">19. Merton’s portfolio problem</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing.html">20. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/mpt.html">17. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">18. Merton’s portfolio problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing.html">19. Rebalancing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
@@ -435,13 +439,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">19.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">19.1.1. Recursive relation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">19.1.2. Taylor expansion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">19.1.3. Recursive relation for optimal solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">19.1.4. Optimality condition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">19.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">19.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">18.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">18.1.1. Recursive relation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">18.1.2. Taylor expansion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">18.1.3. Recursive relation for optimal solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">18.1.4. Optimality condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">18.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">18.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
 </ul>
 </li>
 </ul>
@@ -456,7 +460,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="merton-s-portfolio-problem">
-<span id="fin-edu-investing-merton"></span><h1><span class="section-number">19. </span>Merton’s portfolio problem<a class="headerlink" href="#merton-s-portfolio-problem" title="Permalink to this heading">#</a></h1>
+<span id="fin-edu-investing-merton"></span><h1><span class="section-number">18. </span>Merton’s portfolio problem<a class="headerlink" href="#merton-s-portfolio-problem" title="Permalink to this heading">#</a></h1>
 <p>Merton’s portfolio problem deals with the choice of optimal fraction of investment in a risky asset <span class="math notranslate nohighlight">\(\pi_t\)</span> and the consumption <span class="math notranslate nohighlight">\(c_t\)</span>.</p>
 <p>Assuming that the wealth of a family or an individual can is invested with a fraction <span class="math notranslate nohighlight">\(\pi_t\)</span> in a risky part of the portfolio with expected return <span class="math notranslate nohighlight">\(\mu\)</span> and standard variation <span class="math notranslate nohighlight">\(\sigma_t\)</span>, and with a fraction <span class="math notranslate nohighlight">\(1-\pi_t\)</span> in a risk-free asset with expected return <span class="math notranslate nohighlight">\(r_t\)</span> and zero standard deviation, the wealth <span class="math notranslate nohighlight">\(x_t\)</span> of a family or an individual evolves with the SDE</p>
 <div class="math notranslate nohighlight">
@@ -474,7 +478,7 @@ document.write(`
 <div class="math notranslate nohighlight">
 \[\pi^* = \frac{\mu - r}{\gamma \sigma^2} \ .\]</div>
 <div class="section" id="recursive-relation-and-hamilton-jacobi-bellman-relation">
-<span id="fin-edu-investing-merton-hjb"></span><h2><span class="section-number">19.1. </span>Recursive relation and Hamilton-Jacobi-Bellman relation<a class="headerlink" href="#recursive-relation-and-hamilton-jacobi-bellman-relation" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-merton-hjb"></span><h2><span class="section-number">18.1. </span>Recursive relation and Hamilton-Jacobi-Bellman relation<a class="headerlink" href="#recursive-relation-and-hamilton-jacobi-bellman-relation" title="Permalink to this heading">#</a></h2>
 <p>Writing the value function <span class="math notranslate nohighlight">\(V(X_{t+dt}, t+dt)\)</span> and expanding as a Taylor series up to the first order in <span class="math notranslate nohighlight">\(dt\)</span>, it’s possible to find a <strong>Hamilton-Jacobi-Bellman</strong> equation from a recursive relation.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -482,7 +486,7 @@ document.write(`
   &amp; = \mathbb{E} \left[ \left. \int_{s=t+dt}^{T} e^{- \rho (s-t-dt)} u(c_s) \, ds + e^{-\rho(T-t-dt)} B(T) u(X_T) \right| X_{t+dt} \right] = \\
 \end{aligned}\end{split}\]</div>
 <div class="section" id="recursive-relation">
-<h3><span class="section-number">19.1.1. </span>Recursive relation<a class="headerlink" href="#recursive-relation" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.1. </span>Recursive relation<a class="headerlink" href="#recursive-relation" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[e^{-\rho  t    } V(X_t     , t   ) = \mathbb{E} \left[  \left. \int_{s=t   }^{T} e^{- \rho s} u(c_s) \, ds + e^{-\rho T} B(T) u(X_T) \right| X_{t   } \right]\]</div>
 <div class="math notranslate nohighlight">
@@ -500,7 +504,7 @@ document.write(`
 \[\rho V \, dt = d V + u(c_t) \, dt \]</div>
 </div>
 <div class="section" id="taylor-expansion">
-<h3><span class="section-number">19.1.2. </span>Taylor expansion<a class="headerlink" href="#taylor-expansion" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.2. </span>Taylor expansion<a class="headerlink" href="#taylor-expansion" title="Permalink to this heading">#</a></h3>
 <p>Taylor expansion of value function <span class="math notranslate nohighlight">\(v(t,x)\)</span>, valued with <span class="math notranslate nohighlight">\(x = X_t\)</span>, reads</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
@@ -514,13 +518,13 @@ document.write(`
 \[d V = dt \, \mathbb{E}\left[ \partial_t v + \partial_x v ( r_t + (\mu_t - r_t) \pi_t) X_t - \partial_x v \, c_t + \dfrac{1}{2} \partial_{xx} v \, \left( \pi_t \sigma_t X_t \right)^2 \right] \ .\]</div>
 </div>
 <div class="section" id="recursive-relation-for-optimal-solution">
-<h3><span class="section-number">19.1.3. </span>Recursive relation for optimal solution<a class="headerlink" href="#recursive-relation-for-optimal-solution" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.3. </span>Recursive relation for optimal solution<a class="headerlink" href="#recursive-relation-for-optimal-solution" title="Permalink to this heading">#</a></h3>
 <p>First order in <span class="math notranslate nohighlight">\(dt\)</span> reads</p>
 <div class="math notranslate nohighlight">
 \[\rho V^* = \max_{\pi_t, c_t} \left\{ \partial_t V^* + \partial_x V^* \left[ (\pi_t (\mu-r) + r) X_t - c_t  \right] + \dfrac{1}{2} \partial_{xx} V^* (\pi \sigma_t X_t)^2 + u(c_t) \right\} = \max_{\pi_t, c_t} \Phi\]</div>
 </div>
 <div class="section" id="optimality-condition">
-<h3><span class="section-number">19.1.4. </span>Optimality condition<a class="headerlink" href="#optimality-condition" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.4. </span>Optimality condition<a class="headerlink" href="#optimality-condition" title="Permalink to this heading">#</a></h3>
 <p>Zero gradient is a necessary condition for local extreme points,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
@@ -543,7 +547,7 @@ Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</
 </div>
 </details></div>
 <div class="section" id="example-utility-function-u-x-frac-x-1-gamma-1-gamma">
-<h3><span class="section-number">19.1.5. </span>Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span><a class="headerlink" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.5. </span>Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span><a class="headerlink" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{cases}
   \pi^*_t = -\dfrac{\partial_x V^*}{\partial_{xx} V^*} \dfrac{\mu - r}{X_t \sigma^2} \\
@@ -551,7 +555,7 @@ Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</
 \end{cases}\end{split}\]</div>
 </div>
 <div class="section" id="example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">
-<h3><span class="section-number">19.1.6. </span>Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span><a class="headerlink" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
+<h3><span class="section-number">18.1.6. </span>Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span><a class="headerlink" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma" title="Permalink to this heading">#</a></h3>
 <p>With value function <span class="math notranslate nohighlight">\(V^*(x,t) = \dots\)</span> and bequest function <span class="math notranslate nohighlight">\(B(T) = \varepsilon^T\)</span></p>
 <div class="math notranslate nohighlight">
 \[\dot{f}(t) = \nu \, f(t) - 1\]</div>
@@ -606,12 +610,12 @@ Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="capm.html"
+       href="../../code/notebooks/mpt.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Capital Asset Pricing Model</p>
+        <p class="prev-next-title"><span class="section-number">17. </span>Modern Portfolio Theory and Capital Asset Pricing Model</p>
       </div>
     </a>
     <a class="right-next"
@@ -619,7 +623,7 @@ Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">20. </span>Rebalancing</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Rebalancing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -638,13 +642,13 @@ Necessary conditions on <span class="math notranslate nohighlight">\(\ u()\ \)</
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">19.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">19.1.1. Recursive relation</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">19.1.2. Taylor expansion</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">19.1.3. Recursive relation for optimal solution</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">19.1.4. Optimality condition</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">19.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">19.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-and-hamilton-jacobi-bellman-relation">18.1. Recursive relation and Hamilton-Jacobi-Bellman relation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation">18.1.1. Recursive relation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#taylor-expansion">18.1.2. Taylor expansion</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#recursive-relation-for-optimal-solution">18.1.3. Recursive relation for optimal solution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#optimality-condition">18.1.4. Optimality condition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-utility-function-u-x-frac-x-1-gamma-1-gamma">18.1.5. Example: utility function <span class="math notranslate nohighlight">\(u(x) = \frac{x^{1-\gamma}}{1-\gamma}\)</span></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#example-value-function-v-t-x-f-gamma-t-frac-x-1-gamma-1-gamma">18.1.6. Example: value function <span class="math notranslate nohighlight">\(\ V^*(t, x) = f^{\gamma}(t) \frac{x^{1-\gamma}}{1 - \gamma}\)</span></a></li>
 </ul>
 </li>
 </ul>

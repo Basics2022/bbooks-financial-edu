@@ -46,8 +46,9 @@ parts:
   chapters:
   - file: ch/investing/intro
 # - file: ch/investing/ptf
-  - file: ch/investing/mpt
-  - file: ch/investing/capm
+  - file: code/notebooks/mpt
+# - file: ch/investing/mpt
+# - file: ch/investing/capm
   - file: ch/investing/merton
 # - file: ch/investing/strategic-tactical
 # - file: ch/investing/rebalancing
