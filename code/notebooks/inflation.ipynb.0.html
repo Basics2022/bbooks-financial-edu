@@ -1,0 +1,1994 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inflation &#8212; Financial Education - basics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'code/notebooks/inflation.ipynb.0';</script>
+    <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Financial Education - basics - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="Financial Education - basics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/summary.html">1. Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/references.html">2. References</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Macroeconomic Context for Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/actors.html">3. Actors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="inflation.html">4. Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/characteristic-times.html">5. Characteristic times in economy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/policy.html">6. Policy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Investing Principles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/principles/intro_nb.html">7. Introduction to principles of investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/principles/essentials.html">8. Il minimo indispensabile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/principles/intro-principles.html">9. Principles of investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebalancing_intro.html">10. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sequence-risk.html">11. Sequence risk</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/intro.html">12. Introduction to asset classes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/assets/bonds.html">13. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/bonds-return.html">13.1. Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/bonds-risks.html">13.2. Risks</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/assets/equity.html">14. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/equity-valuation.html">14.1. Equity Valuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/assets/financial-statements.html">14.2. Three Financial Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">15. ETFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">16. Introduction to investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/mpt.html">17. Modern Portfolio Theory</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/capm.html">18. Capital Asset Pricing Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/investing/merton.html">19. Merton’s portfolio problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rebalancing.html">20. Rebalancing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/intro.html">Extra and Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/extra/euristhics.html">Euristhics and historical correlations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">People</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/people/list.html">Resources, People and Firms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/people/the_bull_guests.html">The Bull</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-financial-edu/blob/master/code/notebooks/inflation.ipynb.0.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/code/notebooks/inflation.ipynb.0.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fcode/notebooks/inflation.ipynb.0.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/code/notebooks/inflation.ipynb.0.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Inflation</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-indices-e-g-in-italy">Inflation Indices (e.g. in Italy)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca">Weights and Price Indices of Classes of Goods and Services - Italy IPCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-data">Inspect Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-indices-level-4-ipca">Category Price Indices - Level-4 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-4-ipca">Category Weights - Level-4 IPCA</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-2-ipca">Category weights - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-prices-level-2-ipca">Category Prices - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-changes-inflation-level-2-ipca">Category Price Changes (Inflation) -  Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation-level-2-ipca">Category contributions to overall inflation - Level-2 IPCA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations-in-macroeconomics-with-inflation">Correlations in macroeconomics with inflation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-of-inflation">Control of Inflation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origin-of-inflation">Origin of inflation</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="inflation">
+<span id="fin-edu-inflation"></span><h1>Inflation<a class="headerlink" href="#inflation" title="Permalink to this heading">#</a></h1>
+<p>Inflation is the <strong>rate</strong> at which the general level of prices for goods and sevices changes.</p>
+<p><strong>Contents.</strong> Definition and <a class="reference internal" href="#fin-edu-inflation-indices"><span class="std std-ref">inflation indices</span></a>, with examples of indices used in Italy: NIC, FOI, IPCA; <a class="reference internal" href="#fin-edu-inflation-ipca"><span class="std std-ref">components of inflation</span></a>, with details of IPCA in Italy; <a class="reference internal" href="#fin-edu-inflation-correlations"><span class="std std-ref">correlation with other macroeconomic quantities</span></a>; <a class="reference internal" href="#fin-edu-inflation-control"><span class="std std-ref">who controls inflation</span></a>; <a class="reference internal" href="#fin-edu-inflation-origin"><span class="std std-ref">origin of inflation</span></a></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+
+<span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s1">&#39;iframe&#39;</span>  <span class="c1"># plotly_mimetype+notebook&#39; # or &#39;iframe&#39;</span>
+
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">io</span> <span class="kn">import</span> <span class="n">BytesIO</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import data</span>
+<span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/Basics2022/bbooks-financial-edu/master/code/data/&#39;</span>
+
+<span class="c1">#&gt; Files</span>
+<span class="c1"># FOI-prices: 2016-.../2025-...</span>
+<span class="c1"># IPCA-weights: 2018/2025</span>
+<span class="c1"># IPCA-prices:  2018-.../2025-...</span>
+<span class="c1"># NIC-weights: 2018/2025</span>
+<span class="c1"># NIC-prices:  2018-.../2025-...</span>
+<span class="n">filen</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;FOI-prices&#39;</span>  <span class="p">:</span> <span class="n">folder</span><span class="o">+</span><span class="s1">&#39;monthly-FOI.xlsx&#39;</span><span class="p">,</span>  <span class="c1"># folder+&#39;monthly-FOI.xlsx&#39; ,</span>
+    <span class="s1">&#39;IPCA-weights&#39;</span><span class="p">:</span> <span class="n">folder</span><span class="o">+</span><span class="s1">&#39;Classificazione</span><span class="si">%20E</span><span class="s1">coicop%20(4</span><span class="si">%20c</span><span class="s1">ifre)%20(IT1%2C168_6_DF_DCSP_IPCA3_1%2C1.0).xlsx&#39;</span><span class="p">,</span>        <span class="c1"># folder+&#39;Classificazione Ecoicop (4 cifre) (IT1,168_6_DF_DCSP_IPCA3_1,1.0).xlsx&#39;,</span>
+    <span class="s1">&#39;IPCA-prices&#39;</span> <span class="p">:</span> <span class="n">folder</span><span class="o">+</span><span class="s1">&#39;Classificazione</span><span class="si">%20E</span><span class="s1">coicop%20(4</span><span class="si">%20c</span><span class="s1">ifre)%20(IT1%2C168_760_DF_DCSP_IPCA1B2015_1%2C1.0).xlsx&#39;</span><span class="p">,</span> <span class="c1">#folder+&#39;Classificazione Ecoicop (4 cifre) (IT1,168_760_DF_DCSP_IPCA1B2015_1,1.0).xlsx&#39;,</span>
+    <span class="s1">&#39;NIC-weights&#39;</span> <span class="p">:</span> <span class="n">folder</span><span class="o">+</span><span class="s1">&#39;Classificazione</span><span class="si">%20E</span><span class="s1">coicop%20(5</span><span class="si">%20c</span><span class="s1">ifre)%20(IT1%2C167_743_DF_DCSP_NIC3B2015_3%2C1.0).xlsx&#39;</span><span class="p">,</span>  <span class="c1"># folder+&#39;Classificazione Ecoicop (5 cifre) (IT1,167_743_DF_DCSP_NIC3B2015_3,1.0).xlsx&#39;,</span>
+    <span class="s1">&#39;NIC-prices&#39;</span>  <span class="p">:</span> <span class="n">folder</span><span class="o">+</span><span class="s1">&#39;Classificazione</span><span class="si">%20E</span><span class="s1">coicop%20(5</span><span class="si">%20c</span><span class="s1">ifre)%20(IT1%2C167_744_DF_DCSP_NIC1B2015_4%2C1.0).xlsx&#39;</span> <span class="c1"># folder+&#39;Classificazione Ecoicop (5 cifre) (IT1,167_744_DF_DCSP_NIC1B2015_4,1.0).xlsx&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ipca</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;prices&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">filen</span><span class="p">[</span><span class="s1">&#39;IPCA-prices&#39;</span><span class="p">],</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;weights&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">filen</span><span class="p">[</span><span class="s1">&#39;IPCA-weights&#39;</span><span class="p">],</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s1">&#39;openpyxl&#39;</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="k">for</span> <span class="n">kdf</span><span class="p">,</span> <span class="n">idf</span> <span class="ow">in</span> <span class="n">df_ipca</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="n">idf</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>  <span class="c1"># strip whitespaces</span>
+    <span class="n">idf</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;Tempo&#39;</span><span class="p">])</span>
+    <span class="n">idf</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">idf</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+    <span class="n">idf</span> <span class="o">=</span> <span class="n">idf</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Tempo&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="section" id="inflation-indices-e-g-in-italy">
+<span id="fin-edu-inflation-indices"></span><h2>Inflation Indices (e.g. in Italy)<a class="headerlink" href="#inflation-indices-e-g-in-italy" title="Permalink to this heading">#</a></h2>
+<p>Overall inflation is the the weighted average of inflation on different classes of goods and services, weighted for their share of expenses.</p>
+<p>Everyone perceives its own inflation, depending on its expenses. Different indices are usually used within an economy to track inflation for some “average individual”.</p>
+<p>Different indices may differ on values of weights, and other “details” like the effect of discounts and public transfers.</p>
+<p>As an example, three indices are used in Italy:</p>
+<ul class="simple">
+<li><p><strong>NIC</strong> (Prezzi al Consumo per l’intera Collettività Nazionale), usually the general</p></li>
+<li><p><strong>FOI</strong> (Prezzi al Consumo per Famiglie di Operai e Impiegati), usually used for contracts, pension and inflation-linked contracts, ex-tobacco and lotteries.</p></li>
+<li><p><strong>IPCA</strong> (Indice Armonizzato dei Prezzi al Consumo, HIPC <em>Harmonized Index of Consumer Prices</em>), used for comparison and statistics in the EU</p></li>
+</ul>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Compare IPCA, NIC and FOI</span>
+<span class="c1"># ...</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+<div class="section" id="weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca">
+<span id="fin-edu-inflation-ipca"></span><h2>Weights and Price Indices of Classes of Goods and Services - Italy IPCA<a class="headerlink" href="#weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca" title="Permalink to this heading">#</a></h2>
+<p>National and International Institutions for Statistics (in Italy, ISTAT) provide open-access databases collecting statistics about society and economics, including data about price.</p>
+<p><strong>ISTAT.</strong> As an example, Italian ISTAT provides data at <a class="reference external" href="https://esploradati.istat.it/databrowser/#/it/dw">https://esploradati.istat.it/databrowser/#/it/dw</a></p>
+<p>All the data we need here is available under the category “Prezzi” - <em>Prices</em>. In order to reach a reasonable stability of the notebook, data have been downloaded, cleaned and stored in a folder on the repository of the project.</p>
+<div class="section" id="inspect-data">
+<span id="fin-edu-inflation-ipca-inspect-data"></span><h3>Inspect Data<a class="headerlink" href="#inspect-data" title="Permalink to this heading">#</a></h3>
+<p>Before producing plots, price indices and weights of level-4 categories are visually inspected. Data are usually collected in tables.</p>
+<div class="section" id="category-price-indices-level-4-ipca">
+<span id="fin-edu-inflation-ipca-inspect-data-prices"></span><h4>Category Price Indices - Level-4 IPCA<a class="headerlink" href="#category-price-indices-level-4-ipca" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-output tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tempo</th>
+      <th>2018-01</th>
+      <th>2018-02</th>
+      <th>2018-03</th>
+      <th>2018-04</th>
+      <th>2018-05</th>
+      <th>2018-06</th>
+      <th>2018-07</th>
+      <th>2018-08</th>
+      <th>2018-09</th>
+      <th>...</th>
+      <th>2024-09</th>
+      <th>2024-10</th>
+      <th>2024-11</th>
+      <th>2024-12</th>
+      <th>2025-01</th>
+      <th>2025-02</th>
+      <th>2025-03</th>
+      <th>2025-04</th>
+      <th>2025-05</th>
+      <th>2025-06</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[00] Indice generale</td>
+      <td>100.6</td>
+      <td>100.1</td>
+      <td>102.4</td>
+      <td>102.9</td>
+      <td>103.2</td>
+      <td>103.4</td>
+      <td>102</td>
+      <td>101.8</td>
+      <td>103.5</td>
+      <td>...</td>
+      <td>123</td>
+      <td>123.4</td>
+      <td>123.3</td>
+      <td>123.4</td>
+      <td>122.4</td>
+      <td>122.5</td>
+      <td>124.4</td>
+      <td>124.9</td>
+      <td>124.8</td>
+      <td>125</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[01] -- prodotti alimentari e bevande analcoli...</td>
+      <td>103.9</td>
+      <td>103</td>
+      <td>103.2</td>
+      <td>103.6</td>
+      <td>104.3</td>
+      <td>103.9</td>
+      <td>103.1</td>
+      <td>103.1</td>
+      <td>103</td>
+      <td>...</td>
+      <td>130.8</td>
+      <td>132.3</td>
+      <td>133.3</td>
+      <td>132.6</td>
+      <td>133.8</td>
+      <td>133.7</td>
+      <td>133.8</td>
+      <td>134.8</td>
+      <td>135.4</td>
+      <td>135.7</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[011] Prodotti alimentari</td>
+      <td>104</td>
+      <td>103.2</td>
+      <td>103.4</td>
+      <td>103.7</td>
+      <td>104.5</td>
+      <td>104.2</td>
+      <td>103.2</td>
+      <td>103.2</td>
+      <td>103.2</td>
+      <td>...</td>
+      <td>131.2</td>
+      <td>132.9</td>
+      <td>133.8</td>
+      <td>133</td>
+      <td>134.1</td>
+      <td>134</td>
+      <td>134</td>
+      <td>134.9</td>
+      <td>135.5</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[0111] Pane e cereali</td>
+      <td>101.6</td>
+      <td>100.6</td>
+      <td>101.1</td>
+      <td>101.8</td>
+      <td>101.4</td>
+      <td>102</td>
+      <td>101.7</td>
+      <td>102.1</td>
+      <td>101.3</td>
+      <td>...</td>
+      <td>127.2</td>
+      <td>127.6</td>
+      <td>127.8</td>
+      <td>127.8</td>
+      <td>128.5</td>
+      <td>128.2</td>
+      <td>128.4</td>
+      <td>129.2</td>
+      <td>129.3</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[0112] Carni</td>
+      <td>102.9</td>
+      <td>102.4</td>
+      <td>102.6</td>
+      <td>102.9</td>
+      <td>102.7</td>
+      <td>102.8</td>
+      <td>102.8</td>
+      <td>102.7</td>
+      <td>103</td>
+      <td>...</td>
+      <td>125.6</td>
+      <td>125.9</td>
+      <td>126.7</td>
+      <td>127</td>
+      <td>127.9</td>
+      <td>128</td>
+      <td>128.7</td>
+      <td>129.5</td>
+      <td>130.2</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>[SERVTRANS_5DG] Servizi relativi ai trasporti ...</td>
+      <td>101.1</td>
+      <td>102.6</td>
+      <td>104.4</td>
+      <td>104.5</td>
+      <td>104.7</td>
+      <td>107</td>
+      <td>107.6</td>
+      <td>112.6</td>
+      <td>107</td>
+      <td>...</td>
+      <td>123</td>
+      <td>123</td>
+      <td>122.8</td>
+      <td>124.3</td>
+      <td>121.8</td>
+      <td>121.5</td>
+      <td>122.9</td>
+      <td>127.1</td>
+      <td>125</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>[SERVMISC_5DG] Servizi vari (dettaglio 5-digit)</td>
+      <td>99.8</td>
+      <td>100.1</td>
+      <td>100.3</td>
+      <td>100.6</td>
+      <td>101</td>
+      <td>101.1</td>
+      <td>101.3</td>
+      <td>101.3</td>
+      <td>101.4</td>
+      <td>...</td>
+      <td>112.4</td>
+      <td>112.9</td>
+      <td>113</td>
+      <td>113</td>
+      <td>113.3</td>
+      <td>113.5</td>
+      <td>113.8</td>
+      <td>113.9</td>
+      <td>114</td>
+      <td>..</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>[00XEFOODUNP_5DG] Componente di fondo (core in...</td>
+      <td>99.9</td>
+      <td>99.5</td>
+      <td>102.2</td>
+      <td>103</td>
+      <td>103.1</td>
+      <td>103.3</td>
+      <td>101.5</td>
+      <td>101.3</td>
+      <td>103.2</td>
+      <td>...</td>
+      <td>117.9</td>
+      <td>118</td>
+      <td>117.8</td>
+      <td>117.9</td>
+      <td>116.1</td>
+      <td>116.1</td>
+      <td>118.2</td>
+      <td>119.7</td>
+      <td>119.9</td>
+      <td>120.4</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>[00XEFOOD_5DG] Indice generale al netto dell'e...</td>
+      <td>99.4</td>
+      <td>99</td>
+      <td>102.2</td>
+      <td>103</td>
+      <td>103.1</td>
+      <td>103.4</td>
+      <td>101.1</td>
+      <td>100.9</td>
+      <td>103.2</td>
+      <td>...</td>
+      <td>115.8</td>
+      <td>116</td>
+      <td>115.6</td>
+      <td>115.8</td>
+      <td>113.5</td>
+      <td>113.3</td>
+      <td>115.9</td>
+      <td>117.6</td>
+      <td>117.7</td>
+      <td>118.1</td>
+    </tr>
+    <tr>
+      <th>149</th>
+      <td>[00XE_5DG] Indice generale esclusi energetici ...</td>
+      <td>100.4</td>
+      <td>99.9</td>
+      <td>102.4</td>
+      <td>103.2</td>
+      <td>103.4</td>
+      <td>103.6</td>
+      <td>101.7</td>
+      <td>101.5</td>
+      <td>103.3</td>
+      <td>...</td>
+      <td>119</td>
+      <td>119.4</td>
+      <td>119.2</td>
+      <td>119.3</td>
+      <td>117.7</td>
+      <td>117.6</td>
+      <td>119.7</td>
+      <td>121.2</td>
+      <td>121.4</td>
+      <td>121.8</td>
+    </tr>
+  </tbody>
+</table>
+<p>150 rows × 91 columns</p>
+</div></div></div>
+</details>
+</div>
+</div>
+<div class="section" id="category-weights-level-4-ipca">
+<span id="fin-edu-inflation-ipca-inspect-data-weights"></span><h4>Category Weights - Level-4 IPCA<a class="headerlink" href="#category-weights-level-4-ipca" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Tempo</th>
+      <th>2015</th>
+      <th>2016</th>
+      <th>2017</th>
+      <th>2018</th>
+      <th>2019</th>
+      <th>2020</th>
+      <th>2021</th>
+      <th>2022</th>
+      <th>2023</th>
+      <th>2024</th>
+      <th>2025</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[00] Indice generale</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+      <td>1000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[01] -- prodotti alimentari e bevande analcoli...</td>
+      <td>175648</td>
+      <td>176326</td>
+      <td>175240</td>
+      <td>175418</td>
+      <td>173257</td>
+      <td>172583</td>
+      <td>205912</td>
+      <td>194554</td>
+      <td>181443</td>
+      <td>181801</td>
+      <td>181425</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[011] Prodotti alimentari</td>
+      <td>162005</td>
+      <td>162805</td>
+      <td>161810</td>
+      <td>161903</td>
+      <td>159432</td>
+      <td>158644</td>
+      <td>189091</td>
+      <td>179008</td>
+      <td>166582</td>
+      <td>167112</td>
+      <td>166336</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[0111] Pane e cereali</td>
+      <td>30036</td>
+      <td>30342</td>
+      <td>29853</td>
+      <td>29558</td>
+      <td>29717</td>
+      <td>29778</td>
+      <td>35767</td>
+      <td>33586</td>
+      <td>31994</td>
+      <td>31422</td>
+      <td>31513</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[0112] Carni</td>
+      <td>41803</td>
+      <td>40944</td>
+      <td>40876</td>
+      <td>39914</td>
+      <td>39286</td>
+      <td>38162</td>
+      <td>45695</td>
+      <td>43159</td>
+      <td>39770</td>
+      <td>40253</td>
+      <td>40080</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>[1252] Assicurazione connessa all'abitazione</td>
+      <td>..</td>
+      <td>..</td>
+      <td>1102</td>
+      <td>456</td>
+      <td>469</td>
+      <td>398</td>
+      <td>525</td>
+      <td>466</td>
+      <td>470</td>
+      <td>517</td>
+      <td>487</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>[1253] Servizi assicurativi connessi alla salu...</td>
+      <td>467</td>
+      <td>584</td>
+      <td>530</td>
+      <td>560</td>
+      <td>605</td>
+      <td>720</td>
+      <td>903</td>
+      <td>781</td>
+      <td>728</td>
+      <td>748</td>
+      <td>692</td>
+    </tr>
+    <tr>
+      <th>146</th>
+      <td>[1254] Assicurazioni sui mezzi di trasporto</td>
+      <td>13095</td>
+      <td>13767</td>
+      <td>13191</td>
+      <td>12641</td>
+      <td>12033</td>
+      <td>12020</td>
+      <td>14649</td>
+      <td>12737</td>
+      <td>12773</td>
+      <td>13259</td>
+      <td>12486</td>
+    </tr>
+    <tr>
+      <th>147</th>
+      <td>[126] Servizi finanziari n.a.c.</td>
+      <td>13060</td>
+      <td>14353</td>
+      <td>13628</td>
+      <td>12614</td>
+      <td>15124</td>
+      <td>15559</td>
+      <td>17041</td>
+      <td>14343</td>
+      <td>14862</td>
+      <td>14946</td>
+      <td>15195</td>
+    </tr>
+    <tr>
+      <th>148</th>
+      <td>[127] Altri servizi n.a.c.</td>
+      <td>19820</td>
+      <td>19403</td>
+      <td>19046</td>
+      <td>19833</td>
+      <td>21045</td>
+      <td>21951</td>
+      <td>18066</td>
+      <td>20537</td>
+      <td>19186</td>
+      <td>19297</td>
+      <td>20422</td>
+    </tr>
+  </tbody>
+</table>
+<p>149 rows × 12 columns</p>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Useful new dataframe to match weights (yearly) and prices (monthly) later</span>
+<span class="c1">#&gt; Extract code and label</span>
+<span class="n">ddf</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="n">ddf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\[\d+\])&#39;</span><span class="p">)</span>
+<span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1">#&gt; Determine parent code</span>
+<span class="k">def</span> <span class="nf">get_parent_code</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">code</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">code_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">code_str</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># no parent</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">code_str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">code_str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">code_str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">code_str</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+
+<span class="c1">#&gt; Determine value</span>
+<span class="k">def</span> <span class="nf">get_value</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">code</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">code</span><span class="p">):</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="n">code_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">code</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;[]&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">code_str</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1">#&gt; Determine parents and values</span>
+<span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span> <span class="n">get_parent_code</span> <span class="p">)</span>
+
+<span class="n">years</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">2026</span><span class="p">)]</span>  <span class="c1"># list of year strings</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+   <span class="n">ddf</span><span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)]</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)]</span> <span class="o">/</span> <span class="mf">1e4</span>
+
+<span class="c1">#&gt; Drop [00] Indice generale</span>
+<span class="n">ddf</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">[</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;[00]&#39;</span><span class="p">]</span>
+
+<span class="c1"># ddf.head(5)</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+</div>
+</div>
+<div class="section" id="plots">
+<h3>Plots<a class="headerlink" href="#plots" title="Permalink to this heading">#</a></h3>
+<div class="section" id="category-weights-level-2-ipca">
+<h4>Category weights - Level-2 IPCA<a class="headerlink" href="#category-weights-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>The weights assigned to IPCA (Harmonized Index of Consumer Prices) categories represent the average expenditure share of households on each category of goods and services. These weights reflect how important each category is in the consumption basket.</p>
+<p>These weights are revised annually to account for changing consumer behavior, as one can easily realize acting on the slider of the picture below. They are the weights used in computing the overall inflation <span class="math notranslate nohighlight">\(i\)</span> index, as the weighted sum of inflation <span class="math notranslate nohighlight">\(i_c\)</span> of IPCA categories,</p>
+<div class="math notranslate nohighlight">
+\[i = \sum_{c \in \text{Cat}} i_c \, w_c \ .\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+
+<span class="c1"># Create the initial figure for the first year</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Sunburst</span><span class="p">(</span>
+    <span class="n">ids</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span>
+    <span class="n">labels</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span>
+    <span class="n">parents</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">],</span>
+    <span class="n">values</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;2025&#39;</span><span class="p">],</span>  <span class="c1"># initial year</span>
+    <span class="n">hoverinfo</span><span class="o">=</span><span class="s1">&#39;label+value+text&#39;</span><span class="p">,</span>
+    <span class="n">branchvalues</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span>  <span class="c1"># &quot;toatal&quot; or &quot;remainder&quot;</span>
+    <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">text</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+    <span class="n">textinfo</span><span class="o">=</span><span class="s1">&#39;text+percent parent&#39;</span>
+<span class="p">))</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s2">&quot;IPCA weights - 2025&quot;</span><span class="p">)</span>
+
+<span class="c1"># Create one frame per year</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">go</span><span class="o">.</span><span class="n">Sunburst</span><span class="p">(</span>
+            <span class="n">ids</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span>
+            <span class="n">labels</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;code&#39;</span><span class="p">],</span>
+            <span class="n">parents</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">],</span>
+            <span class="n">values</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="n">year</span><span class="p">],</span>
+            <span class="n">branchvalues</span><span class="o">=</span><span class="s2">&quot;total&quot;</span><span class="p">,</span>  <span class="c1"># &quot;toatal&quot; or &quot;remainder&quot;</span>
+            <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">text</span><span class="o">=</span><span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">],</span>
+            <span class="n">textinfo</span><span class="o">=</span><span class="s1">&#39;text+percent parent&#39;</span>
+        <span class="p">)],</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">year</span><span class="p">,</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">title_text</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;IPCA weights - </span><span class="si">{</span><span class="n">year</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="p">))</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">frames</span> <span class="o">=</span> <span class="n">frames</span>
+
+<span class="c1"># Add slider steps for each year</span>
+<span class="n">steps</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">year</span> <span class="ow">in</span> <span class="n">years</span><span class="p">:</span>
+    <span class="n">steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">method</span><span class="o">=</span><span class="s1">&#39;animate&#39;</span><span class="p">,</span>
+        <span class="n">args</span><span class="o">=</span><span class="p">[[</span><span class="n">year</span><span class="p">],</span>  <span class="c1"># frame name</span>
+              <span class="nb">dict</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;immediate&#39;</span><span class="p">,</span>
+                   <span class="n">frame</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">500</span><span class="p">,</span> <span class="n">redraw</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                   <span class="n">transition</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">duration</span><span class="o">=</span><span class="mi">300</span><span class="p">))],</span>
+        <span class="n">label</span><span class="o">=</span><span class="n">year</span>
+    <span class="p">))</span>
+
+<span class="c1"># Layout with slider</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="c1"># width=800, height=800,</span>
+    <span class="n">margin</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">t</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="n">sliders</span><span class="o">=</span><span class="p">[</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">active</span><span class="o">=</span><span class="n">years</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s1">&#39;2025&#39;</span><span class="p">),</span>
+        <span class="n">currentvalue</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;prefix&quot;</span><span class="p">:</span> <span class="s2">&quot;Year: &quot;</span><span class="p">},</span>
+        <span class="n">pad</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;t&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">},</span>
+        <span class="n">steps</span><span class="o">=</span><span class="n">steps</span>
+    <span class="p">)],</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_8.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="category-prices-level-2-ipca">
+<h4>Category Prices - Level-2 IPCA<a class="headerlink" href="#category-prices-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>Some categories in IPCA are subject to strong seasonal effects, meaning prices follow recurring patterns during the year.</p>
+<p>As an example:</p>
+<ul class="simple">
+<li><p>Clothing and Footwear: in July–August, retailers apply seasonal discounts (saldi) in Italy and prices in IPCA do include these discounts when they are actually applied in stores, as it’s shown by seasonal July/August price drops</p></li>
+<li><p>Fresh fruits and vegetables: prone to seasonal availability, leading to fluctuating prices.</p></li>
+<li><p>Travel and tourism: prices rise in summer and holidays.</p></li>
+</ul>
+<p>Seasonality can obscure underlying inflation trends: that’s why <strong>seasonally adjusted</strong> inflation is evaluated, see below.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Classes</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="n">ddf</span><span class="p">[</span> <span class="n">ddf</span><span class="p">[</span><span class="s1">&#39;parent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span> <span class="p">][</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+<span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># Add a trace for each row (now a column in df_T)</span>
+<span class="c1"># df_classes = df[&#39;prices&#39;][ df[&#39;prices&#39;][&#39;Tempo&#39;].isin(class_names) ]</span>
+<span class="n">df_classes</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;prices&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\[\d</span><span class="si">{2}</span><span class="s1">\]&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Tempo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="c1"># Create a figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="n">df_classes</span>
+
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_classes</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">df_classes</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">df_classes</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span>
+    <span class="p">))</span>
+
+<span class="c1"># Customize layout</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;IPCA price indices - 2015:100&#39;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
+    <span class="c1"># xaxis_tickangle=-45,</span>
+    <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
+    <span class="c1"># template=&#39;plotly_white&#39;,</span>
+    <span class="c1"># height=600,</span>
+    <span class="c1"># width=1000,</span>
+    <span class="c1"># legend=dict(orientation=&quot;v&quot;, x=1.02, y=1)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_9.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="category-price-changes-inflation-level-2-ipca">
+<h4>Category Price Changes (Inflation) -  Level-2 IPCA<a class="headerlink" href="#category-price-changes-inflation-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<p>The 12-month inflation rate (year-on-year or YoY) compares prices in a given month to the same month the year before. It’s already less prone to seasonal effects than the month-to-month rate.</p>
+<p>However, even YoY rates can exhibit seasonal patterns, especially in volatile components like food, energy, and clothing. In order to reduce volatility of inflation indices, it’s possible to use:</p>
+<ul class="simple">
+<li><p><strong>Core inflation</strong>, as a measure of inflation that excludes the most volatile items (e.g., unprocessed food, energy), in order to provide a smoothed measure of inflation trends.</p></li>
+<li><p>Statistical filtering, and moving averages</p></li>
+</ul>
+<!-- use of tools like X-13ARIMA-SEATS (by US Census Bureau) or TRAMO/SEATS (Eurostat).
+These methods model and remove seasonal effects in the inflation time series.
+
+Applying a 12-month rolling average to the monthly index to smooth out short-term fluctuations.
+       
+Harmonized Eurostat Measures:
+Eurostat publishes seasonally adjusted HICP indices that remove recurring seasonal variations using standard methodologies across countries.
+
+De-seasonalized inflation allows for cleaner comparisons over time and between countries, removing noise caused by predictable price swings.
+--><div class="warning admonition">
+<p class="admonition-title">Energy post-2022</p>
+<p>Since 2022, prices in the energy and utility sectors have shown exceptional volatility. Different causes may have contributed, like geopolitical tensions (notably, the war in Ukraine), “liberalized” electricity/gas markets in Italy where price caps were adjusted or removed. Inflation in energy and electricity was also influenced by a <em>base effect</em> (e.g., very low prices in 2020–2021 followed by spikes in 2022).</p>
+<p>Policy interventions like tax reductions and bonuses - that are not “free” -, which may or may not be reflected in consumer prices, depending on implementation.</p>
+<p>The use of <em>core inflation</em> in 2022–2023 was arguable, as energy prices didn’t just spiked and reverted, but was/is quite a long-term shock (war, sanctions, market and supply restructuring,…); as energy price influences many other sectors, food price rose as well, due to input cost shocks /fretilizers, transports,…) not as a result of seasonality only. Using core inflation and excluding energy and food components masked the true <strong>cost-of living</strong> impact on households.</p>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_inflation</span> <span class="o">=</span> <span class="n">df_classes</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">how</span><span class="o">=</span><span class="s1">&#39;any&#39;</span><span class="p">)</span>   <span class="c1"># percent</span>
+
+<span class="c1"># Create a figure</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">go</span><span class="o">.</span><span class="n">Figure</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">df_inflation</span><span class="p">[</span><span class="n">column</span><span class="p">],</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;lines&#39;</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">column</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span>
+    <span class="p">))</span>
+
+<span class="c1"># Customize layout</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;IPCA inflation by categories - 12 months price difference&#39;</span><span class="p">,</span>
+    <span class="n">xaxis_title</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span>
+    <span class="n">yaxis_title</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
+    <span class="c1"># xaxis_tickangle=-45,</span>
+    <span class="n">hovermode</span><span class="o">=</span><span class="s1">&#39;x unified&#39;</span><span class="p">,</span>
+    <span class="c1"># template=&#39;plotly_white&#39;,</span>
+    <span class="c1"># height=600,</span>
+    <span class="c1"># width=1000,</span>
+    <span class="c1"># legend=dict(orientation=&quot;v&quot;, x=1.02, y=1)</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_10.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+<div class="section" id="category-contributions-to-overall-inflation-level-2-ipca">
+<h4>Category contributions to overall inflation - Level-2 IPCA<a class="headerlink" href="#category-contributions-to-overall-inflation-level-2-ipca" title="Permalink to this heading">#</a></h4>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Need for aligning data with different time intevals</span>
+
+<span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+<span class="c1"># df_inflation</span>
+
+
+<span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">][</span> <span class="n">df_ipca</span><span class="p">[</span><span class="s1">&#39;weights&#39;</span><span class="p">][</span><span class="s1">&#39;Tempo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;^\[\d</span><span class="si">{2}</span><span class="s1">\]&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Tempo&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="o">/</span> <span class="mf">1e6</span>
+<span class="c1">#&gt; Add a row 2026, just to use the same weights for all the months of 2025</span>
+<span class="n">row_2026</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;2025&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">row_2026</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2026&#39;</span><span class="p">]</span>
+<span class="n">df_weights</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_weights</span><span class="p">,</span> <span class="n">row_2026</span><span class="p">],)</span>
+
+
+<span class="n">df_weights</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;YS&#39;</span><span class="p">)</span>
+<span class="c1"># # df_weights_monthly = df_weights</span>
+<span class="n">df_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;MS&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+<span class="n">df_weights</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
+
+<span class="c1"># print(df_weights.index)</span>
+<span class="c1"># print(df_inflation.index)</span>
+
+
+<span class="n">common_periods</span> <span class="o">=</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df_weights</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_monthly_weights</span> <span class="o">=</span> <span class="n">df_weights</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">common_periods</span><span class="p">]</span>
+
+
+<span class="c1"># df_monthly_weights</span>
+<span class="c1"># df_inflation</span>
+
+
+<span class="n">df_monthly_weights</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df_monthly_weights</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df_inflation</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="n">df_contributions</span> <span class="o">=</span> <span class="n">df_monthly_weights</span> <span class="o">*</span> <span class="n">df_inflation</span>
+
+<span class="n">df_contributions</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;[00] Indice generale&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">df_contributions</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_timestamp</span><span class="p">()</span>
+
+<span class="c1"># df_contributions</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<div class="cell tag_hide-input tag_hide-output docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input above-output-prompt docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_plot = df_contributions.reset_index()</span>
+<span class="n">df_plot</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Tempo&#39;</span><span class="p">:</span> <span class="s1">&#39;Time&#39;</span><span class="p">})</span>
+
+<span class="c1"># df_plot[&#39;Tempo&#39;] = pd.to_datetime(df_plot[&#39;Tempo&#39;])</span>
+<span class="n">df_plot</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df_plot</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<span class="n">df_plot</span>
+
+<span class="c1"># print(df_plot.columns.to_list())</span>
+<span class="c1"># # print(df_plot.head())</span>
+<span class="c1"># print(df_plot.dtypes)</span>
+
+<span class="c1"># Create a new DataFrame by resetting the index and renaming the index column to &#39;Time&#39;</span>
+<span class="n">df_new</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+
+<span class="c1"># If the old index had no name, the column will be called &#39;index&#39;, so rename it:</span>
+<span class="k">if</span> <span class="s1">&#39;index&#39;</span> <span class="ow">in</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+    <span class="n">df_new</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="s1">&#39;Time&#39;</span><span class="p">})</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># If it has a name, replace that with &#39;Time&#39;</span>
+    <span class="n">old_name</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">if</span> <span class="n">old_name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">old_name</span> <span class="ow">in</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="n">df_new</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">old_name</span><span class="p">:</span> <span class="s1">&#39;Time&#39;</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># If the index has no name and no &#39;index&#39; column, just add one:</span>
+        <span class="n">df_new</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_contributions</span><span class="o">.</span><span class="n">index</span>
+
+<span class="c1"># Now df_new has a clean &#39;Time&#39; column and a fresh integer index</span>
+<span class="c1"># print(df_new.head())</span>
+
+<span class="n">df_new</span>
+</pre></div>
+</div>
+</div>
+</details>
+<details class="hide below-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell output</span>
+<span class="expanded">Hide code cell output</span>
+</summary>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>Tempo</th>
+      <th>Time</th>
+      <th>[01] -- prodotti alimentari e bevande analcoliche</th>
+      <th>[02] -- bevande alcoliche e tabacchi</th>
+      <th>[03] -- abbigliamento e calzature</th>
+      <th>[04] -- abitazione, acqua, elettricità, gas e altri combustibili</th>
+      <th>[05] -- mobili, articoli e servizi per la casa</th>
+      <th>[06] -- servizi sanitari e spese per la salute</th>
+      <th>[07] -- trasporti</th>
+      <th>[08] -- comunicazioni</th>
+      <th>[09] -- ricreazione, spettacoli e cultura</th>
+      <th>[10] -- istruzione</th>
+      <th>[11] -- servizi ricettivi e di ristorazione</th>
+      <th>[12] -- altri beni e servizi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2019-01-01</td>
+      <td>0.000834</td>
+      <td>0.000754</td>
+      <td>-0.000187</td>
+      <td>0.004464</td>
+      <td>0.0</td>
+      <td>0.000341</td>
+      <td>0.001504</td>
+      <td>-0.001614</td>
+      <td>-0.000238</td>
+      <td>0.0</td>
+      <td>0.001366</td>
+      <td>0.001651</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2019-02-01</td>
+      <td>0.003028</td>
+      <td>0.001132</td>
+      <td>-0.000199</td>
+      <td>0.00446</td>
+      <td>0.000154</td>
+      <td>0.00034</td>
+      <td>0.000895</td>
+      <td>-0.001936</td>
+      <td>-0.000178</td>
+      <td>0.0</td>
+      <td>0.001114</td>
+      <td>0.001749</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2019-03-01</td>
+      <td>0.001679</td>
+      <td>0.001058</td>
+      <td>0.00023</td>
+      <td>0.00446</td>
+      <td>-0.000076</td>
+      <td>0.000255</td>
+      <td>0.001778</td>
+      <td>-0.001873</td>
+      <td>-0.00012</td>
+      <td>0.000013</td>
+      <td>0.001106</td>
+      <td>0.001636</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2019-04-01</td>
+      <td>0.000334</td>
+      <td>0.000772</td>
+      <td>0.000148</td>
+      <td>0.003974</td>
+      <td>-0.000076</td>
+      <td>0.000297</td>
+      <td>0.00399</td>
+      <td>-0.002419</td>
+      <td>-0.00012</td>
+      <td>0.000013</td>
+      <td>0.001935</td>
+      <td>0.001916</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2019-05-01</td>
+      <td>0.000664</td>
+      <td>0.000676</td>
+      <td>0.000222</td>
+      <td>0.003861</td>
+      <td>0.0</td>
+      <td>0.000297</td>
+      <td>0.002936</td>
+      <td>-0.002491</td>
+      <td>-0.00006</td>
+      <td>0.000013</td>
+      <td>0.00132</td>
+      <td>0.00153</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>2025-02-01</td>
+      <td>0.004449</td>
+      <td>0.00079</td>
+      <td>-0.000433</td>
+      <td>0.003935</td>
+      <td>0.000513</td>
+      <td>0.001076</td>
+      <td>-0.00013</td>
+      <td>-0.001019</td>
+      <td>0.001017</td>
+      <td>0.000292</td>
+      <td>0.003506</td>
+      <td>0.002718</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>2025-03-01</td>
+      <td>0.00473</td>
+      <td>0.001011</td>
+      <td>0.000905</td>
+      <td>0.007548</td>
+      <td>0.000448</td>
+      <td>0.001188</td>
+      <td>-0.00142</td>
+      <td>-0.000944</td>
+      <td>0.001073</td>
+      <td>0.000292</td>
+      <td>0.004101</td>
+      <td>0.002699</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>2025-04-01</td>
+      <td>0.005978</td>
+      <td>0.000567</td>
+      <td>0.000458</td>
+      <td>0.005752</td>
+      <td>0.000318</td>
+      <td>0.001146</td>
+      <td>-0.001411</td>
+      <td>-0.000976</td>
+      <td>0.00075</td>
+      <td>0.000292</td>
+      <td>0.00492</td>
+      <td>0.002683</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>2025-05-01</td>
+      <td>0.005951</td>
+      <td>0.000621</td>
+      <td>0.000516</td>
+      <td>0.004934</td>
+      <td>0.000446</td>
+      <td>0.001183</td>
+      <td>-0.003094</td>
+      <td>-0.000877</td>
+      <td>0.00053</td>
+      <td>0.000292</td>
+      <td>0.004356</td>
+      <td>0.002681</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>2025-06-01</td>
+      <td>0.006797</td>
+      <td>0.000702</td>
+      <td>0.000458</td>
+      <td>0.002547</td>
+      <td>0.000509</td>
+      <td>0.001257</td>
+      <td>-0.001422</td>
+      <td>-0.000852</td>
+      <td>0.000584</td>
+      <td>0.000292</td>
+      <td>0.004312</td>
+      <td>0.002762</td>
+    </tr>
+  </tbody>
+</table>
+<p>78 rows × 13 columns</p>
+</div></div></div>
+</details>
+</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">df_new</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">col</span> <span class="o">!=</span> <span class="s1">&#39;Time&#39;</span><span class="p">]</span>
+
+<span class="n">df_long</span> <span class="o">=</span> <span class="n">df_new</span><span class="o">.</span><span class="n">melt</span><span class="p">(</span><span class="n">id_vars</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="n">value_vars</span><span class="o">=</span><span class="n">y_cols</span><span class="p">,</span> <span class="n">var_name</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span> <span class="n">value_name</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">px</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span>
+    <span class="n">df_long</span><span class="p">,</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span> <span class="c1"># &#39;x&#39;,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Value&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s1">&#39;Category&#39;</span><span class="p">,</span>
+    <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Category contributions to inflation&#39;</span>
+<span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span>
+    <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span>
+    <span class="n">legend</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+        <span class="n">orientation</span><span class="o">=</span><span class="s2">&quot;h&quot;</span><span class="p">,</span>
+        <span class="n">yanchor</span><span class="o">=</span><span class="s2">&quot;top&quot;</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=-</span><span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">xanchor</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">,</span>
+        <span class="n">x</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="p">)</span>
+<span class="p">)</span> <span class="c1"># relative&#39;)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+
+<span class="c1"># df_contributions</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_13.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="correlations-in-macroeconomics-with-inflation">
+<span id="fin-edu-inflation-correlations"></span><h2>Correlations in macroeconomics with inflation<a class="headerlink" href="#correlations-in-macroeconomics-with-inflation" title="Permalink to this heading">#</a></h2>
+<p>Some correlations exist<a class="footnote-reference brackets" href="#correlation-economics" id="id1">1</a> between inflation and other macroeconocmics quantitites.</p>
+<ul class="simple">
+<li><p><strong>Phillips Curve</strong>: inverse relation between inflation and unemployment (in the short-run)</p></li>
+<li><p><strong>Money supply</strong> in the long-run “<em>Inflation is a monetary phenomenon</em>”, M.Friedman.</p></li>
+</ul>
+</div>
+<div class="section" id="control-of-inflation">
+<span id="fin-edu-inflation-control"></span><h2>Control of Inflation<a class="headerlink" href="#control-of-inflation" title="Permalink to this heading">#</a></h2>
+<p>Control of inflation is one of the goals of <strong>central banks</strong>, like the FED and the ECB.</p>
+<p><a class="reference internal" href="../../ch/actors.html#fin-edu-actors-banks-cb"><span class="std std-ref">Central banks</span></a> aims at controlling inflation, matching target inflation (usaully set as 2%) by means of <strong>monetary policy</strong>:</p>
+<ul class="simple">
+<li><p>interest rates (cost of money)</p></li>
+<li><p>non-conventional actions, like quantitative easing (QE)/tightening (QT)</p></li>
+</ul>
+<p>A goverment may indirectly influence inflation with <strong>fiscal policy</strong>, as taxation and government spending can influence demand.</p>
+<p><strong>Credibility</strong> of targets, and actors through their actions and forward guidance may influence inflation as well: expectations influences inflation.</p>
+</div>
+<div class="section" id="origin-of-inflation">
+<span id="fin-edu-inflation-origin"></span><h2>Origin of inflation<a class="headerlink" href="#origin-of-inflation" title="Permalink to this heading">#</a></h2>
+<p>Origin of inflation?</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../ch/characteristic-times.html#fin-edu-characteristic-times-short"><span class="std std-ref">short-run</span></a>, <a class="reference internal" href="../../ch/characteristic-times.html#fin-edu-characteristic-times-medium"><span class="std std-ref">medium-run</span></a>: cost-push, demand-pull, built-in (triangle model)</p></li>
+<li><p><a class="reference internal" href="../../ch/characteristic-times.html#fin-edu-characteristic-times-long"><span class="std std-ref">long-run</span></a>: “inflation is always and everywhere a monetary phenomenon” M.Friedman</p></li>
+</ul>
+<hr class="footnotes docutils" />
+<dl class="footnote brackets">
+<dt class="label" id="correlation-economics"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
+<dd><p>…</p>
+</dd>
+</dl>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./code/notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-indices-e-g-in-italy">Inflation Indices (e.g. in Italy)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#weights-and-price-indices-of-classes-of-goods-and-services-italy-ipca">Weights and Price Indices of Classes of Goods and Services - Italy IPCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inspect-data">Inspect Data</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-indices-level-4-ipca">Category Price Indices - Level-4 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-4-ipca">Category Weights - Level-4 IPCA</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#plots">Plots</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-weights-level-2-ipca">Category weights - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-prices-level-2-ipca">Category Prices - Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-price-changes-inflation-level-2-ipca">Category Price Changes (Inflation) -  Level-2 IPCA</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#category-contributions-to-overall-inflation-level-2-ipca">Category contributions to overall inflation - Level-2 IPCA</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#correlations-in-macroeconomics-with-inflation">Correlations in macroeconomics with inflation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#control-of-inflation">Control of Inflation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#origin-of-inflation">Origin of inflation</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
