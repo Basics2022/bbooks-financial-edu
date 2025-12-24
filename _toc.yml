@@ -47,6 +47,8 @@ parts:
   - file: ch/investing/intro
 # - file: ch/investing/ptf
   - file: code/notebooks/mpt
+    sections:
+    - file: ch/investing/mpt-capm-analytical
 # - file: ch/investing/mpt
 # - file: ch/investing/capm
   - file: ch/investing/merton
