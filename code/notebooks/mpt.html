@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18. Merton’s portfolio problem" href="../../ch/investing/merton.html" />
+    <link rel="next" title="17.4. MPT and CAPM: analytical solution" href="../../ch/investing/mpt-capm-analytical.html" />
     <link rel="prev" title="16. Introduction to investing" href="../../ch/investing/intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -214,7 +214,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">16. Introduction to investing</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">17. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">17. Modern Portfolio Theory and Capital Asset Pricing Model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../ch/investing/mpt-capm-analytical.html">17.4. MPT and CAPM: analytical solution</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/merton.html">18. Merton’s portfolio problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebalancing.html">19. Rebalancing</a></li>
 </ul>
@@ -519,10 +522,12 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Three-asset portfolio</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Dictionary collecting different assets for building portfolio</span>
 <span class="n">ptfs</span> <span class="o">=</span> <span class="p">{}</span>
 
-<span class="c1">#&gt; Two-asset portfolio</span>
+<span class="c1">#&gt; 1. Two-asset portfolio</span>
+<span class="c1"># Here, un-correlated assets, r12 = 0</span>
+<span class="c1">#&gt; Expected returns and covariance</span>
 <span class="n">mu1</span><span class="p">,</span> <span class="n">mu2</span> <span class="o">=</span>  <span class="mf">5.</span><span class="p">,</span> <span class="mf">10.</span>
 <span class="n">si1</span><span class="p">,</span> <span class="n">si2</span> <span class="o">=</span>  <span class="mf">6.</span><span class="p">,</span> <span class="mf">15.</span>
 <span class="n">r12</span>  <span class="o">=</span> <span class="mf">.0</span>
@@ -535,6 +540,9 @@ document.write(`
 
 <span class="n">ptfs</span><span class="p">[</span><span class="s1">&#39;risky&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;mu&#39;</span><span class="p">:</span> <span class="n">mu</span><span class="p">,</span> <span class="s1">&#39;si&#39;</span><span class="p">:</span> <span class="n">si</span><span class="p">,</span> <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="s1">&#39;x&#39;</span> <span class="p">}</span>
 
+<span class="c1">#&gt; 2. Three-asset portfolio</span>
+<span class="c1"># The same as the two-asset portfolio above, with an extra risk-free asset</span>
+<span class="c1"># (risk-free = zero variance, si3 = .0)</span>
 <span class="c1">#&gt; Expected returns and covariance</span>
 <span class="n">mu1</span><span class="p">,</span> <span class="n">mu2</span><span class="p">,</span> <span class="n">mu3</span> <span class="o">=</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span>  <span class="mf">3.</span>
 <span class="n">si1</span><span class="p">,</span> <span class="n">si2</span><span class="p">,</span> <span class="n">si3</span> <span class="o">=</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">15.</span><span class="p">,</span>  <span class="mf">0.</span>
@@ -555,11 +563,32 @@ document.write(`
 </div>
 <div class="section" id="modern-portfolio-theory">
 <span id="fin-edu-investing-mpt-capm-mpt"></span><h2><span class="section-number">17.1. </span>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
-<p>The evaluation of weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> of optimal asset allocation for MPT is recast as the optimization problem of <em>finding asset allocation with minimum volatility for the given expected return, under some constraints about asset allocation</em></p>
+<p>Given a set of <span class="math notranslate nohighlight">\(N\)</span> assets with expected return <span class="math notranslate nohighlight">\(\mu_i = \left\{ \boldsymbol\mu \right\}_i\)</span>, <span class="math notranslate nohighlight">\(i = 1:N\)</span>, and covariance (matrix) <span class="math notranslate nohighlight">\(\boldsymbol\sigma^2\)</span>, a portfolio is defined by the weights (percentage) <span class="math notranslate nohighlight">\(w_i = \left{ \mathbf{w} \right\}_i\)</span> of the individual assets in the portfolio.</p>
+<p><strong>Return of the portfolio.</strong> The return of an amount <span class="math notranslate nohighlight">\(x_0\)</span> invested in a portfolio with asset allocation <span class="math notranslate nohighlight">\(w_i\)</span> is found evaluating the amount <span class="math notranslate nohighlight">\(x_1\)</span> after the period for which the return is defined,</p>
+<div class="math notranslate nohighlight">
+\[x_1 = \sum_{i=1}^{N} x_0 w_i \left( 1 + r_i \right) \ .\]</div>
+<p>Not-fully invested portfolio can be represented with an asset <span class="math notranslate nohighlight">\(0\)</span> (cash with zero return). The return is defined as</p>
+<div class="math notranslate nohighlight">
+\[r = \frac{x_1 - x_0}{x_0} = \frac{x_1}{x_0} - 1 = \sum_{i=1}^{N} w_i ( 1 + r_i ) - 1 \ .\]</div>
+<p>If (or as? Even with not-fully invested portfolio, or portfolio w/leverage) <span class="math notranslate nohighlight">\(\sum_{i=1}^{N} w_i = 1\)</span>, the return of the portfolio reads</p>
+<div class="math notranslate nohighlight">
+\[r = \sum_{i=1}^{N} w_i r_i = \mathbf{w}^T \mathbf{r} \ .\]</div>
+<p><strong>Expected value and variance of the return of the portfolio.</strong> The expected value and the variance of the return thus read</p>
+<div class="math notranslate nohighlight">
+\[\mu = \mathbb{E}[ r ] = \mathbb{E}[ \mathbf{w}^T \mathbf{r} ] = \mathbf{w}^T \boldsymbol\mu \ .\]</div>
+<p>and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
-  \mathbf{w}^* = \text{argmin}_{\mathbf{w}} \boldsymbol{\sigma}^2 \quad \text{ s.t.} \quad
-  &amp; \mathbf{w}^* \boldsymbol{\mu} = \overline{\boldsymbol  {\mu}} \\
+ \sigma^2 
+ &amp; = \mathbb{E}[ ( r - \mu )^2 ] = \\
+ &amp; = \mathbb{E}\left[ ( ( \mathbf{r} -\boldsymbol\mu )^T \mathbf{w})^T ( ( \mathbf{r} -\boldsymbol\mu )^T \mathbf{w} ) \right] = \\
+ &amp; = \mathbf{w}^T \mathbb{E} \left[ ( \mathbf{r} -\boldsymbol\mu )( \mathbf{r} -\boldsymbol\mu )^T \right] \mathbf{w} = \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} \ .
+\end{aligned}\end{split}\]</div>
+<p><strong>Optimal portfolio.</strong> The evaluation of weights <span class="math notranslate nohighlight">\(\mathbf{w}^*\)</span> of optimal asset allocation for MPT is recast as the optimization problem of <em>finding asset allocation with minimum volatility (variance) for the given expected return <span class="math notranslate nohighlight">\(\overline{\mu}\)</span>, under some constraints about asset allocation</em></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{w}^* = \text{argmin}_{\mathbf{w}} \sigma^2 \quad \text{ s.t.} \quad
+  &amp; \mathbf{w}^T \boldsymbol{\mu} = \overline{{\mu}} \\
   &amp; \text{other constraints} \ ,
 \end{aligned}\end{split}\]</div>
 <p>where other constraints could be:</p>
@@ -577,7 +606,7 @@ document.write(`
 \[w_k \ge 0 \ .\]</div>
 </li>
 </ul>
-<p><strong>Useful arrays and functions</strong></p>
+<p><strong>Useful arrays and functions.</strong> Functions to be used in the optimization are defined here. The optimization process aims at finding the asset allocation with minimum variance of the return, given the expected value of the return.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -826,6 +855,8 @@ document.write(`
 </div>
 </div>
 </div>
+<div class="toctree-wrapper compound">
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -868,11 +899,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../../ch/investing/merton.html"
+       href="../../ch/investing/mpt-capm-analytical.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18. </span>Merton’s portfolio problem</p>
+        <p class="prev-next-title"><span class="section-number">17.4. </span>MPT and CAPM: analytical solution</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
