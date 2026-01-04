@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Summary &#8212; Financial Education - basics</title>
+    <title>3. 1-Page Draft &#8212; Financial Education - basics</title>
   
   
   
@@ -65,12 +65,14 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/summary';</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/draft';</script>
     <link rel="shortcut icon" href="../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="2. References" href="references.html" />
-    <link rel="prev" title="Financial Education" href="../intro.html" />
+    <link rel="next" title="4. Actors" href="actors.html" />
+    <link rel="prev" title="2. References" href="references.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,9 +177,9 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">1. Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="summary.html">1. Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="references.html">2. References</a></li>
-<li class="toctree-l1"><a class="reference internal" href="draft.html">3. 1-Page Draft</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3. 1-Page Draft</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Macroeconomic Context for Investing</span></p>
 <ul class="nav bd-sidenav">
@@ -300,7 +302,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/summary.md" target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/draft.md" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -317,7 +319,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/summary.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/draft.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -347,7 +349,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/ch/summary.md" target="_blank"
+      <li><a href="../_sources/ch/draft.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -418,7 +420,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -429,11 +433,26 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Summary</h1>
+    <h1>1-Page Draft</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-and-the-need-for-investing">3.1. Inflation and the need for investing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-risk-and-risk-adjusted-return">3.2. Return, risk, and risk-adjusted return</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-asset-single-period">3.2.1. Single asset, single period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-asset-multiple-periods">3.2.2. Single asset, multiple periods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-assets-single-period">3.2.3. Multiple assets, single period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-assets-multiple-periods">3.2.4. Multiple assets, multiple periods</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -443,53 +462,171 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="summary">
-<span id="fin-edu-summary"></span><h1><span class="section-number">1. </span>Summary<a class="headerlink" href="#summary" title="Permalink to this heading">#</a></h1>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Introduction<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Financial goals; money; inflation (BC and inflation target);</p>
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Asset classes<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-</div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
-<summary class="sd-summary-title sd-card-header">
-Investing principles<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text"><strong>Goals:</strong> …</p>
-<p class="sd-card-text"><strong>Fundamentals:</strong> return, risk, risk-adjusted return</p>
-<p class="sd-card-text"><strong>From 1-period to multi-period:</strong> volatility drag, composition-driven skewness,…</p>
-<p class="sd-card-text"><strong>Principles:</strong> diversification, rebalancing,…</p>
-<p class="sd-card-text">Rebalancing keeps the asset allocation (approximately) constant through time, preventing from single asset drift, and aiming at keeping the characteristics of the portfolio constant in time.</p>
-<p class="sd-card-text">Diversification may improve the risk-adjusted return of the portfolio; under certain conditions, diversification may improve the return of the portfolio as well (both in terms of expected multi-period return and dispersion of the results)</p>
-<p class="sd-card-text"><strong>Asset allocation (portfolio building and management).</strong></p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="page-draft">
+<span id="fin-edu-draft"></span><h1><span class="section-number">3. </span>1-Page Draft<a class="headerlink" href="#page-draft" title="Permalink to this heading">#</a></h1>
+<div class="section" id="inflation-and-the-need-for-investing">
+<h2><span class="section-number">3.1. </span>Inflation and the need for investing<a class="headerlink" href="#inflation-and-the-need-for-investing" title="Permalink to this heading">#</a></h2>
+<p>In contemporary economic systems, institutions targets a low non-zero inflation, usually <span class="math notranslate nohighlight">\(2\%\)</span>. Thus, the protection fo real valu of money is the bare minimum goal of investing.</p>
+<p>Thus, need for investing</p>
 <ul class="simple">
-<li><p class="sd-card-text">Building: MPT and CAPM, Merton’s portfolio theory,…</p></li>
-<li><p class="sd-card-text">Management: rebalancing,…</p></li>
+<li><p>starting from personal goals and constraints (saving rate, risk tolerance,…)</p></li>
+<li><p>knowing the available assets and their properties, e.g. 1-period — usually 1-year — return probability distribution</p></li>
+<li><p>knowing the fundamentals of composition of returns, and math facts about multi-period performances</p></li>
 </ul>
+<p>First, analysis of 1-asset over 1-period, and eventually multi-asset over many periods of time.</p>
 </div>
-</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<div class="section" id="return-risk-and-risk-adjusted-return">
+<h2><span class="section-number">3.2. </span>Return, risk, and risk-adjusted return<a class="headerlink" href="#return-risk-and-risk-adjusted-return" title="Permalink to this heading">#</a></h2>
+<div class="section" id="single-asset-single-period">
+<h3><span class="section-number">3.2.1. </span>Single asset, single period<a class="headerlink" href="#single-asset-single-period" title="Permalink to this heading">#</a></h3>
+<p>The single period return of an asset <span class="math notranslate nohighlight">\(X\)</span> over period <span class="math notranslate nohighlight">\(i\)</span> from time <span class="math notranslate nohighlight">\(i-1\)</span> and <span class="math notranslate nohighlight">\(i\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[r_t := \dfrac{X_{t} - X_{t-1}}{X_{t-1}} = \frac{X_t}{X_{t-1}} - 1 \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(X_t\)</span> the value of the asset <span class="math notranslate nohighlight">\(X\)</span> at time <span class="math notranslate nohighlight">\(t\)</span>. A 1-period return of an asset <span class="math notranslate nohighlight">\(X\)</span> can be usually modelled as a random variable with probability distribution <span class="math notranslate nohighlight">\(p_t(r)\)</span>.</p>
+</div>
+<div class="section" id="single-asset-multiple-periods">
+<h3><span class="section-number">3.2.2. </span>Single asset, multiple periods<a class="headerlink" href="#single-asset-multiple-periods" title="Permalink to this heading">#</a></h3>
+<p>The return compounds over many periods,</p>
+<div class="math notranslate nohighlight">
+\[X_t = ( 1 + r_t ) X_{t-1} = ( 1 + r_t ) \dots ( 1 + r_1 ) X_0 = \prod_{i=1}^{t} ( 1 + r_i ) X_0 = \prod_{i=1}^t \frac{X_{i}}{X_{i-1}} \ .\]</div>
+<p>The compund average return (usually called <em>Compound Annual Growth Rate</em>, if the reference period is a year) can be defined as the constant return <span class="math notranslate nohighlight">\(r_i = r\)</span> for all <span class="math notranslate nohighlight">\(i = 1:t\)</span> producing the actual result, and thus</p>
+<div class="math notranslate nohighlight">
+\[X_t = \left( 1 + r \right)^t X_0 \ ,\]</div>
+<p>or</p>
+<div class="math notranslate nohighlight">
+\[r = \left(\frac{X_t}{X_0}\right)^{\frac{1}{t}} - 1 \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
-Asset allocation<div class="sd-summary-down docutils">
+Log-return.<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
 <div class="sd-summary-up docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
 </summary><div class="sd-summary-content sd-card-body docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \log \frac{X_t}{X_0} 
+  &amp; = \sum_{i=1}^t \log \frac{X_{i}}{X_{i-1}} = \sum_i \log \left( 1 + r_i \right) \\
+  &amp; = t \log ( 1 + r ) \ ,
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">so that</p>
+<div class="math notranslate nohighlight">
+\[\log ( 1 + r ) = \frac{1}{t} \sum_i \log \left( 1 + r_i \right) \ .\]</div>
+</div>
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
+<summary class="sd-summary-title sd-card-header">
+Probability distribution, expected value and variance<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Skewness of the probability density of the result <span class="math notranslate nohighlight">\(\frac{X_t}{X_0}\)</span>, typically producing <em>median value</em> <span class="math notranslate nohighlight">\(lt\)</span> <em>expected value</em>. Under some assumptions (…) the expected value of the log-return has expected value that is smaller than the 1-period expected return due to dispersion (<strong>volatility drag</strong>)</p>
+<div class="math notranslate nohighlight">
+\[\mathbb{E}[ r ] \sim \mathbb{E}[ r_i ] - \frac{\text{Var}[r_i]}{2} \ ,\]</div>
+<p class="sd-card-text">and variance</p>
+<div class="math notranslate nohighlight">
+\[\text{Var}[ r ] \sim \frac{\text{Var}[r_i]}{t} \ .\]</div>
 </div>
 </details></div>
+<div class="section" id="multiple-assets-single-period">
+<h3><span class="section-number">3.2.3. </span>Multiple assets, single period<a class="headerlink" href="#multiple-assets-single-period" title="Permalink to this heading">#</a></h3>
+<p>Given a portfolio  with many assets of value <span class="math notranslate nohighlight">\(X_{t-1}\)</span> at time <span class="math notranslate nohighlight">\(t-1\)</span>, with weights</p>
+<div class="math notranslate nohighlight">
+\[w_{i,t-1} := \frac{X_{i,t-1}}{X_{t-1}} = \frac{X_{i,t-1}}{\sum_{i} X_{i,t-1}} \ ,\]</div>
+<p>and constant composition in time until <span class="math notranslate nohighlight">\(t\)</span>, the value of the final portfolio becomes</p>
+<div class="math notranslate nohighlight">
+\[X_{t} = \sum_{i} X_{i,t} = \sum_i ( 1 + r_{i,t} ) X_{i,t-1} = \sum_i r_{i,t} X_{i,t-1} + X_{t-1}, \]</div>
+<p>and the return</p>
+<div class="math notranslate nohighlight">
+\[r_t := \frac{X_t}{X_{t-1}} - 1 = \dfrac{\sum_i r_{i,t} X_{i,t-1}}{X_{t-1}} = \sum_i r_{i,t} w_{i,t-1} = \mathbf{w}_{t-1}^T \mathbf{r}_t \ .\]</div>
+<p>The return of the assets <span class="math notranslate nohighlight">\(\mathbf{r}\)</span> can be modelled as a (vector) random variable. The expected value and the variance of the 1-period return of the portfolio with weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> read</p>
+<div class="math notranslate nohighlight">
+\[\mu_r := \mathbb{E}[ r ] = \mathbb{E}\left[ \mathbf{w}^T \mathbf{r} \right] = \mathbf{w}^T \mathbb{E}\left[ \mathbf{r} \right] = \mathbf{w}^T \boldsymbol\mu_{\mathbf{r}} \ ,\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+ \sigma^2_r := \text{Var}[ r ]
+  &amp; = \mathbb{E}\left[ ( r - \mathbb{E}[r] )^2  \right] = \\
+  &amp; = \mathbb{E}\left[ \mathbf{w}^T ( \mathbf{r} - \boldsymbol\mu ) ( \mathbf{r} - \boldsymbol\mu )^T \mathbf{w}  \right] = \\
+  &amp; = \mathbf{w}^T \boldsymbol\sigma^2_{\mathbf{r}} \mathbf{w} \ .
+\end{aligned}\end{split}\]</div>
+</div>
+<div class="section" id="multiple-assets-multiple-periods">
+<h3><span class="section-number">3.2.4. </span>Multiple assets, multiple periods<a class="headerlink" href="#multiple-assets-multiple-periods" title="Permalink to this heading">#</a></h3>
+<p><strong>Without rebalancing.</strong> No action is taken. Every individual asset of the portfolio evolves indipendently. At time <span class="math notranslate nohighlight">\(0\)</span></p>
+<div class="math notranslate nohighlight">
+\[X_0 = \sum_i X_{i,0} = \sum_i w_{i,0} X_0 \ .\]</div>
+<p>At successive times,</p>
+<div class="math notranslate nohighlight">
+\[X_t = \sum_i X_{i,t} = \sum_i X_{i,0} \prod_{\tau=1}^{t} ( 1 + r_{i,\tau} ) = X_0 \sum_i w_{i,0} \prod_{\tau=1}^{t} ( 1 + r_{i,\tau} ) \ .\]</div>
+<p><strong>With rebalancing (assuming no cost…).</strong> At the end of each period, weights of individual assets are set back to the original desired value. Following this strategy, under the assumption of stationariety, the 1-period performance of the portfolio is constant, with 1-period return</p>
+<div class="math notranslate nohighlight">
+\[r_1 = \mathbf{w}^T \mathbf{r} \ ,\]</div>
+<p>and expected value and variance</p>
+<div class="math notranslate nohighlight">
+\[
+\mu_{(1)} = \mathbf{w}^T \boldsymbol{\mu}_{\mathbf{r}}
+\quad , \quad
+\sigma_{(1)}^2 = \mathbf{w}^T \boldsymbol\sigma^2_{\mathbf{r}} \mathbf{w} \ .
+\]</div>
+<p>Under the assumption of “small” 1-period returns, the geometric average return reads</p>
+<div class="math notranslate nohighlight">
+\[\overline{r} \sim \mathscr{N} \left( \mu_{(1)} - \dfrac{\sigma_{(1)}^2}{2}, \dfrac{\sigma_{(1)}^2}{N} \right) \ .\]</div>
+<div class="proof example admonition" id="example-0">
+<p class="admonition-title"><span class="caption-number">Example 3.1 </span> (Shannon demon and the rebalancing premium: 2-asset portfolio)</p>
+<div class="example-content section" id="proof-content">
+<p>A 2-asset portfolio is determined by the weights <span class="math notranslate nohighlight">\(\mathbf{w} = ( w_1, w_2 )\)</span> of the two assets. One-period return of the 2 assets is modeleld as a multidimensional random variable <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, whose expected value and variance read</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol\mu_{(1)} = \mathbb{E}[ \mathbf{r} ] = \begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}\end{split}\]</div>
+<p>and</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\boldsymbol\sigma^2_{(1)} = \mathbb{E}[ \Delta \mathbf{r} \Delta \mathbf{r}^T ] = \begin{bmatrix} \sigma^2_{11} &amp; \sigma^2_{12} \\ \sigma^2_{12} &amp; \sigma^2_{22} \end{bmatrix} = \begin{bmatrix} \sigma^2_1 &amp; \rho_{12} \sigma_1 \sigma_2  \\ \rho_{12} \sigma_1 \sigma_2 &amp; \sigma_2^2 \end{bmatrix} \ .\end{split}\]</div>
+<p>Under certain conditions, the expected value of the multi-period return of the diversified and rebalanced portfolio may exceed the largest expected value of multi-period returns from individual assets, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\mu - \dfrac{\sigma^2}{2} &gt; \mu_i - \dfrac{\sigma_i^2}{2} \ .\]</div>
+</div>
+</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Some algebra<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">Let’s evaluate the conditions for <span class="math notranslate nohighlight">\(i = 1\)</span></p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  0
+  &amp; &lt; w_1 \mu_1 + w_2 \mu_2 - \dfrac{w_1^2 \sigma_1^2 + 2 \rho_{12} \sigma_1 \sigma_2 w_1 w_2 + w_2^2 \sigma_2^2}{2} - \mu_1 + \dfrac{\sigma_1^2}{2} = \\
+  &amp; = c(w_1, w_2)
+\end{aligned}\end{split}\]</div>
+<p class="sd-card-text">Given the properties <span class="math notranslate nohighlight">\(\mu_i\)</span>, <span class="math notranslate nohighlight">\(\sigma_i\)</span>, <span class="math notranslate nohighlight">\(\rho_{12}\)</span>, the equation <span class="math notranslate nohighlight">\(c(w_1, w_2) = 0\)</span> is the equation of a conic section in the plane <span class="math notranslate nohighlight">\(w_1-w_2\)</span>.</p>
+</div>
+</details><hr class="docutils" />
+<p>At the end of any period, weights are set back to the desired fractions. At time <span class="math notranslate nohighlight">\(0\)</span></p>
+<div class="math notranslate nohighlight">
+\[X_0 = \sum_i X_{i,0} = \sum_{i} w_{i} X_0 \ ,\]</div>
+<p>At time <span class="math notranslate nohighlight">\(1\)</span> before rebalancing</p>
+<div class="math notranslate nohighlight">
+\[X_1 = \sum_i X_{i,1}^- = \sum_i X_{i,0} ( 1 + r_{i,0} ) = X_0 \left( 1 + \sum_i w_i r_{i,0} \right) \ .\]</div>
+<p>At time <span class="math notranslate nohighlight">\(1\)</span> after rebalancing</p>
+<div class="math notranslate nohighlight">
+\[X_1 = \sum_i X_{i,1}^+ = \sum_i w_i X_1 \]</div>
+<p>At time <span class="math notranslate nohighlight">\(2\)</span> before rebalancing</p>
+<div class="math notranslate nohighlight">
+\[X_2 = \sum_i X_{i,1}^+ ( 1 + r_{i,1} ) = X_1 \sum_i w_i ( 1 + r_{i,1} ) \ . \]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\frac{X_t}{X_0} = \prod_{\tau=1}^{t} \left( 1 + \mathbf{w}^T \mathbf{r}_{\tau} \right) \ .\]</div>
+<p>The log-return comes from</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+\log \frac{X_t}{X_0}
+ &amp; = \sum_{\tau=1}^{t} \log ( 1 + \mathbf{w}^T \mathbf{r}_{\tau} ) = \\
+ &amp;\sim \sum_{\tau=1}^{t} \left( 1 + \mathbf{w}^T \mathbf{r}_{\tau} + \dfrac{1}{2} \mathbf{w}^T \mathbf{r}_{\tau} \mathbf{r}_{\tau}^T \mathbf{w}  \right)
+\end{aligned}\end{split}\]</div>
+<p>The expected value and the variance read…</p>
+</div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -522,20 +659,20 @@ Asset allocation<div class="sd-summary-down docutils">
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../intro.html"
+       href="references.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Financial Education</p>
+        <p class="prev-next-title"><span class="section-number">2. </span>References</p>
       </div>
     </a>
     <a class="right-next"
-       href="references.html"
+       href="actors.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">2. </span>References</p>
+        <p class="prev-next-title"><span class="section-number">4. </span>Actors</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -545,6 +682,27 @@ Asset allocation<div class="sd-summary-down docutils">
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inflation-and-the-need-for-investing">3.1. Inflation and the need for investing</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return-risk-and-risk-adjusted-return">3.2. Return, risk, and risk-adjusted return</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-asset-single-period">3.2.1. Single asset, single period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#single-asset-multiple-periods">3.2.2. Single asset, multiple periods</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-assets-single-period">3.2.3. Multiple assets, single period</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#multiple-assets-multiple-periods">3.2.4. Multiple assets, multiple periods</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
