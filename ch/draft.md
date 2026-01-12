@@ -132,7 +132,7 @@ $$\mu - \dfrac{\sigma^2}{2} > \mu_i - \dfrac{\sigma_i^2}{2} \ .$$
 
 ```
 
-```{dropdown} Some algebra
+```{dropdown} Some algebra and analytic geometry
 :open:
 
 Let's evaluate the conditions for $i = 1$
@@ -143,11 +143,107 @@ $$\begin{aligned}
   & = c(w_1, w_2)
 \end{aligned}$$
 
-Given the properties $\mu_i$, $\sigma_i$, $\rho_{12}$, the equation $c(w_1, w_2) = 0$ is the equation of a conic section in the plane $w_1-w_2$.
+Given the properties $\mu_i$, $\sigma_i$, $\rho_{12}$, the equation $c(w_1, w_2) = 0$ is the equation of a conic section in the plane $w_1-w_2$. With some [high-school math](https://basics2022.github.io/bbooks-math-miscellanea-hs/intro.html), see [general expression of conic sections](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/conics-general.html), the reduced discriminant $\frac{\Delta}{4} = \frac{B^2}{4} - AC$ determines the nature of the curve. As,
+
+$$\dfrac{\Delta}{4} = \dfrac{B^2}{4} - 4 A C = \dfrac{\rho_{12}^2 \sigma_1^2 \sigma_2^2 - \sigma_1^2 \sigma_2^2}{4} = \dfrac{1}{4} \sigma_1^2 \sigma_2^2 ( \rho_{12}^2 - 1 ) \le 0 \ ,$$
+
+the equation $c(w_1, w_2) = 0$ is the equation of an ellipse for $\rho_{12} \ne 1$, and a parabola for $\rho_{12}^2 = 1$ (perfectly correlated assets).
+
+```
+
+```{dropdown} Non-perfectly correlated assets, $\ |\rho_{12}| < 1$
+:open:
+
+The general expression of the quadratic curve in the $\mathbf{w}$-plane reads
+
+$$0 = \frac{1}{2} \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} - \boldsymbol\mu^T \mathbf{w} + \mu_1^{multi}$$
+
+In order to find the **center of the ellipse**, a translation $\mathbf{w} = \mathbf{w}_C + \mathbf{w}_1$ should produce zero 1-degree terms, i.e.
+
+$$\begin{aligned}
+ 0
+ & = \dfrac{1}{2} \left( \mathbf{w}_1 + \mathbf{w}_C \right)^T \boldsymbol\sigma^2 \left( \mathbf{w}_C + \mathbf{w}_1 \right) - \boldsymbol\mu^T \left( \mathbf{w}_C + \mathbf{w}_1 \right) + \mu_1^{multi} = \\
+ & = \dfrac{1}{2} \mathbf{w}_1^T \boldsymbol\sigma^2 \mathbf{w}_1 + \left( 2 \mathbf{w}_C^T \boldsymbol\sigma^2 - \boldsymbol\mu^T \right) \mathbf{w}_1 + \dfrac{1}{2} \mathbf{w}_C^T \boldsymbol\sigma^2 \mathbf{w}_C - \boldsymbol\mu^T \mathbf{w}_C +  \mu_1^{multi} \ ,
+\end{aligned}$$
+
+i.e.
+
+$$\mathbf{w}_C = \dfrac{1}{2} \left( \boldsymbol\sigma^2 \right)^{-1} \boldsymbol\mu \ .$$
+
+Using coordinates $\mathbf{x}_1$, the expression of the ellipse becomes
+
+$$0 = \dfrac{1}{2} \mathbf{w}_1^T \boldsymbol\sigma^2 \mathbf{w}_1 - \boldsymbol\mu^T \left( \boldsymbol\sigma^2 \right)^{-1} \boldsymbol\mu + \mu_1^{multi} \ .$$
+
+The angle of the semi-axes of the ellipse w.r.t. the coordinate axes and their lengths appears after applying the rotation transformation, $\mathbf{w}_1 = \mathbf{R} \mathbf{w}_2$, that makes the quadratic form diagonal, i.e. as the solution of the spectral decomposition of the covariance matrix,
+
+$$\mathbf{R}^T \boldsymbol\sigma^2 \mathbf{R} =: \boldsymbol\sigma^2_d \ .$$
+
+Using the results obtained for [general expression of conic sections](https://basics2022.github.io/bbooks-math-miscellanea-hs/ch/analytic_geometry/analytic_geometry_2d/conics-general.html), if $\rho_1 \ne \rho_2$, the rotation angle $\theta$ satisfies
+
+$$\text{tan} 2 \theta = \frac{2 \rho_{12} \sigma_1 \sigma_2}{\sigma_1^2 - \sigma_2^2} \ ,$$
+
+and the length of the semi-axes, given $\boldsymbol\mu^T \left( \boldsymbol\sigma^2 \right)^{-1} \boldsymbol\mu - \mu_1^{multi} > 0$[^degenerate-conics], is
+
+$$a_{1,2} = \sqrt{\frac{\boldsymbol\mu^T \left( \boldsymbol\sigma^2 \right)^{-1} \boldsymbol\mu  - \mu_1^{multi}}{s_{1,2}}} \ ,$$
+
+[^degenerate-conics]: Otherwise the general expression doesn't represent any curve in the real plane, as that equation is never satisfied by any values of $\mathbf{w}$.
+
+with the eigenvalue of the covariance matrix
+
+$$s_{1,2}  = \dfrac{\sigma_1^2 + \sigma_2^2}{2} \mp \dfrac{\sqrt{ \left( \sigma_1^2 - \sigma_2^2 \right)^2 + 4 \rho_{12}^2 \sigma_1^2 \sigma_2^2}}{2}$$
+
+
+<!--
+By direct computation, 
+
+$$\begin{aligned}
+  0 = | \boldsymbol\sigma^2 - s \mathbf{I} |
+  & = \left|\begin{bmatrix} \sigma_1^2 - s & \rho_{12} \sigma_1 \sigma_2 \\ \rho_{12} \sigma_1 \sigma_2 & \sigma_2^2 - s  \end{bmatrix}\right| = \\
+  & = ( \sigma_1^2 - s )( \sigma_2^2 - s ) - \rho_{12}^2 \sigma_1^2 \sigma_2^2 = \\
+  & = s^2 - \left( \sigma_1^2 + \sigma_2^2 \right) s + \left( 1 - \rho^2_{12} \right) \sigma_1^2 \sigma_2^2 \ ,
+\end{aligned}$$
+
+the eigenvalues read
+
+$$\begin{aligned}
+  s_{1,2}
+  & = \dfrac{\sigma_1^2 + \sigma_2^2}{2} \mp \dfrac{\sqrt{\sigma_1^4 + 2 \sigma_1^2 \sigma_2^2 + \sigma_2^4 - 4 \sigma_1^2 \sigma_2^2 + 4 \rho_{12}^2 \sigma_1^2 \sigma_2^2}}{2} = \\
+  & = \dfrac{\sigma_1^2 + \sigma_2^2}{2} \mp \dfrac{\sqrt{ \left( \sigma_1^2 - \sigma_2^2 \right)^2 + 4 \rho_{12}^2 \sigma_1^2 \sigma_2^2}}{2} \ ,
+\end{aligned}$$
+
+and the eigenvectors are evaluated as a result of
+
+$$\begin{aligned}
+  0 
+  & = \begin{bmatrix} \frac{\sigma_1^2 - \sigma_2^2}{2} \pm \frac{\sqrt{(\sigma_1^2 - \sigma_2^2)^2 + 4 \rho_{12}^2\sigma_1^2 \sigma_2^2}}{2} & \rho_{12} \sigma_1 \sigma_2 \end{bmatrix} \begin{bmatrix} \hat{w}_{1,12} \\ \hat{w}_{2,12} \end{bmatrix} \ ,
+\end{aligned}$$
+
+i.e.
+
+$$\begin{bmatrix} \widetilde{w}_{1,12} \\ \widetilde{w}_{2,12} \end{bmatrix} \propto \begin{bmatrix} \rho_{12} \sigma_1 \sigma_2 \\ \frac{\sigma_2^2-\sigma_1^2}{2} \mp \frac{\sqrt{(\sigma_2^2-\sigma_1^2)^2 + 4 \rho_{12}\sigma_1^2 \sigma_2^2}}{2} \end{bmatrix} \ .$$
+
+or, after normalization,
+
+$$\begin{aligned}
+|\widetilde{\mathbf{w}}_{12}|^2
+  & = \rho_{12}^2 \sigma_1^2 \sigma_2^2 + \dfrac{(\sigma_2^2 - \sigma_1^2)^2}{4} + \dfrac{(\sigma_2^2-\sigma_1^2)^2+4\rho_{12} \sigma_1^2 \sigma_2^2}{4} \mp \dfrac{(\sigma_2^2-\sigma_1^2) \sqrt{...}}{2} = \\
+  & = \dfrac{(\sigma_2^2 - \sigma_1^2)^2}{2} + 2 \rho_{12} \sigma_1^2 \sigma_2^2 \mp \dfrac{(\sigma_2^2 - \sigma_1^2) \sqrt{...}}{2}
+\end{aligned}$$
+-->
 
 
 ```
 
+```{dropdown} Perfectly correlated assets, $\ |\rho_{12}| = 1$
+:open:
+
+The general expression of the quadratic curve in the $\mathbf{w}$-plane reads
+
+$$0 = - c(\mathbf{w}) = \frac{1}{2} \left( w_1 \sigma_1 + w_2 \sigma_2 \right)^2 - w_1 \mu_1 - w_2 \mu_2 + \mu_1 - \frac{\sigma_1^2}{2} \ .$$
+
+
+
+```
 
 ---
 
