@@ -56,6 +56,10 @@ parts:
 # - file: ch/investing/strategic-tactical
 # - file: ch/investing/rebalancing
   - file: code/notebooks/rebalancing
+- caption: Historical Data
+  chapters:
+  - file: ch/history/intro
+  - file: ch/history/us-equity
 - caption: Extra
   chapters:
   - file: ch/extra/intro
