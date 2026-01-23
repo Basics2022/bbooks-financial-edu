@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+#> S&P 500 index (even if the S&P500 was created in 1957; blended with some other index?)
+#> Plots: (2,1) subplot: density and cumulative probability
+fig = make_subplots(
+    rows=2, cols=2,
+    shared_xaxes=True,
+    vertical_spacing=0.1,
+    # subplot_titles=("Monthly Returns Probability Density", "Cumulative Probability")
+    subplot_titles=(
+        "S&P500 Index", "CPI", \
+        "S&P500 Index - Real", "S&P500 Total Return - Real"
+    )
+)
+
+#> S&P500 index
+fig.add_trace(go.Scatter(x=df["Date"], y=df["P"], name="S&P 500", line=dict(color="),
+    row=1, col=1, color="black"
+)
+fig.add_trace(go.Scatter(x=df["Date"], y=df["CPI"], name="CPI"),
+    row=1, col=2, color="black"
+)
+fig.add_trace(go.Scatter(x=df["Date"], y=df["Price"], name="Real S&P500 Index"),
+    row=2, col=1, color="black"
+)
+fig.add_trace(go.Scatter(x=df["Date"], y=df["Price.1"], name="Real Total Return"),
+    row=2, col=2, color="black"
+)
+
+fig.update_yaxes(type="log", row=1, col=1)
+fig.update_yaxes(type="log", row=1, col=2)
+fig.update_yaxes(type="log", row=2, col=1)
+fig.update_yaxes(type="log", row=2, col=2)
+
+fig.update_layout(
+    showlegend=False,
+)
+
+fig.show()
+
+
+------------------
+
+
+[0;36m  Cell [0;32mIn[3], line 15[0;36m[0m
+[0;31m    fig.add_trace(go.Scatter(x=df["Date"], y=df["P"], name="S&P 500", line=dict(color="),[0m
+[0m                                                                                         ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m EOL while scanning string literal
+
+
