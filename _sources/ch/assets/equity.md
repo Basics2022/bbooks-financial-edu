@@ -10,7 +10,9 @@
 
 **[Financial statements](fin-edu:financial-statements).** Introduction to financial statements of a company.
 
+<!--
 **[Correlations, plots and fun-facts](fin-edu:equity:fun).**
+-->
 
 ```
 

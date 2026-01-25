@@ -222,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="investing/merton.html">19. Merton’s portfolio problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../code/notebooks/rebalancing.html">20. Rebalancing</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Historical Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="history/intro.html">Historical data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="history/us-equity.html">USA equity market</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="extra/intro.html">Extra and Random</a></li>
@@ -571,20 +576,24 @@ Probability distribution, expected value and variance<div class="sd-summary-down
 <p>Under the assumption of “small” 1-period returns, the geometric average return reads</p>
 <div class="math notranslate nohighlight">
 \[\overline{r} \sim \mathscr{N} \left( \mu_{(1)} - \dfrac{\sigma_{(1)}^2}{2}, \dfrac{\sigma_{(1)}^2}{N} \right) \ .\]</div>
-<div class="proof example admonition" id="example-0">
-<p class="admonition-title"><span class="caption-number">Example 3.1 </span> (Shannon demon and the rebalancing premium: 2-asset portfolio)</p>
-<div class="example-content section" id="proof-content">
-<p>A 2-asset portfolio is determined by the weights <span class="math notranslate nohighlight">\(\mathbf{w} = ( w_1, w_2 )\)</span> of the two assets. One-period return of the 2 assets is modeleld as a multidimensional random variable <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, whose expected value and variance read</p>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Shannon demon and the rebalancing premium: 2-asset portfolio<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">A 2-asset portfolio is determined by the weights <span class="math notranslate nohighlight">\(\mathbf{w} = ( w_1, w_2 )\)</span> of the two assets. One-period return of the 2 assets is modeleld as a multidimensional random variable <span class="math notranslate nohighlight">\(\mathbf{r}\)</span>, whose expected value and variance read</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\boldsymbol\mu_{(1)} = \mathbb{E}[ \mathbf{r} ] = \begin{bmatrix} \mu_1 \\ \mu_2 \end{bmatrix}\end{split}\]</div>
-<p>and</p>
+<p class="sd-card-text">and</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\boldsymbol\sigma^2_{(1)} = \mathbb{E}[ \Delta \mathbf{r} \Delta \mathbf{r}^T ] = \begin{bmatrix} \sigma^2_{11} &amp; \sigma^2_{12} \\ \sigma^2_{12} &amp; \sigma^2_{22} \end{bmatrix} = \begin{bmatrix} \sigma^2_1 &amp; \rho_{12} \sigma_1 \sigma_2  \\ \rho_{12} \sigma_1 \sigma_2 &amp; \sigma_2^2 \end{bmatrix} \ .\end{split}\]</div>
-<p>Under certain conditions, the expected value of the multi-period return of the diversified and rebalanced portfolio may exceed the largest expected value of multi-period returns from individual assets, i.e.</p>
+<p class="sd-card-text">Under certain conditions, the expected value of the multi-period return of the diversified and rebalanced portfolio may exceed the largest expected value of multi-period returns from individual assets, i.e.</p>
 <div class="math notranslate nohighlight">
 \[\mu - \dfrac{\sigma^2}{2} &gt; \mu_i - \dfrac{\sigma_i^2}{2} \ .\]</div>
 </div>
-</div><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+</details><details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Some algebra and analytic geometry<div class="sd-summary-down docutils">
 <svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>

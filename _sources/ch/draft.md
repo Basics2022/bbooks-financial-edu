@@ -116,7 +116,8 @@ Under the assumption of "small" 1-period returns, the geometric average return r
 
 $$\overline{r} \sim \mathscr{N} \left( \mu_{(1)} - \dfrac{\sigma_{(1)}^2}{2}, \dfrac{\sigma_{(1)}^2}{N} \right) \ .$$
 
-```{prf:example} Shannon demon and the rebalancing premium: 2-asset portfolio
+```{dropdown} Shannon demon and the rebalancing premium: 2-asset portfolio
+:open:
 
 A 2-asset portfolio is determined by the weights $\mathbf{w} = ( w_1, w_2 )$ of the two assets. One-period return of the 2 assets is modeleld as a multidimensional random variable $\mathbf{r}$, whose expected value and variance read
 

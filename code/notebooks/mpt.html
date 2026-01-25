@@ -222,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/merton.html">19. Merton’s portfolio problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebalancing.html">20. Rebalancing</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Historical Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/history/intro.html">Historical data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/history/us-equity.html">USA equity market</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/extra/intro.html">Extra and Random</a></li>
@@ -564,7 +569,7 @@ document.write(`
 </div>
 <div class="section" id="modern-portfolio-theory">
 <span id="fin-edu-investing-mpt-capm-mpt"></span><h2><span class="section-number">18.1. </span>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
-<p>Given a set of <span class="math notranslate nohighlight">\(N\)</span> assets with expected return <span class="math notranslate nohighlight">\(\mu_i = \left\{ \boldsymbol\mu \right\}_i\)</span>, <span class="math notranslate nohighlight">\(i = 1:N\)</span>, and covariance (matrix) <span class="math notranslate nohighlight">\(\boldsymbol\sigma^2\)</span>, a portfolio is defined by the weights (percentage) <span class="math notranslate nohighlight">\(w_i = \left{ \mathbf{w} \right\}_i\)</span> of the individual assets in the portfolio.</p>
+<p>Given a set of <span class="math notranslate nohighlight">\(N\)</span> assets with expected return <span class="math notranslate nohighlight">\(\mu_i = \left\{ \boldsymbol\mu \right\}_i\)</span>, <span class="math notranslate nohighlight">\(i = 1:N\)</span>, and covariance (matrix) <span class="math notranslate nohighlight">\(\boldsymbol\sigma^2\)</span>, a portfolio is defined by the weights (percentage) <span class="math notranslate nohighlight">\(w_i = \left\{ \mathbf{w} \right\}_i\)</span> of the individual assets in the portfolio.</p>
 <p><strong>Return of the portfolio.</strong> The return of an amount <span class="math notranslate nohighlight">\(x_0\)</span> invested in a portfolio with asset allocation <span class="math notranslate nohighlight">\(w_i\)</span> is found evaluating the amount <span class="math notranslate nohighlight">\(x_1\)</span> after the period for which the return is defined,</p>
 <div class="math notranslate nohighlight">
 \[x_1 = \sum_{i=1}^{N} x_0 w_i \left( 1 + r_i \right) \ .\]</div>

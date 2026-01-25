@@ -24,8 +24,11 @@ In a passive investment strategy, rebalancing shoudl be triggered by some rules,
 
 Often, a rebalanced-portfolio return is larger than the weighted average of the returns of the assets of the portfolio. Shannon demon is the mathematical reason for that, *for creating return "out of thin air"*.
 
-```{prf:example} Shannon demon - on a coin flip
+```{dropdown} Shannon demon - on a coin flip
+:open:
+<!--
 :label: shannon-demon
+-->
 
 Starting with $100$€, and a fair coin with $50\%$ probability of for each outcome, either $H$:head or $T$:tail. If outcome is $H$ you gain $50 \%$, if outcome is $T$ you lose $33.3 \%$. 
 
@@ -35,22 +38,31 @@ Now, let's change the strategy: I bet only $50 \%$ of the amount I have. What's 
 
 ```
 
-```{prf:example} Nassin Taleb, is the coin fair?
+```{dropdown} Nassin Taleb, is the coin fair?
+:open:
+<!--
 :label: taleb-fair-coin
+-->
 
 After 10 tosses with 10 heads, how would you bet on the next toss?
 
 ```
 
-```{prf:example} Kelly criterion
+```{dropdown} Kelly criterion
+:open:
+<!--
 :label: kelly
+-->
 
 *bla bla bla*
 
 ```
 
-```{prf:example} Does rebalancing improve return, thanks to Shannon demon?
+```{dropdown} Does rebalancing improve return, thanks to Shannon demon?
+:open:
+<!--
 :label: shannon-demon-rebalancing
+-->
 
 Yes, for a portfolio with 2 assets with similar returns and low correlation. 
 E.g.:

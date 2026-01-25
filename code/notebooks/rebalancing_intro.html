@@ -222,6 +222,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/merton.html">19. Merton’s portfolio problem</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rebalancing.html">20. Rebalancing</a></li>
 </ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Historical Data</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../ch/history/intro.html">Historical data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ch/history/us-equity.html">USA equity market</a></li>
+</ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/extra/intro.html">Extra and Random</a></li>
@@ -703,18 +708,18 @@ frac_opt: 0.5
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fraction, avg wealth, avg geo return, n.negative outcomes
 f:0.0, w_avg: 1.000, r_avg: 1.000, n_neg:   0
-f:0.2, w_avg: 1.644, r_avg: 1.013, n_neg: 354
+f:0.2, w_avg: 1.640, r_avg: 1.013, n_neg: 356
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.4, w_avg: 2.735, r_avg: 1.021, n_neg: 591
-f:0.6, w_avg: 4.224, r_avg: 1.020, n_neg: 632
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.4, w_avg: 2.715, r_avg: 1.021, n_neg: 571
+f:0.6, w_avg: 4.588, r_avg: 1.022, n_neg: 551
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.8, w_avg: 6.887, r_avg: 1.015, n_neg: 873
-f:1.0, w_avg: 9.766, r_avg: 1.003, n_neg: 858
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f:0.8, w_avg: 6.172, r_avg: 1.014, n_neg: 871
+f:1.0, w_avg: 9.417, r_avg: 1.002, n_neg: 857
 </pre></div>
 </div>
-<img alt="../../_images/204a4eb56d07c12c6ff1ebe70676c5d9f6d84fddadb37bf3968801e24b963a1f.png" src="../../_images/204a4eb56d07c12c6ff1ebe70676c5d9f6d84fddadb37bf3968801e24b963a1f.png" />
+<img alt="../../_images/1cd337724af5a62dda33493995a8162db67d317b20fe3f741dc4aa37bbc50c3c.png" src="../../_images/1cd337724af5a62dda33493995a8162db67d317b20fe3f741dc4aa37bbc50c3c.png" />
 </div>
 </div>
 <p><strong>todo</strong></p>
@@ -755,8 +760,9 @@ f:1.0, w_avg: 9.766, r_avg: 1.003, n_neg: 858
 </div>
 </div><p>Although every toss is a statistically independent event, a <em>very</em> unlikely series of outcomes under the assumption of a fair coin may induce some doubts about the truthfulness of this assumption.</p>
 <p>See <a class="reference external" href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/test-fisher-coin-1.html#esempio-moneta-truccata-o-no">here: Inferential statistics - Hypotesis testing (Fisher) - Is the coin fair?</a> as an example. If you want to play a bit with the notebook, just open it in Colab: the script is originally meant for <span class="math notranslate nohighlight">\(n=30\)</span> coin flips; just 1) set <span class="math notranslate nohighlight">\(\texttt{n\_flips = 10}\)</span>; 2) run it again; 3) get the value of the extreme event proabability (either <span class="math notranslate nohighlight">\(10\)</span> Heads or <span class="math notranslate nohighlight">\(10\)</span> Tails) to address the question of the interludio,</p>
-<div class="math notranslate nohighlight">
-\[\texttt{x_H0_fv[0] = x_H0_fv[-1] = 0.00098} \ ,\]</div>
+<!--
+$$\texttt{x\_H0\_fv[0] = x\_H0\_fv[-1] = 0.00098} \ ,$$
+-->
 <p>i.e. the probability of getting <span class="math notranslate nohighlight">\(10\)</span> consecutive outcomes in the first <span class="math notranslate nohighlight">\(10\)</span> flips with a fair coin is less than <span class="math notranslate nohighlight">\(0.1\%\)</span>. A pretty low probability that the null hypotesis “the coin is fair” holds…</p>
 <p><a class="reference external" href="https://basics2022.github.io/bbooks-programming-hs/ch/statistics/test-fisher-coin-2.html">Here</a> for the application of Fisher criterion for hypotesis testing for two coins with <span class="math notranslate nohighlight">\((p_H, p_T)^{1} = (0.5, 0.5)\)</span> and <span class="math notranslate nohighlight">\((p_H, p_T)^{2} = (0.45, 0.55)\)</span>.</p>
 <div class="proof example admonition" id="coin-kelly-criterion">
