@@ -53,8 +53,7 @@ $$\begin{aligned}
 \end{aligned}$$
 ```
 
-```{prf:example} Properties of variance matrix
-:class: dropdown
+```{dropdown} Properties of variance matrix
 
 Covariance matrix is symmetric definite positive. Symmetry readily follows
 
