@@ -1,2 +1,26 @@
 *.swp
 *.gsheet
+
+# Build artifacts
+_build/
+_jupyter_execute/
+*.doctree
+*.pickle
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+
+# HTML & PDFs
+*.html
+*.pdf
+objects.inv
+searchindex.js
+
+# Jupyter noise
+.ipynb_checkpoints/
+*.ipynb.0.ipynb
+
+# OS / misc
+.DS_Store
