@@ -60,6 +60,7 @@ parts:
   chapters:
   - file: ch/history/intro
   - file: ch/history/us-equity
+  - file: ch/history/gold
 - caption: Extra
   chapters:
   - file: ch/extra/intro
