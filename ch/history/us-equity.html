@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Extra and Random" href="../extra/intro.html" />
+    <link rel="next" title="Gold" href="gold.html" />
     <link rel="prev" title="Historical data" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -226,6 +226,7 @@ const thebe_selector_output = ".output, .cell_output"
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Historical data</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">USA equity market</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gold.html">Gold</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
 <ul class="nav bd-sidenav">
@@ -522,11 +523,42 @@ document.write(`
 <span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
 
 <span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
-<span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;iframe&quot;</span>
 </pre></div>
 </div>
 </div>
 </details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Mount GDrive if required - for Colab editing</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Detect Colab and mount Drive if needed</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;colab&quot;</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;iframe&quot;</span>
+
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/basics-books/repos/financial-edu/bbooks-financial-edu/ch/history
+
+<span class="n">FILE_ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+<span class="c1"># DATA_DIR = REPO_ROOT / &#39;data&#39;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repo root:&quot;</span><span class="p">,</span> <span class="n">FILE_ROOT</span><span class="p">)</span>
+<span class="c1"># print(&quot;Data dir:&quot;, DATA_DIR)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repo root: /home/davide/Documents/basics-books/books/bbooks-financial-edu/ch/history
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="return">
 <span id="fin-edu-history-us-equity-return"></span><h2>Return<a class="headerlink" href="#return" title="Permalink to this heading">#</a></h2>
@@ -546,7 +578,7 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Import Shiller data</span>
-<span class="n">shiller_filen</span> <span class="o">=</span>  <span class="s2">&quot;./../../code/data/shiller/ie_data.xls&quot;</span>
+<span class="n">shiller_filen</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FILE_ROOT</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../../code/data/shiller/ie_data.xls&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">shiller_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;xlrd&quot;</span><span class="p">)</span>
 
 <span class="c1">#&gt; Clean data</span>
@@ -623,7 +655,7 @@ document.write(`
     scrolling="no"
     width="100%"
     height="545px"
-    src="iframe_figures/figure_3.html"
+    src="iframe_figures/figure_4.html"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -726,7 +758,7 @@ Kurtosis: 17.948214818518505
     scrolling="no"
     width="100%"
     height="545px"
-    src="iframe_figures/figure_4.html"
+    src="iframe_figures/figure_5.html"
     frameborder="0"
     allowfullscreen
 ></iframe>
@@ -747,7 +779,8 @@ Kurtosis: 17.948214818518505
 <li><p>Wikipedia, top 10 companies 2000-2025, <a class="reference external" href="https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization">https://en.wikipedia.org/wiki/List_of_public_corporations_by_market_capitalization</a></p></li>
 <li><p>Forbes, top 50 companies: 1917, 1967, 2017, <a class="reference external" href="https://www.forbes.com/sites/jeffkauflin/2017/09/19/americas-top-50-companies-1917-2017/">https://www.forbes.com/sites/jeffkauflin/2017/09/19/americas-top-50-companies-1917-2017/</a></p></li>
 <li><p>finhacker, top 20 US companies 1989-2026, <a class="reference external" href="https://www.finhacker.cz/en/top-20-sp-500-companies-by-market-cap/">https://www.finhacker.cz/en/top-20-sp-500-companies-by-market-cap/</a></p></li>
-<li><p>finaeon, 200 years of market concentration, <a class="reference external" href="https://finaeon.com/200-years-of-market-concentration/">https://finaeon.com/200-years-of-market-concentration/</a></p></li>
+<li><p>B.Taylor, Finaeon, 200 years of market concentration, <a class="reference external" href="https://finaeon.com/200-years-of-market-concentration/">https://finaeon.com/200-years-of-market-concentration/</a></p></li>
+<li><p>K.Zhu, Visual Capitalist, Charted: S&amp;P 500 Market Concentration Over 145 Years, <a class="reference external" href="https://www.visualcapitalist.com/charted-sp-500-market-concentration-over-145-years/">https://www.visualcapitalist.com/charted-sp-500-market-concentration-over-145-years/</a></p></li>
 <li><p>JPM Asset Management, picture in <span class="math notranslate nohighlight">\(\texttt{media}\)</span> folder</p></li>
 </ul>
 </div>
@@ -806,11 +839,11 @@ Kurtosis: 17.948214818518505
       </div>
     </a>
     <a class="right-next"
-       href="../extra/intro.html"
+       href="gold.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Extra and Random</p>
+        <p class="prev-next-title">Gold</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
