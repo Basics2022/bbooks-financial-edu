@@ -59,6 +59,7 @@ parts:
 - caption: Historical Data
   chapters:
   - file: ch/history/intro
+  - file: ch/history/us-treasuries
   - file: ch/history/us-equity
   - file: ch/history/gold
 - caption: Extra
