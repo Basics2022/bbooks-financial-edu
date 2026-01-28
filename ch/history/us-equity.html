@@ -578,8 +578,8 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Import Shiller data</span>
-<span class="n">shiller_filen</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FILE_ROOT</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../../code/data/shiller/ie_data.xls&quot;</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">shiller_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">engine</span><span class="o">=</span><span class="s2">&quot;xlrd&quot;</span><span class="p">)</span>
+<span class="n">shiller_filen</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FILE_ROOT</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../../code/data/shiller/ie_data.xlsx&quot;</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">shiller_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,)</span> <span class="c1"># engine=&quot;xlrd&quot;)</span>
 
 <span class="c1">#&gt; Clean data</span>
 <span class="c1">#&gt; Remove non-data last row</span>
@@ -750,8 +750,8 @@ min        -0.261879
 75%         0.029377
 max         0.524294
 Name: return_month, dtype: float64
-Skewness: 0.5564109460860193
-Kurtosis: 17.948214818518505
+Skewness: 0.5564109443798456
+Kurtosis: 17.94821481233623
 </pre></div>
 </div>
 <div class="output text_html"><iframe

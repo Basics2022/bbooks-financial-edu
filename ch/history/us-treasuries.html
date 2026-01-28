@@ -1,0 +1,1486 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>US Treasuries &#8212; Financial Education - basics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/exercise.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/style.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'ch/history/us-treasuries';</script>
+    <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="USA equity market" href="us-equity.html" />
+    <link rel="prev" title="Historical data" href="intro.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+
+<a class="navbar-brand logo" href="../../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.svg" class="logo__image only-light" alt="Financial Education - basics - Home"/>
+    <script>document.write(`<img src="../../_static/logo-dark.svg" class="logo__image only-dark" alt="Financial Education - basics - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../summary.html">1. Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../references.html">2. References</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../draft.html">3. 1-Page Draft</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Macroeconomic Context for Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../actors.html">4. Actors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/inflation.html">5. Inflation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../characteristic-times.html">6. Characteristic times in economy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../policy.html">7. Policy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Investing Principles</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../principles/intro_nb.html">8. Introduction to principles of investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../principles/essentials.html">9. Il minimo indispensabile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../principles/intro-principles.html">10. Principles of investing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing_intro.html">11. Rebalancing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/sequence-risk.html">12. Sequence risk</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset classes</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../assets/intro.html">13. Introduction to asset classes</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/bonds.html">14. Bonds</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-return.html">14.1. Return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets/bonds-risks.html">14.2. Risks</a></li>
+
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../assets/equity.html">15. Equity</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../assets/equity-valuation.html">15.1. Equity Valuation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../assets/financial-statements.html">15.2. Three Financial Statements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../assets/etfs.html">16. ETFs</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../investing/intro.html">17. Introduction to investing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../code/notebooks/mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../investing/mpt-capm-analytical.html">18.4. MPT and CAPM: analytical solution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../investing/merton.html">19. Merton’s portfolio problem</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing.html">20. Rebalancing</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Historical Data</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Historical data</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">US Treasuries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="us-equity.html">USA equity market</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gold.html">Gold</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Extra</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../extra/intro.html">Extra and Random</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../extra/euristhics.html">Euristhics and historical correlations</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">People</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../people/list.html">Resources, People and Firms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../people/the_bull_guests.html">The Bull</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/Basics2022/bbooks-financial-edu/blob/master/ch/history/us-treasuries.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/edit/master/ch/history/us-treasuries.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/Basics2022/bbooks-financial-edu/issues/new?title=Issue%20on%20page%20%2Fch/history/us-treasuries.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/ch/history/us-treasuries.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>US Treasuries</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return">Return</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="us-treasuries">
+<span id="fin-edu-history-us-treasuries"></span><h1>US Treasuries<a class="headerlink" href="#us-treasuries" title="Permalink to this heading">#</a></h1>
+<p>…</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Libraries</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># from IPython.display import display  # import not required, maybe</span>
+
+<span class="kn">import</span> <span class="nn">plotly.express</span> <span class="k">as</span> <span class="nn">px</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objects</span> <span class="k">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.io</span> <span class="k">as</span> <span class="nn">pio</span>
+<span class="kn">from</span> <span class="nn">plotly.subplots</span> <span class="kn">import</span> <span class="n">make_subplots</span>
+
+<span class="kn">import</span> <span class="nn">yfinance</span> <span class="k">as</span> <span class="nn">yf</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Mount GDrive if required - for Colab editing</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="c1"># Detect Colab and mount Drive if needed</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;colab&quot;</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="n">IN_COLAB</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">pio</span><span class="o">.</span><span class="n">renderers</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="s2">&quot;iframe&quot;</span>
+
+<span class="k">if</span> <span class="n">IN_COLAB</span><span class="p">:</span>
+    <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+    <span class="o">%</span><span class="k">cd</span> /content/drive/MyDrive/basics-books/repos/financial-edu/bbooks-financial-edu/ch/history
+
+<span class="n">FILE_ROOT</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Repo root:&quot;</span><span class="p">,</span> <span class="n">FILE_ROOT</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Repo root: /home/davide/Documents/basics-books/books/bbooks-financial-edu/ch/history
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Import Shiller data (.xls)</span>
+<span class="n">shiller_filen</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FILE_ROOT</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../../code/data/shiller/ie_data.xlsx&quot;</span>
+<span class="n">df_shiller</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">shiller_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,)</span> <span class="c1">#  engine=&quot;xlrd&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Clean data</span>
+<span class="c1">#&gt; Shiller</span>
+<span class="c1">#&gt; Remove non-data last row</span>
+<span class="n">df_shiller</span> <span class="o">=</span> <span class="n">df_shiller</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1">#&gt; Convert Data to proper datetime type</span>
+<span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">x</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span> <span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%Y.%m&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Shiller, chapt 26 file, with yearly data</span>
+<span class="n">chap26_filen</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FILE_ROOT</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;/../../code/data/shiller/chapt26.xlsx&quot;</span>
+<span class="n">colnames</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">chap26_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<span class="n">df_chap26</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">chap26_filen</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Data&quot;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">colnames</span><span class="p">)</span>
+
+<span class="n">df_chap26</span> <span class="o">=</span> <span class="n">df_chap26</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="o">-</span><span class="mi">7</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="c1"># Rename the first column to &#39;Year&#39;</span>
+<span class="n">df_chap26</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">df_chap26</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span> <span class="s1">&#39;Year&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df_chap26</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_chap26</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;T-Bill Return&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">1.</span> <span class="o">+</span> <span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;R&quot;</span><span class="p">]</span><span class="o">/</span><span class="mf">100.</span> <span class="p">)</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+<span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;T-Bill Real Return&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;RealR&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df_chap26</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_chap26</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>P</th>
+      <th>D</th>
+      <th>E</th>
+      <th>R</th>
+      <th>RLONG</th>
+      <th>CPI</th>
+      <th>RealR</th>
+      <th>C</th>
+      <th>Unnamed: 9</th>
+      <th>...</th>
+      <th>P*C</th>
+      <th>RealD</th>
+      <th>Return</th>
+      <th>ln(1+ret)</th>
+      <th>RealE</th>
+      <th>P/E</th>
+      <th>E10</th>
+      <th>P/E10</th>
+      <th>T-Bill Return</th>
+      <th>T-Bill Real Return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1871</td>
+      <td>4.44</td>
+      <td>0.26</td>
+      <td>0.40</td>
+      <td>6.35</td>
+      <td>5.32</td>
+      <td>12.464061</td>
+      <td>1.047504</td>
+      <td>Tab)</td>
+      <td>1871.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>4.731385</td>
+      <td>0.135809</td>
+      <td>0.127345</td>
+      <td>7.279054</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1872</td>
+      <td>4.86</td>
+      <td>0.30</td>
+      <td>0.43</td>
+      <td>7.81</td>
+      <td>5.36</td>
+      <td>12.654392</td>
+      <td>1.054320</td>
+      <td>in 2005</td>
+      <td>1872.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>5.338874</td>
+      <td>0.088615</td>
+      <td>0.084907</td>
+      <td>7.652386</td>
+      <td>12.150000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.063500</td>
+      <td>1.047504</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1873</td>
+      <td>5.11</td>
+      <td>0.33</td>
+      <td>0.46</td>
+      <td>8.35</td>
+      <td>5.58</td>
+      <td>12.939807</td>
+      <td>1.133511</td>
+      <td>dollars</td>
+      <td>1873.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>6.143830</td>
+      <td>0.021590</td>
+      <td>0.021360</td>
+      <td>8.564127</td>
+      <td>11.883721</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.146559</td>
+      <td>1.104405</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1874</td>
+      <td>4.66</td>
+      <td>0.33</td>
+      <td>0.46</td>
+      <td>6.86</td>
+      <td>5.47</td>
+      <td>12.368896</td>
+      <td>1.148076</td>
+      <td>NaN</td>
+      <td>1874.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>6.600773</td>
+      <td>0.122790</td>
+      <td>0.115817</td>
+      <td>9.201078</td>
+      <td>10.130435</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.242297</td>
+      <td>1.251855</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1875</td>
+      <td>4.54</td>
+      <td>0.30</td>
+      <td>0.36</td>
+      <td>4.96</td>
+      <td>5.07</td>
+      <td>11.512651</td>
+      <td>1.114055</td>
+      <td>NaN</td>
+      <td>1875.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>6.369199</td>
+      <td>0.112843</td>
+      <td>0.106918</td>
+      <td>7.643039</td>
+      <td>9.869565</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.327519</td>
+      <td>1.437225</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Year</th>
+      <th>P</th>
+      <th>D</th>
+      <th>E</th>
+      <th>R</th>
+      <th>RLONG</th>
+      <th>CPI</th>
+      <th>RealR</th>
+      <th>C</th>
+      <th>Unnamed: 9</th>
+      <th>...</th>
+      <th>P*C</th>
+      <th>RealD</th>
+      <th>Return</th>
+      <th>ln(1+ret)</th>
+      <th>RealE</th>
+      <th>P/E</th>
+      <th>E10</th>
+      <th>P/E10</th>
+      <th>T-Bill Return</th>
+      <th>T-Bill Real Return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>141</th>
+      <td>2012</td>
+      <td>1300.58</td>
+      <td>31.25</td>
+      <td>86.51</td>
+      <td>NaN</td>
+      <td>1.97</td>
+      <td>226.665</td>
+      <td>0.984302</td>
+      <td>NaN</td>
+      <td>2012.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>31.25</td>
+      <td>0.144043</td>
+      <td>0.134569</td>
+      <td>NaN</td>
+      <td>14.957792</td>
+      <td>68.558322</td>
+      <td>20.265948</td>
+      <td>631.02331</td>
+      <td>34.699283</td>
+    </tr>
+    <tr>
+      <th>142</th>
+      <td>2013</td>
+      <td>1480.4</td>
+      <td>34.99</td>
+      <td>100.20</td>
+      <td>NaN</td>
+      <td>1.91</td>
+      <td>230.280</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>2013.0</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>69.552621</td>
+      <td>21.593294</td>
+      <td>631.02331</td>
+      <td>34.154564</td>
+    </tr>
+    <tr>
+      <th>143</th>
+      <td>2014</td>
+      <td>1822.36</td>
+      <td>39.44</td>
+      <td>102.31</td>
+      <td>NaN</td>
+      <td>2.86</td>
+      <td>233.916</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>631.02331</td>
+      <td>34.154564</td>
+    </tr>
+    <tr>
+      <th>144</th>
+      <td>2015</td>
+      <td>2028.18</td>
+      <td>43.39</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.88</td>
+      <td>233.707</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>631.02331</td>
+      <td>34.154564</td>
+    </tr>
+    <tr>
+      <th>145</th>
+      <td>2016</td>
+      <td>1918.6</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>631.02331</td>
+      <td>34.154564</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<p><strong>Monthly total bond return.</strong> Given interest of 10-year bonds, with <span class="math notranslate nohighlight">\(N = 10\)</span> years</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  M_n &amp; = \underbrace{\frac{I_n}{12 \cdot 100}}_{\text{month coupon}} + \underbrace{\frac{I_n}{I_{n+1}} + \left( 1 + \frac{I_{n+1}}{12 \cdot 100} \right)^{-\frac{1}{12N-1}} \cdot \left( 1 - \frac{I_n}{I_{n+1}} \right)}_{\text{price change}} = \\
+  &amp; = \underbrace{\frac{i_n}{12}}_{\text{month coupon}} + \underbrace{\frac{i_n}{i_{n+1}} + \left( 1 + \frac{i_{n+1}}{12} \right)^{-\frac{1}{12N-1}} \cdot \left( 1 - \frac{i_n}{i_{n+1}} \right)}_{\text{price change}} \ ,
+\end{aligned}\end{split}\]</div>
+<p>being <span class="math notranslate nohighlight">\(I = 100 \cdot i\)</span>, the rates as a percentage.</p>
+<p><strong>Real total bond return.</strong></p>
+<div class="math notranslate nohighlight">
+\[T^R_{n+1} = T^R_n \cdot M_n \cdot \frac{\text{CPI}_n}{\text{CPI}_{n+1}} \ ,\]</div>
+<p>being <span class="math notranslate nohighlight">\(\frac{CPI_n}{CPI_{n+1}}\)</span> the “realization” factor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Inspection</span>
+<span class="c1"># Rate GS10    : Interest Rate of 10Y Bond</span>
+<span class="c1"># Returns      : Monthly Total Bond Returns</span>
+<span class="c1"># Returns.1    :    Real Total Bond Returns</span>
+<span class="c1"># Real Return  : 10Y Annualized Stock Real Return</span>
+<span class="c1"># Real Return.1: 10Y Annualized Bonds Real Return</span>
+<span class="c1"># Real Return.2: Real 10Y Excess Annualized Returns</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df_shiller</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="c1"># display(df_shiller.head())</span>
+<span class="c1"># display(df_shiller.tail())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;Date&#39;, &#39;P&#39;, &#39;D&#39;, &#39;E&#39;, &#39;CPI&#39;, &#39;Fraction&#39;, &#39;Rate GS10&#39;, &#39;Price&#39;,
+       &#39;Dividend&#39;, &#39;Price.1&#39;, &#39;Earnings&#39;, &#39;Earnings.1&#39;, &#39;CAPE&#39;, &#39;Unnamed: 13&#39;,
+       &#39;TR CAPE&#39;, &#39;Unnamed: 15&#39;, &#39;Yield&#39;, &#39;Returns&#39;, &#39;Returns.1&#39;,
+       &#39;Real Return&#39;, &#39;Real Return.1&#39;, &#39;Returns.2&#39;],
+      dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="return">
+<h2>Return<a class="headerlink" href="#return" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Evaluate nominal return, not contained in Shiller data</span>
+<span class="c1"># df_shiller[&quot;10Y Bond Nominal Total Return&quot;] = 1.</span>
+<span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;10Y Bond Nominal Total Return&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df_shiller</span><span class="p">[</span><span class="s1">&#39;Returns&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">display</span><span class="p">(</span><span class="n">df_shiller</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df_shiller</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>P</th>
+      <th>D</th>
+      <th>E</th>
+      <th>CPI</th>
+      <th>Fraction</th>
+      <th>Rate GS10</th>
+      <th>Price</th>
+      <th>Dividend</th>
+      <th>Price.1</th>
+      <th>...</th>
+      <th>Unnamed: 13</th>
+      <th>TR CAPE</th>
+      <th>Unnamed: 15</th>
+      <th>Yield</th>
+      <th>Returns</th>
+      <th>Returns.1</th>
+      <th>Real Return</th>
+      <th>Real Return.1</th>
+      <th>Returns.2</th>
+      <th>10Y Bond Nominal Total Return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1871-01-01</td>
+      <td>4.44</td>
+      <td>0.26</td>
+      <td>0.4</td>
+      <td>12.464061</td>
+      <td>1871.041667</td>
+      <td>5.32</td>
+      <td>114.692610</td>
+      <td>6.716234</td>
+      <td>114.692610</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.004177</td>
+      <td>1.000000</td>
+      <td>0.130609</td>
+      <td>0.092504</td>
+      <td>0.038106</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1871-02-01</td>
+      <td>4.5</td>
+      <td>0.26</td>
+      <td>0.4</td>
+      <td>12.844641</td>
+      <td>1871.125000</td>
+      <td>5.323333</td>
+      <td>112.798304</td>
+      <td>6.517235</td>
+      <td>113.341406</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.004180</td>
+      <td>0.974424</td>
+      <td>0.130858</td>
+      <td>0.094635</td>
+      <td>0.036224</td>
+      <td>1.004177</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1871-03-01</td>
+      <td>4.61</td>
+      <td>0.26</td>
+      <td>0.4</td>
+      <td>13.034972</td>
+      <td>1871.208333</td>
+      <td>5.326667</td>
+      <td>113.868307</td>
+      <td>6.422074</td>
+      <td>114.954311</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.004183</td>
+      <td>0.964209</td>
+      <td>0.130951</td>
+      <td>0.096186</td>
+      <td>0.034765</td>
+      <td>1.008374</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1871-04-01</td>
+      <td>4.74</td>
+      <td>0.26</td>
+      <td>0.4</td>
+      <td>12.559226</td>
+      <td>1871.291667</td>
+      <td>5.33</td>
+      <td>121.514327</td>
+      <td>6.665343</td>
+      <td>123.233997</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.004185</td>
+      <td>1.004919</td>
+      <td>0.122056</td>
+      <td>0.090972</td>
+      <td>0.031084</td>
+      <td>1.012592</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1871-05-01</td>
+      <td>4.86</td>
+      <td>0.26</td>
+      <td>0.4</td>
+      <td>12.273812</td>
+      <td>1871.375000</td>
+      <td>5.333333</td>
+      <td>127.487866</td>
+      <td>6.820339</td>
+      <td>129.868479</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.004188</td>
+      <td>1.032591</td>
+      <td>0.122638</td>
+      <td>0.089488</td>
+      <td>0.033150</td>
+      <td>1.016830</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div><div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>P</th>
+      <th>D</th>
+      <th>E</th>
+      <th>CPI</th>
+      <th>Fraction</th>
+      <th>Rate GS10</th>
+      <th>Price</th>
+      <th>Dividend</th>
+      <th>Price.1</th>
+      <th>...</th>
+      <th>Unnamed: 13</th>
+      <th>TR CAPE</th>
+      <th>Unnamed: 15</th>
+      <th>Yield</th>
+      <th>Returns</th>
+      <th>Returns.1</th>
+      <th>Real Return</th>
+      <th>Real Return.1</th>
+      <th>Returns.2</th>
+      <th>10Y Bond Nominal Total Return</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1850</th>
+      <td>2025-03-01</td>
+      <td>5683.983333</td>
+      <td>76.145301</td>
+      <td>216.69</td>
+      <td>319.799</td>
+      <td>2025.208333</td>
+      <td>4.28</td>
+      <td>5722.525411</td>
+      <td>76.661629</td>
+      <td>3845325.219</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>37.348615</td>
+      <td>NaN</td>
+      <td>0.016749</td>
+      <td>1.003567</td>
+      <td>39.625790</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1016.706201</td>
+    </tr>
+    <tr>
+      <th>1851</th>
+      <td>2025-04-01</td>
+      <td>5369.495714</td>
+      <td>76.546867</td>
+      <td>NaN</td>
+      <td>320.795</td>
+      <td>2025.291667</td>
+      <td>4.28</td>
+      <td>5389.121125</td>
+      <td>76.826645</td>
+      <td>3625591.938</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>35.015341</td>
+      <td>NaN</td>
+      <td>0.018767</td>
+      <td>0.992343</td>
+      <td>39.643654</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1020.332454</td>
+    </tr>
+    <tr>
+      <th>1852</th>
+      <td>2025-05-01</td>
+      <td>5810.919524</td>
+      <td>76.948434</td>
+      <td>NaN</td>
+      <td>321.465</td>
+      <td>2025.375000</td>
+      <td>4.42</td>
+      <td>5820.002899</td>
+      <td>77.068716</td>
+      <td>3919793.241</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>37.769849</td>
+      <td>NaN</td>
+      <td>0.014834</td>
+      <td>1.006896</td>
+      <td>39.258095</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1012.519392</td>
+    </tr>
+    <tr>
+      <th>1853</th>
+      <td>2025-06-01</td>
+      <td>6029.9515</td>
+      <td>77.350000</td>
+      <td>NaN</td>
+      <td>321.8</td>
+      <td>2025.458333</td>
+      <td>4.38</td>
+      <td>6033.090148</td>
+      <td>77.390261</td>
+      <td>4067651.835</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>39.098992</td>
+      <td>NaN</td>
+      <td>0.014026</td>
+      <td>1.010099</td>
+      <td>39.487674</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1019.501865</td>
+    </tr>
+    <tr>
+      <th>1854</th>
+      <td>2025-07-01</td>
+      <td>6279.35</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>321.9675</td>
+      <td>2025.541667</td>
+      <td>4.3</td>
+      <td>6279.350000</td>
+      <td>NaN</td>
+      <td>4233686.042</td>
+      <td>...</td>
+      <td>NaN</td>
+      <td>40.590130</td>
+      <td>NaN</td>
+      <td>0.013847</td>
+      <td>NaN</td>
+      <td>39.865727</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1029.798273</td>
+    </tr>
+  </tbody>
+</table>
+<p>5 rows × 23 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Nominal and real value</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">make_subplots</span><span class="p">(</span><span class="n">rows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">cols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">shared_xaxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="c1"># vertical_spacing=0.1,</span>
+    <span class="n">subplot_titles</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;10Y T-Bond - Nominal Total Return&quot;</span><span class="p">,</span> <span class="s2">&quot;10Y T-Bond - Real Total Return&quot;</span><span class="p">,)</span>
+<span class="p">)</span>
+
+<span class="c1">#&gt; 10Y T-Bonds</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;10Y Bond Nominal Total Return&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;10Y&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">)),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_shiller</span><span class="p">[</span><span class="s2">&quot;Returns.1&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;10Y&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;steelblue&quot;</span><span class="p">),</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="c1">#&gt; 1Y T-Bills</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;T-Bill Return&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;1Y&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">)),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">add_trace</span><span class="p">(</span><span class="n">go</span><span class="o">.</span><span class="n">Scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;Year&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df_chap26</span><span class="p">[</span><span class="s2">&quot;T-Bill Real Return&quot;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;1Y&quot;</span><span class="p">,</span> <span class="n">line</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">),</span> <span class="n">showlegend</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
+    <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+
+
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">update_yaxes</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">row</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">update_layout</span><span class="p">(</span><span class="n">showlegend</span><span class="o">=</span><span class="kc">True</span><span class="p">,)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><iframe
+    scrolling="no"
+    width="100%"
+    height="545px"
+    src="iframe_figures/figure_11.html"
+    frameborder="0"
+    allowfullscreen
+></iframe>
+</div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./ch/history"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="intro.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Historical data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="us-equity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">USA equity market</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#return">Return</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By basics
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
