@@ -9,6 +9,20 @@ and the consumption is proportional to the wealth by a factor depending on time 
 
 $$c^*_t = \frac{X_t}{f(t)}$$
 
+```{dropdown} Contents
+:open:
+
+**Sections.**
+
+* [Wealth dynamics](fin-edu:investing:merton:wealth-dynamics)
+* [Value function](fin-edu:investing:merton:value-function)
+* [Solution of the problem](fin-edu:investing:merton:solution)
+
+**Limits and extensions.**
+- J.J.Choi: "Why you probably don't invest enough in stocks", [The Bull podcast 306](https://open.spotify.com/episode/6Dg6bcTl37JycPS85WRaFc?si=e1b106695d064112).
+
+```
+
 (fin-edu:investing:merton:wealth-dynamics)=
 ## Wealth dynamics
 
