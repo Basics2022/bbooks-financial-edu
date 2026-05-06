@@ -472,7 +472,25 @@ document.write(`
 <p>and the consumption is proportional to the wealth by a factor depending on time <span class="math notranslate nohighlight">\(t\)</span>,</p>
 <div class="math notranslate nohighlight">
 \[c^*_t = \frac{X_t}{f(t)}\]</div>
-<div class="section" id="wealth-dynamics">
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Contents<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text"><strong>Sections.</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="#fin-edu-investing-merton-wealth-dynamics"><span class="std std-ref">Wealth dynamics</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="#fin-edu-investing-merton-value-function"><span class="std std-ref">Value function</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="#fin-edu-investing-merton-solution"><span class="std std-ref">Solution of the problem</span></a></p></li>
+</ul>
+<p class="sd-card-text"><strong>Limits and extensions.</strong></p>
+<ul class="simple">
+<li><p class="sd-card-text">J.J.Choi: “Why you probably don’t invest enough in stocks”, <a class="reference external" href="https://open.spotify.com/episode/6Dg6bcTl37JycPS85WRaFc?si=e1b106695d064112">The Bull podcast 306</a>.</p></li>
+</ul>
+</div>
+</details><div class="section" id="wealth-dynamics">
 <span id="fin-edu-investing-merton-wealth-dynamics"></span><h2><span class="section-number">19.1. </span>Wealth dynamics<a class="headerlink" href="#wealth-dynamics" title="Permalink to this heading">#</a></h2>
 <p>Assuming that the wealth of a family or an individual can is invested with a fraction <span class="math notranslate nohighlight">\(\pi_t\)</span> in a risky part of the portfolio with expected return <span class="math notranslate nohighlight">\(\mu\)</span> and standard variation <span class="math notranslate nohighlight">\(\sigma_t\)</span>, and with a fraction <span class="math notranslate nohighlight">\(1-\pi_t\)</span> in a risk-free asset with expected return <span class="math notranslate nohighlight">\(r_t\)</span> and zero standard deviation, the wealth <span class="math notranslate nohighlight">\(x_t\)</span> of a family or an individual evolves with the SDE</p>
 <div class="math notranslate nohighlight">
