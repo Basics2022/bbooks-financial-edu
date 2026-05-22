@@ -53,6 +53,8 @@ parts:
 # - file: ch/investing/mpt
 # - file: ch/investing/capm
   - file: ch/investing/merton
+    sections:
+    - file: ch/investing/merton-colab
 # - file: ch/investing/strategic-tactical
 # - file: ch/investing/rebalancing
   - file: code/notebooks/rebalancing
