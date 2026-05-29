@@ -1,0 +1,206 @@
+Traceback (most recent call last):
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/davide/.local/lib/python3.8/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/davide/.local/lib/python3.8/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import urllib.request
+from IPython.display import HTML, display
+
+# 1. Pull down the charting bundle text to embed directly inside the cell frame
+try:
+    url = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"
+    with urllib.request.urlopen(url) as response:
+        chartjs_source = response.read().decode('utf-8')
+except Exception:
+    url = "https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"
+    with urllib.request.urlopen(url) as response:
+        chartjs_source = response.read().decode('utf-8')
+
+# 2. Build the inner document code block (All JS brackets are safely doubled up to {{ }})
+inner_html_content = f"""<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {{ font-family: sans-serif; margin: 0; padding: 10px; background: #fff; }}
+        .wrapper {{ border: 1px solid #ccc; border-radius: 8px; padding: 15px; max-width: 790px; margin: auto; }}
+        .grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }}
+        label {{ font-size: 0.9rem; color: #333; }}
+        input {{ width: 100%; display: block; margin-top: 4px; }}
+        .metrics {{ font-weight: bold; margin-bottom: 15px; color: #222; font-size: 0.95rem; line-height: 1.4; }}
+        h5 {{ margin: 8px 0 4px 0; color: #444; font-size: 0.95rem; }}
+        canvas {{ display: block; margin-bottom: 15px; }}
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <h3>Merton Lifecycle Simulation: Portfolio, Spending & Velocity</h3>
+    
+    <div class="grid">
+        <label>Gamma (Risk Aversion): <input type="range" id="m_gamma" min="0.5" max="5.0" step="0.1" value="2.0"><span id="lbl_gamma">2.0</span></label>
+        <label>Rho (Discount Factor): <input type="range" id="m_rho" min="0.01" max="0.10" step="0.005" value="0.04"><span id="lbl_rho">0.04</span></label>
+        <label>Sigma (Volatility): <input type="range" id="m_sigma" min="0.10" max="0.40" step="0.01" value="0.20"><span id="lbl_sigma">0.20</span></label>
+    </div>
+    
+    <div class="metrics" id="m_metrics_panel">Initial calculations parsing...</div>
+    
+    <h5>1. Portfolio Wealth ($X_t$)</h5>
+    <canvas id="chart_wealth" width="760" height="170"></canvas>
+    
+    <h5>2. Annual Spending Rate ($c_t = X_t / f(t)$)</h5>
+    <canvas id="chart_spending" width="760" height="170"></canvas>
+
+    <h5>3. Propensity to Consume Velocity ($1 / f(t)$)</h5>
+    <canvas id="chart_velocity" width="760" height="170"></canvas>
+</div>
+
+<script>
+{chartjs_source}
+</script>
+
+<script>
+(function() {{
+    let wChart, sChart, vChart;
+
+    function runSimulation() {{
+        const gamma = parseFloat(document.getElementById('m_gamma').value);
+        const rho = parseFloat(document.getElementById('m_rho').value);
+        const sigma = parseFloat(document.getElementById('m_sigma').value);
+        
+        document.getElementById('lbl_gamma').innerText = gamma.toFixed(1);
+        document.getElementById('lbl_rho').innerText = rho.toFixed(3);
+        document.getElementById('lbl_sigma').innerText = sigma.toFixed(2);
+
+        const r = 0.03, mu = 0.08, T = 10, N = 100, dt = T / N;
+        const epsilon = 1.0, n_paths = 4;
+        
+        const piStar = (mu - r) / (gamma * Math.pow(sigma, 2));
+        const premiumTerm = Math.pow(mu - r, 2) / (2 * Math.pow(sigma, 2) * gamma);
+        const nu = (1 / gamma) * (rho - (1 - gamma) * (premiumTerm + r));
+        const geomReturn = (r + (mu - r) * piStar) - 0.5 * Math.pow(piStar, 2) * Math.pow(sigma, 2);
+
+        let f_0 = (Math.abs(nu) < 1e-7) ? (T + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * T);
+        let initialConsumptionVelocity = 1 / f_0;
+
+        document.getElementById('m_metrics_panel').innerHTML = 
+            "Optimal Allocation (pi*): " + (piStar * 100).toFixed(1) + "% | " +
+            "Initial Consumption Speed (c0/X0): " + (initialConsumptionVelocity * 100).toFixed(1) + "% <br>" +
+            "Expected Growth Vector (With Drag): " + (geomReturn * 100).toFixed(1) + "%";
+
+        const labels = Array.from({{length: N}}, (_, i) => (i * dt).toFixed(1));
+        const wealthDatasets = [];
+        const spendingDatasets = [];
+        const velocityData = []; 
+
+        let seed = 42;
+        function random() {{
+            let x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }}
+
+        for (let i = 0; i < N; i++) {{
+            const t = i * dt;
+            const time_remaining = T - t;
+            let f_t = (Math.abs(nu) < 1e-7) ? (time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * time_remaining);
+            f_t = Math.max(f_t, 0.001);
+            velocityData.push((1 / f_t) * 100); 
+        }}
+
+        for (let p = 0; p < n_paths; p++) {{
+            let wealth = [100];
+            let spending = [];
+            spending.push(100 / Math.max(f_0, 0.001));
+
+            for (let i = 1; i < N; i++) {{
+                const t = (i - 1) * dt; 
+                const time_remaining = T - t;
+                
+                let f_t = (Math.abs(nu) < 1e-7) ? (time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * time_remaining);
+                f_t = Math.max(f_t, 0.001); 
+
+                let u1 = random(), u2 = random();
+                while(u1 <= 0.0) {{ u1 = random(); }}
+                let randNormal = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+                let dW = randNormal * Math.sqrt(dt);
+                
+                let currentW = wealth[wealth.length - 1];
+                
+                if (currentW <= 0) {{
+                    wealth.push(0);
+                    spending.push(0);
+                }} else {{
+                    let expected_growth = (r + (mu - r) * piStar) * currentW * dt;
+                    let exact_consumption = (currentW / f_t) * dt;
+                    let volatility_term = piStar * sigma * currentW * dW;
+                    
+                    let nextW = currentW + expected_growth - exact_consumption + volatility_term;
+                    let validW = nextW > 0 ? nextW : 0;
+                    
+                    wealth.push(validW);
+                    
+                    const next_time_remaining = T - (i * dt);
+                    let next_f = (Math.abs(nu) < 1e-7) ? (next_time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * next_time_remaining);
+                    spending.push(validW / Math.max(next_f, 0.001));
+                }}
+            }}
+            
+            const colors = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+            wealthDatasets.push({{ data: wealth, borderColor: colors[p], fill: false, pointRadius: 0, tension: 0.1 }});
+            spendingDatasets.push({{ data: spending, borderColor: colors[p], fill: false, pointRadius: 0, tension: 0.1 }});
+        }}
+
+        const opts = (title) => ({{
+            responsive: false,
+            animation: false,
+            scales: {{ yAxes: [{{ scaleLabel: {{ display: true, labelString: title }} }}], xAxes: [{{ scaleLabel: {{ display: true, labelString: 'Years' }} }}] }},
+            legend: {{ display: false }}
+        }});
+
+        if (wChart) {{ wChart.destroy(); sChart.destroy(); vChart.destroy(); }}
+
+        wChart = new Chart(document.getElementById('chart_wealth').getContext('2d'), {{ type: 'line', data: {{ labels: labels, datasets: wealthDatasets }}, options: opts('Wealth ($X_t$)') }});
+        sChart = new Chart(document.getElementById('chart_spending').getContext('2d'), {{ type: 'line', data: {{ labels: labels, datasets: spendingDatasets }}, options: opts('Spending ($c_t$)') }});
+        vChart = new Chart(document.getElementById('chart_velocity').getContext('2d'), {{ type: 'line', data: {{ labels: labels, datasets: [{{ data: velocityData, borderColor: '#ec4899', fill: false, pointRadius: 0, tension: 0.1 }}] }}, options: opts('Velocity % ($1/f(t)$)') }});
+    }}
+
+    document.getElementById('m_gamma').addEventListener('input', runSimulation);
+    document.getElementById('m_rho').addEventListener('input', runSimulation);
+    document.getElementById('m_sigma').addEventListener('input', runSimulation);
+    
+    runSimulation();
+})();
+</script>
+</body>
+</html>
+"""
+
+# 3. Escape the entire application package string into a safe srcdoc format
+escaped_srcdoc = inner_html_content.replace('"', '&quot;').replace("'", '&#39;')
+
+# 4. Wrap everything in a secure iframe container
+iframe_wrapper = f"""
+<iframe srcdoc="{escaped_srcdoc}" width="850" height="780" style="border:none; overflow:hidden;" scrolling="no"></iframe>
+"""
+
+display(HTML(iframe_wrapper))
+------------------
+
+
+  [36mCell[39m[36m [39m[32mIn[2][39m[32m, line 170[39m
+[31m    [39m[31m"""[39m
+       ^
+[31mSyntaxError[39m[31m:[39m f-string: single '}' is not allowed
+
+

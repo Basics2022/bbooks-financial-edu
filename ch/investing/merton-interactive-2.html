@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Merton Lifecycle Dashboard (With Histograms)</title>
+    <style>
+        body { font-family: sans-serif; margin: 0; padding: 10px; background: #fff; }
+        .wrapper { border: 1px solid #ccc; border-radius: 8px; padding: 15px; max-width: 790px; margin: auto; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 15px; }
+        label { font-size: 0.9rem; color: #333; }
+        input { width: 100%; display: block; margin-top: 4px; }
+        .metrics { font-weight: bold; margin-bottom: 15px; color: #222; font-size: 0.95rem; line-height: 1.4; }
+        h5 { margin: 12px 0 4px 0; color: #444; font-size: 0.95rem; border-top: 1px solid #eee; padding-top: 8px; }
+        canvas { display: block; margin-bottom: 15px; }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+</head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
+<body>
+<div class="wrapper">
+    <h3>Merton Lifecycle Simulation (Trajectories & Terminal Histograms)</h3>
+    
+    <div class="grid">
+        <label>Gamma (Risk Aversion): <input type="range" id="m_gamma" min="0.5" max="5.0" step="0.1" value="2.0"><span id="lbl_gamma">2.0</span></label>
+        <label>Rho (Discount Factor): <input type="range" id="m_rho" min="0.01" max="0.10" step="0.005" value="0.04"><span id="lbl_rho">0.04</span></label>
+        <label>Sigma (Volatility): <input type="range" id="m_sigma" min="0.10" max="0.40" step="0.01" value="0.20"><span id="lbl_sigma">0.20</span></label>
+    </div>
+    
+    <div class="metrics" id="m_metrics_panel">Initial calculations parsing...</div>
+    
+    <h5>1. Portfolio Wealth (X_t) — Sample Paths (Log Scale)</h5>
+    <canvas id="chart_wealth" width="760" height="160"></canvas>
+    
+    <h5>2. Annual Spending Rate (c_t) — Sample Paths (Log Scale)</h5>
+    <canvas id="chart_spending" width="760" height="160"></canvas>
+
+    <h5>3. Propensity to Consume Velocity (1 / f(t)) — (Linear Scale)</h5>
+    <canvas id="chart_velocity" width="760" height="140"></canvas>
+
+    <h5>4. Distribution of Terminal Wealth X_T (Histogram)</h5>
+    <canvas id="chart_hist_wealth" width="760" height="150"></canvas>
+
+    <h5>5. Distribution of Terminal Spending c_T (Histogram)</h5>
+    <canvas id="chart_hist_spending" width="760" height="150"></canvas>
+</div>
+
+<script>
+(function() {
+    let wChart, sChart, vChart, hwChart, hsChart;
+
+    // Helper function to calculate a frequency distribution histogram from an array of numbers
+    function calcHistogram(data, binCount, minVal, maxVal) {
+        // If data spans logarithmically, space bins via log intervals
+        const logMin = Math.log10(Math.max(minVal, 0.1));
+        const logMax = Math.log10(Math.max(maxVal, 0.1));
+        const step = (logMax - logMin) / binCount;
+        
+        let intervals = [];
+        let counts = new Array(binCount).fill(0);
+        
+        for (let i = 0; i <= binCount; i++) {
+            intervals.push(Math.pow(10, logMin + i * step));
+        }
+        
+        for (let x of data) {
+            for (let i = 0; i < binCount; i++) {
+                if (x >= intervals[i] && x <= intervals[i+1]) {
+                    counts[i]++;
+                    break;
+                }
+            }
+        }
+        
+        // Format readable labels for the bar chart bins
+        let labels = [];
+        for (let i = 0; i < binCount; i++) {
+            labels.push(intervals[i].toFixed(1) + " - " + intervals[i+1].toFixed(1));
+        }
+        
+        return { labels: labels, counts: counts };
+    }
+
+    function runSimulation() {
+        if (typeof Chart === 'undefined') {
+            setTimeout(runSimulation, 100);
+            return;
+        }
+
+        const gamma = parseFloat(document.getElementById('m_gamma').value);
+        const rho = parseFloat(document.getElementById('m_rho').value);
+        const sigma = parseFloat(document.getElementById('m_sigma').value);
+        
+        document.getElementById('lbl_gamma').innerText = gamma.toFixed(1);
+        document.getElementById('lbl_rho').innerText = rho.toFixed(3);
+        document.getElementById('lbl_sigma').innerText = sigma.toFixed(2);
+
+        const r = 0.03, mu = 0.08, T = 10, N = 100, dt = T / N;
+        const epsilon = 1.0;
+        
+        // Bumped paths count to 150 to get a meaningful distribution curve for the histogram
+        const total_paths = 150; 
+        const visible_display_paths = 4; // Only plot 4 lines on the timeline charts so it doesn't look messy
+        
+        const piStar = (mu - r) / (gamma * Math.pow(sigma, 2));
+        const premiumTerm = Math.pow(mu - r, 2) / (2 * Math.pow(sigma, 2) * gamma);
+        const nu = (1 / gamma) * (rho - (1 - gamma) * (premiumTerm + r));
+        const geomReturn = (r + (mu - r) * piStar) - 0.5 * Math.pow(piStar, 2) * Math.pow(sigma, 2);
+
+        let f_0 = (Math.abs(nu) < 1e-7) ? (T + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * T);
+        let initialConsumptionVelocity = 1 / f_0;
+
+        document.getElementById('m_metrics_panel').innerHTML = 
+            "Optimal Allocation (pi*): " + (piStar * 100).toFixed(1) + "% | " +
+            "Initial Consumption Speed (c0/X0): " + (initialConsumptionVelocity * 100).toFixed(1) + "% <br>" +
+            "Expected Growth Vector (With Drag): " + (geomReturn * 100).toFixed(1) + "% | Total Simulated Paths: " + total_paths;
+
+        const labels = Array.from({length: N}, (_, i) => (i * dt).toFixed(1));
+        const wealthLineDatasets = [];
+        const spendingLineDatasets = [];
+        const velocityData = []; 
+        
+        // Arrays to hold the values at the final step (t = T)
+        const terminalWealths = [];
+        const terminalSpendings = [];
+
+        let seed = 42;
+        function random() {
+            let x = Math.sin(seed++) * 10000;
+            return x - Math.floor(x);
+        }
+
+        for (let i = 0; i < N; i++) {
+            const t = i * dt;
+            const time_remaining = T - t;
+            let f_t = (Math.abs(nu) < 1e-7) ? (time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * time_remaining);
+            f_t = Math.max(f_t, 0.001);
+            velocityData.push((1 / f_t) * 100); 
+        }
+
+        const colors = ['#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+
+        for (let p = 0; p < total_paths; p++) {
+            let wealth = [100];
+            let spending = [];
+            spending.push(100 / Math.max(f_0, 0.001));
+
+            for (let i = 1; i < N; i++) {
+                const t = (i - 1) * dt; 
+                const time_remaining = T - t;
+                
+                let f_t = (Math.abs(nu) < 1e-7) ? (time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * time_remaining);
+                f_t = Math.max(f_t, 0.001); 
+
+                let u1 = random(), u2 = random();
+                while(u1 <= 0.0) { u1 = random(); }
+                let randNormal = Math.sqrt(-2.0 * Math.log(u1)) * Math.cos(2.0 * Math.PI * u2);
+                let dW = randNormal * Math.sqrt(dt);
+                
+                let currentW = wealth[wealth.length - 1];
+                
+                if (currentW <= 0.1) {
+                    wealth.push(0.1);
+                    spending.push(0.1);
+                } else {
+                    let expected_growth = (r + (mu - r) * piStar) * currentW * dt;
+                    let exact_consumption = (currentW / f_t) * dt;
+                    let volatility_term = piStar * sigma * currentW * dW;
+                    
+                    let nextW = currentW + expected_growth - exact_consumption + volatility_term;
+                    let validW = nextW > 0.1 ? nextW : 0.1;
+                    
+                    wealth.push(validW);
+                    
+                    const next_time_remaining = T - (i * dt);
+                    let next_f = (Math.abs(nu) < 1e-7) ? (next_time_remaining + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * next_time_remaining);
+                    let validSpending = validW / Math.max(next_f, 0.001);
+                    spending.push(validSpending > 0.1 ? validSpending : 0.1);
+                }
+            }
+            
+            // Gather final outcome metrics
+            terminalWealths.push(wealth[wealth.length - 1]);
+            terminalSpendings.push(spending[spending.length - 1]);
+
+            // Only append the path configuration for timeline display if within display count limits
+            if (p < visible_display_paths) {
+                wealthLineDatasets.push({ data: wealth, borderColor: colors[p], fill: false, pointRadius: 0, tension: 0.1 });
+                spendingLineDatasets.push({ data: spending, borderColor: colors[p], fill: false, pointRadius: 0, tension: 0.1 });
+            }
+        }
+
+        // Calculate histograms from terminal array metrics
+        const wealthHist = calcHistogram(terminalWealths, 15, 0.1, 1000);
+        const spendingHist = calcHistogram(terminalSpendings, 15, 0.1, 1000);
+
+        // Options generators for standard line charts
+        const lineOpts = (title, isLogarithmic) => ({
+            responsive: false, animation: false, legend: { display: false },
+            scales: {
+                yAxes: [{ 
+                    type: isLogarithmic ? 'logarithmic' : 'linear',
+                    scaleLabel: { display: true, labelString: title },
+                    ticks: isLogarithmic ? { callback: v => [0.1, 1, 10, 100, 1000].includes(v) ? v : null } : {}
+                }],
+                xAxes: [{ scaleLabel: { display: true, labelString: 'Years' } }]
+            }
+        });
+
+        // Options generators for the bar charts (Histograms)
+        const histOpts = (xTitle) => ({
+            responsive: false, animation: false, legend: { display: false },
+            scales: {
+                yAxes: [{ scaleLabel: { display: true, labelString: 'Frequency (Count)' }, ticks: { beginAtZero: true } }],
+                xAxes: [{ scaleLabel: { display: true, labelString: xTitle }, gridLines: { display: false } }]
+            }
+        });
+
+        // Safe destruction layout execution routine
+        if (wChart) { 
+            wChart.destroy(); sChart.destroy(); vChart.destroy();
+            hwChart.destroy(); hsChart.destroy();
+        }
+
+        // Render line timelines
+        wChart = new Chart(document.getElementById('chart_wealth').getContext('2d'), { type: 'line', data: { labels: labels, datasets: wealthLineDatasets }, options: lineOpts('Wealth (X_t)', true) });
+        sChart = new Chart(document.getElementById('chart_spending').getContext('2d'), { type: 'line', data: { labels: labels, datasets: spendingLineDatasets }, options: lineOpts('Spending (c_t)', true) });
+        vChart = new Chart(document.getElementById('chart_velocity').getContext('2d'), { type: 'line', data: { labels: labels, datasets: [{ data: velocityData, borderColor: '#ec4899', fill: false, pointRadius: 0, tension: 0.1 }] }, options: lineOpts('Velocity % (1/f(t))', false) });
+        
+        // Render terminal histograms
+        hwChart = new Chart(document.getElementById('chart_hist_wealth').getContext('2d'), {
+            type: 'bar',
+            data: { labels: wealthHist.labels, datasets: [{ data: wealthHist.counts, backgroundColor: '#3b82f6', barPercentage: 0.95, categoryPercentage: 0.95 }] },
+            options: histOpts('Terminal Wealth Intervals ($X_T$)')
+        });
+        hsChart = new Chart(document.getElementById('chart_hist_spending').getContext('2d'), {
+            type: 'bar',
+            data: { labels: spendingHist.labels, datasets: [{ data: spendingHist.counts, backgroundColor: '#10b981', barPercentage: 0.95, categoryPercentage: 0.95 }] },
+            options: histOpts('Terminal Spending Intervals ($c_T$)')
+        });
+    }
+
+    document.getElementById('m_gamma').addEventListener('input', runSimulation);
+    document.getElementById('m_rho').addEventListener('input', runSimulation);
+    document.getElementById('m_sigma').addEventListener('input', runSimulation);
+    
+    runSimulation();
+})();
+</script>
+</body>
+</html>
