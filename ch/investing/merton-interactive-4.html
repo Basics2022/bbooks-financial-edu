@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Merton Lifecycle Optimization — Multi-Column Grid</title>
+    <title>Merton Lifecycle Optimization — Locked Grid</title>
     <style>
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
@@ -10,6 +10,8 @@
             padding: 20px; 
             background: #f8f9fa; 
             color: #212529;
+            /* Prevent body scrollbars from popping in/out and causing resize loops */
+            overflow-y: scroll; 
         }
         .wrapper { 
             max-width: 1200px; 
@@ -21,7 +23,6 @@
         }
         h3 { margin-top: 0; color: #1e293b; font-size: 1.5rem; font-weight: 700; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
         
-        /* Interactive Controls Styling */
         .control-panel { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
@@ -35,44 +36,50 @@
         label span { font-weight: 700; color: #0f172a; margin-left: auto; }
         input[type="range"] { width: 100%; cursor: pointer; accent-color: #3b82f6; }
 
-        /* The 2x3 Subplot Grid System */
+        /* Structural Grid System */
         .dashboard-grid { 
             display: grid; 
             grid-template-columns: repeat(3, 1fr); 
-            grid-template-rows: repeat(2, minmax(220px, auto));
             gap: 20px; 
         }
         .chart-card { 
             background: #ffffff; 
             border: 1px solid #e2e8f0; 
             border-radius: 8px; 
-            padding: 12px; 
+            padding: 15px; 
             display: flex; 
             flex-direction: column; 
             box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+            /* Guarantee parent card block can never change size */
+            height: 240px; 
+            box-sizing: border-box;
         }
-        .chart-card h5 { margin: 0 0 10px 0; color: #334155; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px; }
-        .chart-card canvas { width: 100% !important; height: 100% !important; flex-grow: 1; }
+        .chart-card h5 { margin: 0 0 12px 0; color: #334155; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px dashed #e2e8f0; padding-bottom: 6px; height: 18px; }
+        
+        /* RIGID BOUNDARY CONTAINMENT: Completely decouple canvas layout physics */
+        .chart-container {
+            position: relative;
+            flex-grow: 1;
+            width: 100%;
+            height: 180px;
+        }
+        .chart-container canvas {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100% !important;
+            height: 100% !important;
+        }
 
-        /* KPI / Statistical Table Block Card */
-        .matrix-table { width: 100%; border-collapse: collapse; margin-top: auto; margin-bottom: auto; font-size: 0.85rem; }
+        .matrix-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
         .matrix-table tr { border-bottom: 1px solid #f1f5f9; }
         .matrix-table tr:last-child { border-bottom: none; }
-        .matrix-table td { padding: 8px 4px; color: #475569; }
+        .matrix-table td { padding: 9px 4px; color: #475569; }
         .matrix-table td.val { font-weight: 700; text-align: right; color: #0f172a; }
         .matrix-table td .badge { background: #e0f2fe; color: #0369a1; padding: 2px 6px; border-radius: 4px; font-weight: 700; }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
 </head>
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-G9JVM265TS');
-</script>
-
 <body>
 <div class="wrapper">
     <h3>Merton Lifecycle Optimization Dashboard</h3>
@@ -86,33 +93,45 @@
     <div class="dashboard-grid">
         <div class="chart-card">
             <h5>Core Optimization Parameters</h5>
-            <table class="matrix-table">
-                <tr><td>Optimal Equity Weight (<math><msup><mi>&pi;</mi><mo>*</mo></msup></math>)</td><td class="val" id="m_pi_star">-</td></tr>
-                <tr><td>Initial Spending Draw (<math><msub><mi>c</mi><mn>0</mn></msub><mo>/</mo><msub><mi>X</mi><mn>0</mn></msub></math>)</td><td class="val" id="m_c0_speed">-</td></tr>
-                <tr><td>Geometric Growth Multiplier</td><td class="val" id="m_geom_growth">-</td></tr>
-                <tr><td>Stochastic Path Run Count</td><td class="val"><span class="badge">150 Paths</span></td></tr>
-            </table>
+            <div class="chart-container" style="display: flex; align-items: center;">
+                <table class="matrix-table">
+                    <tr><td>Optimal Equity Weight (<math><msup><mi>&pi;</mi><mo>*</mo></msup></math>)</td><td class="val" id="m_pi_star">-</td></tr>
+                    <tr><td>Initial Spending Draw (<math><msub><mi>c</mi><mn>0</mn></msub><mo>/</mo><msub><mi>X</mi><mn>0</mn></msub></math>)</td><td class="val" id="m_c0_speed">-</td></tr>
+                    <tr><td>Geometric Growth Multiplier</td><td class="val" id="m_geom_growth">-</td></tr>
+                    <tr><td>Stochastic Path Run Count</td><td class="val"><span class="badge">150 Paths</span></td></tr>
+                </table>
+            </div>
         </div>
         <div class="chart-card">
             <h5>Portfolio Wealth Trajectories (Log)</h5>
-            <canvas id="chart_wealth"></canvas>
+            <div class="chart-container">
+                <canvas id="chart_wealth"></canvas>
+            </div>
         </div>
         <div class="chart-card">
             <h5>Terminal Wealth Distribution ($X_T$)</h5>
-            <canvas id="chart_hist_wealth"></canvas>
+            <div class="chart-container">
+                <canvas id="chart_hist_wealth"></canvas>
+            </div>
         </div>
         
         <div class="chart-card">
             <h5>Propensity Velocity (1/f(t))</h5>
-            <canvas id="chart_velocity"></canvas>
+            <div class="chart-container">
+                <canvas id="chart_velocity"></canvas>
+            </div>
         </div>
         <div class="chart-card">
             <h5>Consumption Spending Rate (Log)</h5>
-            <canvas id="chart_spending"></canvas>
+            <div class="chart-container">
+                <canvas id="chart_spending"></canvas>
+            </div>
         </div>
         <div class="chart-card">
             <h5>Lifetime Spending Distribution (PV)</h5>
-            <canvas id="chart_hist_spending"></canvas>
+            <div class="chart-container">
+                <canvas id="chart_hist_spending"></canvas>
+            </div>
         </div>
     </div>
 </div>
@@ -165,7 +184,7 @@
         const r = 0.03, mu = 0.08, T = 10, N = 100, dt = T / N;
         const epsilon = 1.0;
         const total_paths = 150; 
-        const visible_display_paths = 3; // Kept clean for side-by-side row display
+        const visible_display_paths = 3; 
         
         const piStar = (mu - r) / (gamma * Math.pow(sigma, 2));
         const premiumTerm = Math.pow(mu - r, 2) / (2 * Math.pow(sigma, 2) * gamma);
@@ -175,7 +194,6 @@
         let f_0 = (Math.abs(nu) < 1e-7) ? (T + epsilon) : (1/nu) + (epsilon - (1/nu)) * Math.exp(-nu * T);
         let initialConsumptionVelocity = 1 / f_0;
 
-        // Populate side matrix scorecard panel instead of ugly raw string alerts
         document.getElementById('m_pi_star').innerHTML = (piStar * 100).toFixed(1) + "%";
         document.getElementById('m_c0_speed').innerHTML = (initialConsumptionVelocity * 100).toFixed(1) + "%";
         document.getElementById('m_geom_growth').innerHTML = (geomReturn * 100).toFixed(1) + "%";
@@ -265,22 +283,23 @@
         const wealthHist = calcHistogram(terminalWealths, 12, 0.1, 800, true);
         const spendingHist = calcHistogram(continuousDiscountedPVSpendings, 12, 30, 220, false);
 
-        const lineOpts = (title, isLogarithmic) => ({
-            responsive: true, maintainAspectRatio: false, animation: false, legend: { display: false },
+        /* CRITICAL CHANGE: Deactivate Chart.js internal resize triggers */
+        const lineOpts = (isLogarithmic) => ({
+            responsive: false, animation: false, legend: { display: false },
             scales: {
                 yAxes: [{ 
                     type: isLogarithmic ? 'logarithmic' : 'linear',
-                    ticks: isLogarithmic ? { fontSize: 9, callback: v => [0.1, 1, 10, 100, 1000].includes(v) ? v : null } : { fontSize: 9 }
+                    ticks: { fontSize: 9, callback: v => isLogarithmic ? ([0.1, 1, 10, 100, 1000].includes(v) ? v : null) : v }
                 }],
                 xAxes: [{ ticks: { fontSize: 9, maxTicksLimit: 6 } }]
             }
         });
 
         const histOpts = () => ({
-            responsive: true, maintainAspectRatio: false, animation: false, legend: { display: false },
+            responsive: false, animation: false, legend: { display: false },
             scales: {
                 yAxes: [{ ticks: { beginAtZero: true, fontSize: 9 } }],
-                xAxes: [{ ticks: { fontSize: 9, maxRotation: 0 }, gridLines: { display: false } }]
+                xAxes: [{ ticks: { fontSize: 9 }, gridLines: { display: false } }]
             }
         });
 
@@ -289,9 +308,9 @@
             hwChart.destroy(); hsChart.destroy();
         }
 
-        wChart = new Chart(document.getElementById('chart_wealth').getContext('2d'), { type: 'line', data: { labels: labels, datasets: wealthLineDatasets }, options: lineOpts('Wealth', true) });
-        sChart = new Chart(document.getElementById('chart_spending').getContext('2d'), { type: 'line', data: { labels: labels, datasets: spendingLineDatasets }, options: lineOpts('Spending', true) });
-        vChart = new Chart(document.getElementById('chart_velocity').getContext('2d'), { type: 'line', data: { labels: labels, datasets: [{ data: velocityData, borderColor: '#ec4899', fill: false, pointRadius: 0, borderWidth: 2 }] }, options: lineOpts('Velocity', false) });
+        wChart = new Chart(document.getElementById('chart_wealth').getContext('2d'), { type: 'line', data: { labels: labels, datasets: wealthLineDatasets }, options: lineOpts(true) });
+        sChart = new Chart(document.getElementById('chart_spending').getContext('2d'), { type: 'line', data: { labels: labels, datasets: spendingLineDatasets }, options: lineOpts(true) });
+        vChart = new Chart(document.getElementById('chart_velocity').getContext('2d'), { type: 'line', data: { labels: labels, datasets: [{ data: velocityData, borderColor: '#ec4899', fill: false, pointRadius: 0, borderWidth: 2 }] }, options: lineOpts(false) });
         
         hwChart = new Chart(document.getElementById('chart_hist_wealth').getContext('2d'), { type: 'bar', data: { labels: wealthHist.labels, datasets: [{ data: wealthHist.counts, backgroundColor: '#3b82f6', barPercentage: 0.9 }] }, options: histOpts() });
         hsChart = new Chart(document.getElementById('chart_hist_spending').getContext('2d'), { type: 'bar', data: { labels: spendingHist.labels, datasets: [{ data: spendingHist.counts, backgroundColor: '#10b981', barPercentage: 0.9 }] }, options: histOpts() });
