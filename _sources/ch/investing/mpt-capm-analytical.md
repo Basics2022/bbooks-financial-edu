@@ -3,6 +3,7 @@
 
 This section details the closed-form matrix derivations for Modern Portfolio Theory (MPT) and the Capital Asset Pricing Model (CAPM).
 
+(fin-edu:investing:mpt-capm:analytical:mpt)=
 ## MPT: fully invested portfolio with no risk-free asset
 
 When short-selling and leverage are allowed without limits, the optimization problem can be solved exactly using the method of **Lagrange Multipliers**.
@@ -35,7 +36,7 @@ $$\left\{\begin{aligned}
   0          & = \nabla_{b         } \widetilde{J} = \mathbf{1}^T \mathbf{w}^* - 1 \ .
 \end{aligned}\right.
 \qquad , \qquad
-\begin{bmatrix} \boldsymbol\sigma^2 & -\boldsymbol{\mu} & - \mathbf{1} \\ - \boldsymbol\mu^T & 0 & 0 \\ -\mathbf{1}^T & 0 & 0 \end{bmatrix} \begin{bmatrix} \mathbf{w}^* \\ a \\ b \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ -\mu \\ -1 \end{bmatrix}$$
+\begin{bmatrix} \boldsymbol\sigma^2 & -\boldsymbol{\mu} & - \mathbf{1} \\ - \boldsymbol\mu^T & 0 & 0 \\ -\mathbf{1}^T & 0 & 0 \end{bmatrix} \begin{bmatrix} \mathbf{w}^* \\ a \\ b \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ -\mu \\ -1 \end{bmatrix}$$ (eq:mpt:lin-sys)
 
 ```{dropdown} Solution of the linear system - Details
 
@@ -117,12 +118,23 @@ and thus matrix $\mathbf{A}$ is definite positive.
 
 ```
 
+(fin-edu:investing:mpt-capm:analytical:mpt:sensitivity)=
+### Sensitivity of the MPT to data uncertainty
+
 **Sensitivity of the solution to data uncertainty.** Once a solution is found, the senstivity of this solution w.r.t. variation in the expected return and the variance of the assets are evaluated as the gradient of the augmented objective function {eq}`eq:mpt:aug-obj-fun` w.r.t. to $\boldsymbol\mu$, and $\boldsymbol\sigma^2$ respectively,
 
 $$\begin{aligned}
   \nabla_{\boldsymbol\mu} \sigma^2 & = 2 \nabla_{\boldsymbol\mu} \widetilde{J} = - 2 a \mathbf{w} \\
-  \nabla_{\boldsymbol\sigma^2} \sigma^2 & = 2 \nabla_{\boldsymbol\sigma^2} \widetilde{J} = \mathbf{w} \otimes \mathbf{w} \\
+  \nabla_{\boldsymbol\sigma^2} \sigma^2 & = 2 \nabla_{\boldsymbol\sigma^2} \widetilde{J} = \mathbf{w} \otimes \mathbf{w} \ ,
 \end{aligned}$$
+
+and, since $\nabla \sigma^2 = 2 \sigma \nabla \sigma$,
+
+$$\begin{aligned}
+  \nabla_{\boldsymbol\mu} \sigma & = \frac{\nabla_{\boldsymbol\mu} \widetilde{J}}{\sigma} = - \frac{ a \mathbf{w} }{\sigma} \ .
+\end{aligned}$$
+
+Some example is provided is discussed in the Jupyter notebook [Uncertainty in MPT and CAPM Models](fin-edu:investing:mpt-capm:uncertainty).
 
 
 ```{dropdown} Sensitivity and Taylor expansion
@@ -143,6 +155,42 @@ $$\begin{aligned}
 \end{aligned}$$
 
 ```
+
+**Sensitivity of the asset allocation.** The optimal solution comes from the solution of the linear system {eq}`eq:mpt:lin-sys`, that can be formally written as
+
+$$\mathbf{A}(\boldsymbol\mu, \boldsymbol\sigma^2) \mathbf{x} = \mathbf{b} \ .$$
+
+The change in the asset allocation $\Delta \mathbf{w}$ due to a change of the expected return of the asset $\Delta  \boldsymbol\mu$, follows from a linear expansion around the optimal solution,
+
+$$\begin{aligned}
+  \mathbf{b}
+  & = \mathbf{A}(\boldsymbol\mu + \Delta\boldsymbol\mu) \left( \mathbf{x} + \Delta \mathbf{x} \right) = \\
+  & = \left( \mathbf{A}(\boldsymbol\mu) + \Delta \mathbf{A} \right) \left( \mathbf{x} + \Delta \mathbf{x} \right) = \\
+  & = \mathbf{A} \mathbf{x} + \Delta \mathbf{A} \mathbf{x} + \mathbf{A} \Delta \mathbf{x} + o(| \Delta |) \ ,
+\end{aligned}$$
+
+and thus
+
+$$\mathbf{A}(\boldsymbol\mu) \Delta  \mathbf{x} = - \Delta \mathbf{A} \mathbf{x} \ .$$
+
+```{dropdown} Details - Rearranging terms
+:open:
+
+As
+
+$$\Delta \mathbf{A} = \begin{bmatrix} \cdot & -\Delta \boldsymbol\mu & \cdot \\ -\Delta \boldsymbol\mu^T & \cdot & \cdot \\ \cdot & \cdot & \cdot  \end{bmatrix}$$
+
+it's possible to rearrange the linear system for the variation of asset allocation as
+
+$$\Delta \mathbf{w} 
+= - \mathbf{A}^{-1} \begin{bmatrix} - a \Delta \boldsymbol\mu \\ -\Delta \boldsymbol\mu^T \mathbf{w} \\ 0  \end{bmatrix} 
+= - \mathbf{A}^{-1} \begin{bmatrix} - a \mathbf{I}_{\text{n.assets}} \\ - \mathbf{w}^T \\ 0  \end{bmatrix} \Delta \boldsymbol\mu  \ .
+$$
+
+```
+Some example is provided is discussed in the Jupyter notebook [Uncertainty in MPT and CAPM Models](fin-edu:investing:mpt-capm:uncertainty), where the changes of asset allocation due to unitary variation of the expected return of individual assets are discussed.
+
+
 
 ## CAPM
 Analytical solution of the MPT-CAPM optimization problem, with a risk-free asset. If a risk-free asset exists, the covariance matrix is singular. However, the risk-free asset can be partitioned from the risky assets, so that the covariance matrix of the return of the risky asset is non-singular. The problem becomes

@@ -487,8 +487,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.6.1. Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.6.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling-and-fully-invested-portfolio">18.6.1. Efficient frontier and CAPM with possibility of leverage and short-selling, and fully invested portfolio</a></li>
 </ul>
             </nav>
         </div>
@@ -526,14 +525,7 @@ document.write(`
 </div>
 </details>
 </div>
-<div class="section" id="modern-portfolio-theory">
-<span id="fin-edu-investing-mpt-capm-mpt"></span><h2><span class="section-number">18.6.1. </span>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
-<!-- (fin-edu:investing:mpt-capm:assets)= -->
-<p><strong>Assets.</strong> There are <span class="math notranslate nohighlight">\(N\)</span> available assets, whose <span class="math notranslate nohighlight">\(\mathbf{r} = ( r_i )\)</span> return over the period of interest has</p>
-<ul class="simple">
-<li><p>expected value <span class="math notranslate nohighlight">\(\boldsymbol\mu = ( \mu_i ) = \mathbb{E}(r_i)\)</span>,</p></li>
-<li><p>covariance matrix <span class="math notranslate nohighlight">\(\boldsymbol{\sigma}^2 = ( \sigma^2_{ij} ) = \mathbb{E}[ (r_i-\mu_i) (r_j - \mu_j)]\)</span>.</p></li>
-</ul>
+<p>…</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -618,9 +610,9 @@ document.write(`
 </div>
 </details>
 </div>
-</div>
-<div class="section" id="efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">
-<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2><span class="section-number">18.6.2. </span>Efficient frontier and CAPM with possibility of leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
+<div class="section" id="efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling-and-fully-invested-portfolio">
+<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2><span class="section-number">18.6.1. </span>Efficient frontier and CAPM with possibility of leverage and short-selling, and fully invested portfolio<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling-and-fully-invested-portfolio" title="Permalink to this heading">#</a></h2>
+<p>This problem has analytical solution, and sensitivity immedately follows from constrained optimization of the augmented objective function <span class="math notranslate nohighlight">\(\widetilde{J}\)</span>, as discussed in <a class="reference internal" href="../../ch/investing/mpt-capm-analytical.html#fin-edu-investing-mpt-capm-analytical-mpt-sensitivity"><span class="std std-ref">Sensitivity of the MPT to data uncertainty</span></a>.s</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -702,20 +694,6 @@ document.write(`
 </div>
 </div>
 </details>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">]))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30, 2, 2)
-(30, 3, 3)
-</pre></div>
-</div>
-</div>
 </div>
 <p><strong>Plots</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -899,8 +877,7 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.6.1. Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.6.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling-and-fully-invested-portfolio">18.6.1. Efficient frontier and CAPM with possibility of leverage and short-selling, and fully invested portfolio</a></li>
 </ul>
   </nav></div>
 

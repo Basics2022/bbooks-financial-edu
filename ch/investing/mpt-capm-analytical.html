@@ -71,7 +71,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="18.5. MPT and CAPM: Analytical Solutions" href="mpt-capm-analytical-2.html" />
+    <link rel="next" title="18.5. Modern Portfolio Theory and Capital Asset Pricing Model" href="../../code/notebooks/mpt-examples.html" />
     <link rel="prev" title="18. Modern Portfolio Theory and Capital Asset Pricing Model" href="../../code/notebooks/mpt.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -217,7 +217,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="intro.html">17. Introduction to investing</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../../code/notebooks/mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">18.4. MPT and CAPM: analytical solution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mpt-capm-analytical-2.html">18.5. MPT and CAPM: Analytical Solutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-examples.html">18.5. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-uncertainty.html">18.6. Uncertainty in MPT and CAPM Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-correlation.html">18.7. Correlation between Assets in MPT and CAPM Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="merton.html">19. Merton’s portfolio problem</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -454,7 +456,10 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset">18.4.1. MPT: fully invested portfolio with no risk-free asset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset">18.4.1. MPT: fully invested portfolio with no risk-free asset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-the-mpt-to-data-uncertainty">18.4.1.1. Sensitivity of the MPT to data uncertainty</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capm">18.4.2. CAPM</a></li>
 </ul>
             </nav>
@@ -471,7 +476,7 @@ document.write(`
 <span id="fin-edu-investing-mpt-capm-analytical"></span><h1><span class="section-number">18.4. </span>MPT and CAPM: analytical solution<a class="headerlink" href="#mpt-and-capm-analytical-solution" title="Permalink to this heading">#</a></h1>
 <p>This section details the closed-form matrix derivations for Modern Portfolio Theory (MPT) and the Capital Asset Pricing Model (CAPM).</p>
 <div class="section" id="mpt-fully-invested-portfolio-with-no-risk-free-asset">
-<h2><span class="section-number">18.4.1. </span>MPT: fully invested portfolio with no risk-free asset<a class="headerlink" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-analytical-mpt"></span><h2><span class="section-number">18.4.1. </span>MPT: fully invested portfolio with no risk-free asset<a class="headerlink" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset" title="Permalink to this heading">#</a></h2>
 <p>When short-selling and leverage are allowed without limits, the optimization problem can be solved exactly using the method of <strong>Lagrange Multipliers</strong>.</p>
 <p><strong>Problem setup.</strong> MPT can be formulated as a costrained optimization problem, to find the vector <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> describing the asset allocation of the portfolio that produces the minimum variance portfolio, for a given expected return of the portfolio and under the constraint of fully invested portfolio,</p>
 <div class="math notranslate nohighlight">
@@ -488,8 +493,8 @@ document.write(`
 <span class="eqno">(18.3)<a class="headerlink" href="#equation-eq-mpt-aug-obj-fun" title="Permalink to this equation">#</a></span>\[\widetilde{J}(\mathbf{w}; a, b) = \frac{1}{2} \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} - a ( \mathbf{w}^T \boldsymbol\mu - \mu ) - b ( \mathbf{w}^T \mathbf{1} - 1 ) \ .\]</div>
 <p>If the constraints hold, then <span class="math notranslate nohighlight">\(\sigma^2 = 2 \widetilde{J}\)</span>.</p>
 <p><strong>Solution of the optimization problem.</strong> Setting to zero the gradient of the augmented objective function<a class="footnote-reference brackets" href="#obj-f-opt" id="id1">1</a> w.r.t. asset weights <span class="math notranslate nohighlight">\(\mathbf{w}\)</span>, and Lagrange multipliers <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, the optimal solution is found as the solution of the following linear system,</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\left\{\begin{aligned}
+<div class="math notranslate nohighlight" id="equation-eq-mpt-lin-sys">
+<span class="eqno">(18.4)<a class="headerlink" href="#equation-eq-mpt-lin-sys" title="Permalink to this equation">#</a></span>\[\begin{split}\left\{\begin{aligned}
   \mathbf{0} &amp; = \nabla_{\mathbf{w}} \widetilde{J} = \boldsymbol\sigma^2 \mathbf{w}^* - a \boldsymbol\mu - b\mathbf{1} \\
   0          &amp; = \nabla_{a         } \widetilde{J} = \boldsymbol\mu^T  \mathbf{w}^* - \mu \\
   0          &amp; = \nabla_{b         } \widetilde{J} = \mathbf{1}^T \mathbf{w}^* - 1 \ .
@@ -572,12 +577,20 @@ Properties of matrix <span class="math notranslate nohighlight">\(\ \mathbf{A}\)
     \end{aligned}\end{split}\]</div>
 <p class="sd-card-text">and thus matrix <span class="math notranslate nohighlight">\(\mathbf{A}\)</span> is definite positive.</p>
 </div>
-</details><p><strong>Sensitivity of the solution to data uncertainty.</strong> Once a solution is found, the senstivity of this solution w.r.t. variation in the expected return and the variance of the assets are evaluated as the gradient of the augmented objective function <a class="reference internal" href="#equation-eq-mpt-aug-obj-fun">(18.3)</a> w.r.t. to <span class="math notranslate nohighlight">\(\boldsymbol\mu\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol\sigma^2\)</span> respectively,</p>
+</details><div class="section" id="sensitivity-of-the-mpt-to-data-uncertainty">
+<span id="fin-edu-investing-mpt-capm-analytical-mpt-sensitivity"></span><h3><span class="section-number">18.4.1.1. </span>Sensitivity of the MPT to data uncertainty<a class="headerlink" href="#sensitivity-of-the-mpt-to-data-uncertainty" title="Permalink to this heading">#</a></h3>
+<p><strong>Sensitivity of the solution to data uncertainty.</strong> Once a solution is found, the senstivity of this solution w.r.t. variation in the expected return and the variance of the assets are evaluated as the gradient of the augmented objective function <a class="reference internal" href="#equation-eq-mpt-aug-obj-fun">(18.3)</a> w.r.t. to <span class="math notranslate nohighlight">\(\boldsymbol\mu\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol\sigma^2\)</span> respectively,</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{aligned}
   \nabla_{\boldsymbol\mu} \sigma^2 &amp; = 2 \nabla_{\boldsymbol\mu} \widetilde{J} = - 2 a \mathbf{w} \\
-  \nabla_{\boldsymbol\sigma^2} \sigma^2 &amp; = 2 \nabla_{\boldsymbol\sigma^2} \widetilde{J} = \mathbf{w} \otimes \mathbf{w} \\
+  \nabla_{\boldsymbol\sigma^2} \sigma^2 &amp; = 2 \nabla_{\boldsymbol\sigma^2} \widetilde{J} = \mathbf{w} \otimes \mathbf{w} \ ,
 \end{aligned}\end{split}\]</div>
+<p>and, since <span class="math notranslate nohighlight">\(\nabla \sigma^2 = 2 \sigma \nabla \sigma\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\begin{aligned}
+  \nabla_{\boldsymbol\mu} \sigma &amp; = \frac{\nabla_{\boldsymbol\mu} \widetilde{J}}{\sigma} = - \frac{ a \mathbf{w} }{\sigma} \ .
+\end{aligned}\]</div>
+<p>Some example is provided is discussed in the Jupyter notebook <a class="reference internal" href="../../code/notebooks/mpt-uncertainty.html#fin-edu-investing-mpt-capm-uncertainty"><span class="std std-ref">Uncertainty in MPT and CAPM Models</span></a>.</p>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
 <summary class="sd-summary-title sd-card-header">
 Sensitivity and Taylor expansion<div class="sd-summary-down docutils">
@@ -598,7 +611,40 @@ Sensitivity and Taylor expansion<div class="sd-summary-down docutils">
   - a \mathbf{w}^T \Delta \boldsymbol\mu + o(|\Delta \boldsymbol\mu|, |\Delta \boldsymbol\sigma^2|)\ .
 \end{aligned}\]</div>
 </div>
-</details></div>
+</details><p><strong>Sensitivity of the asset allocation.</strong> The optimal solution comes from the solution of the linear system <a class="reference internal" href="#equation-eq-mpt-lin-sys">(18.4)</a>, that can be formally written as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}(\boldsymbol\mu, \boldsymbol\sigma^2) \mathbf{x} = \mathbf{b} \ .\]</div>
+<p>The change in the asset allocation <span class="math notranslate nohighlight">\(\Delta \mathbf{w}\)</span> due to a change of the expected return of the asset <span class="math notranslate nohighlight">\(\Delta  \boldsymbol\mu\)</span>, follows from a linear expansion around the optimal solution,</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{aligned}
+  \mathbf{b}
+  &amp; = \mathbf{A}(\boldsymbol\mu + \Delta\boldsymbol\mu) \left( \mathbf{x} + \Delta \mathbf{x} \right) = \\
+  &amp; = \left( \mathbf{A}(\boldsymbol\mu) + \Delta \mathbf{A} \right) \left( \mathbf{x} + \Delta \mathbf{x} \right) = \\
+  &amp; = \mathbf{A} \mathbf{x} + \Delta \mathbf{A} \mathbf{x} + \mathbf{A} \Delta \mathbf{x} + o(| \Delta |) \ ,
+\end{aligned}\end{split}\]</div>
+<p>and thus</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{A}(\boldsymbol\mu) \Delta  \mathbf{x} = - \Delta \mathbf{A} \mathbf{x} \ .\]</div>
+<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3" open="open">
+<summary class="sd-summary-title sd-card-header">
+Details - Rearranging terms<div class="sd-summary-down docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="sd-summary-up docutils">
+<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="sd-summary-content sd-card-body docutils">
+<p class="sd-card-text">As</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Delta \mathbf{A} = \begin{bmatrix} \cdot &amp; -\Delta \boldsymbol\mu &amp; \cdot \\ -\Delta \boldsymbol\mu^T &amp; \cdot &amp; \cdot \\ \cdot &amp; \cdot &amp; \cdot  \end{bmatrix}\end{split}\]</div>
+<p class="sd-card-text">it’s possible to rearrange the linear system for the variation of asset allocation as</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\Delta \mathbf{w} 
+= - \mathbf{A}^{-1} \begin{bmatrix} - a \Delta \boldsymbol\mu \\ -\Delta \boldsymbol\mu^T \mathbf{w} \\ 0  \end{bmatrix} 
+= - \mathbf{A}^{-1} \begin{bmatrix} - a \mathbf{I}_{\text{n.assets}} \\ - \mathbf{w}^T \\ 0  \end{bmatrix} \Delta \boldsymbol\mu  \ .
+\end{split}\]</div>
+</div>
+</details><p>Some example is provided is discussed in the Jupyter notebook <a class="reference internal" href="../../code/notebooks/mpt-uncertainty.html#fin-edu-investing-mpt-capm-uncertainty"><span class="std std-ref">Uncertainty in MPT and CAPM Models</span></a>, where the changes of asset allocation due to unitary variation of the expected return of individual assets are discussed.</p>
+</div>
+</div>
 <div class="section" id="capm">
 <h2><span class="section-number">18.4.2. </span>CAPM<a class="headerlink" href="#capm" title="Permalink to this heading">#</a></h2>
 <p>Analytical solution of the MPT-CAPM optimization problem, with a risk-free asset. If a risk-free asset exists, the covariance matrix is singular. However, the risk-free asset can be partitioned from the risky assets, so that the covariance matrix of the return of the risky asset is non-singular. The problem becomes</p>
@@ -765,11 +811,11 @@ Tangency condition between optimal portfolio lines w/ and w/o risk-free asset<di
       </div>
     </a>
     <a class="right-next"
-       href="mpt-capm-analytical-2.html"
+       href="../../code/notebooks/mpt-examples.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">18.5. </span>MPT and CAPM: Analytical Solutions</p>
+        <p class="prev-next-title"><span class="section-number">18.5. </span>Modern Portfolio Theory and Capital Asset Pricing Model</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -788,7 +834,10 @@ Tangency condition between optimal portfolio lines w/ and w/o risk-free asset<di
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset">18.4.1. MPT: fully invested portfolio with no risk-free asset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mpt-fully-invested-portfolio-with-no-risk-free-asset">18.4.1. MPT: fully invested portfolio with no risk-free asset</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sensitivity-of-the-mpt-to-data-uncertainty">18.4.1.1. Sensitivity of the MPT to data uncertainty</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#capm">18.4.2. CAPM</a></li>
 </ul>
   </nav></div>
