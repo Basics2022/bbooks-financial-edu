@@ -1,32 +1,43 @@
 (fin-edu:investing:mpt-capm:analytical)=
 # MPT and CAPM: analytical solution
 
-## MPT
-Analytical solution of the MPT optimization problem for a **fully invested portfolio** with **no risk-free asset**
+This section details the closed-form matrix derivations for Modern Portfolio Theory (MPT) and the Capital Asset Pricing Model (CAPM).
+
+## MPT: fully invested portfolio with no risk-free asset
+
+When short-selling and leverage are allowed without limits, the optimization problem can be solved exactly using the method of **Lagrange Multipliers**.
+
+**Problem setup.** MPT can be formulated as a costrained optimization problem, to find the vector $\mathbf{w}$ describing the asset allocation of the portfolio that produces the minimum variance portfolio, for a given expected return of the portfolio and under the constraint of fully invested portfolio,
 
 $$
 \mathbf{w}^* = \text{argmin}_{\mathbf{w}} \sigma^2 \quad \text{s.t.} \quad
-\begin{aligned}
-  & \mathbf{w}^T \boldsymbol\mu = \overline{\mu} \\
-  & \sum_{i=1}^N w_i = 1
-\end{aligned}
+\left\{\begin{aligned}
+  & \mathbf{w}^T \boldsymbol\mu = \overline{\mu} && \text{(Portfolio expected return)} \\
+  & \sum_{i=1}^N w_i = 1 && \text{(Fully invested portfolio)}
+\end{aligned}\right.
 $$
 
-without any additional constraint. Using Lagrange multiplier method, the augmented objective function
+The expression of portfolio expected return $\overline{\mu}$ and variance $\sigma^2$ are given by {eq}`eq:ptf:avg` and {eq}`eq:ptf:var` as functions of the expected value $\boldsymbol\mu$ and variance matrix $\boldsymbol\sigma^2$ of the assets and portfolio weights $\mathbf{w}$.
 
-$$\widetilde{J}(\mathbf{w}; a, b) = \frac{1}{2} \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} - a ( \mathbf{w}^T \boldsymbol\mu - \mu ) - b ( \mathbf{w}^T \mathbf{1} - 1 )$$
+**Constrained optimization, with Lagrange multipliers.** Using Lagrange multiplier method, and adding a factor $\frac{1}{2}$ to the variance of the portfolio (to avoid a factor $2$ later), the augmented objective function reads
 
-and setting its gradient equal to zero gives the following system of equations
+$$\widetilde{J}(\mathbf{w}; a, b) = \frac{1}{2} \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} - a ( \mathbf{w}^T \boldsymbol\mu - \mu ) - b ( \mathbf{w}^T \mathbf{1} - 1 ) \ .$$ (eq:mpt:aug-obj-fun)
 
-$$\begin{cases}
-  \mathbf{0} & = \boldsymbol\sigma^2 \mathbf{w}^* - a \boldsymbol\mu - b\mathbf{1} \\
-  0 & = \boldsymbol\mu^T  \mathbf{w}^* - \mu \\
-  0 & = \mathbf{1}^T \mathbf{w}^* - 1 \ ,
-\end{cases}$$
+If the constraints hold, then $\sigma^2 = 2 \widetilde{J}$.
 
-or using matrix formalism
+**Solution of the optimization problem.** Setting to zero the gradient of the augmented objective function[^obj-f-opt] w.r.t. asset weights $\mathbf{w}$, and Lagrange multipliers $a$, $b$, the optimal solution is found as the solution of the following linear system,
 
-$$\begin{bmatrix} \boldsymbol\sigma^2 & -\boldsymbol{\mu} & - \mathbf{1} \\ - \boldsymbol\mu^T & 0 & 0 \\ -\mathbf{1}^T & 0 & 0 \end{bmatrix} \begin{bmatrix} \mathbf{w}^* \\ a \\ b \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ -\mu \\ -1 \end{bmatrix}$$
+[^obj-f-opt]: The augmented objective function is a quadratic function $\mathbf{w}$, and thus it has only one extreme point.
+
+$$\left\{\begin{aligned}
+  \mathbf{0} & = \nabla_{\mathbf{w}} \widetilde{J} = \boldsymbol\sigma^2 \mathbf{w}^* - a \boldsymbol\mu - b\mathbf{1} \\
+  0          & = \nabla_{a         } \widetilde{J} = \boldsymbol\mu^T  \mathbf{w}^* - \mu \\
+  0          & = \nabla_{b         } \widetilde{J} = \mathbf{1}^T \mathbf{w}^* - 1 \ .
+\end{aligned}\right.
+\qquad , \qquad
+\begin{bmatrix} \boldsymbol\sigma^2 & -\boldsymbol{\mu} & - \mathbf{1} \\ - \boldsymbol\mu^T & 0 & 0 \\ -\mathbf{1}^T & 0 & 0 \end{bmatrix} \begin{bmatrix} \mathbf{w}^* \\ a \\ b \end{bmatrix} = \begin{bmatrix} \mathbf{0} \\ -\mu \\ -1 \end{bmatrix}$$
+
+```{dropdown} Solution of the linear system - Details
 
 Without any risk-free asset, the covariance matrix is non-singular, and thus invertible. (Formally) solving the first equation for $\mathbf{w}$,
 
@@ -85,6 +96,8 @@ $$\begin{aligned}
 
 Using $\sigma$ as an independent coordinate (and not $\text{Var}[r] = \sigma^2$)...
 
+```
+
 ```{dropdown} Properties of matrix $\ \mathbf{A}$
 
 Is it positive definite? Covariance matrix is positive matrix, so for $\forall \mathbf{v}$
@@ -101,6 +114,33 @@ $$\begin{aligned}
     \end{aligned}$$
 
 and thus matrix $\mathbf{A}$ is definite positive.
+
+```
+
+**Sensitivity of the solution to data uncertainty.** Once a solution is found, the senstivity of this solution w.r.t. variation in the expected return and the variance of the assets are evaluated as the gradient of the augmented objective function {eq}`eq:mpt:aug-obj-fun` w.r.t. to $\boldsymbol\mu$, and $\boldsymbol\sigma^2$ respectively,
+
+$$\begin{aligned}
+  \nabla_{\boldsymbol\mu} \sigma^2 & = 2 \nabla_{\boldsymbol\mu} \widetilde{J} = - 2 a \mathbf{w} \\
+  \nabla_{\boldsymbol\sigma^2} \sigma^2 & = 2 \nabla_{\boldsymbol\sigma^2} \widetilde{J} = \mathbf{w} \otimes \mathbf{w} \\
+\end{aligned}$$
+
+
+```{dropdown} Sensitivity and Taylor expansion
+:open:
+
+Let the objective function
+
+$$\widetilde{J}(\mathbf{w}; a, b; \boldsymbol\mu, \boldsymbol\sigma^2) = \frac{1}{2} \mathbf{w}^T \boldsymbol\sigma^2 \mathbf{w} - a ( \mathbf{w}^T \boldsymbol\mu - \mu) - b ( \mathbf{w}^T \mathbf{1} - 1 ) \ , $$
+
+having explicitly written the dependence from the parameters (input data) of the model, $\boldsymbol\mu$, $\boldsymbol\sigma^2$. If the expected value and the variance of the returns become $\boldsymbol\mu + \Delta \boldsymbol\mu$, $\boldsymbol\sigma^2 + \Delta \boldsymbol\sigma^2$, the objective function becomes
+
+$$\begin{aligned}
+  \widetilde{J}(\mathbf{w}; a, b; \boldsymbol\mu + \Delta\boldsymbol\mu, \boldsymbol\sigma^2 + \Delta\boldsymbol\sigma^2) 
+  & =
+  \widetilde{J}(\mathbf{w}; a, b; \boldsymbol\mu, \boldsymbol\sigma^2) 
+  + \frac{1}{2} \mathbf{w}^T \Delta \boldsymbol\sigma^2 \mathbf{w}
+  - a \mathbf{w}^T \Delta \boldsymbol\mu + o(|\Delta \boldsymbol\mu|, |\Delta \boldsymbol\sigma^2|)\ .
+\end{aligned}$$
 
 ```
 
@@ -158,7 +198,7 @@ or the linear relation between the standard deviation of the portoflio $\sigma$ 
 
 $$\sigma = \frac{\mu_e}{\sqrt{ \boldsymbol\mu_e^T \boldsymbol\sigma^{-2} \boldsymbol\mu_e }} \ .$$
 
-```{dropdown} Solution of the linear system - details
+```{dropdown} Solution of the linear system - Details
 
 $$\mathbf{w}^* = \boldsymbol\sigma^{-2} \left( \boldsymbol\mu - \mu_0 \mathbf{1} \right) a \ ,$$
 
