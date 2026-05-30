@@ -51,7 +51,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            min-height: 0; /* Lets flex layout shrink past children elements */
+            min-height: 0; 
         }
         .case-title { 
             font-size: 0.95em; 
@@ -81,7 +81,6 @@
             min-height: 0;
             min-width: 0;
         }
-        /* Lock canvas to container geometry so it scales cleanly on window shrink */
         .plot-container canvas {
             position: absolute;
             top: 0;
@@ -91,6 +90,15 @@
         }
     </style>
 </head>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G9JVM265TS"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-G9JVM265TS');
+</script>
+
 <body>
 
 <div class="container">
@@ -246,50 +254,52 @@ function initCharts() {
         plugins: { legend: { display: false } }
     };
 
+    // --- CASE 1: FRONTIER ---
     let datasets1_f = [];
     corr_slices.forEach((rho, idx) => {
-        datasets1_f.push({
-            id: `bg_f1_${idx}`, data: [], showLine: true, borderColor: 'rgb(220,220,220)', borderWidth: 1, pointRadius: 0
-        });
+        // order: 10 keeps background lines deep down
+        datasets1_f.push({ id: `bg_f1_${idx}`, data: [], showLine: true, borderColor: 'rgb(220,220,220)', borderWidth: 1, pointRadius: 0, order: 10 });
     });
-    datasets1_f.push({ label: 'Selected active frontier', data: [], showLine: true, borderColor: '#000000', borderWidth: 3.5, pointRadius: 0 });
-    datasets1_f.push({ label: 'Asset 0', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#1f77b4', borderColor: '#1f77b4' });
-    datasets1_f.push({ label: 'Asset 1', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#ff7f0e', borderColor: '#ff7f0e' });
+    datasets1_f.push({ label: 'Selected active frontier', data: [], showLine: true, borderColor: '#000000', borderWidth: 3.5, pointRadius: 0, order: 2 });
+    // order: 0 forces asset nodes to be rendered dead last (on top of everything)
+    datasets1_f.push({ label: 'Asset 0', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#1f77b4', borderColor: '#1f77b4', order: 0 });
+    datasets1_f.push({ label: 'Asset 1', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#ff7f0e', borderColor: '#ff7f0e', order: 0 });
 
     chart1_f = new Chart(document.getElementById('canvas1-frontier'), { type: 'scatter', data: { datasets: datasets1_f }, options: optFrontier });
 
+    // --- CASE 1: WEIGHTS ---
     let datasets1_w = [];
     corr_slices.forEach((rho, idx) => {
-        datasets1_w.push({ id: `bg_w1_0_${idx}`, data: [], showLine: true, borderColor: 'rgba(31, 119, 180, 0.13)', borderWidth: 1, pointRadius: 0 });
-        datasets1_w.push({ id: `bg_w1_1_${idx}`, data: [], showLine: true, borderColor: 'rgba(255, 127, 14, 0.13)', borderWidth: 1, pointRadius: 0 });
+        datasets1_w.push({ id: `bg_w1_0_${idx}`, data: [], showLine: true, borderColor: 'rgba(31, 119, 180, 0.11)', borderWidth: 1, pointRadius: 0, order: 10 });
+        datasets1_w.push({ id: `bg_w1_1_${idx}`, data: [], showLine: true, borderColor: 'rgba(255, 127, 14, 0.11)', borderWidth: 1, pointRadius: 0, order: 10 });
     });
-    datasets1_w.push({ label: 'Asset 0 (Weight)', data: [], showLine: true, borderColor: '#1f77b4', borderWidth: 3, pointRadius: 0 });
-    datasets1_w.push({ label: 'Asset 1 (Weight)', data: [], showLine: true, borderColor: '#ff7f0e', borderWidth: 3, pointRadius: 0 });
+    datasets1_w.push({ label: 'Asset 0 (Weight)', data: [], showLine: true, borderColor: '#1f77b4', borderWidth: 3, pointRadius: 0, order: 1 });
+    datasets1_w.push({ label: 'Asset 1 (Weight)', data: [], showLine: true, borderColor: '#ff7f0e', borderWidth: 3, pointRadius: 0, order: 1 });
 
     chart1_w = new Chart(document.getElementById('canvas1-weights'), { type: 'scatter', data: { datasets: datasets1_w }, options: optWeights });
 
+    // --- CASE 2: FRONTIER ---
     let datasets2_f = [];
     corr_slices.forEach((rho, idx) => {
-        datasets2_f.push({
-            id: `bg_f2_${idx}`, data: [], showLine: true, borderColor: 'rgb(220,220,220)', borderWidth: 1, pointRadius: 0
-        });
+        datasets2_f.push({ id: `bg_f2_${idx}`, data: [], showLine: true, borderColor: 'rgb(220,220,220)', borderWidth: 1, pointRadius: 0, order: 10 });
     });
-    datasets2_f.push({ data: [], showLine: true, borderColor: '#000000', borderWidth: 3.5, pointRadius: 0 });
-    datasets2_f.push({ label: 'Asset 0', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#1f77b4', borderColor: '#1f77b4' });
-    datasets2_f.push({ label: 'Asset 1', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#ff7f0e', borderColor: '#ff7f0e' });
-    datasets2_f.push({ label: 'Asset 2', data: [], pointRadius: 7, pointHoverRadius: 9, pointStyle: 'rect', pointBackgroundColor: '#2ca02c', borderColor: '#2ca02c' });
+    datasets2_f.push({ data: [], showLine: true, borderColor: '#000000', borderWidth: 3.5, pointRadius: 0, order: 2 });
+    datasets2_f.push({ label: 'Asset 0', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#1f77b4', borderColor: '#1f77b4', order: 0 });
+    datasets2_f.push({ label: 'Asset 1', data: [], pointRadius: 7, pointHoverRadius: 9, pointBackgroundColor: '#ff7f0e', borderColor: '#ff7f0e', order: 0 });
+    datasets2_f.push({ label: 'Asset 2', data: [], pointRadius: 7, pointHoverRadius: 9, pointStyle: 'rect', pointBackgroundColor: '#2ca02c', borderColor: '#2ca02c', order: 0 });
 
     chart2_f = new Chart(document.getElementById('canvas2-frontier'), { type: 'scatter', data: { datasets: datasets2_f }, options: optFrontier });
 
+    // --- CASE 2: WEIGHTS ---
     let datasets2_w = [];
     corr_slices.forEach((rho, idx) => {
-        datasets2_w.push({ id: `bg_w2_0_${idx}`, data: [], showLine: true, borderColor: 'rgba(31, 119, 180, 0.13)', borderWidth: 1, pointRadius: 0 });
-        datasets2_w.push({ id: `bg_w2_1_${idx}`, data: [], showLine: true, borderColor: 'rgba(255, 127, 14, 0.13)', borderWidth: 1, pointRadius: 0 });
-        datasets2_w.push({ id: `bg_w2_2_${idx}`, data: [], showLine: true, borderColor: 'rgba(44, 160, 44, 0.13)', borderWidth: 1, pointRadius: 0 });
+        datasets2_w.push({ id: `bg_w2_0_${idx}`, data: [], showLine: true, borderColor: 'rgba(31, 119, 180, 0.11)', borderWidth: 1, pointRadius: 0, order: 10 });
+        datasets2_w.push({ id: `bg_w2_1_${idx}`, data: [], showLine: true, borderColor: 'rgba(255, 127, 14, 0.11)', borderWidth: 1, pointRadius: 0, order: 10 });
+        datasets2_w.push({ id: `bg_w2_2_${idx}`, data: [], showLine: true, borderColor: 'rgba(44, 160, 44, 0.11)', borderWidth: 1, pointRadius: 0, order: 10 });
     });
-    datasets2_w.push({ label: 'Asset 0 (Weight)', data: [], showLine: true, borderColor: '#1f77b4', borderWidth: 3, pointRadius: 0 });
-    datasets2_w.push({ label: 'Asset 1 (Weight)', data: [], showLine: true, borderColor: '#ff7f0e', borderWidth: 3, pointRadius: 0 });
-    datasets2_w.push({ label: 'Asset 2 (RF Weight)', data: [], showLine: true, borderColor: '#2ca02c', borderWidth: 3, pointRadius: 0 });
+    datasets2_w.push({ label: 'Asset 0 (Weight)', data: [], showLine: true, borderColor: '#1f77b4', borderWidth: 3, pointRadius: 0, order: 1 });
+    datasets2_w.push({ label: 'Asset 1 (Weight)', data: [], showLine: true, borderColor: '#ff7f0e', borderWidth: 3, pointRadius: 0, order: 1 });
+    datasets2_w.push({ label: 'Asset 2 (RF Weight)', data: [], showLine: true, borderColor: '#2ca02c', borderWidth: 3, pointRadius: 0, order: 1 });
 
     chart2_w = new Chart(document.getElementById('canvas2-weights'), { type: 'scatter', data: { datasets: datasets2_w }, options: optWeights });
 

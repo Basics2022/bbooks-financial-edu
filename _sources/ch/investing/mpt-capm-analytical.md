@@ -137,7 +137,7 @@ $$\begin{aligned}
 Some example is provided is discussed in the Jupyter notebook [Uncertainty in MPT and CAPM Models](fin-edu:investing:mpt-capm:uncertainty).
 
 
-<object type="text/html" data="mpt-correlation-3-drag-touch.html"  width="850" height="780">
+<object type="text/html" data="mpt-correlation-3-drag-touch.html" width="850" height="780">
     <p>Your browser does not support embedded HTML objects. <a href="mpt-correlation-3-drag-touch.html">Click here to view the dashboard directly.</a></p>
 </object>
 
