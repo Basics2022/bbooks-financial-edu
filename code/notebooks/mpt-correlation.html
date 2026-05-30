@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Correlation between Assets in MPT and CAPM Models &#8212; Financial Education - basics</title>
+    <title>18.7. Correlation between Assets in MPT and CAPM Models &#8212; Financial Education - basics</title>
   
   
   
@@ -71,6 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="19. Merton’s portfolio problem" href="../../ch/investing/merton.html" />
+    <link rel="prev" title="18.6. Uncertainty in MPT and CAPM Models" href="mpt-uncertainty.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -211,10 +213,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">16. ETFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">17. Introduction to investing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../ch/investing/mpt-capm-analytical.html">18.4. MPT and CAPM: analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpt-examples.html">18.5. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpt-uncertainty.html">18.6. Uncertainty in MPT and CAPM Models</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">18.7. Correlation between Assets in MPT and CAPM Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/investing/merton.html">19. Merton’s portfolio problem</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -482,9 +487,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">Efficient frontier and CAPM without leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.7.1. Modern Portfolio Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.7.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">18.7.3. Efficient frontier and CAPM without leverage and short-selling</a></li>
 </ul>
             </nav>
         </div>
@@ -497,7 +502,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="correlation-between-assets-in-mpt-and-capm-models">
-<span id="fin-edu-investing-mpt-capm-correlation"></span><h1>Correlation between Assets in MPT and CAPM Models<a class="headerlink" href="#correlation-between-assets-in-mpt-and-capm-models" title="Permalink to this heading">#</a></h1>
+<span id="fin-edu-investing-mpt-capm-correlation"></span><h1><span class="section-number">18.7. </span>Correlation between Assets in MPT and CAPM Models<a class="headerlink" href="#correlation-between-assets-in-mpt-and-capm-models" title="Permalink to this heading">#</a></h1>
 <p>In this section, the effects of correlation between assets are discussed in a few-asset portfolio.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -523,7 +528,7 @@ document.write(`
 </details>
 </div>
 <div class="section" id="modern-portfolio-theory">
-<span id="fin-edu-investing-mpt-capm-mpt"></span><h2>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-mpt"></span><h2><span class="section-number">18.7.1. </span>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
 <!-- (fin-edu:investing:mpt-capm:assets)= -->
 <p><strong>Assets.</strong> There are <span class="math notranslate nohighlight">\(N\)</span> available assets, whose <span class="math notranslate nohighlight">\(\mathbf{r} = ( r_i )\)</span> return over the period of interest has</p>
 <ul class="simple">
@@ -657,7 +662,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">
-<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2>Efficient frontier and CAPM with possibility of leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2><span class="section-number">18.7.2. </span>Efficient frontier and CAPM with possibility of leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -777,7 +782,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="efficient-frontier-and-capm-without-leverage-and-short-selling">
-<span id="fin-edu-investing-mpt-capm-capm-no-leverage-short"></span><h2>Efficient frontier and CAPM without leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-without-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-capm-no-leverage-short"></span><h2><span class="section-number">18.7.3. </span>Efficient frontier and CAPM without leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-without-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -940,6 +945,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="mpt-uncertainty.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">18.6. </span>Uncertainty in MPT and CAPM Models</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../ch/investing/merton.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">19. </span>Merton’s portfolio problem</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -955,9 +978,9 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">Efficient frontier and CAPM without leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.7.1. Modern Portfolio Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.7.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">18.7.3. Efficient frontier and CAPM without leverage and short-selling</a></li>
 </ul>
   </nav></div>
 

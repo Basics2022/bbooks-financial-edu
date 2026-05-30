@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Uncertainty in MPT and CAPM Models &#8212; Financial Education - basics</title>
+    <title>18.6. Uncertainty in MPT and CAPM Models &#8212; Financial Education - basics</title>
   
   
   
@@ -71,6 +71,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../_static/favicon-color.svg"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="18.7. Correlation between Assets in MPT and CAPM Models" href="mpt-correlation.html" />
+    <link rel="prev" title="18.5. Modern Portfolio Theory and Capital Asset Pricing Model" href="mpt-examples.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -211,10 +213,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ch/assets/etfs.html">16. ETFs</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Asset allocation and Investing</span></p>
-<ul class="nav bd-sidenav">
+<ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../ch/investing/intro.html">17. Introduction to investing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../ch/investing/mpt-capm-analytical.html">18.4. MPT and CAPM: analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpt-examples.html">18.5. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">18.6. Uncertainty in MPT and CAPM Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mpt-correlation.html">18.7. Correlation between Assets in MPT and CAPM Models</a></li>
 </ul>
 </li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../ch/investing/merton.html">19. Merton’s portfolio problem</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -482,9 +487,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">Efficient frontier and CAPM without leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.6.1. Modern Portfolio Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.6.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
 </ul>
             </nav>
         </div>
@@ -497,7 +501,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <div class="tex2jax_ignore mathjax_ignore section" id="uncertainty-in-mpt-and-capm-models">
-<span id="fin-edu-investing-mpt-capm-uncertainty"></span><h1>Uncertainty in MPT and CAPM Models<a class="headerlink" href="#uncertainty-in-mpt-and-capm-models" title="Permalink to this heading">#</a></h1>
+<span id="fin-edu-investing-mpt-capm-uncertainty"></span><h1><span class="section-number">18.6. </span>Uncertainty in MPT and CAPM Models<a class="headerlink" href="#uncertainty-in-mpt-and-capm-models" title="Permalink to this heading">#</a></h1>
 <p>In this section, the sensitivity of the results of MPT and CAPM models w.r.t. variation of expected returna and variance of the individual assets is discussed.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
@@ -523,7 +527,7 @@ document.write(`
 </details>
 </div>
 <div class="section" id="modern-portfolio-theory">
-<span id="fin-edu-investing-mpt-capm-mpt"></span><h2>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-mpt"></span><h2><span class="section-number">18.6.1. </span>Modern Portfolio Theory<a class="headerlink" href="#modern-portfolio-theory" title="Permalink to this heading">#</a></h2>
 <!-- (fin-edu:investing:mpt-capm:assets)= -->
 <p><strong>Assets.</strong> There are <span class="math notranslate nohighlight">\(N\)</span> available assets, whose <span class="math notranslate nohighlight">\(\mathbf{r} = ( r_i )\)</span> return over the period of interest has</p>
 <ul class="simple">
@@ -616,7 +620,7 @@ document.write(`
 </div>
 </div>
 <div class="section" id="efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">
-<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2>Efficient frontier and CAPM with possibility of leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
+<span id="fin-edu-investing-mpt-capm-capm-leverage-short"></span><h2><span class="section-number">18.6.2. </span>Efficient frontier and CAPM with possibility of leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -624,41 +628,94 @@ document.write(`
 <span class="expanded">Hide code cell source</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;linear-system&#39;</span>
+
+<span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 
     <span class="n">n_assets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
 
     <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;lagr_ptf_exp_ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span> <span class="o">-</span> <span class="mf">2.</span> <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span> <span class="o">+</span> <span class="mf">2.</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 
     <span class="k">for</span> <span class="n">desired_ret</span> <span class="ow">in</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]:</span>
 
-        <span class="c1">#&gt; Constraints (just comment if you don&#39;t want some)</span>
-        <span class="n">eq_cons</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">partial</span><span class="p">(</span><span class="n">eq_desired_return</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">],</span> <span class="n">desired_ret</span><span class="o">=</span><span class="n">desired_ret</span><span class="p">)},</span>
-            <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">eq_weight_sum</span><span class="p">},</span>     <span class="c1"># sum(w) = 1 (fully invested)</span>
-        <span class="p">]</span>
-        <span class="c1"># eq_cons += [ {&#39;type&#39;: &#39;ineq&#39;, &#39;fun&#39;: lambda x:   x[i]} for i in np.arange(n_assets) ]</span>
-        <span class="c1"># eq_cons += [ {&#39;type&#39;: &#39;ineq&#39;, &#39;fun&#39;: lambda x: 1-x[i]} for i in np.arange(n_assets) ]</span>
+        <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;optimization&#39;</span><span class="p">:</span>
+            <span class="c1">#&gt; Constraints (just comment if you don&#39;t want some)</span>
+            <span class="n">eq_cons</span> <span class="o">=</span> <span class="p">[</span>
+                <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">partial</span><span class="p">(</span><span class="n">eq_desired_return</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">],</span> <span class="n">desired_ret</span><span class="o">=</span><span class="n">desired_ret</span><span class="p">)},</span>
+                <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">eq_weight_sum</span><span class="p">},</span>     <span class="c1"># sum(w) = 1 (fully invested)</span>
+            <span class="p">]</span>
+            <span class="c1"># eq_cons += [ {&#39;type&#39;: &#39;ineq&#39;, &#39;fun&#39;: lambda x:   x[i]} for i in np.arange(n_assets) ]</span>
+            <span class="c1"># eq_cons += [ {&#39;type&#39;: &#39;ineq&#39;, &#39;fun&#39;: lambda x: 1-x[i]} for i in np.arange(n_assets) ]</span>
+    
+            <span class="n">cost_fun</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">ptf_var</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">])</span>
+    
+            <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_assets</span><span class="p">);</span> <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#  np.ones(3) / 3.</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">cost_fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">eq_cons</span><span class="p">,)</span>
 
-        <span class="n">cost_fun</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">ptf_var</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">])</span>
+            <span class="n">ptf_si</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">ptf_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
+    
+            <span class="c1">#&gt; Store weights and min variance, for the desired expected return</span>
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="p">]</span>
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">ptf_si</span> <span class="p">]</span>
+            
+        <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;linear-system&#39;</span><span class="p">:</span>
+            <span class="n">mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_assets</span><span class="p">,</span><span class="mi">1</span><span class="p">));</span> <span class="n">mu</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">]</span>
+            <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span>
+                <span class="p">[</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">],</span> <span class="o">-</span><span class="n">mu</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_assets</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="p">],</span>
+                <span class="p">[</span> <span class="o">-</span><span class="n">mu</span><span class="o">.</span><span class="n">T</span>                  <span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="p">],</span>
+                <span class="p">[</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_assets</span><span class="p">)),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="p">],</span>
+            <span class="p">])</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_assets</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+            <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">desired_ret</span>
+            <span class="n">b</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
 
-        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_assets</span><span class="p">);</span> <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#  np.ones(3) / 3.</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">cost_fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">eq_cons</span><span class="p">,)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+    
+            <span class="n">ptf_si</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">w</span><span class="p">)</span>
+            <span class="n">ptf_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span> <span class="o">*</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
+            
+            <span class="c1">#&gt; Store weights and min variance, for the desired expected return</span>
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">w</span> <span class="p">]</span>
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">ptf_si</span> <span class="p">]</span>
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;lagr_ptf_exp_ret&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="p">]</span>
 
+            <span class="c1">#&gt; Uncertainty</span>
+            <span class="n">wT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">n_assets</span><span class="p">));</span>  <span class="n">wT</span><span class="p">[</span><span class="mi">0</span><span class="p">,:]</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="n">delta_b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span>
+                <span class="p">[</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">a</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n_assets</span><span class="p">)],</span> <span class="p">[</span><span class="o">-</span><span class="n">wT</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_assets</span><span class="p">))]</span>
+            <span class="p">])</span>
+            <span class="n">delta_w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span> <span class="n">A</span><span class="p">,</span> <span class="n">delta_b</span> <span class="p">)[:</span><span class="o">-</span><span class="mi">2</span><span class="p">,:]</span>
+
+            <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">delta_w</span> <span class="p">]</span>
+            
         <span class="c1"># print(f&quot;Desired Return: {desired_ret}, res: {res.x}&quot;)</span>
 
-        <span class="n">ptf_si</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">@</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">ptf_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
-
-        <span class="c1">#&gt; Store weights and min variance, for the desired expected return</span>
-        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="p">]</span>
-        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">ptf_si</span> <span class="p">]</span>
+    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(30, 2, 2)
+(30, 3, 3)
+</pre></div>
+</div>
+</div>
 </div>
 <p><strong>Plots</strong></p>
 <div class="cell tag_hide-input docutils container">
@@ -669,8 +726,9 @@ document.write(`
 </summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Initialize plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ptfs</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ptfs</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
 
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s1">&#39;tab10&#39;</span><span class="p">)</span>
 
 <span class="n">nptf</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -678,163 +736,76 @@ document.write(`
     <span class="c1">#&gt;</span>
     <span class="n">si</span> <span class="o">=</span> <span class="n">ptf</span><span class="p">[</span><span class="s2">&quot;si&quot;</span><span class="p">]</span>
     <span class="n">mu</span> <span class="o">=</span> <span class="n">ptf</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">]</span>
-    
-    <span class="c1"># for kptf, ptf in ptfs.items():</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Efficient Frontier&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="p">):</span>
-        <span class="n">ptf_rf</span> <span class="o">=</span> <span class="n">ptfs</span><span class="p">[</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]]</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
 
-    <span class="k">for</span> <span class="n">iass</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)):</span>
-       <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">si</span><span class="p">[</span><span class="n">iass</span><span class="p">,</span><span class="n">iass</span><span class="p">]</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">mu</span><span class="p">[</span><span class="n">iass</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Asset </span><span class="si">{</span><span class="n">iass</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-    
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
-    <span class="c1"># ax[nptf,0].set_ylim([min_mu-.2, max_mu+.2])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Std Deviation&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Expected return&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-    
     <span class="c1">#&gt; Weights</span>
     <span class="n">wmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">])</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wmat</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Asset</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Weights&quot;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="c1"># ax[nptf,1].set_ylim([min_mu-.2, max_mu+.2])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
-
-    <span class="c1">#&gt; Stacked - with expected return on y</span>
-    <span class="n">cum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cum</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">cum</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">cum</span><span class="p">[:,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">wmat</span><span class="p">[:,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">cum</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">fill_betweenx</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">cum</span><span class="p">[:,</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">cum</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Asset</span><span class="si">{</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.5</span><span class="p">)</span>
-
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># loc=&#39;upper right&#39;</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Portfolio composition&#39;</span><span class="p">)</span>
-    <span class="c1"># ax[nptf,2].set_ylim([min_mu-.2, max_mu+.2])</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
-
-
-    <span class="n">nptf</span> <span class="o">+=</span> <span class="mi">1</span>
-
-<span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<img alt="../../_images/77fcdbce9925f052f5a31e8a6ee84a3aff9993e0b5c380e6da855ab178d850c8.png" src="../../_images/77fcdbce9925f052f5a31e8a6ee84a3aff9993e0b5c380e6da855ab178d850c8.png" />
-</div>
-</div>
-</div>
-<div class="section" id="efficient-frontier-and-capm-without-leverage-and-short-selling">
-<span id="fin-edu-investing-mpt-capm-capm-no-leverage-short"></span><h2>Efficient frontier and CAPM without leverage and short-selling<a class="headerlink" href="#efficient-frontier-and-capm-without-leverage-and-short-selling" title="Permalink to this heading">#</a></h2>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
+    <span class="c1"># print(ptf[&#39;des_ret&#39;])</span>
+    
     <span class="n">n_assets</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
+    <span class="n">delta_asset_exp_ret</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_assets</span><span class="p">)</span>  <span class="c1"># hardcoded so far (delta exp ret = 1 for all the assets)</span>
 
-    <span class="nb">print</span><span class="p">(</span><span class="n">n_assets</span><span class="p">)</span>
+    <span class="n">n_points</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">])</span>
 
-    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span><span class="o">+</span><span class="mf">2.</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>
+    <span class="c1"># print(wmat)</span>
+    <span class="c1"># print(&quot; ******** &quot;)</span>
+    <span class="c1"># print(ptf[&#39;lagr_ptf_exp_ret&#39;])</span>
+    <span class="c1"># print(np.sum( wmat[0,:] * delta_asset_exp_ret))</span>
+    <span class="c1"># print(&quot; ++++++++ &quot;)</span>
+    
+    <span class="n">delta_ptf_exp_ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;lagr_ptf_exp_ret&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">wmat</span><span class="p">[</span><span class="n">i</span><span class="p">,:]</span> <span class="o">*</span> <span class="n">delta_asset_exp_ret</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span> <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_points</span><span class="p">)</span>
+    <span class="p">])</span>
 
-    <span class="k">for</span> <span class="n">desired_ret</span> <span class="ow">in</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]:</span>
-
-        <span class="c1">#&gt; Constraints (just comment if you don&#39;t want some)</span>
-        <span class="n">eq_cons</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">partial</span><span class="p">(</span><span class="n">eq_desired_return</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">],</span> <span class="n">desired_ret</span><span class="o">=</span><span class="n">desired_ret</span><span class="p">)},</span>
-            <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span>   <span class="s1">&#39;eq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="n">eq_weight_sum</span><span class="p">},</span>     <span class="c1"># sum(w) = 1 (fully invested)</span>
-        <span class="p">]</span>
-        <span class="n">eq_cons</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span>   <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_assets</span><span class="p">)</span> <span class="p">]</span>
-        <span class="n">eq_cons</span> <span class="o">+=</span> <span class="p">[</span> <span class="p">{</span><span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;ineq&#39;</span><span class="p">,</span> <span class="s1">&#39;fun&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">1</span><span class="o">-</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]}</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_assets</span><span class="p">)</span> <span class="p">]</span>
-
-        <span class="n">cost_fun</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">ptf_var</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">])</span>
-
-        <span class="n">x0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_assets</span><span class="p">);</span> <span class="n">x0</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1">#  np.ones(3) / 3.</span>
-        <span class="n">res</span> <span class="o">=</span> <span class="n">minimize</span><span class="p">(</span><span class="n">cost_fun</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">constraints</span><span class="o">=</span><span class="n">eq_cons</span><span class="p">,)</span>
-
-        <span class="c1"># print(f&quot;Desired Return: {desired_ret}, res: {res.x}&quot;)</span>
-
-        <span class="n">ptf_si</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">@</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;si&#39;</span><span class="p">]</span> <span class="o">@</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">ptf_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;mu&#39;</span><span class="p">])</span>
-
-        <span class="c1">#&gt; Store weights and min variance, for the desired expected return</span>
-        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">res</span><span class="o">.</span><span class="n">x</span> <span class="p">]</span>
-        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="p">[</span> <span class="n">ptf_si</span> <span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</details>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
-</pre></div>
-</div>
-</div>
-</div>
-<p><strong>Plots.</strong></p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#&gt; Initialize plot</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ptfs</span><span class="p">),</span> <span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">12</span><span class="p">))</span>
-
-<span class="n">nptf</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">kptf</span><span class="p">,</span> <span class="n">ptf</span> <span class="ow">in</span> <span class="n">ptfs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-
-    <span class="c1">#&gt;</span>
-    <span class="n">si</span> <span class="o">=</span> <span class="n">ptf</span><span class="p">[</span><span class="s2">&quot;si&quot;</span><span class="p">]</span>
-    <span class="n">mu</span> <span class="o">=</span> <span class="n">ptf</span><span class="p">[</span><span class="s2">&quot;mu&quot;</span><span class="p">]</span>
+    <span class="n">delta_ptf_exp_ret_assets</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;lagr_ptf_exp_ret&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="n">wmat</span><span class="p">[:,</span><span class="n">i_row</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">])</span> <span class="p">)</span> <span class="k">for</span> <span class="n">i_row</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="p">])</span>
+    
+    <span class="c1"># for kptf, ptf in ptfs.items():</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Efficient Frontier&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span>
+        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> 
+        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">delta_ptf_exp_ret</span><span class="p">,</span> 
+        <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">delta_ptf_exp_ret</span><span class="p">,</span> <span class="n">alpha</span> <span class="o">=</span> <span class="mf">.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">delta_ptf_exp_ret</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">delta_ptf_exp_ret</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
+    
+    <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="p">):</span>
+        <span class="n">ptf_rf</span> <span class="o">=</span> <span class="n">ptfs</span><span class="p">[</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]]</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">.25</span><span class="p">)</span>
+        
 
     <span class="k">for</span> <span class="n">iass</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)):</span>
         <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">si</span><span class="p">[</span><span class="n">iass</span><span class="p">,</span><span class="n">iass</span><span class="p">]</span><span class="o">**</span><span class="mf">.5</span><span class="p">,</span> <span class="n">mu</span><span class="p">[</span><span class="n">iass</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Asset </span><span class="si">{</span><span class="n">iass</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-    <span class="c1"># for kptf, ptf in ptfs.items():</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Efficient Frontier&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>
-    <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="kc">None</span> <span class="p">):</span>
-        <span class="n">ptf_rf</span> <span class="o">=</span> <span class="n">ptfs</span><span class="p">[</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;w/o risk-free&#39;</span><span class="p">]]</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">ptf_rf</span><span class="p">[</span><span class="s1">&#39;marker&#39;</span><span class="p">]</span><span class="o">+</span><span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">5</span><span class="p">,)</span>   
+        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">delta_ptf_exp_ret_assets</span><span class="p">[</span><span class="n">iass</span><span class="p">,:],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">iass</span><span class="o">%</span><span class="k">10</span>), markersize=5,)
+        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;min_sig&#39;</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">]</span><span class="o">+</span><span class="n">delta_ptf_exp_ret_assets</span><span class="p">[</span><span class="n">iass</span><span class="p">,:],</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">iass</span><span class="o">%</span><span class="k">10</span>), markersize=5,)
     
-    <span class="c1"># ax[nptf,0].set_ylim([min_mu-.2, max_mu+.2])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">21</span><span class="p">])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+    <span class="c1"># ax[nptf,0].set_ylim([min_mu-.2, max_mu+.2])</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Std Deviation&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Expected return&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-   
-    <span class="c1">#&gt; Weights</span>
-    <span class="n">wmat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;wmat&#39;</span><span class="p">])</span>
 
+    <span class="c1">#&gt; Asset Weights</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">1</span><span class="p">]):</span>
-        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wmat</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Asset</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wmat</span><span class="p">[:,</span><span class="n">i</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">10</span>), label=f&quot;Asset{i}&quot;)
 
+        <span class="c1">#&gt; Uncertainty for each delta mu[i] = 1</span>
+        <span class="n">linestyle_uncertainty</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;dotted&#39;</span><span class="p">,</span> <span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="s1">&#39;dashdot&#39;</span> <span class="p">]</span>
+        <span class="k">for</span> <span class="n">i_w</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_assets</span><span class="p">):</span>
+            <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wmat</span><span class="p">[:,</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;delta_wmat&#39;</span><span class="p">][:,</span> <span class="n">i</span><span class="p">,</span> <span class="n">i_w</span><span class="p">],</span> <span class="n">ptf</span><span class="p">[</span><span class="s1">&#39;des_ret&#39;</span><span class="p">],</span> <span class="n">linestyle</span><span class="o">=</span><span class="n">linestyle_uncertainty</span><span class="p">[</span><span class="n">i_w</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">cmap</span><span class="p">(</span><span class="n">i</span><span class="o">%</span><span class="k">10</span>), label=f&quot;A{i},$\Delta${i_w}&quot;)
+            
+
+
+    
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Weights&quot;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
     <span class="c1"># ax[nptf,1].set_ylim([min_mu-.2, max_mu+.2])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
+
+    
+    
 
     <span class="c1">#&gt; Stacked - with expected return on y</span>
     <span class="n">cum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">wmat</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
@@ -847,8 +818,8 @@ document.write(`
 
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">legend</span><span class="p">();</span> <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>  <span class="c1"># loc=&#39;upper right&#39;</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Portfolio composition&#39;</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
     <span class="c1"># ax[nptf,2].set_ylim([min_mu-.2, max_mu+.2])</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">nptf</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
 
     <span class="n">nptf</span> <span class="o">+=</span> <span class="mi">1</span>
 
@@ -859,7 +830,7 @@ document.write(`
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/b1b2b7e7a3f712ee9395564c0e7ac90b73ac063493da2a6b29220d245fde16b2.png" src="../../_images/b1b2b7e7a3f712ee9395564c0e7ac90b73ac063493da2a6b29220d245fde16b2.png" />
+<img alt="../../_images/ca4426604fd642c604883ae787a5c336a679fd208f1a7cdf34c236836e8912f6.png" src="../../_images/ca4426604fd642c604883ae787a5c336a679fd208f1a7cdf34c236836e8912f6.png" />
 </div>
 </div>
 </div>
@@ -895,6 +866,24 @@ document.write(`
                 <footer class="prev-next-footer">
                   
 <div class="prev-next-area">
+    <a class="left-prev"
+       href="mpt-examples.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">18.5. </span>Modern Portfolio Theory and Capital Asset Pricing Model</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mpt-correlation.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">18.7. </span>Correlation between Assets in MPT and CAPM Models</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
                 </footer>
               
@@ -910,9 +899,8 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">Modern Portfolio Theory</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-without-leverage-and-short-selling">Efficient frontier and CAPM without leverage and short-selling</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modern-portfolio-theory">18.6.1. Modern Portfolio Theory</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#efficient-frontier-and-capm-with-possibility-of-leverage-and-short-selling">18.6.2. Efficient frontier and CAPM with possibility of leverage and short-selling</a></li>
 </ul>
   </nav></div>
 
