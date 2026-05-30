@@ -213,14 +213,22 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../investing/intro.html">17. Introduction to investing</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../code/notebooks/mpt.html">18. Modern Portfolio Theory and Capital Asset Pricing Model</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../investing/mpt-capm-analytical.html">18.4. MPT and CAPM: analytical solution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-examples.html">18.5. Modern Portfolio Theory and Capital Asset Pricing Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-uncertainty.html">18.6. Uncertainty in MPT and CAPM Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../code/notebooks/mpt-correlation.html">18.7. Correlation between Assets in MPT and CAPM Models</a></li>
+
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../investing/merton.html">19. Merton’s portfolio problem</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../investing/merton.html">19. Merton’s portfolio problem</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../investing/merton-colab.html">19.4. Merton’s portfolio problem - Example</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../code/notebooks/rebalancing.html">20. Rebalancing</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Historical Data</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="intro.html">Historical data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="us-treasuries.html">US Treasuries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="us-equity.html">USA equity market</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gold.html">Gold</a></li>
 </ul>
@@ -524,13 +532,26 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Thread-5:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Exception in thread Thread-8:
+Traceback (most recent call last):
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
+Exception in thread Thread-6:
+Traceback (most recent call last):
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
+Thread-9:
+Traceback (most recent call last):
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
+Exception in thread Thread-5:
 Traceback (most recent call last):
   File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
     return complexjson.loads(self.text, **kwargs)
   File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
     return _default_decoder.decode(s)
   File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
+    return complexjson.loads(self.text, **kwargs)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
     obj, end = self.raw_decode(s)
   File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
     return self.scan_once(s, idx=_w(s, idx).end())
@@ -546,151 +567,144 @@ Traceback (most recent call last):
   File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
     self._target(*self._args, **self._kwargs)
   File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
+    return _default_decoder.decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
+    return _default_decoder.decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
+Exception in thread Thread-7:
+Traceback (most recent call last):
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
+    return complexjson.loads(self.text, **kwargs)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
+    return _default_decoder.decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
     return callee(*args, **kwargs)
   File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
+    obj, end = self.raw_decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
+    obj, end = self.raw_decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
+    obj, end = self.raw_decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
+    self.run()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
+    self.run()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
+    _threading_Thread_run(self)
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
+    self._target(*self._args, **self._kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
+    return complexjson.loads(self.text, **kwargs)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
+    _threading_Thread_run(self)
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
+    return _default_decoder.decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
+    self._target(*self._args, **self._kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
+    self.run()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
     data = _download_one(ticker, start, end, auto_adjust, back_adjust,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
+    return callee(*args, **kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
+    _threading_Thread_run(self)
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
+    return Ticker(ticker).history(period=period, interval=interval,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
+    return callee(*args, **kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
+    data = data.json()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
+    self._target(*self._args, **self._kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
+    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
+    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
+    return callee(*args, **kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
+    obj, end = self.raw_decode(s)
+  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
+    return Ticker(ticker).history(period=period, interval=interval,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    return Ticker(ticker).history(period=period, interval=interval,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
+    return self.scan_once(s, idx=_w(s, idx).end())
+simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
+    data = data.json()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
+    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+self.run()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
+    data = data.json()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
+    return Ticker(ticker).history(period=period, interval=interval,
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    _threading_Thread_run(self)
+  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+    self._target(*self._args, **self._kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>        data = data.json()
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
+return callee(*args, **kwargs)
+  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
   File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
     return Ticker(ticker).history(period=period, interval=interval,
   File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
-    data = data.json()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
 requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Thread-7:
-Traceback (most recent call last):
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
-    return complexjson.loads(self.text, **kwargs)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
-    return _default_decoder.decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
-    obj, end = self.raw_decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
-    return self.scan_once(s, idx=_w(s, idx).end())
-simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
-    self.run()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
-    _threading_Thread_run(self)
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
-    return callee(*args, **kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
-    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
-    return Ticker(ticker).history(period=period, interval=interval,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
-    data = data.json()
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    data = data.json()
   File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Thread-6:
-Traceback (most recent call last):
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
-    return complexjson.loads(self.text, **kwargs)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
-    return _default_decoder.decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
-    obj, end = self.raw_decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
-    return self.scan_once(s, idx=_w(s, idx).end())
-simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
-    self.run()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
-    _threading_Thread_run(self)
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
-    return callee(*args, **kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
-    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
-    return Ticker(ticker).history(period=period, interval=interval,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
-    data = data.json()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Thread-8:
-Traceback (most recent call last):
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
-    return complexjson.loads(self.text, **kwargs)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
-    return _default_decoder.decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
-    obj, end = self.raw_decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
-    return self.scan_once(s, idx=_w(s, idx).end())
-simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
-    self.run()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
-    _threading_Thread_run(self)
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
-    return callee(*args, **kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
-    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
-    return Ticker(ticker).history(period=period, interval=interval,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
-    data = data.json()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
-requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Exception in thread Thread-9:
-Traceback (most recent call last):
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 974, in json
-    return complexjson.loads(self.text, **kwargs)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/__init__.py&quot;, line 518, in loads
-    return _default_decoder.decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 370, in decode
-    obj, end = self.raw_decode(s)
-  File &quot;/usr/lib/python3/dist-packages/simplejson/decoder.py&quot;, line 400, in raw_decode
-    return self.scan_once(s, idx=_w(s, idx).end())
-simplejson.errors.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 932, in _bootstrap_inner
-    self.run()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/ipykernel/ipkernel.py&quot;, line 766, in run_closure
-    _threading_Thread_run(self)
-  File &quot;/usr/lib/python3.8/threading.py&quot;, line 870, in run
-    self._target(*self._args, **self._kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/multitasking/__init__.py&quot;, line 102, in _run_via_pool
-    return callee(*args, **kwargs)
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 169, in _download_one_threaded
-    data = _download_one(ticker, start, end, auto_adjust, back_adjust,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/multi.py&quot;, line 181, in _download_one
-    return Ticker(ticker).history(period=period, interval=interval,
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/yfinance/base.py&quot;, line 162, in history
-    data = data.json()
-  File &quot;/home/davide/.local/lib/python3.8/site-packages/requests/models.py&quot;, line 978, in json
-    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
 requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 </pre></div>
 </div>
