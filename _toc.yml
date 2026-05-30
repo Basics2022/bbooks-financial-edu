@@ -51,9 +51,9 @@ parts:
     sections:
     - file: ch/investing/mpt-capm-analytical
     # - file: ch/investing/mpt-capm-analytical-2
-    - file: ch/investing/mpt-examples
-    - file: ch/investing/mpt-uncertainty
-    - file: ch/investing/mpt-correlation
+    - file: code/notebooks/mpt-examples
+    - file: code/notebooks/mpt-uncertainty
+    - file: code/notebooks/mpt-correlation
 # - file: ch/investing/mpt
 # - file: ch/investing/capm
   - file: ch/investing/merton
